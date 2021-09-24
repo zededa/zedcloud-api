@@ -6,13 +6,13 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/zededa/zedcloud-api/swagger_models"
 	"golang.org/x/net/publicsuffix"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"net/http/cookiejar"
 	"time"
-	"github.com/zededa/zedcloud-api/swagger_models"
 
 	"github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
@@ -57,18 +57,18 @@ func UrlForObjectRequest(urlExtension, name, id, reqType string) string {
 		return ""
 	}
 	url = fmt.Sprintf("%s/%s", urlExtension, url)
-    switch reqType {
-    case "config", "update", "delete":
-        return url
-    case "status":
-        return url + "/status"
-    case "publish":
-        return url + "/publish"
-    case "apply":
-        return url + "/apply"
-    default:
-        panic("UrlForObjectRequest - Invalid reqType: " + reqType)
-    }
+	switch reqType {
+	case "config", "update", "delete":
+		return url
+	case "status":
+		return url + "/status"
+	case "publish":
+		return url + "/publish"
+	case "apply":
+		return url + "/apply"
+	default:
+		panic("UrlForObjectRequest - Invalid reqType: " + reqType)
+	}
 }
 
 func reqBodyReaderForData(data interface{}) *bytes.Buffer {
@@ -253,6 +253,7 @@ func (client *Client) GetObj(typeUrl, name, id string,
 	if status {
 		url += "/status"
 	}
+	client.XRequestIdPrefix = "TF-GetObj"
 	_, err = client.SendReq("GET", url, nil, rspBody)
 	return err
 }
