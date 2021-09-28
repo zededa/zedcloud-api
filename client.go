@@ -109,6 +109,25 @@ func (client *Client) createRequest(method, urlExtension string,
 	return req, nil
 }
 
+func processZsrvResponseError(rspData interface{}) error {
+	rsp, ok := rspData.(*swagger_models.ZsrvResponse)
+	if !ok {
+		return nil
+	}
+	if len(rsp.Error) == 0 {
+		return nil
+	}
+	errStr := ""
+	for _, zerr := range rsp.Error {
+		errCode := ""
+		if zerr.Ec != nil {
+			errCode = string(*zerr.Ec)
+		}
+		errStr += fmt.Sprintf("ErrorCode: %s, ErrorDetails: %s\n", errCode, zerr.Details)
+	}
+	return fmt.Errorf("%s", errStr)
+}
+
 // processResponse
 //  Returns Nil if Response is a success.
 //  If response failed, Returns an error
@@ -126,7 +145,8 @@ func (client *Client) processResponse(resp *http.Response,
 		client.logDebug("***[ERROR]Request FAILED: %s, resp: %+v", resp.Status, resp)
 	}
 	if rspData == nil || resp.Body == nil {
-		client.logDebug("[INFO] not processing response body")
+		client.logDebug("[INFO] not processing response body - rspData: %+v, resp.Body: %+v",
+			rspData, resp.Body)
 		// caller  not interested in rsp body Or NO response body
 		return err
 	}
@@ -144,7 +164,15 @@ func (client *Client) processResponse(resp *http.Response,
 	}
 	unmarshalErr := json.Unmarshal(body, rspData)
 	if unmarshalErr == nil {
-		client.logDebug("[INFO] Unmarshalled Response. rspData: %++v", rspData)
+		client.logDebug("[INFO] Successfully Unmarshalled Response. rspData: %++v", rspData)
+		zerr := processZsrvResponseError(rspData)
+		if zerr != nil {
+			if err != nil {
+				err = fmt.Errorf("%s\n%s", err, zerr)
+			} else {
+				err = zerr
+			}
+		}
 		return err
 	}
 	err = fmt.Errorf("%v\n***[ERROR]Failed to unmarshal response body. err: %v\n"+
