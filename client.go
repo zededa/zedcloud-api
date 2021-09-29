@@ -112,20 +112,29 @@ func (client *Client) createRequest(method, urlExtension string,
 func processZsrvResponseError(rspData interface{}) error {
 	rsp, ok := rspData.(*swagger_models.ZsrvResponse)
 	if !ok {
+		// get calls don't use ZsrvResponse. Ignore.
 		return nil
 	}
-	if len(rsp.Error) == 0 {
-		return nil
+	if rsp == nil {
+		panic("unexpected nil rsp in processZsrvResponseError")
 	}
 	errStr := ""
+	if rsp.HTTPStatusCode != 200 {
+		errStr = fmt.Sprintf("Request Failed. HTTPStatusCode: %d, HTTPStatusMsg: %s",
+			rsp.HTTPStatusCode, rsp.HTTPStatusMsg)
+	}
 	for _, zerr := range rsp.Error {
 		errCode := ""
-		if zerr.Ec != nil {
+		if zerr.Ec != nil && *zerr.Ec != swagger_models.ZsrvErrorCodeZMsgSucess {
 			errCode = string(*zerr.Ec)
+			errStr += " " + fmt.Sprintf("ErrorCode: %s, ErrorDetails: %s\n",
+				errCode, zerr.Details)
 		}
-		errStr += fmt.Sprintf("ErrorCode: %s, ErrorDetails: %s\n", errCode, zerr.Details)
 	}
-	return fmt.Errorf("%s", errStr)
+	if errStr != "" {
+		return fmt.Errorf("%s", errStr)
+	}
+	return nil
 }
 
 // processResponse
@@ -206,6 +215,9 @@ func (client *Client) SendReq(method, urlExtension string,
 		return resp, err
 	}
 	err = client.processResponse(resp, rspData)
+	if err != nil {
+		client.logDebug("SEND REQ - ERROR: %v", err)
+	}
 	return resp, err
 }
 
