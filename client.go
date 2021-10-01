@@ -66,6 +66,8 @@ func UrlForObjectRequest(urlExtension, name, id, reqType string) string {
 		return url + "/publish"
 	case "apply":
 		return url + "/apply"
+	case "uplink":
+		return url + "/uplink"
 	default:
 		panic("UrlForObjectRequest - Invalid reqType: " + reqType)
 	}
@@ -81,6 +83,14 @@ func reqBodyReaderForData(data interface{}) *bytes.Buffer {
 		return nil
 	}
 	return bytes.NewBuffer(jsonData)
+}
+
+func isHttpStatusCodeSuccess(statusCode int32) bool {
+	switch statusCode {
+	case http.StatusOK, http.StatusAccepted:
+		return true
+	}
+	return false
 }
 
 func (client *Client) createRequest(method, urlExtension string,
@@ -109,6 +119,15 @@ func (client *Client) createRequest(method, urlExtension string,
 	return req, nil
 }
 
+func isZsrvErrorSuccess(err *swagger_models.ZsrvError) bool {
+    switch *err.Ec {
+        case swagger_models.ZsrvErrorCodeZMsgSucess,
+             swagger_models.ZsrvErrorCodeZMsgAccepted:
+             return true
+    }
+    return false
+}
+
 func processZsrvResponseError(rspData interface{}) error {
 	rsp, ok := rspData.(*swagger_models.ZsrvResponse)
 	if !ok {
@@ -119,13 +138,13 @@ func processZsrvResponseError(rspData interface{}) error {
 		panic("unexpected nil rsp in processZsrvResponseError")
 	}
 	errStr := ""
-	if rsp.HTTPStatusCode != 200 {
+	if !isHttpStatusCodeSuccess(rsp.HTTPStatusCode) {
 		errStr = fmt.Sprintf("Request Failed. HTTPStatusCode: %d, HTTPStatusMsg: %s",
 			rsp.HTTPStatusCode, rsp.HTTPStatusMsg)
 	}
 	for _, zerr := range rsp.Error {
 		errCode := ""
-		if zerr.Ec != nil && *zerr.Ec != swagger_models.ZsrvErrorCodeZMsgSucess {
+		if zerr.Ec != nil && !isZsrvErrorSuccess(zerr) {
 			errCode = string(*zerr.Ec)
 			errStr += " " + fmt.Sprintf("ErrorCode: %s, ErrorDetails: %s\n",
 				errCode, zerr.Details)
@@ -146,7 +165,7 @@ func (client *Client) processResponse(resp *http.Response,
 	client.SetCsrfToken(resp)
 	var err error
 	reqSuccess := false
-	if resp.StatusCode == http.StatusOK {
+	if isHttpStatusCodeSuccess(int32(resp.StatusCode)) {
 		client.logDebug("[INFO]Request SUCCESS")
 		reqSuccess = true
 	} else {
@@ -200,7 +219,7 @@ func (client *Client) processResponse(resp *http.Response,
 //  Return Values:
 //   Returns the http.Response received and any errors encountered in the
 //   process.
-//   If Response is Successful ( resp.StatusCode == 200 ), returns nil as error.
+//   If Response is Successful ( isHttpStatusCodeSuccess(resp.StatusCode)), returns nil as error.
 //   Caller can use err == nil to check for a successful response.
 func (client *Client) SendReq(method, urlExtension string,
 	data interface{},
