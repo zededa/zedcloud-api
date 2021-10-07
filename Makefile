@@ -28,7 +28,7 @@ swagger-install:
 .PHONY: swagger-generate
 swagger-generate:
 	for sw_file in $(SWAGGER_FILE_LIST); do \
-		docker run --rm -it --user $(shell id -u):$(shell id -g) -e GOPATH=$(HOME)/go:/go \
+		docker run --rm --user $(shell id -u):$(shell id -g) -e GOPATH=$(HOME)/go:/go \
 			-v $(HOME):$(HOME) -w $(shell pwd) quay.io/goswagger/swagger \
 			generate client -f zapiservices/$$sw_file -A zedcloudapi \
 			-c swagger_client -m swagger_models -a swagger_operations && \
