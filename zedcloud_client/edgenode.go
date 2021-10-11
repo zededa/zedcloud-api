@@ -14,7 +14,7 @@ import (
 func setDeviceTitle(client *zedcloudapi.Client, devCfg *swagger_models.DeviceConfig) {
 	title := "Device Title Updated " + time.Now().String()
 	devCfg.Title = &title
-	fmt.Printf("\n\nUpdating Device Title to %s\n", devCfg.Title)
+	fmt.Printf("\n\nUpdating Device Title to %s\n", *devCfg.Title)
 	client.SendReq("PUT", "devices/id/cf1c0382-81b4-4d9d-8166-ed4db05ec489",
 		devCfg, nil)
 }

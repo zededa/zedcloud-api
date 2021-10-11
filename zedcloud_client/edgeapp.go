@@ -29,7 +29,7 @@ func getEdgeAppConfigHndler(params *CmdParams) {
 		return
 	}
 	fmt.Printf("getEdgeAppConfig SUCCESS. name: %s, ID: %s\n",
-		cfg.Name, cfg.ID)
+		*cfg.Name, cfg.ID)
 }
 
 func createEdgeAppConfigHndler(params *CmdParams) {
