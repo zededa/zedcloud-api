@@ -12,6 +12,7 @@ import (
 	"log"
 	"net/http"
 	"net/http/cookiejar"
+	"strings"
 	"time"
 
 	"github.com/go-openapi/runtime"
@@ -28,7 +29,6 @@ type Client struct {
 	BearerToken      string
 	BaseUrl          string
 	XRequestIdPrefix string
-	CSRFToken        string
 
 	// Set this flag for debugging information to be printed
 	Debug bool
@@ -73,6 +73,18 @@ func UrlForObjectRequest(urlExtension, name, id, reqType string) string {
 	}
 }
 
+func csrfTokenFromHttpRsp(resp *http.Response) string {
+	if resp != nil {
+		return ""
+	}
+	for k, v := range resp.Header {
+		if k == "X-CSRF-Token" || k == "X-Csrf-Token" {
+			return v[0]
+		}
+	}
+	return ""
+}
+
 func reqBodyReaderForData(data interface{}) *bytes.Buffer {
 	if data == nil {
 		return nil
@@ -113,19 +125,26 @@ func (client *Client) createRequest(method, urlExtension string,
 	if client.BearerToken != "" {
 		req.Header.Add("Authorization", "Bearer "+client.BearerToken)
 	}
-	if client.CSRFToken != "" {
-		req.Header.Add("X-CSRF-Token", client.CSRFToken)
+	// Do a get request to get CSRFToken for the URL
+	if strings.ToLower(method) != "get" {
+		httpRsp, _ := client.SendReq("GET", urlExtension, nil, nil)
+		if httpRsp != nil {
+			csrfToken := csrfTokenFromHttpRsp(httpRsp)
+			if csrfToken != "" {
+				req.Header.Add("X-CSRF-Token", csrfToken)
+			}
+		}
 	}
 	return req, nil
 }
 
 func isZsrvErrorSuccess(err *swagger_models.ZsrvError) bool {
-    switch *err.Ec {
-        case swagger_models.ZsrvErrorCodeZMsgSucess,
-             swagger_models.ZsrvErrorCodeZMsgAccepted:
-             return true
-    }
-    return false
+	switch *err.Ec {
+	case swagger_models.ZsrvErrorCodeZMsgSucess,
+		swagger_models.ZsrvErrorCodeZMsgAccepted:
+		return true
+	}
+	return false
 }
 
 func processZsrvResponseError(rspData interface{}) error {
@@ -162,7 +181,6 @@ func processZsrvResponseError(rspData interface{}) error {
 //      - include Response Status code in Error.
 func (client *Client) processResponse(resp *http.Response,
 	rspData interface{}) error {
-	client.SetCsrfToken(resp)
 	var err error
 	reqSuccess := false
 	if isHttpStatusCodeSuccess(int32(resp.StatusCode)) {
@@ -240,19 +258,7 @@ func (client *Client) SendReq(method, urlExtension string,
 	return resp, err
 }
 
-func (client *Client) SetCsrfToken(resp *http.Response) {
-	for k, v := range resp.Header {
-		if k == "X-CSRF-Token" || k == "X-Csrf-Token" {
-			client.CSRFToken = v[0]
-			break
-		}
-	}
-}
-
 func (client *Client) login(username, password string) error {
-	// Get CSRF token for Login by doing a get.
-	client.SendReq("GET", "login", nil, nil)
-
 	parm := swagger_models.AAAFrontendLoginWithPasswordRequest{
 		UsernameAtRealm: username,
 		Password:        password,
@@ -303,7 +309,6 @@ func (client *Client) GetObj(typeUrl, name, id string,
 		return fmt.Errorf("client.GetObj - nil client")
 	}
 
-	// Get CSRF token for Login by doing a get.
 	url, err := UrlForNameOrId(name, id)
 	if err != nil {
 		return err
