@@ -74,7 +74,7 @@ func UrlForObjectRequest(urlExtension, name, id, reqType string) string {
 }
 
 func csrfTokenFromHttpRsp(resp *http.Response) string {
-	if resp != nil {
+	if resp == nil {
 		return ""
 	}
 	for k, v := range resp.Header {
