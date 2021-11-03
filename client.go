@@ -246,7 +246,7 @@ func (client *Client) SendReq(method, urlExtension string,
 	if err != nil {
 		return nil, err
 	}
-	client.logDebug("%s %s", method, req.URL)
+	client.logDebug("SendReq: %s %s %s", method, urlExtension, req.URL)
 	resp, err := client.HttpClient.Do(req)
 	if err != nil {
 		return resp, err
@@ -322,13 +322,31 @@ func (client *Client) GetObj(typeUrl, name, id string,
 	return err
 }
 
+func sanitizeZedcloudUrl(zedcloudUrl string) string {
+    // URL needs to be of the form:
+    //  https://<url>/api/v1/
+    //  For Ex: https://zedcontrol.zededa.net/api/v1/
+	if !strings.HasPrefix(zedcloudUrl, "https://") {
+		zedcloudUrl = "https://" + zedcloudUrl
+	}
+	// URL needs to end with a /
+	if !strings.HasSuffix(zedcloudUrl, "/") {
+		zedcloudUrl = zedcloudUrl + "/"
+	}
+	if !strings.HasSuffix(zedcloudUrl, "api/v1/") {
+		zedcloudUrl = zedcloudUrl + "api/v1/"
+	}
+	return zedcloudUrl
+}
+
+
 func NewClient(zedcloudUrl string, token, username, password string) (*Client, error) {
 	log.Println("[INFO] NewClient")
 	// create the transport
 	schemes := []string{"https"}
 	client := &Client{
 		HttpClient:       &http.Client{},
-		BaseUrl:          zedcloudUrl + "/api/v1/",
+		BaseUrl:          sanitizeZedcloudUrl(zedcloudUrl),
 		XRequestIdPrefix: "zedcloudapi-client",
 		Debug:            true,
 	}
