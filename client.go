@@ -60,16 +60,8 @@ func UrlForObjectRequest(urlExtension, name, id, reqType string) string {
 	switch reqType {
 	case "config", "update", "delete":
 		return url
-	case "status":
-		return url + "/status"
-	case "publish":
-		return url + "/publish"
-	case "apply":
-		return url + "/apply"
-	case "uplink":
-		return url + "/uplink"
 	default:
-		panic("UrlForObjectRequest - Invalid reqType: " + reqType)
+		return url + "/" + reqType
 	}
 }
 
