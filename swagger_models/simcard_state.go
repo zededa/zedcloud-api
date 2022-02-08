@@ -23,8 +23,12 @@ import (
 type SimcardState string
 
 func NewSimcardState(value SimcardState) *SimcardState {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated SimcardState.
+func (m SimcardState) Pointer() *SimcardState {
+	return &m
 }
 
 const (

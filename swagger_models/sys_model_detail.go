@@ -54,6 +54,8 @@ func (m *SysModelDetail) validateCustomModelFields(formats strfmt.Registry) erro
 		if err := m.CustomModelFields.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customModelFields")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customModelFields")
 			}
 			return err
 		}
@@ -82,6 +84,8 @@ func (m *SysModelDetail) contextValidateCustomModelFields(ctx context.Context, f
 		if err := m.CustomModelFields.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customModelFields")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customModelFields")
 			}
 			return err
 		}

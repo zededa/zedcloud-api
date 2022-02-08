@@ -23,8 +23,12 @@ import (
 type DeploymentType string
 
 func NewDeploymentType(value DeploymentType) *DeploymentType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated DeploymentType.
+func (m DeploymentType) Pointer() *DeploymentType {
+	return &m
 }
 
 const (

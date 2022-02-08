@@ -23,8 +23,12 @@ import (
 type ConfigproxyProto string
 
 func NewConfigproxyProto(value ConfigproxyProto) *ConfigproxyProto {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigproxyProto.
+func (m ConfigproxyProto) Pointer() *ConfigproxyProto {
+	return &m
 }
 
 const (

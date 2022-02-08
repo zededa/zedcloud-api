@@ -67,6 +67,8 @@ func (m *Policy) validateAccess(formats strfmt.Registry) error {
 		if err := m.Access.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("access")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("access")
 			}
 			return err
 		}
@@ -84,6 +86,8 @@ func (m *Policy) validateScope(formats strfmt.Registry) error {
 		if err := m.Scope.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("scope")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scope")
 			}
 			return err
 		}
@@ -116,6 +120,8 @@ func (m *Policy) contextValidateAccess(ctx context.Context, formats strfmt.Regis
 		if err := m.Access.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("access")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("access")
 			}
 			return err
 		}
@@ -130,6 +136,8 @@ func (m *Policy) contextValidateScope(ctx context.Context, formats strfmt.Regist
 		if err := m.Scope.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("scope")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scope")
 			}
 			return err
 		}

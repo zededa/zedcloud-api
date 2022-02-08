@@ -51,6 +51,8 @@ func (m *NetworkConfigOrDefault) validateNetInstanceConfig(formats strfmt.Regist
 		if err := m.NetInstanceConfig.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("netInstanceConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("netInstanceConfig")
 			}
 			return err
 		}
@@ -79,6 +81,8 @@ func (m *NetworkConfigOrDefault) contextValidateNetInstanceConfig(ctx context.Co
 		if err := m.NetInstanceConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("netInstanceConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("netInstanceConfig")
 			}
 			return err
 		}

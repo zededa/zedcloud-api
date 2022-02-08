@@ -48,6 +48,8 @@ func (m *AzureStatus) validateAzureDevStatus(formats strfmt.Registry) error {
 		if err := m.AzureDevStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("azureDevStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("azureDevStatus")
 			}
 			return err
 		}
@@ -76,6 +78,8 @@ func (m *AzureStatus) contextValidateAzureDevStatus(ctx context.Context, formats
 		if err := m.AzureDevStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("azureDevStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("azureDevStatus")
 			}
 			return err
 		}

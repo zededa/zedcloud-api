@@ -23,8 +23,12 @@ import (
 type ConfigMetaDataType string
 
 func NewConfigMetaDataType(value ConfigMetaDataType) *ConfigMetaDataType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigMetaDataType.
+func (m ConfigMetaDataType) Pointer() *ConfigMetaDataType {
+	return &m
 }
 
 const (

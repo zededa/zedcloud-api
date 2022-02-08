@@ -23,8 +23,12 @@ import (
 type AAANotifyResponseType string
 
 func NewAAANotifyResponseType(value AAANotifyResponseType) *AAANotifyResponseType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AAANotifyResponseType.
+func (m AAANotifyResponseType) Pointer() *AAANotifyResponseType {
+	return &m
 }
 
 const (

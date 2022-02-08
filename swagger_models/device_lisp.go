@@ -178,6 +178,8 @@ func (m *DeviceLisp) validateLispMapServers(formats strfmt.Registry) error {
 			if err := m.LispMapServers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("lispMapServers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("lispMapServers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -212,6 +214,8 @@ func (m *DeviceLisp) validateZedServers(formats strfmt.Registry) error {
 			if err := m.ZedServers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("zedServers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("zedServers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -248,6 +252,8 @@ func (m *DeviceLisp) contextValidateLispMapServers(ctx context.Context, formats 
 			if err := m.LispMapServers[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("lispMapServers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("lispMapServers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -266,6 +272,8 @@ func (m *DeviceLisp) contextValidateZedServers(ctx context.Context, formats strf
 			if err := m.ZedServers[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("zedServers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("zedServers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

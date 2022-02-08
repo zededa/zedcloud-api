@@ -23,8 +23,12 @@ import (
 type CredentialType string
 
 func NewCredentialType(value CredentialType) *CredentialType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated CredentialType.
+func (m CredentialType) Pointer() *CredentialType {
+	return &m
 }
 
 const (

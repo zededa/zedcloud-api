@@ -191,6 +191,8 @@ func (m *JobConfig) validateObjectType(formats strfmt.Registry) error {
 		if err := m.ObjectType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("objectType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("objectType")
 			}
 			return err
 		}
@@ -208,6 +210,8 @@ func (m *JobConfig) validateOperationType(formats strfmt.Registry) error {
 		if err := m.OperationType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("operationType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("operationType")
 			}
 			return err
 		}
@@ -225,6 +229,8 @@ func (m *JobConfig) validateRevision(formats strfmt.Registry) error {
 		if err := m.Revision.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -242,6 +248,8 @@ func (m *JobConfig) validateSelectionCriteria(formats strfmt.Registry) error {
 		if err := m.SelectionCriteria.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("selectionCriteria")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("selectionCriteria")
 			}
 			return err
 		}
@@ -271,6 +279,8 @@ func (m *JobConfig) validateStatus(formats strfmt.Registry) error {
 		if err := m.Status.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("status")
 			}
 			return err
 		}
@@ -358,6 +368,8 @@ func (m *JobConfig) contextValidateObjectType(ctx context.Context, formats strfm
 		if err := m.ObjectType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("objectType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("objectType")
 			}
 			return err
 		}
@@ -372,6 +384,8 @@ func (m *JobConfig) contextValidateOperationType(ctx context.Context, formats st
 		if err := m.OperationType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("operationType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("operationType")
 			}
 			return err
 		}
@@ -386,6 +400,8 @@ func (m *JobConfig) contextValidateRevision(ctx context.Context, formats strfmt.
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -400,6 +416,8 @@ func (m *JobConfig) contextValidateSelectionCriteria(ctx context.Context, format
 		if err := m.SelectionCriteria.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("selectionCriteria")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("selectionCriteria")
 			}
 			return err
 		}
@@ -423,6 +441,8 @@ func (m *JobConfig) contextValidateStatus(ctx context.Context, formats strfmt.Re
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("status")
 			}
 			return err
 		}

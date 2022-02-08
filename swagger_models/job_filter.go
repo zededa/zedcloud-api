@@ -62,6 +62,8 @@ func (m *JobFilter) validateJobStatus(formats strfmt.Registry) error {
 		if err := m.JobStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("jobStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("jobStatus")
 			}
 			return err
 		}
@@ -102,6 +104,8 @@ func (m *JobFilter) contextValidateJobStatus(ctx context.Context, formats strfmt
 		if err := m.JobStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("jobStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("jobStatus")
 			}
 			return err
 		}

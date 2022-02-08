@@ -29,8 +29,12 @@ import (
 type CommonPhyIoMemberUsage string
 
 func NewCommonPhyIoMemberUsage(value CommonPhyIoMemberUsage) *CommonPhyIoMemberUsage {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated CommonPhyIoMemberUsage.
+func (m CommonPhyIoMemberUsage) Pointer() *CommonPhyIoMemberUsage {
+	return &m
 }
 
 const (

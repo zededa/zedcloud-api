@@ -23,8 +23,12 @@ import (
 type FlowlogMetric string
 
 func NewFlowlogMetric(value FlowlogMetric) *FlowlogMetric {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated FlowlogMetric.
+func (m FlowlogMetric) Pointer() *FlowlogMetric {
+	return &m
 }
 
 const (

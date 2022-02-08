@@ -23,8 +23,12 @@ import (
 type ConfigTarget string
 
 func NewConfigTarget(value ConfigTarget) *ConfigTarget {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigTarget.
+func (m ConfigTarget) Pointer() *ConfigTarget {
+	return &m
 }
 
 const (

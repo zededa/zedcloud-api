@@ -119,6 +119,8 @@ func (m *AppInstStatusFilter) validateAppType(formats strfmt.Registry) error {
 		if err := m.AppType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appType")
 			}
 			return err
 		}
@@ -136,6 +138,8 @@ func (m *AppInstStatusFilter) validateDeploymentType(formats strfmt.Registry) er
 		if err := m.DeploymentType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deploymentType")
 			}
 			return err
 		}
@@ -193,6 +197,8 @@ func (m *AppInstStatusFilter) validateRunState(formats strfmt.Registry) error {
 		if err := m.RunState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("runState")
 			}
 			return err
 		}
@@ -229,6 +235,8 @@ func (m *AppInstStatusFilter) contextValidateAppType(ctx context.Context, format
 		if err := m.AppType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appType")
 			}
 			return err
 		}
@@ -243,6 +251,8 @@ func (m *AppInstStatusFilter) contextValidateDeploymentType(ctx context.Context,
 		if err := m.DeploymentType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deploymentType")
 			}
 			return err
 		}
@@ -257,6 +267,8 @@ func (m *AppInstStatusFilter) contextValidateRunState(ctx context.Context, forma
 		if err := m.RunState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("runState")
 			}
 			return err
 		}

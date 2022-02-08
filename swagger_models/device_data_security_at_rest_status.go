@@ -23,8 +23,12 @@ import (
 type DeviceDataSecurityAtRestStatus string
 
 func NewDeviceDataSecurityAtRestStatus(value DeviceDataSecurityAtRestStatus) *DeviceDataSecurityAtRestStatus {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated DeviceDataSecurityAtRestStatus.
+func (m DeviceDataSecurityAtRestStatus) Pointer() *DeviceDataSecurityAtRestStatus {
+	return &m
 }
 
 const (

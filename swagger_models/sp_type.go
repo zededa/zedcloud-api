@@ -27,8 +27,12 @@ import (
 type SpType string
 
 func NewSpType(value SpType) *SpType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated SpType.
+func (m SpType) Pointer() *SpType {
+	return &m
 }
 
 const (

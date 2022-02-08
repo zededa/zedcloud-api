@@ -23,8 +23,12 @@ import (
 type AppNamingScheme string
 
 func NewAppNamingScheme(value AppNamingScheme) *AppNamingScheme {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AppNamingScheme.
+func (m AppNamingScheme) Pointer() *AppNamingScheme {
+	return &m
 }
 
 const (

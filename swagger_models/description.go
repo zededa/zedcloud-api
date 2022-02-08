@@ -56,6 +56,8 @@ func (m *Description) validateDescCode(formats strfmt.Registry) error {
 		if err := m.DescCode.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("descCode")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("descCode")
 			}
 			return err
 		}
@@ -88,6 +90,8 @@ func (m *Description) contextValidateDescCode(ctx context.Context, formats strfm
 		if err := m.DescCode.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("descCode")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("descCode")
 			}
 			return err
 		}

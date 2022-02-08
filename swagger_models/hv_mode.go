@@ -26,8 +26,12 @@ import (
 type HvMode string
 
 func NewHvMode(value HvMode) *HvMode {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated HvMode.
+func (m HvMode) Pointer() *HvMode {
+	return &m
 }
 
 const (

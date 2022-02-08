@@ -126,6 +126,8 @@ func (m *AAASuccessResponseLogin) validateAPIToken(formats strfmt.Registry) erro
 		if err := m.APIToken.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("apiToken")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("apiToken")
 			}
 			return err
 		}
@@ -143,6 +145,8 @@ func (m *AAASuccessResponseLogin) validateDetailedUser(formats strfmt.Registry) 
 		if err := m.DetailedUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("detailedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("detailedUser")
 			}
 			return err
 		}
@@ -160,6 +164,8 @@ func (m *AAASuccessResponseLogin) validateEnterprise(formats strfmt.Registry) er
 		if err := m.Enterprise.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enterprise")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("enterprise")
 			}
 			return err
 		}
@@ -177,6 +183,8 @@ func (m *AAASuccessResponseLogin) validateEnterpriseID(formats strfmt.Registry) 
 		if err := m.EnterpriseID.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enterpriseId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("enterpriseId")
 			}
 			return err
 		}
@@ -194,6 +202,8 @@ func (m *AAASuccessResponseLogin) validateLoginToken(formats strfmt.Registry) er
 		if err := m.LoginToken.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("loginToken")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("loginToken")
 			}
 			return err
 		}
@@ -216,6 +226,8 @@ func (m *AAASuccessResponseLogin) validatePolicies(formats strfmt.Registry) erro
 			if err := m.Policies[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("policies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("policies" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -235,6 +247,8 @@ func (m *AAASuccessResponseLogin) validateRealm(formats strfmt.Registry) error {
 		if err := m.Realm.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("realm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("realm")
 			}
 			return err
 		}
@@ -252,6 +266,8 @@ func (m *AAASuccessResponseLogin) validateRealmID(formats strfmt.Registry) error
 		if err := m.RealmID.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("realmId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("realmId")
 			}
 			return err
 		}
@@ -269,6 +285,8 @@ func (m *AAASuccessResponseLogin) validateRole(formats strfmt.Registry) error {
 		if err := m.Role.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("role")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("role")
 			}
 			return err
 		}
@@ -286,6 +304,8 @@ func (m *AAASuccessResponseLogin) validateSimpleUser(formats strfmt.Registry) er
 		if err := m.SimpleUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("simpleUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("simpleUser")
 			}
 			return err
 		}
@@ -303,6 +323,8 @@ func (m *AAASuccessResponseLogin) validateToken(formats strfmt.Registry) error {
 		if err := m.Token.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("token")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("token")
 			}
 			return err
 		}
@@ -320,6 +342,8 @@ func (m *AAASuccessResponseLogin) validateUserID(formats strfmt.Registry) error 
 		if err := m.UserID.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("userId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("userId")
 			}
 			return err
 		}
@@ -392,6 +416,8 @@ func (m *AAASuccessResponseLogin) contextValidateAPIToken(ctx context.Context, f
 		if err := m.APIToken.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("apiToken")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("apiToken")
 			}
 			return err
 		}
@@ -406,6 +432,8 @@ func (m *AAASuccessResponseLogin) contextValidateDetailedUser(ctx context.Contex
 		if err := m.DetailedUser.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("detailedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("detailedUser")
 			}
 			return err
 		}
@@ -420,6 +448,8 @@ func (m *AAASuccessResponseLogin) contextValidateEnterprise(ctx context.Context,
 		if err := m.Enterprise.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enterprise")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("enterprise")
 			}
 			return err
 		}
@@ -434,6 +464,8 @@ func (m *AAASuccessResponseLogin) contextValidateEnterpriseID(ctx context.Contex
 		if err := m.EnterpriseID.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enterpriseId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("enterpriseId")
 			}
 			return err
 		}
@@ -448,6 +480,8 @@ func (m *AAASuccessResponseLogin) contextValidateLoginToken(ctx context.Context,
 		if err := m.LoginToken.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("loginToken")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("loginToken")
 			}
 			return err
 		}
@@ -464,6 +498,8 @@ func (m *AAASuccessResponseLogin) contextValidatePolicies(ctx context.Context, f
 			if err := m.Policies[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("policies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("policies" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -480,6 +516,8 @@ func (m *AAASuccessResponseLogin) contextValidateRealm(ctx context.Context, form
 		if err := m.Realm.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("realm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("realm")
 			}
 			return err
 		}
@@ -494,6 +532,8 @@ func (m *AAASuccessResponseLogin) contextValidateRealmID(ctx context.Context, fo
 		if err := m.RealmID.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("realmId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("realmId")
 			}
 			return err
 		}
@@ -508,6 +548,8 @@ func (m *AAASuccessResponseLogin) contextValidateRole(ctx context.Context, forma
 		if err := m.Role.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("role")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("role")
 			}
 			return err
 		}
@@ -522,6 +564,8 @@ func (m *AAASuccessResponseLogin) contextValidateSimpleUser(ctx context.Context,
 		if err := m.SimpleUser.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("simpleUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("simpleUser")
 			}
 			return err
 		}
@@ -536,6 +580,8 @@ func (m *AAASuccessResponseLogin) contextValidateToken(ctx context.Context, form
 		if err := m.Token.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("token")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("token")
 			}
 			return err
 		}
@@ -550,6 +596,8 @@ func (m *AAASuccessResponseLogin) contextValidateUserID(ctx context.Context, for
 		if err := m.UserID.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("userId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("userId")
 			}
 			return err
 		}

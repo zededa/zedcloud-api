@@ -23,8 +23,12 @@ import (
 type ConfigZNetworkInstType string
 
 func NewConfigZNetworkInstType(value ConfigZNetworkInstType) *ConfigZNetworkInstType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigZNetworkInstType.
+func (m ConfigZNetworkInstType) Pointer() *ConfigZNetworkInstType {
+	return &m
 }
 
 const (

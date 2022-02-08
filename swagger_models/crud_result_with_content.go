@@ -62,6 +62,8 @@ func (m *CrudResultWithContent) validateCode(formats strfmt.Registry) error {
 		if err := m.Code.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("code")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("code")
 			}
 			return err
 		}
@@ -79,6 +81,8 @@ func (m *CrudResultWithContent) validateContent(formats strfmt.Registry) error {
 		if err := m.Content.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("content")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("content")
 			}
 			return err
 		}
@@ -96,6 +100,8 @@ func (m *CrudResultWithContent) validateIdentifier(formats strfmt.Registry) erro
 		if err := m.Identifier.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("identifier")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("identifier")
 			}
 			return err
 		}
@@ -132,6 +138,8 @@ func (m *CrudResultWithContent) contextValidateCode(ctx context.Context, formats
 		if err := m.Code.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("code")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("code")
 			}
 			return err
 		}
@@ -146,6 +154,8 @@ func (m *CrudResultWithContent) contextValidateContent(ctx context.Context, form
 		if err := m.Content.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("content")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("content")
 			}
 			return err
 		}
@@ -160,6 +170,8 @@ func (m *CrudResultWithContent) contextValidateIdentifier(ctx context.Context, f
 		if err := m.Identifier.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("identifier")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("identifier")
 			}
 			return err
 		}

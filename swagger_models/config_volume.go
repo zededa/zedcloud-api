@@ -83,6 +83,8 @@ func (m *ConfigVolume) validateOrigin(formats strfmt.Registry) error {
 		if err := m.Origin.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("origin")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("origin")
 			}
 			return err
 		}
@@ -105,6 +107,8 @@ func (m *ConfigVolume) validateProtocols(formats strfmt.Registry) error {
 			if err := m.Protocols[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("protocols" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("protocols" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -139,6 +143,8 @@ func (m *ConfigVolume) contextValidateOrigin(ctx context.Context, formats strfmt
 		if err := m.Origin.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("origin")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("origin")
 			}
 			return err
 		}
@@ -155,6 +161,8 @@ func (m *ConfigVolume) contextValidateProtocols(ctx context.Context, formats str
 			if err := m.Protocols[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("protocols" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("protocols" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

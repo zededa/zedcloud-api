@@ -23,8 +23,12 @@ import (
 type VolumeInstanceType string
 
 func NewVolumeInstanceType(value VolumeInstanceType) *VolumeInstanceType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated VolumeInstanceType.
+func (m VolumeInstanceType) Pointer() *VolumeInstanceType {
+	return &m
 }
 
 const (

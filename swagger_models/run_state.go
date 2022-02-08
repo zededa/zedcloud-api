@@ -43,8 +43,12 @@ import (
 type RunState string
 
 func NewRunState(value RunState) *RunState {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated RunState.
+func (m RunState) Pointer() *RunState {
+	return &m
 }
 
 const (

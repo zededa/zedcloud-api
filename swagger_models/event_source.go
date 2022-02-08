@@ -27,8 +27,12 @@ import (
 type EventSource string
 
 func NewEventSource(value EventSource) *EventSource {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated EventSource.
+func (m EventSource) Pointer() *EventSource {
+	return &m
 }
 
 const (

@@ -23,8 +23,12 @@ import (
 type CrudAction string
 
 func NewCrudAction(value CrudAction) *CrudAction {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated CrudAction.
+func (m CrudAction) Pointer() *CrudAction {
+	return &m
 }
 
 const (

@@ -155,6 +155,8 @@ func (m *IoMember) validateUsage(formats strfmt.Registry) error {
 		if err := m.Usage.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("usage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("usage")
 			}
 			return err
 		}
@@ -177,6 +179,8 @@ func (m *IoMember) validateZtype(formats strfmt.Registry) error {
 		if err := m.Ztype.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ztype")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ztype")
 			}
 			return err
 		}
@@ -209,6 +213,8 @@ func (m *IoMember) contextValidateUsage(ctx context.Context, formats strfmt.Regi
 		if err := m.Usage.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("usage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("usage")
 			}
 			return err
 		}
@@ -223,6 +229,8 @@ func (m *IoMember) contextValidateZtype(ctx context.Context, formats strfmt.Regi
 		if err := m.Ztype.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ztype")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ztype")
 			}
 			return err
 		}

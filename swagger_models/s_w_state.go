@@ -34,8 +34,12 @@ import (
 type SWState string
 
 func NewSWState(value SWState) *SWState {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated SWState.
+func (m SWState) Pointer() *SWState {
+	return &m
 }
 
 const (

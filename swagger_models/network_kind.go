@@ -24,8 +24,12 @@ import (
 type NetworkKind string
 
 func NewNetworkKind(value NetworkKind) *NetworkKind {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated NetworkKind.
+func (m NetworkKind) Pointer() *NetworkKind {
+	return &m
 }
 
 const (

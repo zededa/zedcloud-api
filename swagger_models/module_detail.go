@@ -60,6 +60,8 @@ func (m *ModuleDetail) validateModuleType(formats strfmt.Registry) error {
 		if err := m.ModuleType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("moduleType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("moduleType")
 			}
 			return err
 		}
@@ -88,6 +90,8 @@ func (m *ModuleDetail) contextValidateModuleType(ctx context.Context, formats st
 		if err := m.ModuleType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("moduleType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("moduleType")
 			}
 			return err
 		}

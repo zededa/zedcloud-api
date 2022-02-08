@@ -72,6 +72,8 @@ func (m *CustomConfig) validateVariableGroups(formats strfmt.Registry) error {
 			if err := m.VariableGroups[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("variableGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("variableGroups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -104,6 +106,8 @@ func (m *CustomConfig) contextValidateVariableGroups(ctx context.Context, format
 			if err := m.VariableGroups[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("variableGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("variableGroups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

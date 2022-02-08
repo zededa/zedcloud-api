@@ -149,6 +149,8 @@ func (m *CrudResponseQuery) validateClazz(formats strfmt.Registry) error {
 		if err := m.Clazz.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clazz")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("clazz")
 			}
 			return err
 		}
@@ -166,6 +168,8 @@ func (m *CrudResponseQuery) validateCode(formats strfmt.Registry) error {
 		if err := m.Code.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("code")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("code")
 			}
 			return err
 		}
@@ -183,6 +187,8 @@ func (m *CrudResponseQuery) validateCredentials(formats strfmt.Registry) error {
 		if err := m.Credentials.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("credentials")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("credentials")
 			}
 			return err
 		}
@@ -200,6 +206,8 @@ func (m *CrudResponseQuery) validateDocPolicies(formats strfmt.Registry) error {
 		if err := m.DocPolicies.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("docPolicies")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("docPolicies")
 			}
 			return err
 		}
@@ -217,6 +225,8 @@ func (m *CrudResponseQuery) validateEnterprises(formats strfmt.Registry) error {
 		if err := m.Enterprises.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enterprises")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("enterprises")
 			}
 			return err
 		}
@@ -239,6 +249,8 @@ func (m *CrudResponseQuery) validateGlobalStatistics(formats strfmt.Registry) er
 			if err := m.GlobalStatistics[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("globalStatistics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("globalStatistics" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -263,6 +275,8 @@ func (m *CrudResponseQuery) validateList(formats strfmt.Registry) error {
 			if err := m.List[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -282,6 +296,8 @@ func (m *CrudResponseQuery) validatePolicies(formats strfmt.Registry) error {
 		if err := m.Policies.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("policies")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("policies")
 			}
 			return err
 		}
@@ -299,6 +315,8 @@ func (m *CrudResponseQuery) validateProfiles(formats strfmt.Registry) error {
 		if err := m.Profiles.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("profiles")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("profiles")
 			}
 			return err
 		}
@@ -321,6 +339,8 @@ func (m *CrudResponseQuery) validateQueryStatistics(formats strfmt.Registry) err
 			if err := m.QueryStatistics[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("queryStatistics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("queryStatistics" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -340,6 +360,8 @@ func (m *CrudResponseQuery) validateQueryToken(formats strfmt.Registry) error {
 		if err := m.QueryToken.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("queryToken")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queryToken")
 			}
 			return err
 		}
@@ -357,6 +379,8 @@ func (m *CrudResponseQuery) validateRealms(formats strfmt.Registry) error {
 		if err := m.Realms.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("realms")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("realms")
 			}
 			return err
 		}
@@ -374,6 +398,8 @@ func (m *CrudResponseQuery) validateRoles(formats strfmt.Registry) error {
 		if err := m.Roles.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("roles")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("roles")
 			}
 			return err
 		}
@@ -391,6 +417,8 @@ func (m *CrudResponseQuery) validateUsers(formats strfmt.Registry) error {
 		if err := m.Users.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("users")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("users")
 			}
 			return err
 		}
@@ -471,6 +499,8 @@ func (m *CrudResponseQuery) contextValidateClazz(ctx context.Context, formats st
 		if err := m.Clazz.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clazz")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("clazz")
 			}
 			return err
 		}
@@ -485,6 +515,8 @@ func (m *CrudResponseQuery) contextValidateCode(ctx context.Context, formats str
 		if err := m.Code.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("code")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("code")
 			}
 			return err
 		}
@@ -499,6 +531,8 @@ func (m *CrudResponseQuery) contextValidateCredentials(ctx context.Context, form
 		if err := m.Credentials.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("credentials")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("credentials")
 			}
 			return err
 		}
@@ -513,6 +547,8 @@ func (m *CrudResponseQuery) contextValidateDocPolicies(ctx context.Context, form
 		if err := m.DocPolicies.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("docPolicies")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("docPolicies")
 			}
 			return err
 		}
@@ -527,6 +563,8 @@ func (m *CrudResponseQuery) contextValidateEnterprises(ctx context.Context, form
 		if err := m.Enterprises.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enterprises")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("enterprises")
 			}
 			return err
 		}
@@ -543,6 +581,8 @@ func (m *CrudResponseQuery) contextValidateGlobalStatistics(ctx context.Context,
 			if err := m.GlobalStatistics[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("globalStatistics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("globalStatistics" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -561,6 +601,8 @@ func (m *CrudResponseQuery) contextValidateList(ctx context.Context, formats str
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -577,6 +619,8 @@ func (m *CrudResponseQuery) contextValidatePolicies(ctx context.Context, formats
 		if err := m.Policies.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("policies")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("policies")
 			}
 			return err
 		}
@@ -591,6 +635,8 @@ func (m *CrudResponseQuery) contextValidateProfiles(ctx context.Context, formats
 		if err := m.Profiles.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("profiles")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("profiles")
 			}
 			return err
 		}
@@ -607,6 +653,8 @@ func (m *CrudResponseQuery) contextValidateQueryStatistics(ctx context.Context, 
 			if err := m.QueryStatistics[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("queryStatistics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("queryStatistics" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -623,6 +671,8 @@ func (m *CrudResponseQuery) contextValidateQueryToken(ctx context.Context, forma
 		if err := m.QueryToken.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("queryToken")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queryToken")
 			}
 			return err
 		}
@@ -637,6 +687,8 @@ func (m *CrudResponseQuery) contextValidateRealms(ctx context.Context, formats s
 		if err := m.Realms.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("realms")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("realms")
 			}
 			return err
 		}
@@ -651,6 +703,8 @@ func (m *CrudResponseQuery) contextValidateRoles(ctx context.Context, formats st
 		if err := m.Roles.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("roles")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("roles")
 			}
 			return err
 		}
@@ -665,6 +719,8 @@ func (m *CrudResponseQuery) contextValidateUsers(ctx context.Context, formats st
 		if err := m.Users.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("users")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("users")
 			}
 			return err
 		}

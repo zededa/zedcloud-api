@@ -68,6 +68,8 @@ func (m *LTEAdapter) validateSimcardState(formats strfmt.Registry) error {
 		if err := m.SimcardState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("simcard_state")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("simcard_state")
 			}
 			return err
 		}
@@ -96,6 +98,8 @@ func (m *LTEAdapter) contextValidateSimcardState(ctx context.Context, formats st
 		if err := m.SimcardState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("simcard_state")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("simcard_state")
 			}
 			return err
 		}

@@ -62,6 +62,8 @@ func (m *AAANotifyResponse) validateLogin(formats strfmt.Registry) error {
 		if err := m.Login.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("login")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("login")
 			}
 			return err
 		}
@@ -79,6 +81,8 @@ func (m *AAANotifyResponse) validateLogout(formats strfmt.Registry) error {
 		if err := m.Logout.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("logout")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("logout")
 			}
 			return err
 		}
@@ -96,6 +100,8 @@ func (m *AAANotifyResponse) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -132,6 +138,8 @@ func (m *AAANotifyResponse) contextValidateLogin(ctx context.Context, formats st
 		if err := m.Login.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("login")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("login")
 			}
 			return err
 		}
@@ -146,6 +154,8 @@ func (m *AAANotifyResponse) contextValidateLogout(ctx context.Context, formats s
 		if err := m.Logout.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("logout")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("logout")
 			}
 			return err
 		}
@@ -160,6 +170,8 @@ func (m *AAANotifyResponse) contextValidateType(ctx context.Context, formats str
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

@@ -114,6 +114,8 @@ func (m *ConfigPhysicalIO) validatePtype(formats strfmt.Registry) error {
 		if err := m.Ptype.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ptype")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ptype")
 			}
 			return err
 		}
@@ -131,6 +133,8 @@ func (m *ConfigPhysicalIO) validateUsage(formats strfmt.Registry) error {
 		if err := m.Usage.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("usage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("usage")
 			}
 			return err
 		}
@@ -148,6 +152,8 @@ func (m *ConfigPhysicalIO) validateUsagePolicy(formats strfmt.Registry) error {
 		if err := m.UsagePolicy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("usagePolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("usagePolicy")
 			}
 			return err
 		}
@@ -184,6 +190,8 @@ func (m *ConfigPhysicalIO) contextValidatePtype(ctx context.Context, formats str
 		if err := m.Ptype.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ptype")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ptype")
 			}
 			return err
 		}
@@ -198,6 +206,8 @@ func (m *ConfigPhysicalIO) contextValidateUsage(ctx context.Context, formats str
 		if err := m.Usage.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("usage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("usage")
 			}
 			return err
 		}
@@ -212,6 +222,8 @@ func (m *ConfigPhysicalIO) contextValidateUsagePolicy(ctx context.Context, forma
 		if err := m.UsagePolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("usagePolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("usagePolicy")
 			}
 			return err
 		}

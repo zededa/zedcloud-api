@@ -143,6 +143,8 @@ func (m *Certificate) validateEcdsaEncryption(formats strfmt.Registry) error {
 		if err := m.EcdsaEncryption.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ecdsaEncryption")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ecdsaEncryption")
 			}
 			return err
 		}
@@ -160,6 +162,8 @@ func (m *Certificate) validateIssuer(formats strfmt.Registry) error {
 		if err := m.Issuer.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("issuer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("issuer")
 			}
 			return err
 		}
@@ -177,6 +181,8 @@ func (m *Certificate) validateRsaEcryption(formats strfmt.Registry) error {
 		if err := m.RsaEcryption.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("rsaEcryption")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("rsaEcryption")
 			}
 			return err
 		}
@@ -194,6 +200,8 @@ func (m *Certificate) validateSanValues(formats strfmt.Registry) error {
 		if err := m.SanValues.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sanValues")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sanValues")
 			}
 			return err
 		}
@@ -211,6 +219,8 @@ func (m *Certificate) validateSubject(formats strfmt.Registry) error {
 		if err := m.Subject.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("subject")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("subject")
 			}
 			return err
 		}
@@ -279,6 +289,8 @@ func (m *Certificate) contextValidateEcdsaEncryption(ctx context.Context, format
 		if err := m.EcdsaEncryption.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ecdsaEncryption")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ecdsaEncryption")
 			}
 			return err
 		}
@@ -293,6 +305,8 @@ func (m *Certificate) contextValidateIssuer(ctx context.Context, formats strfmt.
 		if err := m.Issuer.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("issuer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("issuer")
 			}
 			return err
 		}
@@ -307,6 +321,8 @@ func (m *Certificate) contextValidateRsaEcryption(ctx context.Context, formats s
 		if err := m.RsaEcryption.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("rsaEcryption")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("rsaEcryption")
 			}
 			return err
 		}
@@ -321,6 +337,8 @@ func (m *Certificate) contextValidateSanValues(ctx context.Context, formats strf
 		if err := m.SanValues.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sanValues")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sanValues")
 			}
 			return err
 		}
@@ -335,6 +353,8 @@ func (m *Certificate) contextValidateSubject(ctx context.Context, formats strfmt
 		if err := m.Subject.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("subject")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("subject")
 			}
 			return err
 		}

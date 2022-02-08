@@ -84,6 +84,8 @@ func (m *ConfigContentTree) validateIformat(formats strfmt.Registry) error {
 		if err := m.Iformat.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("iformat")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("iformat")
 			}
 			return err
 		}
@@ -101,6 +103,8 @@ func (m *ConfigContentTree) validateSiginfo(formats strfmt.Registry) error {
 		if err := m.Siginfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("siginfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("siginfo")
 			}
 			return err
 		}
@@ -133,6 +137,8 @@ func (m *ConfigContentTree) contextValidateIformat(ctx context.Context, formats 
 		if err := m.Iformat.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("iformat")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("iformat")
 			}
 			return err
 		}
@@ -147,6 +153,8 @@ func (m *ConfigContentTree) contextValidateSiginfo(ctx context.Context, formats 
 		if err := m.Siginfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("siginfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("siginfo")
 			}
 			return err
 		}

@@ -109,6 +109,8 @@ func (m *AzurePolicy) validateAzureResourceAndServices(formats strfmt.Registry) 
 		if err := m.AzureResourceAndServices.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("azureResourceAndServices")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("azureResourceAndServices")
 			}
 			return err
 		}
@@ -126,6 +128,8 @@ func (m *AzurePolicy) validateCertificate(formats strfmt.Registry) error {
 		if err := m.Certificate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("certificate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("certificate")
 			}
 			return err
 		}
@@ -167,6 +171,8 @@ func (m *AzurePolicy) contextValidateAzureResourceAndServices(ctx context.Contex
 		if err := m.AzureResourceAndServices.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("azureResourceAndServices")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("azureResourceAndServices")
 			}
 			return err
 		}
@@ -181,6 +187,8 @@ func (m *AzurePolicy) contextValidateCertificate(ctx context.Context, formats st
 		if err := m.Certificate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("certificate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("certificate")
 			}
 			return err
 		}

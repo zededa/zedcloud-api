@@ -23,8 +23,12 @@ import (
 type FlowlogCategoryType string
 
 func NewFlowlogCategoryType(value FlowlogCategoryType) *FlowlogCategoryType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated FlowlogCategoryType.
+func (m FlowlogCategoryType) Pointer() *FlowlogCategoryType {
+	return &m
 }
 
 const (

@@ -23,8 +23,12 @@ import (
 type AuthProfileType string
 
 func NewAuthProfileType(value AuthProfileType) *AuthProfileType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AuthProfileType.
+func (m AuthProfileType) Pointer() *AuthProfileType {
+	return &m
 }
 
 const (

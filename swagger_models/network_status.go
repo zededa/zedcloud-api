@@ -89,6 +89,8 @@ func (m *NetworkStatus) validateDNS(formats strfmt.Registry) error {
 		if err := m.DNS.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dns")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dns")
 			}
 			return err
 		}
@@ -106,6 +108,8 @@ func (m *NetworkStatus) validateErrInfo(formats strfmt.Registry) error {
 		if err := m.ErrInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errInfo")
 			}
 			return err
 		}
@@ -123,6 +127,8 @@ func (m *NetworkStatus) validateLocation(formats strfmt.Registry) error {
 		if err := m.Location.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("location")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("location")
 			}
 			return err
 		}
@@ -140,6 +146,8 @@ func (m *NetworkStatus) validateProxy(formats strfmt.Registry) error {
 		if err := m.Proxy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("proxy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("proxy")
 			}
 			return err
 		}
@@ -180,6 +188,8 @@ func (m *NetworkStatus) contextValidateDNS(ctx context.Context, formats strfmt.R
 		if err := m.DNS.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dns")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dns")
 			}
 			return err
 		}
@@ -194,6 +204,8 @@ func (m *NetworkStatus) contextValidateErrInfo(ctx context.Context, formats strf
 		if err := m.ErrInfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errInfo")
 			}
 			return err
 		}
@@ -208,6 +220,8 @@ func (m *NetworkStatus) contextValidateLocation(ctx context.Context, formats str
 		if err := m.Location.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("location")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("location")
 			}
 			return err
 		}
@@ -222,6 +236,8 @@ func (m *NetworkStatus) contextValidateProxy(ctx context.Context, formats strfmt
 		if err := m.Proxy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("proxy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("proxy")
 			}
 			return err
 		}

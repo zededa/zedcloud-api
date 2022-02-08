@@ -117,6 +117,8 @@ func (m *VolInstStatusMsg) validateBlobs(formats strfmt.Registry) error {
 			if err := m.Blobs[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("blobs" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("blobs" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -136,6 +138,8 @@ func (m *VolInstStatusMsg) validateDeviceState(formats strfmt.Registry) error {
 		if err := m.DeviceState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deviceState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deviceState")
 			}
 			return err
 		}
@@ -158,6 +162,8 @@ func (m *VolInstStatusMsg) validateErrInfo(formats strfmt.Registry) error {
 			if err := m.ErrInfo[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errInfo" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -177,6 +183,8 @@ func (m *VolInstStatusMsg) validateResource(formats strfmt.Registry) error {
 		if err := m.Resource.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("resource")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resource")
 			}
 			return err
 		}
@@ -194,6 +202,8 @@ func (m *VolInstStatusMsg) validateRunState(formats strfmt.Registry) error {
 		if err := m.RunState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("runState")
 			}
 			return err
 		}
@@ -211,6 +221,8 @@ func (m *VolInstStatusMsg) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -228,6 +240,8 @@ func (m *VolInstStatusMsg) validateUsage(formats strfmt.Registry) error {
 		if err := m.Usage.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("usage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("usage")
 			}
 			return err
 		}
@@ -282,6 +296,8 @@ func (m *VolInstStatusMsg) contextValidateBlobs(ctx context.Context, formats str
 			if err := m.Blobs[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("blobs" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("blobs" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -298,6 +314,8 @@ func (m *VolInstStatusMsg) contextValidateDeviceState(ctx context.Context, forma
 		if err := m.DeviceState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deviceState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deviceState")
 			}
 			return err
 		}
@@ -314,6 +332,8 @@ func (m *VolInstStatusMsg) contextValidateErrInfo(ctx context.Context, formats s
 			if err := m.ErrInfo[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errInfo" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -330,6 +350,8 @@ func (m *VolInstStatusMsg) contextValidateResource(ctx context.Context, formats 
 		if err := m.Resource.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("resource")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resource")
 			}
 			return err
 		}
@@ -344,6 +366,8 @@ func (m *VolInstStatusMsg) contextValidateRunState(ctx context.Context, formats 
 		if err := m.RunState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("runState")
 			}
 			return err
 		}
@@ -358,6 +382,8 @@ func (m *VolInstStatusMsg) contextValidateType(ctx context.Context, formats strf
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -372,6 +398,8 @@ func (m *VolInstStatusMsg) contextValidateUsage(ctx context.Context, formats str
 		if err := m.Usage.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("usage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("usage")
 			}
 			return err
 		}

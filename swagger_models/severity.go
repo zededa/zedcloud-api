@@ -23,8 +23,12 @@ import (
 type Severity string
 
 func NewSeverity(value Severity) *Severity {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated Severity.
+func (m Severity) Pointer() *Severity {
+	return &m
 }
 
 const (

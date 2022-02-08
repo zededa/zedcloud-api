@@ -81,6 +81,8 @@ func (m *EnrollmentDetail) validateAllocationPolicy(formats strfmt.Registry) err
 		if err := m.AllocationPolicy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("allocationPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("allocationPolicy")
 			}
 			return err
 		}
@@ -98,6 +100,8 @@ func (m *EnrollmentDetail) validateMechanism(formats strfmt.Registry) error {
 		if err := m.Mechanism.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mechanism")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mechanism")
 			}
 			return err
 		}
@@ -115,6 +119,8 @@ func (m *EnrollmentDetail) validateSymmetricKeyEnrollment(formats strfmt.Registr
 		if err := m.SymmetricKeyEnrollment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("symmetricKeyEnrollment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("symmetricKeyEnrollment")
 			}
 			return err
 		}
@@ -132,6 +138,8 @@ func (m *EnrollmentDetail) validateTpmEnrollment(formats strfmt.Registry) error 
 		if err := m.TpmEnrollment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tpmEnrollment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("tpmEnrollment")
 			}
 			return err
 		}
@@ -172,6 +180,8 @@ func (m *EnrollmentDetail) contextValidateAllocationPolicy(ctx context.Context, 
 		if err := m.AllocationPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("allocationPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("allocationPolicy")
 			}
 			return err
 		}
@@ -186,6 +196,8 @@ func (m *EnrollmentDetail) contextValidateMechanism(ctx context.Context, formats
 		if err := m.Mechanism.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mechanism")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mechanism")
 			}
 			return err
 		}
@@ -200,6 +212,8 @@ func (m *EnrollmentDetail) contextValidateSymmetricKeyEnrollment(ctx context.Con
 		if err := m.SymmetricKeyEnrollment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("symmetricKeyEnrollment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("symmetricKeyEnrollment")
 			}
 			return err
 		}
@@ -214,6 +228,8 @@ func (m *EnrollmentDetail) contextValidateTpmEnrollment(ctx context.Context, for
 		if err := m.TpmEnrollment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tpmEnrollment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("tpmEnrollment")
 			}
 			return err
 		}

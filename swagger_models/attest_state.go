@@ -23,8 +23,12 @@ import (
 type AttestState string
 
 func NewAttestState(value AttestState) *AttestState {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AttestState.
+func (m AttestState) Pointer() *AttestState {
+	return &m
 }
 
 const (

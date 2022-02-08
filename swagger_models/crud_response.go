@@ -76,6 +76,8 @@ func (m *CrudResponse) validateAction(formats strfmt.Registry) error {
 		if err := m.Action.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("action")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("action")
 			}
 			return err
 		}
@@ -93,6 +95,8 @@ func (m *CrudResponse) validateQuery(formats strfmt.Registry) error {
 		if err := m.Query.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("query")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("query")
 			}
 			return err
 		}
@@ -110,6 +114,8 @@ func (m *CrudResponse) validateRead(formats strfmt.Registry) error {
 		if err := m.Read.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("read")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("read")
 			}
 			return err
 		}
@@ -127,6 +133,8 @@ func (m *CrudResponse) validateResult(formats strfmt.Registry) error {
 		if err := m.Result.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result")
 			}
 			return err
 		}
@@ -144,6 +152,8 @@ func (m *CrudResponse) validateToken(formats strfmt.Registry) error {
 		if err := m.Token.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("token")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("token")
 			}
 			return err
 		}
@@ -188,6 +198,8 @@ func (m *CrudResponse) contextValidateAction(ctx context.Context, formats strfmt
 		if err := m.Action.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("action")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("action")
 			}
 			return err
 		}
@@ -202,6 +214,8 @@ func (m *CrudResponse) contextValidateQuery(ctx context.Context, formats strfmt.
 		if err := m.Query.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("query")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("query")
 			}
 			return err
 		}
@@ -216,6 +230,8 @@ func (m *CrudResponse) contextValidateRead(ctx context.Context, formats strfmt.R
 		if err := m.Read.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("read")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("read")
 			}
 			return err
 		}
@@ -230,6 +246,8 @@ func (m *CrudResponse) contextValidateResult(ctx context.Context, formats strfmt
 		if err := m.Result.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result")
 			}
 			return err
 		}
@@ -244,6 +262,8 @@ func (m *CrudResponse) contextValidateToken(ctx context.Context, formats strfmt.
 		if err := m.Token.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("token")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("token")
 			}
 			return err
 		}

@@ -23,8 +23,12 @@ import (
 type ConfigVolumeAccessProtocols string
 
 func NewConfigVolumeAccessProtocols(value ConfigVolumeAccessProtocols) *ConfigVolumeAccessProtocols {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigVolumeAccessProtocols.
+func (m ConfigVolumeAccessProtocols) Pointer() *ConfigVolumeAccessProtocols {
+	return &m
 }
 
 const (

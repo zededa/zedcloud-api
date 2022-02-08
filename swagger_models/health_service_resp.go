@@ -68,6 +68,8 @@ func (m *HealthServiceResp) validateHealthDesc(formats strfmt.Registry) error {
 			if err := m.HealthDesc[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("healthDesc" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("healthDesc" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -87,6 +89,8 @@ func (m *HealthServiceResp) validateHealthService(formats strfmt.Registry) error
 		if err := m.HealthService.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("healthService")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("healthService")
 			}
 			return err
 		}
@@ -104,6 +108,8 @@ func (m *HealthServiceResp) validateHresult(formats strfmt.Registry) error {
 		if err := m.Hresult.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("hresult")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("hresult")
 			}
 			return err
 		}
@@ -142,6 +148,8 @@ func (m *HealthServiceResp) contextValidateHealthDesc(ctx context.Context, forma
 			if err := m.HealthDesc[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("healthDesc" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("healthDesc" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -158,6 +166,8 @@ func (m *HealthServiceResp) contextValidateHealthService(ctx context.Context, fo
 		if err := m.HealthService.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("healthService")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("healthService")
 			}
 			return err
 		}
@@ -172,6 +182,8 @@ func (m *HealthServiceResp) contextValidateHresult(ctx context.Context, formats 
 		if err := m.Hresult.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("hresult")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("hresult")
 			}
 			return err
 		}

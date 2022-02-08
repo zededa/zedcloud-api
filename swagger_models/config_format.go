@@ -23,8 +23,12 @@ import (
 type ConfigFormat string
 
 func NewConfigFormat(value ConfigFormat) *ConfigFormat {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigFormat.
+func (m ConfigFormat) Pointer() *ConfigFormat {
+	return &m
 }
 
 const (

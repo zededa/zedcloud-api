@@ -51,6 +51,8 @@ func (m *DeviceEntity) validateEntity(formats strfmt.Registry) error {
 		if err := m.Entity.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("entity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("entity")
 			}
 			return err
 		}
@@ -79,6 +81,8 @@ func (m *DeviceEntity) contextValidateEntity(ctx context.Context, formats strfmt
 		if err := m.Entity.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("entity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("entity")
 			}
 			return err
 		}

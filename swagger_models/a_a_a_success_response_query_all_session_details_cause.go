@@ -23,8 +23,12 @@ import (
 type AAASuccessResponseQueryAllSessionDetailsCause string
 
 func NewAAASuccessResponseQueryAllSessionDetailsCause(value AAASuccessResponseQueryAllSessionDetailsCause) *AAASuccessResponseQueryAllSessionDetailsCause {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AAASuccessResponseQueryAllSessionDetailsCause.
+func (m AAASuccessResponseQueryAllSessionDetailsCause) Pointer() *AAASuccessResponseQueryAllSessionDetailsCause {
+	return &m
 }
 
 const (

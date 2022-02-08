@@ -23,8 +23,12 @@ import (
 type DeviceLoad string
 
 func NewDeviceLoad(value DeviceLoad) *DeviceLoad {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated DeviceLoad.
+func (m DeviceLoad) Pointer() *DeviceLoad {
+	return &m
 }
 
 const (

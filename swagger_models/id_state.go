@@ -23,8 +23,12 @@ import (
 type IDState string
 
 func NewIDState(value IDState) *IDState {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated IDState.
+func (m IDState) Pointer() *IDState {
+	return &m
 }
 
 const (

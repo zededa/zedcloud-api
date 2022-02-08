@@ -25,8 +25,12 @@ import (
 type ConfigDHCPType string
 
 func NewConfigDHCPType(value ConfigDHCPType) *ConfigDHCPType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigDHCPType.
+func (m ConfigDHCPType) Pointer() *ConfigDHCPType {
+	return &m
 }
 
 const (

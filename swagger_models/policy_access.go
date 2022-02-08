@@ -23,8 +23,12 @@ import (
 type PolicyAccess string
 
 func NewPolicyAccess(value PolicyAccess) *PolicyAccess {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated PolicyAccess.
+func (m PolicyAccess) Pointer() *PolicyAccess {
+	return &m
 }
 
 const (

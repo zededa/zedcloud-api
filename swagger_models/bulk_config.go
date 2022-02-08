@@ -89,6 +89,8 @@ func (m *BulkConfig) validateBaseosUpdate(formats strfmt.Registry) error {
 		if err := m.BaseosUpdate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("baseosUpdate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("baseosUpdate")
 			}
 			return err
 		}
@@ -106,6 +108,8 @@ func (m *BulkConfig) validateBundleImport(formats strfmt.Registry) error {
 		if err := m.BundleImport.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("bundleImport")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("bundleImport")
 			}
 			return err
 		}
@@ -123,6 +127,8 @@ func (m *BulkConfig) validateInstanceDeploy(formats strfmt.Registry) error {
 		if err := m.InstanceDeploy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("instanceDeploy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("instanceDeploy")
 			}
 			return err
 		}
@@ -140,6 +146,8 @@ func (m *BulkConfig) validateInstanceRefreshAndPurge(formats strfmt.Registry) er
 		if err := m.InstanceRefreshAndPurge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("instanceRefreshAndPurge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("instanceRefreshAndPurge")
 			}
 			return err
 		}
@@ -157,6 +165,8 @@ func (m *BulkConfig) validateModelImport(formats strfmt.Registry) error {
 		if err := m.ModelImport.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modelImport")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modelImport")
 			}
 			return err
 		}
@@ -174,6 +184,8 @@ func (m *BulkConfig) validateSelectionCriteria(formats strfmt.Registry) error {
 		if err := m.SelectionCriteria.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("selectionCriteria")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("selectionCriteria")
 			}
 			return err
 		}
@@ -222,6 +234,8 @@ func (m *BulkConfig) contextValidateBaseosUpdate(ctx context.Context, formats st
 		if err := m.BaseosUpdate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("baseosUpdate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("baseosUpdate")
 			}
 			return err
 		}
@@ -236,6 +250,8 @@ func (m *BulkConfig) contextValidateBundleImport(ctx context.Context, formats st
 		if err := m.BundleImport.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("bundleImport")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("bundleImport")
 			}
 			return err
 		}
@@ -250,6 +266,8 @@ func (m *BulkConfig) contextValidateInstanceDeploy(ctx context.Context, formats 
 		if err := m.InstanceDeploy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("instanceDeploy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("instanceDeploy")
 			}
 			return err
 		}
@@ -264,6 +282,8 @@ func (m *BulkConfig) contextValidateInstanceRefreshAndPurge(ctx context.Context,
 		if err := m.InstanceRefreshAndPurge.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("instanceRefreshAndPurge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("instanceRefreshAndPurge")
 			}
 			return err
 		}
@@ -278,6 +298,8 @@ func (m *BulkConfig) contextValidateModelImport(ctx context.Context, formats str
 		if err := m.ModelImport.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modelImport")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modelImport")
 			}
 			return err
 		}
@@ -292,6 +314,8 @@ func (m *BulkConfig) contextValidateSelectionCriteria(ctx context.Context, forma
 		if err := m.SelectionCriteria.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("selectionCriteria")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("selectionCriteria")
 			}
 			return err
 		}

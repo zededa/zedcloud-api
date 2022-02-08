@@ -145,6 +145,8 @@ func (m *DeviceStatusSummaryMsg) validateCPU(formats strfmt.Registry) error {
 		if err := m.CPU.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Cpu")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Cpu")
 			}
 			return err
 		}
@@ -162,6 +164,8 @@ func (m *DeviceStatusSummaryMsg) validateMemory(formats strfmt.Registry) error {
 		if err := m.Memory.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Memory")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Memory")
 			}
 			return err
 		}
@@ -179,6 +183,8 @@ func (m *DeviceStatusSummaryMsg) validateStorage(formats strfmt.Registry) error 
 		if err := m.Storage.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Storage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Storage")
 			}
 			return err
 		}
@@ -196,6 +202,8 @@ func (m *DeviceStatusSummaryMsg) validateAdminState(formats strfmt.Registry) err
 		if err := m.AdminState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adminState")
 			}
 			return err
 		}
@@ -238,6 +246,8 @@ func (m *DeviceStatusSummaryMsg) validateDevError(formats strfmt.Registry) error
 			if err := m.DevError[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("devError" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("devError" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -257,6 +267,8 @@ func (m *DeviceStatusSummaryMsg) validateDinfo(formats strfmt.Registry) error {
 		if err := m.Dinfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dinfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dinfo")
 			}
 			return err
 		}
@@ -274,6 +286,8 @@ func (m *DeviceStatusSummaryMsg) validateMemorySummary(formats strfmt.Registry) 
 		if err := m.MemorySummary.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("memorySummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("memorySummary")
 			}
 			return err
 		}
@@ -291,6 +305,8 @@ func (m *DeviceStatusSummaryMsg) validateMinfo(formats strfmt.Registry) error {
 		if err := m.Minfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("minfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("minfo")
 			}
 			return err
 		}
@@ -313,6 +329,8 @@ func (m *DeviceStatusSummaryMsg) validateNetStatusList(formats strfmt.Registry) 
 			if err := m.NetStatusList[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("netStatusList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("netStatusList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -332,6 +350,8 @@ func (m *DeviceStatusSummaryMsg) validateRunState(formats strfmt.Registry) error
 		if err := m.RunState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("runState")
 			}
 			return err
 		}
@@ -354,6 +374,8 @@ func (m *DeviceStatusSummaryMsg) validateSwInfo(formats strfmt.Registry) error {
 			if err := m.SwInfo[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("swInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("swInfo" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -424,6 +446,8 @@ func (m *DeviceStatusSummaryMsg) contextValidateCPU(ctx context.Context, formats
 		if err := m.CPU.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Cpu")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Cpu")
 			}
 			return err
 		}
@@ -438,6 +462,8 @@ func (m *DeviceStatusSummaryMsg) contextValidateMemory(ctx context.Context, form
 		if err := m.Memory.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Memory")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Memory")
 			}
 			return err
 		}
@@ -452,6 +478,8 @@ func (m *DeviceStatusSummaryMsg) contextValidateStorage(ctx context.Context, for
 		if err := m.Storage.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Storage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Storage")
 			}
 			return err
 		}
@@ -466,6 +494,8 @@ func (m *DeviceStatusSummaryMsg) contextValidateAdminState(ctx context.Context, 
 		if err := m.AdminState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adminState")
 			}
 			return err
 		}
@@ -482,6 +512,8 @@ func (m *DeviceStatusSummaryMsg) contextValidateDevError(ctx context.Context, fo
 			if err := m.DevError[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("devError" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("devError" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -498,6 +530,8 @@ func (m *DeviceStatusSummaryMsg) contextValidateDinfo(ctx context.Context, forma
 		if err := m.Dinfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dinfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dinfo")
 			}
 			return err
 		}
@@ -512,6 +546,8 @@ func (m *DeviceStatusSummaryMsg) contextValidateMemorySummary(ctx context.Contex
 		if err := m.MemorySummary.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("memorySummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("memorySummary")
 			}
 			return err
 		}
@@ -526,6 +562,8 @@ func (m *DeviceStatusSummaryMsg) contextValidateMinfo(ctx context.Context, forma
 		if err := m.Minfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("minfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("minfo")
 			}
 			return err
 		}
@@ -542,6 +580,8 @@ func (m *DeviceStatusSummaryMsg) contextValidateNetStatusList(ctx context.Contex
 			if err := m.NetStatusList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("netStatusList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("netStatusList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -558,6 +598,8 @@ func (m *DeviceStatusSummaryMsg) contextValidateRunState(ctx context.Context, fo
 		if err := m.RunState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("runState")
 			}
 			return err
 		}
@@ -574,6 +616,8 @@ func (m *DeviceStatusSummaryMsg) contextValidateSwInfo(ctx context.Context, form
 			if err := m.SwInfo[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("swInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("swInfo" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

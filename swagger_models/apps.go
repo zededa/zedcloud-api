@@ -75,6 +75,8 @@ func (m *Apps) validateList(formats strfmt.Registry) error {
 			if err := m.List[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -94,6 +96,8 @@ func (m *Apps) validateNext(formats strfmt.Registry) error {
 		if err := m.Next.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("next")
 			}
 			return err
 		}
@@ -111,6 +115,8 @@ func (m *Apps) validateSummaryByCategory(formats strfmt.Registry) error {
 		if err := m.SummaryByCategory.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByCategory")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByCategory")
 			}
 			return err
 		}
@@ -128,6 +134,8 @@ func (m *Apps) validateSummaryByOrigin(formats strfmt.Registry) error {
 		if err := m.SummaryByOrigin.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByOrigin")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByOrigin")
 			}
 			return err
 		}
@@ -170,6 +178,8 @@ func (m *Apps) contextValidateList(ctx context.Context, formats strfmt.Registry)
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -186,6 +196,8 @@ func (m *Apps) contextValidateNext(ctx context.Context, formats strfmt.Registry)
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("next")
 			}
 			return err
 		}
@@ -200,6 +212,8 @@ func (m *Apps) contextValidateSummaryByCategory(ctx context.Context, formats str
 		if err := m.SummaryByCategory.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByCategory")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByCategory")
 			}
 			return err
 		}
@@ -214,6 +228,8 @@ func (m *Apps) contextValidateSummaryByOrigin(ctx context.Context, formats strfm
 		if err := m.SummaryByOrigin.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByOrigin")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByOrigin")
 			}
 			return err
 		}

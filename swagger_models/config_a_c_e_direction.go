@@ -23,8 +23,12 @@ import (
 type ConfigACEDirection string
 
 func NewConfigACEDirection(value ConfigACEDirection) *ConfigACEDirection {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigACEDirection.
+func (m ConfigACEDirection) Pointer() *ConfigACEDirection {
+	return &m
 }
 
 const (

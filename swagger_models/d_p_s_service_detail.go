@@ -55,6 +55,8 @@ func (m *DPSServiceDetail) validateEnrollment(formats strfmt.Registry) error {
 		if err := m.Enrollment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enrollment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("enrollment")
 			}
 			return err
 		}
@@ -72,6 +74,8 @@ func (m *DPSServiceDetail) validateServiceDetail(formats strfmt.Registry) error 
 		if err := m.ServiceDetail.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("serviceDetail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("serviceDetail")
 			}
 			return err
 		}
@@ -104,6 +108,8 @@ func (m *DPSServiceDetail) contextValidateEnrollment(ctx context.Context, format
 		if err := m.Enrollment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enrollment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("enrollment")
 			}
 			return err
 		}
@@ -118,6 +124,8 @@ func (m *DPSServiceDetail) contextValidateServiceDetail(ctx context.Context, for
 		if err := m.ServiceDetail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("serviceDetail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("serviceDetail")
 			}
 			return err
 		}

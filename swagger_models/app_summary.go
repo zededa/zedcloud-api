@@ -146,6 +146,8 @@ func (m *AppSummary) validateManifestJSON(formats strfmt.Registry) error {
 		if err := m.ManifestJSON.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("manifestJSON")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("manifestJSON")
 			}
 			return err
 		}
@@ -183,6 +185,8 @@ func (m *AppSummary) validateOriginType(formats strfmt.Registry) error {
 		if err := m.OriginType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("originType")
 			}
 			return err
 		}
@@ -200,6 +204,8 @@ func (m *AppSummary) validateParentDetail(formats strfmt.Registry) error {
 		if err := m.ParentDetail.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parentDetail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parentDetail")
 			}
 			return err
 		}
@@ -282,6 +288,8 @@ func (m *AppSummary) contextValidateManifestJSON(ctx context.Context, formats st
 		if err := m.ManifestJSON.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("manifestJSON")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("manifestJSON")
 			}
 			return err
 		}
@@ -296,6 +304,8 @@ func (m *AppSummary) contextValidateOriginType(ctx context.Context, formats strf
 		if err := m.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("originType")
 			}
 			return err
 		}
@@ -310,6 +320,8 @@ func (m *AppSummary) contextValidateParentDetail(ctx context.Context, formats st
 		if err := m.ParentDetail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parentDetail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parentDetail")
 			}
 			return err
 		}

@@ -205,6 +205,8 @@ func (m *AuthorizationProfile) validateOauthProfile(formats strfmt.Registry) err
 		if err := m.OauthProfile.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("oauthProfile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("oauthProfile")
 			}
 			return err
 		}
@@ -222,6 +224,8 @@ func (m *AuthorizationProfile) validateProfileType(formats strfmt.Registry) erro
 		if err := m.ProfileType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("profileType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("profileType")
 			}
 			return err
 		}
@@ -239,6 +243,8 @@ func (m *AuthorizationProfile) validateRevision(formats strfmt.Registry) error {
 		if err := m.Revision.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -277,6 +283,8 @@ func (m *AuthorizationProfile) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -330,6 +338,8 @@ func (m *AuthorizationProfile) contextValidateOauthProfile(ctx context.Context, 
 		if err := m.OauthProfile.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("oauthProfile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("oauthProfile")
 			}
 			return err
 		}
@@ -344,6 +354,8 @@ func (m *AuthorizationProfile) contextValidateProfileType(ctx context.Context, f
 		if err := m.ProfileType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("profileType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("profileType")
 			}
 			return err
 		}
@@ -358,6 +370,8 @@ func (m *AuthorizationProfile) contextValidateRevision(ctx context.Context, form
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -372,6 +386,8 @@ func (m *AuthorizationProfile) contextValidateType(ctx context.Context, formats 
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

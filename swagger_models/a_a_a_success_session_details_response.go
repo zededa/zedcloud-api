@@ -63,6 +63,8 @@ func (m *AAASuccessSessionDetailsResponse) validateOriginal(formats strfmt.Regis
 		if err := m.Original.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("original")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("original")
 			}
 			return err
 		}
@@ -85,6 +87,8 @@ func (m *AAASuccessSessionDetailsResponse) validatePolicies(formats strfmt.Regis
 			if err := m.Policies[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("policies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("policies" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -104,6 +108,8 @@ func (m *AAASuccessSessionDetailsResponse) validateUser(formats strfmt.Registry)
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}
@@ -140,6 +146,8 @@ func (m *AAASuccessSessionDetailsResponse) contextValidateOriginal(ctx context.C
 		if err := m.Original.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("original")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("original")
 			}
 			return err
 		}
@@ -156,6 +164,8 @@ func (m *AAASuccessSessionDetailsResponse) contextValidatePolicies(ctx context.C
 			if err := m.Policies[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("policies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("policies" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -172,6 +182,8 @@ func (m *AAASuccessSessionDetailsResponse) contextValidateUser(ctx context.Conte
 		if err := m.User.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

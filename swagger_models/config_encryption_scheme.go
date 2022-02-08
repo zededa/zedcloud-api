@@ -23,8 +23,12 @@ import (
 type ConfigEncryptionScheme string
 
 func NewConfigEncryptionScheme(value ConfigEncryptionScheme) *ConfigEncryptionScheme {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigEncryptionScheme.
+func (m ConfigEncryptionScheme) Pointer() *ConfigEncryptionScheme {
+	return &m
 }
 
 const (

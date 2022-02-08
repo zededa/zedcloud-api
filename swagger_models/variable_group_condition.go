@@ -54,6 +54,8 @@ func (m *VariableGroupCondition) validateOperator(formats strfmt.Registry) error
 		if err := m.Operator.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("operator")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("operator")
 			}
 			return err
 		}
@@ -82,6 +84,8 @@ func (m *VariableGroupCondition) contextValidateOperator(ctx context.Context, fo
 		if err := m.Operator.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("operator")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("operator")
 			}
 			return err
 		}

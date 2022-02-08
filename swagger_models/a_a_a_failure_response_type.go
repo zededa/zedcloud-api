@@ -23,8 +23,12 @@ import (
 type AAAFailureResponseType string
 
 func NewAAAFailureResponseType(value AAAFailureResponseType) *AAAFailureResponseType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AAAFailureResponseType.
+func (m AAAFailureResponseType) Pointer() *AAAFailureResponseType {
+	return &m
 }
 
 const (

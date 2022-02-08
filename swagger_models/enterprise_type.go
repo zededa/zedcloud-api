@@ -23,8 +23,12 @@ import (
 type EnterpriseType string
 
 func NewEnterpriseType(value EnterpriseType) *EnterpriseType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated EnterpriseType.
+func (m EnterpriseType) Pointer() *EnterpriseType {
+	return &m
 }
 
 const (

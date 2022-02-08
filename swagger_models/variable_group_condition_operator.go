@@ -23,8 +23,12 @@ import (
 type VariableGroupConditionOperator string
 
 func NewVariableGroupConditionOperator(value VariableGroupConditionOperator) *VariableGroupConditionOperator {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated VariableGroupConditionOperator.
+func (m VariableGroupConditionOperator) Pointer() *VariableGroupConditionOperator {
+	return &m
 }
 
 const (

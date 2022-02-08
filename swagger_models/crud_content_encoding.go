@@ -23,8 +23,12 @@ import (
 type CrudContentEncoding string
 
 func NewCrudContentEncoding(value CrudContentEncoding) *CrudContentEncoding {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated CrudContentEncoding.
+func (m CrudContentEncoding) Pointer() *CrudContentEncoding {
+	return &m
 }
 
 const (

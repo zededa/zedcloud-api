@@ -86,6 +86,8 @@ func (m *ACLAction) validateLimitValue(formats strfmt.Registry) error {
 		if err := m.LimitValue.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("limitValue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("limitValue")
 			}
 			return err
 		}
@@ -103,6 +105,8 @@ func (m *ACLAction) validatePortmapto(formats strfmt.Registry) error {
 		if err := m.Portmapto.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("portmapto")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("portmapto")
 			}
 			return err
 		}
@@ -135,6 +139,8 @@ func (m *ACLAction) contextValidateLimitValue(ctx context.Context, formats strfm
 		if err := m.LimitValue.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("limitValue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("limitValue")
 			}
 			return err
 		}
@@ -149,6 +155,8 @@ func (m *ACLAction) contextValidatePortmapto(ctx context.Context, formats strfmt
 		if err := m.Portmapto.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("portmapto")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("portmapto")
 			}
 			return err
 		}

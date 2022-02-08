@@ -66,6 +66,8 @@ func (m *ManifestInfo) validateDetails(formats strfmt.Registry) error {
 		if err := m.Details.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("details")
 			}
 			return err
 		}
@@ -83,6 +85,8 @@ func (m *ManifestInfo) validateTransitionAction(formats strfmt.Registry) error {
 		if err := m.TransitionAction.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("transitionAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("transitionAction")
 			}
 			return err
 		}
@@ -115,6 +119,8 @@ func (m *ManifestInfo) contextValidateDetails(ctx context.Context, formats strfm
 		if err := m.Details.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("details")
 			}
 			return err
 		}
@@ -129,6 +135,8 @@ func (m *ManifestInfo) contextValidateTransitionAction(ctx context.Context, form
 		if err := m.TransitionAction.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("transitionAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("transitionAction")
 			}
 			return err
 		}

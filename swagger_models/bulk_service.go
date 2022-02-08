@@ -23,8 +23,12 @@ import (
 type BulkService string
 
 func NewBulkService(value BulkService) *BulkService {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated BulkService.
+func (m BulkService) Pointer() *BulkService {
+	return &m
 }
 
 const (

@@ -23,8 +23,12 @@ import (
 type AAAFailureResponseGenerateTokenCause string
 
 func NewAAAFailureResponseGenerateTokenCause(value AAAFailureResponseGenerateTokenCause) *AAAFailureResponseGenerateTokenCause {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AAAFailureResponseGenerateTokenCause.
+func (m AAAFailureResponseGenerateTokenCause) Pointer() *AAAFailureResponseGenerateTokenCause {
+	return &m
 }
 
 const (

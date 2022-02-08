@@ -216,6 +216,8 @@ func (m *ConfigEdgeDevConfig) validateApps(formats strfmt.Registry) error {
 			if err := m.Apps[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("apps" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("apps" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -235,6 +237,8 @@ func (m *ConfigEdgeDevConfig) validateBackup(formats strfmt.Registry) error {
 		if err := m.Backup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("backup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("backup")
 			}
 			return err
 		}
@@ -257,6 +261,8 @@ func (m *ConfigEdgeDevConfig) validateBase(formats strfmt.Registry) error {
 			if err := m.Base[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("base" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("base" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -276,6 +282,8 @@ func (m *ConfigEdgeDevConfig) validateBaseos(formats strfmt.Registry) error {
 		if err := m.Baseos.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("baseos")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("baseos")
 			}
 			return err
 		}
@@ -298,6 +306,8 @@ func (m *ConfigEdgeDevConfig) validateCipherContexts(formats strfmt.Registry) er
 			if err := m.CipherContexts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("cipherContexts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cipherContexts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -322,6 +332,8 @@ func (m *ConfigEdgeDevConfig) validateConfigItems(formats strfmt.Registry) error
 			if err := m.ConfigItems[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("configItems" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("configItems" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -346,6 +358,8 @@ func (m *ConfigEdgeDevConfig) validateContentInfo(formats strfmt.Registry) error
 			if err := m.ContentInfo[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("contentInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("contentInfo" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -370,6 +384,8 @@ func (m *ConfigEdgeDevConfig) validateDatastores(formats strfmt.Registry) error 
 			if err := m.Datastores[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("datastores" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("datastores" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -394,6 +410,8 @@ func (m *ConfigEdgeDevConfig) validateDeviceIoList(formats strfmt.Registry) erro
 			if err := m.DeviceIoList[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("deviceIoList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("deviceIoList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -413,6 +431,8 @@ func (m *ConfigEdgeDevConfig) validateID(formats strfmt.Registry) error {
 		if err := m.ID.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("id")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("id")
 			}
 			return err
 		}
@@ -435,6 +455,8 @@ func (m *ConfigEdgeDevConfig) validateNetworkInstances(formats strfmt.Registry) 
 			if err := m.NetworkInstances[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("networkInstances" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("networkInstances" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -459,6 +481,8 @@ func (m *ConfigEdgeDevConfig) validateNetworks(formats strfmt.Registry) error {
 			if err := m.Networks[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("networks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("networks" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -478,6 +502,8 @@ func (m *ConfigEdgeDevConfig) validateReboot(formats strfmt.Registry) error {
 		if err := m.Reboot.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("reboot")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("reboot")
 			}
 			return err
 		}
@@ -500,6 +526,8 @@ func (m *ConfigEdgeDevConfig) validateSystemAdapterList(formats strfmt.Registry)
 			if err := m.SystemAdapterList[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("systemAdapterList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("systemAdapterList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -524,6 +552,8 @@ func (m *ConfigEdgeDevConfig) validateVolumes(formats strfmt.Registry) error {
 			if err := m.Volumes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("volumes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("volumes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -612,6 +642,8 @@ func (m *ConfigEdgeDevConfig) contextValidateApps(ctx context.Context, formats s
 			if err := m.Apps[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("apps" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("apps" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -628,6 +660,8 @@ func (m *ConfigEdgeDevConfig) contextValidateBackup(ctx context.Context, formats
 		if err := m.Backup.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("backup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("backup")
 			}
 			return err
 		}
@@ -644,6 +678,8 @@ func (m *ConfigEdgeDevConfig) contextValidateBase(ctx context.Context, formats s
 			if err := m.Base[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("base" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("base" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -660,6 +696,8 @@ func (m *ConfigEdgeDevConfig) contextValidateBaseos(ctx context.Context, formats
 		if err := m.Baseos.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("baseos")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("baseos")
 			}
 			return err
 		}
@@ -676,6 +714,8 @@ func (m *ConfigEdgeDevConfig) contextValidateCipherContexts(ctx context.Context,
 			if err := m.CipherContexts[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("cipherContexts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cipherContexts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -694,6 +734,8 @@ func (m *ConfigEdgeDevConfig) contextValidateConfigItems(ctx context.Context, fo
 			if err := m.ConfigItems[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("configItems" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("configItems" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -712,6 +754,8 @@ func (m *ConfigEdgeDevConfig) contextValidateContentInfo(ctx context.Context, fo
 			if err := m.ContentInfo[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("contentInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("contentInfo" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -730,6 +774,8 @@ func (m *ConfigEdgeDevConfig) contextValidateDatastores(ctx context.Context, for
 			if err := m.Datastores[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("datastores" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("datastores" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -748,6 +794,8 @@ func (m *ConfigEdgeDevConfig) contextValidateDeviceIoList(ctx context.Context, f
 			if err := m.DeviceIoList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("deviceIoList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("deviceIoList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -764,6 +812,8 @@ func (m *ConfigEdgeDevConfig) contextValidateID(ctx context.Context, formats str
 		if err := m.ID.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("id")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("id")
 			}
 			return err
 		}
@@ -780,6 +830,8 @@ func (m *ConfigEdgeDevConfig) contextValidateNetworkInstances(ctx context.Contex
 			if err := m.NetworkInstances[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("networkInstances" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("networkInstances" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -798,6 +850,8 @@ func (m *ConfigEdgeDevConfig) contextValidateNetworks(ctx context.Context, forma
 			if err := m.Networks[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("networks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("networks" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -814,6 +868,8 @@ func (m *ConfigEdgeDevConfig) contextValidateReboot(ctx context.Context, formats
 		if err := m.Reboot.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("reboot")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("reboot")
 			}
 			return err
 		}
@@ -830,6 +886,8 @@ func (m *ConfigEdgeDevConfig) contextValidateSystemAdapterList(ctx context.Conte
 			if err := m.SystemAdapterList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("systemAdapterList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("systemAdapterList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -848,6 +906,8 @@ func (m *ConfigEdgeDevConfig) contextValidateVolumes(ctx context.Context, format
 			if err := m.Volumes[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("volumes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("volumes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

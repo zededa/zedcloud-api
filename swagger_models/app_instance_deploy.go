@@ -55,6 +55,8 @@ func (m *AppInstanceDeploy) validateInstanceConfig(formats strfmt.Registry) erro
 			if err := m.InstanceConfig[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("instanceConfig" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("instanceConfig" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -87,6 +89,8 @@ func (m *AppInstanceDeploy) contextValidateInstanceConfig(ctx context.Context, f
 			if err := m.InstanceConfig[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("instanceConfig" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("instanceConfig" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

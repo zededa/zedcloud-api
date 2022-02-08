@@ -59,6 +59,8 @@ func (m *Status) validateCode(formats strfmt.Registry) error {
 		if err := m.Code.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("code")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("code")
 			}
 			return err
 		}
@@ -76,6 +78,8 @@ func (m *Status) validateDescription(formats strfmt.Registry) error {
 		if err := m.Description.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("description")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("description")
 			}
 			return err
 		}
@@ -108,6 +112,8 @@ func (m *Status) contextValidateCode(ctx context.Context, formats strfmt.Registr
 		if err := m.Code.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("code")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("code")
 			}
 			return err
 		}
@@ -122,6 +128,8 @@ func (m *Status) contextValidateDescription(ctx context.Context, formats strfmt.
 		if err := m.Description.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("description")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("description")
 			}
 			return err
 		}

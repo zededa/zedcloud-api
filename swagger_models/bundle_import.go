@@ -54,6 +54,8 @@ func (m *BundleImport) validateBundleConfig(formats strfmt.Registry) error {
 			if err := m.BundleConfig[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("bundleConfig" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("bundleConfig" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -86,6 +88,8 @@ func (m *BundleImport) contextValidateBundleConfig(ctx context.Context, formats 
 			if err := m.BundleConfig[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("bundleConfig" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("bundleConfig" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

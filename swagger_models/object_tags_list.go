@@ -58,6 +58,8 @@ func (m *ObjectTagsList) validateNext(formats strfmt.Registry) error {
 		if err := m.Next.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("next")
 			}
 			return err
 		}
@@ -80,6 +82,8 @@ func (m *ObjectTagsList) validateObjectTags(formats strfmt.Registry) error {
 			if err := m.ObjectTags[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("objectTags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("objectTags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -114,6 +118,8 @@ func (m *ObjectTagsList) contextValidateNext(ctx context.Context, formats strfmt
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("next")
 			}
 			return err
 		}
@@ -130,6 +136,8 @@ func (m *ObjectTagsList) contextValidateObjectTags(ctx context.Context, formats 
 			if err := m.ObjectTags[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("objectTags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("objectTags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

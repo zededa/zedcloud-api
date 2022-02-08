@@ -23,8 +23,12 @@ import (
 type CommonHashAlgorithm string
 
 func NewCommonHashAlgorithm(value CommonHashAlgorithm) *CommonHashAlgorithm {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated CommonHashAlgorithm.
+func (m CommonHashAlgorithm) Pointer() *CommonHashAlgorithm {
+	return &m
 }
 
 const (

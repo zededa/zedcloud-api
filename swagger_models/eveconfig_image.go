@@ -75,6 +75,8 @@ func (m *EveconfigImage) validateIformat(formats strfmt.Registry) error {
 		if err := m.Iformat.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("iformat")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("iformat")
 			}
 			return err
 		}
@@ -92,6 +94,8 @@ func (m *EveconfigImage) validateSiginfo(formats strfmt.Registry) error {
 		if err := m.Siginfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("siginfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("siginfo")
 			}
 			return err
 		}
@@ -109,6 +113,8 @@ func (m *EveconfigImage) validateUuidandversion(formats strfmt.Registry) error {
 		if err := m.Uuidandversion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("uuidandversion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("uuidandversion")
 			}
 			return err
 		}
@@ -145,6 +151,8 @@ func (m *EveconfigImage) contextValidateIformat(ctx context.Context, formats str
 		if err := m.Iformat.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("iformat")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("iformat")
 			}
 			return err
 		}
@@ -159,6 +167,8 @@ func (m *EveconfigImage) contextValidateSiginfo(ctx context.Context, formats str
 		if err := m.Siginfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("siginfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("siginfo")
 			}
 			return err
 		}
@@ -173,6 +183,8 @@ func (m *EveconfigImage) contextValidateUuidandversion(ctx context.Context, form
 		if err := m.Uuidandversion.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("uuidandversion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("uuidandversion")
 			}
 			return err
 		}

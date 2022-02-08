@@ -36,8 +36,12 @@ import (
 type Entity string
 
 func NewEntity(value Entity) *Entity {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated Entity.
+func (m Entity) Pointer() *Entity {
+	return &m
 }
 
 const (

@@ -23,8 +23,12 @@ import (
 type ConfigKeyExchangeScheme string
 
 func NewConfigKeyExchangeScheme(value ConfigKeyExchangeScheme) *ConfigKeyExchangeScheme {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigKeyExchangeScheme.
+func (m ConfigKeyExchangeScheme) Pointer() *ConfigKeyExchangeScheme {
+	return &m
 }
 
 const (

@@ -73,6 +73,8 @@ func (m *ConfigNetworkInstanceLispConfig) validateLispMSs(formats strfmt.Registr
 			if err := m.LispMSs[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("LispMSs" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("LispMSs" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -105,6 +107,8 @@ func (m *ConfigNetworkInstanceLispConfig) contextValidateLispMSs(ctx context.Con
 			if err := m.LispMSs[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("LispMSs" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("LispMSs" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

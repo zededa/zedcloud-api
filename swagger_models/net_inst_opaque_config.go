@@ -58,6 +58,8 @@ func (m *NetInstOpaqueConfig) validateLisp(formats strfmt.Registry) error {
 		if err := m.Lisp.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lisp")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lisp")
 			}
 			return err
 		}
@@ -75,6 +77,8 @@ func (m *NetInstOpaqueConfig) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -107,6 +111,8 @@ func (m *NetInstOpaqueConfig) contextValidateLisp(ctx context.Context, formats s
 		if err := m.Lisp.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lisp")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lisp")
 			}
 			return err
 		}
@@ -121,6 +127,8 @@ func (m *NetInstOpaqueConfig) contextValidateType(ctx context.Context, formats s
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

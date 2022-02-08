@@ -24,8 +24,12 @@ import (
 type RoleState string
 
 func NewRoleState(value RoleState) *RoleState {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated RoleState.
+func (m RoleState) Pointer() *RoleState {
+	return &m
 }
 
 const (

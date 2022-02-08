@@ -278,6 +278,8 @@ func (m *AppInstance) validateAppType(formats strfmt.Registry) error {
 		if err := m.AppType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appType")
 			}
 			return err
 		}
@@ -315,6 +317,8 @@ func (m *AppInstance) validateCustomConfig(formats strfmt.Registry) error {
 		if err := m.CustomConfig.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customConfig")
 			}
 			return err
 		}
@@ -332,6 +336,8 @@ func (m *AppInstance) validateDeploymentType(formats strfmt.Registry) error {
 		if err := m.DeploymentType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deploymentType")
 			}
 			return err
 		}
@@ -388,6 +394,8 @@ func (m *AppInstance) validateDrives(formats strfmt.Registry) error {
 			if err := m.Drives[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("drives" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("drives" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -425,6 +433,8 @@ func (m *AppInstance) validateInterfaces(formats strfmt.Registry) error {
 			if err := m.Interfaces[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("interfaces" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -444,6 +454,8 @@ func (m *AppInstance) validateLogs(formats strfmt.Registry) error {
 		if err := m.Logs.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("logs")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("logs")
 			}
 			return err
 		}
@@ -461,6 +473,8 @@ func (m *AppInstance) validateManifestInfo(formats strfmt.Registry) error {
 		if err := m.ManifestInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("manifestInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("manifestInfo")
 			}
 			return err
 		}
@@ -508,6 +522,8 @@ func (m *AppInstance) validatePurge(formats strfmt.Registry) error {
 		if err := m.Purge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("purge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("purge")
 			}
 			return err
 		}
@@ -525,6 +541,8 @@ func (m *AppInstance) validateRefresh(formats strfmt.Registry) error {
 		if err := m.Refresh.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("refresh")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("refresh")
 			}
 			return err
 		}
@@ -542,6 +560,8 @@ func (m *AppInstance) validateRestart(formats strfmt.Registry) error {
 		if err := m.Restart.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("restart")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("restart")
 			}
 			return err
 		}
@@ -559,6 +579,8 @@ func (m *AppInstance) validateRevision(formats strfmt.Registry) error {
 		if err := m.Revision.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -597,6 +619,8 @@ func (m *AppInstance) validateVminfo(formats strfmt.Registry) error {
 		if err := m.Vminfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("vminfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vminfo")
 			}
 			return err
 		}
@@ -673,6 +697,8 @@ func (m *AppInstance) contextValidateAppType(ctx context.Context, formats strfmt
 		if err := m.AppType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appType")
 			}
 			return err
 		}
@@ -687,6 +713,8 @@ func (m *AppInstance) contextValidateCustomConfig(ctx context.Context, formats s
 		if err := m.CustomConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customConfig")
 			}
 			return err
 		}
@@ -701,6 +729,8 @@ func (m *AppInstance) contextValidateDeploymentType(ctx context.Context, formats
 		if err := m.DeploymentType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deploymentType")
 			}
 			return err
 		}
@@ -717,6 +747,8 @@ func (m *AppInstance) contextValidateDrives(ctx context.Context, formats strfmt.
 			if err := m.Drives[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("drives" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("drives" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -744,6 +776,8 @@ func (m *AppInstance) contextValidateInterfaces(ctx context.Context, formats str
 			if err := m.Interfaces[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("interfaces" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -760,6 +794,8 @@ func (m *AppInstance) contextValidateLogs(ctx context.Context, formats strfmt.Re
 		if err := m.Logs.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("logs")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("logs")
 			}
 			return err
 		}
@@ -774,6 +810,8 @@ func (m *AppInstance) contextValidateManifestInfo(ctx context.Context, formats s
 		if err := m.ManifestInfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("manifestInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("manifestInfo")
 			}
 			return err
 		}
@@ -788,6 +826,8 @@ func (m *AppInstance) contextValidatePurge(ctx context.Context, formats strfmt.R
 		if err := m.Purge.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("purge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("purge")
 			}
 			return err
 		}
@@ -802,6 +842,8 @@ func (m *AppInstance) contextValidateRefresh(ctx context.Context, formats strfmt
 		if err := m.Refresh.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("refresh")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("refresh")
 			}
 			return err
 		}
@@ -816,6 +858,8 @@ func (m *AppInstance) contextValidateRestart(ctx context.Context, formats strfmt
 		if err := m.Restart.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("restart")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("restart")
 			}
 			return err
 		}
@@ -830,6 +874,8 @@ func (m *AppInstance) contextValidateRevision(ctx context.Context, formats strfm
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -844,6 +890,8 @@ func (m *AppInstance) contextValidateVminfo(ctx context.Context, formats strfmt.
 		if err := m.Vminfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("vminfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vminfo")
 			}
 			return err
 		}

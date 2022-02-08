@@ -23,8 +23,12 @@ import (
 type VolumeInstanceAccessMode string
 
 func NewVolumeInstanceAccessMode(value VolumeInstanceAccessMode) *VolumeInstanceAccessMode {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated VolumeInstanceAccessMode.
+func (m VolumeInstanceAccessMode) Pointer() *VolumeInstanceAccessMode {
+	return &m
 }
 
 const (

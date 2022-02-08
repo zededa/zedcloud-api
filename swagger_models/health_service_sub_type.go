@@ -23,8 +23,12 @@ import (
 type HealthServiceSubType string
 
 func NewHealthServiceSubType(value HealthServiceSubType) *HealthServiceSubType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated HealthServiceSubType.
+func (m HealthServiceSubType) Pointer() *HealthServiceSubType {
+	return &m
 }
 
 const (

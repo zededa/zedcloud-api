@@ -25,8 +25,12 @@ import (
 type ConfigZcServiceType string
 
 func NewConfigZcServiceType(value ConfigZcServiceType) *ConfigZcServiceType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigZcServiceType.
+func (m ConfigZcServiceType) Pointer() *ConfigZcServiceType {
+	return &m
 }
 
 const (

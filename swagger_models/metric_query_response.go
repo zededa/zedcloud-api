@@ -70,6 +70,8 @@ func (m *MetricQueryResponse) validateList(formats strfmt.Registry) error {
 			if err := m.List[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -89,6 +91,8 @@ func (m *MetricQueryResponse) validateThreshold(formats strfmt.Registry) error {
 		if err := m.Threshold.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("threshold")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("threshold")
 			}
 			return err
 		}
@@ -123,6 +127,8 @@ func (m *MetricQueryResponse) contextValidateList(ctx context.Context, formats s
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -139,6 +145,8 @@ func (m *MetricQueryResponse) contextValidateThreshold(ctx context.Context, form
 		if err := m.Threshold.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("threshold")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("threshold")
 			}
 			return err
 		}

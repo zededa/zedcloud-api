@@ -206,6 +206,8 @@ func (m *DetailedUser) validateAllowedEnterprises(formats strfmt.Registry) error
 			if err := m.AllowedEnterprises[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("allowedEnterprises" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("allowedEnterprises" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -234,6 +236,8 @@ func (m *DetailedUser) validateEmailState(formats strfmt.Registry) error {
 		if err := m.EmailState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("emailState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("emailState")
 			}
 			return err
 		}
@@ -263,6 +267,8 @@ func (m *DetailedUser) validatePhoneState(formats strfmt.Registry) error {
 		if err := m.PhoneState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("phoneState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("phoneState")
 			}
 			return err
 		}
@@ -280,6 +286,8 @@ func (m *DetailedUser) validateRevision(formats strfmt.Registry) error {
 		if err := m.Revision.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -310,6 +318,8 @@ func (m *DetailedUser) validateState(formats strfmt.Registry) error {
 		if err := m.State.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("state")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("state")
 			}
 			return err
 		}
@@ -327,6 +337,8 @@ func (m *DetailedUser) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -406,6 +418,8 @@ func (m *DetailedUser) contextValidateAllowedEnterprises(ctx context.Context, fo
 			if err := m.AllowedEnterprises[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("allowedEnterprises" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("allowedEnterprises" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -422,6 +436,8 @@ func (m *DetailedUser) contextValidateEmailState(ctx context.Context, formats st
 		if err := m.EmailState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("emailState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("emailState")
 			}
 			return err
 		}
@@ -454,6 +470,8 @@ func (m *DetailedUser) contextValidatePhoneState(ctx context.Context, formats st
 		if err := m.PhoneState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("phoneState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("phoneState")
 			}
 			return err
 		}
@@ -468,6 +486,8 @@ func (m *DetailedUser) contextValidateRevision(ctx context.Context, formats strf
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -482,6 +502,8 @@ func (m *DetailedUser) contextValidateState(ctx context.Context, formats strfmt.
 		if err := m.State.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("state")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("state")
 			}
 			return err
 		}
@@ -496,6 +518,8 @@ func (m *DetailedUser) contextValidateType(ctx context.Context, formats strfmt.R
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

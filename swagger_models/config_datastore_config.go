@@ -77,6 +77,8 @@ func (m *ConfigDatastoreConfig) validateCipherData(formats strfmt.Registry) erro
 		if err := m.CipherData.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cipherData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cipherData")
 			}
 			return err
 		}
@@ -94,6 +96,8 @@ func (m *ConfigDatastoreConfig) validateDType(formats strfmt.Registry) error {
 		if err := m.DType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dType")
 			}
 			return err
 		}
@@ -126,6 +130,8 @@ func (m *ConfigDatastoreConfig) contextValidateCipherData(ctx context.Context, f
 		if err := m.CipherData.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cipherData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cipherData")
 			}
 			return err
 		}
@@ -140,6 +146,8 @@ func (m *ConfigDatastoreConfig) contextValidateDType(ctx context.Context, format
 		if err := m.DType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dType")
 			}
 			return err
 		}

@@ -56,6 +56,8 @@ func (m *AAASuccessResponseQueryAllSessionDetails) validateCause(formats strfmt.
 		if err := m.Cause.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cause")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cause")
 			}
 			return err
 		}
@@ -78,6 +80,8 @@ func (m *AAASuccessResponseQueryAllSessionDetails) validateSessionDetails(format
 			if err := m.SessionDetails[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sessionDetails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sessionDetails" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -112,6 +116,8 @@ func (m *AAASuccessResponseQueryAllSessionDetails) contextValidateCause(ctx cont
 		if err := m.Cause.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cause")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cause")
 			}
 			return err
 		}
@@ -128,6 +134,8 @@ func (m *AAASuccessResponseQueryAllSessionDetails) contextValidateSessionDetails
 			if err := m.SessionDetails[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sessionDetails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sessionDetails" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

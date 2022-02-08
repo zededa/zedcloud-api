@@ -64,6 +64,8 @@ func (m *DeviceStatusFilter) validateLoad(formats strfmt.Registry) error {
 		if err := m.Load.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("load")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("load")
 			}
 			return err
 		}
@@ -81,6 +83,8 @@ func (m *DeviceStatusFilter) validateRunState(formats strfmt.Registry) error {
 		if err := m.RunState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("runState")
 			}
 			return err
 		}
@@ -113,6 +117,8 @@ func (m *DeviceStatusFilter) contextValidateLoad(ctx context.Context, formats st
 		if err := m.Load.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("load")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("load")
 			}
 			return err
 		}
@@ -127,6 +133,8 @@ func (m *DeviceStatusFilter) contextValidateRunState(ctx context.Context, format
 		if err := m.RunState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("runState")
 			}
 			return err
 		}

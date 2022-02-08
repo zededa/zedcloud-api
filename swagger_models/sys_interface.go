@@ -86,6 +86,8 @@ func (m *SysInterface) validateIntfUsage(formats strfmt.Registry) error {
 		if err := m.IntfUsage.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("intfUsage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("intfUsage")
 			}
 			return err
 		}
@@ -114,6 +116,8 @@ func (m *SysInterface) contextValidateIntfUsage(ctx context.Context, formats str
 		if err := m.IntfUsage.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("intfUsage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("intfUsage")
 			}
 			return err
 		}

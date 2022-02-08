@@ -58,6 +58,8 @@ func (m *DevDataSecAtRest) validateErrInfo(formats strfmt.Registry) error {
 		if err := m.ErrInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errInfo")
 			}
 			return err
 		}
@@ -75,6 +77,8 @@ func (m *DevDataSecAtRest) validateStatus(formats strfmt.Registry) error {
 		if err := m.Status.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("status")
 			}
 			return err
 		}
@@ -107,6 +111,8 @@ func (m *DevDataSecAtRest) contextValidateErrInfo(ctx context.Context, formats s
 		if err := m.ErrInfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errInfo")
 			}
 			return err
 		}
@@ -121,6 +127,8 @@ func (m *DevDataSecAtRest) contextValidateStatus(ctx context.Context, formats st
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("status")
 			}
 			return err
 		}

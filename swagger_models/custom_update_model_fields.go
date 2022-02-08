@@ -48,6 +48,8 @@ func (m *CustomUpdateModelFields) validateCustomModelAttributes(formats strfmt.R
 		if err := m.CustomModelAttributes.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customModelAttributes")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customModelAttributes")
 			}
 			return err
 		}
@@ -76,6 +78,8 @@ func (m *CustomUpdateModelFields) contextValidateCustomModelAttributes(ctx conte
 		if err := m.CustomModelAttributes.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customModelAttributes")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customModelAttributes")
 			}
 			return err
 		}

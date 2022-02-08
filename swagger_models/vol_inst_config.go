@@ -108,6 +108,8 @@ func (m *VolInstConfig) validateAccessmode(formats strfmt.Registry) error {
 		if err := m.Accessmode.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("accessmode")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("accessmode")
 			}
 			return err
 		}
@@ -125,6 +127,8 @@ func (m *VolInstConfig) validatePurge(formats strfmt.Registry) error {
 		if err := m.Purge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("purge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("purge")
 			}
 			return err
 		}
@@ -142,6 +146,8 @@ func (m *VolInstConfig) validateRevision(formats strfmt.Registry) error {
 		if err := m.Revision.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -159,6 +165,8 @@ func (m *VolInstConfig) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -199,6 +207,8 @@ func (m *VolInstConfig) contextValidateAccessmode(ctx context.Context, formats s
 		if err := m.Accessmode.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("accessmode")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("accessmode")
 			}
 			return err
 		}
@@ -213,6 +223,8 @@ func (m *VolInstConfig) contextValidatePurge(ctx context.Context, formats strfmt
 		if err := m.Purge.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("purge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("purge")
 			}
 			return err
 		}
@@ -227,6 +239,8 @@ func (m *VolInstConfig) contextValidateRevision(ctx context.Context, formats str
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -241,6 +255,8 @@ func (m *VolInstConfig) contextValidateType(ctx context.Context, formats strfmt.
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

@@ -93,6 +93,8 @@ func (m *ImageFilter) validateImageArch(formats strfmt.Registry) error {
 		if err := m.ImageArch.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageArch")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imageArch")
 			}
 			return err
 		}
@@ -110,6 +112,8 @@ func (m *ImageFilter) validateImageStatus(formats strfmt.Registry) error {
 		if err := m.ImageStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imageStatus")
 			}
 			return err
 		}
@@ -127,6 +131,8 @@ func (m *ImageFilter) validateImageType(formats strfmt.Registry) error {
 		if err := m.ImageType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imageType")
 			}
 			return err
 		}
@@ -183,6 +189,8 @@ func (m *ImageFilter) contextValidateImageArch(ctx context.Context, formats strf
 		if err := m.ImageArch.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageArch")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imageArch")
 			}
 			return err
 		}
@@ -197,6 +205,8 @@ func (m *ImageFilter) contextValidateImageStatus(ctx context.Context, formats st
 		if err := m.ImageStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imageStatus")
 			}
 			return err
 		}
@@ -211,6 +221,8 @@ func (m *ImageFilter) contextValidateImageType(ctx context.Context, formats strf
 		if err := m.ImageType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imageType")
 			}
 			return err
 		}

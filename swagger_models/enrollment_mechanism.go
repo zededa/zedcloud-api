@@ -23,8 +23,12 @@ import (
 type EnrollmentMechanism string
 
 func NewEnrollmentMechanism(value EnrollmentMechanism) *EnrollmentMechanism {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated EnrollmentMechanism.
+func (m EnrollmentMechanism) Pointer() *EnrollmentMechanism {
+	return &m
 }
 
 const (

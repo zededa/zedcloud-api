@@ -117,6 +117,8 @@ func (m *CrudContentProtobuf) validateCredential(formats strfmt.Registry) error 
 		if err := m.Credential.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("credential")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("credential")
 			}
 			return err
 		}
@@ -134,6 +136,8 @@ func (m *CrudContentProtobuf) validateDetailedUser(formats strfmt.Registry) erro
 		if err := m.DetailedUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("detailedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("detailedUser")
 			}
 			return err
 		}
@@ -151,6 +155,8 @@ func (m *CrudContentProtobuf) validateDocPolicy(formats strfmt.Registry) error {
 		if err := m.DocPolicy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("docPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("docPolicy")
 			}
 			return err
 		}
@@ -168,6 +174,8 @@ func (m *CrudContentProtobuf) validateEnterprise(formats strfmt.Registry) error 
 		if err := m.Enterprise.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enterprise")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("enterprise")
 			}
 			return err
 		}
@@ -185,6 +193,8 @@ func (m *CrudContentProtobuf) validatePolicy(formats strfmt.Registry) error {
 		if err := m.Policy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("policy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("policy")
 			}
 			return err
 		}
@@ -202,6 +212,8 @@ func (m *CrudContentProtobuf) validateProfile(formats strfmt.Registry) error {
 		if err := m.Profile.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("profile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("profile")
 			}
 			return err
 		}
@@ -219,6 +231,8 @@ func (m *CrudContentProtobuf) validateRealm(formats strfmt.Registry) error {
 		if err := m.Realm.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("realm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("realm")
 			}
 			return err
 		}
@@ -236,6 +250,8 @@ func (m *CrudContentProtobuf) validateRole(formats strfmt.Registry) error {
 		if err := m.Role.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("role")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("role")
 			}
 			return err
 		}
@@ -253,6 +269,8 @@ func (m *CrudContentProtobuf) validateSimpleUser(formats strfmt.Registry) error 
 		if err := m.SimpleUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("simpleUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("simpleUser")
 			}
 			return err
 		}
@@ -270,6 +288,8 @@ func (m *CrudContentProtobuf) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}
@@ -334,6 +354,8 @@ func (m *CrudContentProtobuf) contextValidateCredential(ctx context.Context, for
 		if err := m.Credential.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("credential")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("credential")
 			}
 			return err
 		}
@@ -348,6 +370,8 @@ func (m *CrudContentProtobuf) contextValidateDetailedUser(ctx context.Context, f
 		if err := m.DetailedUser.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("detailedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("detailedUser")
 			}
 			return err
 		}
@@ -362,6 +386,8 @@ func (m *CrudContentProtobuf) contextValidateDocPolicy(ctx context.Context, form
 		if err := m.DocPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("docPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("docPolicy")
 			}
 			return err
 		}
@@ -376,6 +402,8 @@ func (m *CrudContentProtobuf) contextValidateEnterprise(ctx context.Context, for
 		if err := m.Enterprise.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enterprise")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("enterprise")
 			}
 			return err
 		}
@@ -390,6 +418,8 @@ func (m *CrudContentProtobuf) contextValidatePolicy(ctx context.Context, formats
 		if err := m.Policy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("policy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("policy")
 			}
 			return err
 		}
@@ -404,6 +434,8 @@ func (m *CrudContentProtobuf) contextValidateProfile(ctx context.Context, format
 		if err := m.Profile.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("profile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("profile")
 			}
 			return err
 		}
@@ -418,6 +450,8 @@ func (m *CrudContentProtobuf) contextValidateRealm(ctx context.Context, formats 
 		if err := m.Realm.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("realm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("realm")
 			}
 			return err
 		}
@@ -432,6 +466,8 @@ func (m *CrudContentProtobuf) contextValidateRole(ctx context.Context, formats s
 		if err := m.Role.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("role")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("role")
 			}
 			return err
 		}
@@ -446,6 +482,8 @@ func (m *CrudContentProtobuf) contextValidateSimpleUser(ctx context.Context, for
 		if err := m.SimpleUser.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("simpleUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("simpleUser")
 			}
 			return err
 		}
@@ -460,6 +498,8 @@ func (m *CrudContentProtobuf) contextValidateUser(ctx context.Context, formats s
 		if err := m.User.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

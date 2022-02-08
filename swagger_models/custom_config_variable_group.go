@@ -62,6 +62,8 @@ func (m *CustomConfigVariableGroup) validateCondition(formats strfmt.Registry) e
 		if err := m.Condition.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("condition")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("condition")
 			}
 			return err
 		}
@@ -84,6 +86,8 @@ func (m *CustomConfigVariableGroup) validateVariables(formats strfmt.Registry) e
 			if err := m.Variables[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("variables" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("variables" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -118,6 +122,8 @@ func (m *CustomConfigVariableGroup) contextValidateCondition(ctx context.Context
 		if err := m.Condition.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("condition")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("condition")
 			}
 			return err
 		}
@@ -134,6 +140,8 @@ func (m *CustomConfigVariableGroup) contextValidateVariables(ctx context.Context
 			if err := m.Variables[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("variables" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("variables" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
