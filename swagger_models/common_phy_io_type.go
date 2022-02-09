@@ -23,8 +23,12 @@ import (
 type CommonPhyIoType string
 
 func NewCommonPhyIoType(value CommonPhyIoType) *CommonPhyIoType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated CommonPhyIoType.
+func (m CommonPhyIoType) Pointer() *CommonPhyIoType {
+	return &m
 }
 
 const (

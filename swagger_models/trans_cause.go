@@ -23,8 +23,12 @@ import (
 type TransCause string
 
 func NewTransCause(value TransCause) *TransCause {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated TransCause.
+func (m TransCause) Pointer() *TransCause {
+	return &m
 }
 
 const (

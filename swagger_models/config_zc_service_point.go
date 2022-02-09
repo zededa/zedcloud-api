@@ -55,6 +55,8 @@ func (m *ConfigZcServicePoint) validateZsType(formats strfmt.Registry) error {
 		if err := m.ZsType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("zsType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("zsType")
 			}
 			return err
 		}
@@ -83,6 +85,8 @@ func (m *ConfigZcServicePoint) contextValidateZsType(ctx context.Context, format
 		if err := m.ZsType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("zsType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("zsType")
 			}
 			return err
 		}

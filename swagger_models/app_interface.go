@@ -175,6 +175,8 @@ func (m *AppInterface) validateAcls(formats strfmt.Registry) error {
 			if err := m.Acls[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("acls" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("acls" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -204,6 +206,8 @@ func (m *AppInterface) validateEidregister(formats strfmt.Registry) error {
 		if err := m.Eidregister.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("eidregister")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("eidregister")
 			}
 			return err
 		}
@@ -240,6 +244,8 @@ func (m *AppInterface) validateIo(formats strfmt.Registry) error {
 		if err := m.Io.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("io")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("io")
 			}
 			return err
 		}
@@ -314,6 +320,8 @@ func (m *AppInterface) contextValidateAcls(ctx context.Context, formats strfmt.R
 			if err := m.Acls[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("acls" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("acls" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -330,6 +338,8 @@ func (m *AppInterface) contextValidateEidregister(ctx context.Context, formats s
 		if err := m.Eidregister.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("eidregister")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("eidregister")
 			}
 			return err
 		}
@@ -344,6 +354,8 @@ func (m *AppInterface) contextValidateIo(ctx context.Context, formats strfmt.Reg
 		if err := m.Io.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("io")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("io")
 			}
 			return err
 		}

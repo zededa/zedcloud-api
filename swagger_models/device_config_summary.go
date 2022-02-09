@@ -133,6 +133,8 @@ func (m *DeviceConfigSummary) validateAdminState(formats strfmt.Registry) error 
 		if err := m.AdminState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adminState")
 			}
 			return err
 		}
@@ -155,6 +157,8 @@ func (m *DeviceConfigSummary) validateBaseImage(formats strfmt.Registry) error {
 			if err := m.BaseImage[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("baseImage" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("baseImage" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -211,6 +215,8 @@ func (m *DeviceConfigSummary) validateInterfaces(formats strfmt.Registry) error 
 			if err := m.Interfaces[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("interfaces" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -266,6 +272,8 @@ func (m *DeviceConfigSummary) validateUtype(formats strfmt.Registry) error {
 		if err := m.Utype.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("utype")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("utype")
 			}
 			return err
 		}
@@ -310,6 +318,8 @@ func (m *DeviceConfigSummary) contextValidateAdminState(ctx context.Context, for
 		if err := m.AdminState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adminState")
 			}
 			return err
 		}
@@ -326,6 +336,8 @@ func (m *DeviceConfigSummary) contextValidateBaseImage(ctx context.Context, form
 			if err := m.BaseImage[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("baseImage" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("baseImage" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -353,6 +365,8 @@ func (m *DeviceConfigSummary) contextValidateInterfaces(ctx context.Context, for
 			if err := m.Interfaces[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("interfaces" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -369,6 +383,8 @@ func (m *DeviceConfigSummary) contextValidateUtype(ctx context.Context, formats 
 		if err := m.Utype.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("utype")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("utype")
 			}
 			return err
 		}

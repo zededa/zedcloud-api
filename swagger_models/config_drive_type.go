@@ -25,8 +25,12 @@ import (
 type ConfigDriveType string
 
 func NewConfigDriveType(value ConfigDriveType) *ConfigDriveType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigDriveType.
+func (m ConfigDriveType) Pointer() *ConfigDriveType {
+	return &m
 }
 
 const (

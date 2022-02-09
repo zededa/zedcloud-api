@@ -30,8 +30,12 @@ import (
 type ImageStatus string
 
 func NewImageStatus(value ImageStatus) *ImageStatus {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ImageStatus.
+func (m ImageStatus) Pointer() *ImageStatus {
+	return &m
 }
 
 const (

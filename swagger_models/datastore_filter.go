@@ -59,6 +59,8 @@ func (m *DatastoreFilter) validateDsType(formats strfmt.Registry) error {
 		if err := m.DsType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dsType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dsType")
 			}
 			return err
 		}
@@ -107,6 +109,8 @@ func (m *DatastoreFilter) contextValidateDsType(ctx context.Context, formats str
 		if err := m.DsType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dsType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dsType")
 			}
 			return err
 		}

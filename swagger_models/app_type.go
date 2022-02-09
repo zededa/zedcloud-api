@@ -23,8 +23,12 @@ import (
 type AppType string
 
 func NewAppType(value AppType) *AppType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AppType.
+func (m AppType) Pointer() *AppType {
+	return &m
 }
 
 const (

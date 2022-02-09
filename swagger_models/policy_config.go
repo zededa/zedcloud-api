@@ -160,6 +160,8 @@ func (m *PolicyConfig) validateAppPolicy(formats strfmt.Registry) error {
 		if err := m.AppPolicy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appPolicy")
 			}
 			return err
 		}
@@ -177,6 +179,8 @@ func (m *PolicyConfig) validateAttestationPolicy(formats strfmt.Registry) error 
 		if err := m.AttestationPolicy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("attestationPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("attestationPolicy")
 			}
 			return err
 		}
@@ -194,6 +198,8 @@ func (m *PolicyConfig) validateAzurePolicy(formats strfmt.Registry) error {
 		if err := m.AzurePolicy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("azurePolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("azurePolicy")
 			}
 			return err
 		}
@@ -211,6 +217,8 @@ func (m *PolicyConfig) validateClusterPolicy(formats strfmt.Registry) error {
 		if err := m.ClusterPolicy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clusterPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("clusterPolicy")
 			}
 			return err
 		}
@@ -252,6 +260,8 @@ func (m *PolicyConfig) validateModulePolicy(formats strfmt.Registry) error {
 		if err := m.ModulePolicy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modulePolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modulePolicy")
 			}
 			return err
 		}
@@ -290,6 +300,8 @@ func (m *PolicyConfig) validateNetworkPolicy(formats strfmt.Registry) error {
 		if err := m.NetworkPolicy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("networkPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("networkPolicy")
 			}
 			return err
 		}
@@ -307,6 +319,8 @@ func (m *PolicyConfig) validateRevision(formats strfmt.Registry) error {
 		if err := m.Revision.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -324,6 +338,8 @@ func (m *PolicyConfig) validateStatus(formats strfmt.Registry) error {
 		if err := m.Status.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("status")
 			}
 			return err
 		}
@@ -379,6 +395,8 @@ func (m *PolicyConfig) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -443,6 +461,8 @@ func (m *PolicyConfig) contextValidateAppPolicy(ctx context.Context, formats str
 		if err := m.AppPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appPolicy")
 			}
 			return err
 		}
@@ -457,6 +477,8 @@ func (m *PolicyConfig) contextValidateAttestationPolicy(ctx context.Context, for
 		if err := m.AttestationPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("attestationPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("attestationPolicy")
 			}
 			return err
 		}
@@ -471,6 +493,8 @@ func (m *PolicyConfig) contextValidateAzurePolicy(ctx context.Context, formats s
 		if err := m.AzurePolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("azurePolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("azurePolicy")
 			}
 			return err
 		}
@@ -485,6 +509,8 @@ func (m *PolicyConfig) contextValidateClusterPolicy(ctx context.Context, formats
 		if err := m.ClusterPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clusterPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("clusterPolicy")
 			}
 			return err
 		}
@@ -508,6 +534,8 @@ func (m *PolicyConfig) contextValidateModulePolicy(ctx context.Context, formats 
 		if err := m.ModulePolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modulePolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modulePolicy")
 			}
 			return err
 		}
@@ -522,6 +550,8 @@ func (m *PolicyConfig) contextValidateNetworkPolicy(ctx context.Context, formats
 		if err := m.NetworkPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("networkPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("networkPolicy")
 			}
 			return err
 		}
@@ -536,6 +566,8 @@ func (m *PolicyConfig) contextValidateRevision(ctx context.Context, formats strf
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -550,6 +582,8 @@ func (m *PolicyConfig) contextValidateStatus(ctx context.Context, formats strfmt
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("status")
 			}
 			return err
 		}
@@ -564,6 +598,8 @@ func (m *PolicyConfig) contextValidateType(ctx context.Context, formats strfmt.R
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

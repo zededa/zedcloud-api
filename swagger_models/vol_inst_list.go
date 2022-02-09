@@ -68,6 +68,8 @@ func (m *VolInstList) validateCfgList(formats strfmt.Registry) error {
 			if err := m.CfgList[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("cfgList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cfgList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -92,6 +94,8 @@ func (m *VolInstList) validateList(formats strfmt.Registry) error {
 			if err := m.List[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -111,6 +115,8 @@ func (m *VolInstList) validateNext(formats strfmt.Registry) error {
 		if err := m.Next.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("next")
 			}
 			return err
 		}
@@ -149,6 +155,8 @@ func (m *VolInstList) contextValidateCfgList(ctx context.Context, formats strfmt
 			if err := m.CfgList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("cfgList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cfgList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -167,6 +175,8 @@ func (m *VolInstList) contextValidateList(ctx context.Context, formats strfmt.Re
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -183,6 +193,8 @@ func (m *VolInstList) contextValidateNext(ctx context.Context, formats strfmt.Re
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("next")
 			}
 			return err
 		}

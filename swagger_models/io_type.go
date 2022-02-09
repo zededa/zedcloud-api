@@ -34,8 +34,12 @@ import (
 type IoType string
 
 func NewIoType(value IoType) *IoType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated IoType.
+func (m IoType) Pointer() *IoType {
+	return &m
 }
 
 const (

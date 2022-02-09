@@ -81,6 +81,8 @@ func (m *ZManufacturerInfo) validateHSMStatus(formats strfmt.Registry) error {
 		if err := m.HSMStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("hSMStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("hSMStatus")
 			}
 			return err
 		}
@@ -109,6 +111,8 @@ func (m *ZManufacturerInfo) contextValidateHSMStatus(ctx context.Context, format
 		if err := m.HSMStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("hSMStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("hSMStatus")
 			}
 			return err
 		}

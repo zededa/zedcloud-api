@@ -54,6 +54,8 @@ func (m *ModelImport) validateModelConfig(formats strfmt.Registry) error {
 			if err := m.ModelConfig[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("modelConfig" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("modelConfig" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -86,6 +88,8 @@ func (m *ModelImport) contextValidateModelConfig(ctx context.Context, formats st
 			if err := m.ModelConfig[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("modelConfig" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("modelConfig" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

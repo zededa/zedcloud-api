@@ -23,8 +23,12 @@ import (
 type CrudResultCode string
 
 func NewCrudResultCode(value CrudResultCode) *CrudResultCode {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated CrudResultCode.
+func (m CrudResultCode) Pointer() *CrudResultCode {
+	return &m
 }
 
 const (

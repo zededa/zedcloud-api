@@ -23,8 +23,12 @@ import (
 type ObjectType string
 
 func NewObjectType(value ObjectType) *ObjectType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ObjectType.
+func (m ObjectType) Pointer() *ObjectType {
+	return &m
 }
 
 const (

@@ -58,6 +58,8 @@ func (m *ConfigBaseOS) validateRetryUpdate(formats strfmt.Registry) error {
 		if err := m.RetryUpdate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("retry_update")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("retry_update")
 			}
 			return err
 		}
@@ -86,6 +88,8 @@ func (m *ConfigBaseOS) contextValidateRetryUpdate(ctx context.Context, formats s
 		if err := m.RetryUpdate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("retry_update")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("retry_update")
 			}
 			return err
 		}

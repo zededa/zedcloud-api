@@ -60,6 +60,8 @@ func (m *HealthDesc) validateBriefHealth(formats strfmt.Registry) error {
 		if err := m.BriefHealth.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("briefHealth")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("briefHealth")
 			}
 			return err
 		}
@@ -88,6 +90,8 @@ func (m *HealthDesc) contextValidateBriefHealth(ctx context.Context, formats str
 		if err := m.BriefHealth.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("briefHealth")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("briefHealth")
 			}
 			return err
 		}

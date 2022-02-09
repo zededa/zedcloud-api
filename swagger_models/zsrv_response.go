@@ -108,6 +108,8 @@ func (m *ZsrvResponse) validateError(formats strfmt.Registry) error {
 			if err := m.Error[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("error" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("error" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -127,6 +129,8 @@ func (m *ZsrvResponse) validateObjectType(formats strfmt.Registry) error {
 		if err := m.ObjectType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("objectType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("objectType")
 			}
 			return err
 		}
@@ -144,6 +148,8 @@ func (m *ZsrvResponse) validateOperationStatus(formats strfmt.Registry) error {
 		if err := m.OperationStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("operationStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("operationStatus")
 			}
 			return err
 		}
@@ -161,6 +167,8 @@ func (m *ZsrvResponse) validateOperationType(formats strfmt.Registry) error {
 		if err := m.OperationType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("operationType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("operationType")
 			}
 			return err
 		}
@@ -203,6 +211,8 @@ func (m *ZsrvResponse) contextValidateError(ctx context.Context, formats strfmt.
 			if err := m.Error[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("error" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("error" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -219,6 +229,8 @@ func (m *ZsrvResponse) contextValidateObjectType(ctx context.Context, formats st
 		if err := m.ObjectType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("objectType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("objectType")
 			}
 			return err
 		}
@@ -233,6 +245,8 @@ func (m *ZsrvResponse) contextValidateOperationStatus(ctx context.Context, forma
 		if err := m.OperationStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("operationStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("operationStatus")
 			}
 			return err
 		}
@@ -247,6 +261,8 @@ func (m *ZsrvResponse) contextValidateOperationType(ctx context.Context, formats
 		if err := m.OperationType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("operationType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("operationType")
 			}
 			return err
 		}

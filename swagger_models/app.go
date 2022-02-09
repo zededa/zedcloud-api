@@ -156,6 +156,8 @@ func (m *App) validateManifestJSON(formats strfmt.Registry) error {
 		if err := m.ManifestJSON.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("manifestJSON")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("manifestJSON")
 			}
 			return err
 		}
@@ -199,6 +201,8 @@ func (m *App) validateOriginType(formats strfmt.Registry) error {
 		if err := m.OriginType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("originType")
 			}
 			return err
 		}
@@ -216,6 +220,8 @@ func (m *App) validateParentDetail(formats strfmt.Registry) error {
 		if err := m.ParentDetail.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parentDetail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parentDetail")
 			}
 			return err
 		}
@@ -233,6 +239,8 @@ func (m *App) validateRevision(formats strfmt.Registry) error {
 		if err := m.Revision.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -320,6 +328,8 @@ func (m *App) contextValidateManifestJSON(ctx context.Context, formats strfmt.Re
 		if err := m.ManifestJSON.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("manifestJSON")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("manifestJSON")
 			}
 			return err
 		}
@@ -334,6 +344,8 @@ func (m *App) contextValidateOriginType(ctx context.Context, formats strfmt.Regi
 		if err := m.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("originType")
 			}
 			return err
 		}
@@ -348,6 +360,8 @@ func (m *App) contextValidateParentDetail(ctx context.Context, formats strfmt.Re
 		if err := m.ParentDetail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parentDetail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parentDetail")
 			}
 			return err
 		}
@@ -362,6 +376,8 @@ func (m *App) contextValidateRevision(ctx context.Context, formats strfmt.Regist
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}

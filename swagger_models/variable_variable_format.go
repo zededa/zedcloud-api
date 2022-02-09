@@ -31,8 +31,12 @@ import (
 type VariableVariableFormat string
 
 func NewVariableVariableFormat(value VariableVariableFormat) *VariableVariableFormat {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated VariableVariableFormat.
+func (m VariableVariableFormat) Pointer() *VariableVariableFormat {
+	return &m
 }
 
 const (

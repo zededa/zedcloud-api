@@ -56,6 +56,8 @@ func (m *ObjectTagFilter) validateObjType(formats strfmt.Registry) error {
 		if err := m.ObjType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("objType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("objType")
 			}
 			return err
 		}
@@ -84,6 +86,8 @@ func (m *ObjectTagFilter) contextValidateObjType(ctx context.Context, formats st
 		if err := m.ObjType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("objType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("objType")
 			}
 			return err
 		}

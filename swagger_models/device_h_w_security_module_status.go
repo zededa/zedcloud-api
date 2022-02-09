@@ -23,8 +23,12 @@ import (
 type DeviceHWSecurityModuleStatus string
 
 func NewDeviceHWSecurityModuleStatus(value DeviceHWSecurityModuleStatus) *DeviceHWSecurityModuleStatus {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated DeviceHWSecurityModuleStatus.
+func (m DeviceHWSecurityModuleStatus) Pointer() *DeviceHWSecurityModuleStatus {
+	return &m
 }
 
 const (

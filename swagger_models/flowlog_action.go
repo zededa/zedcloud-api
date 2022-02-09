@@ -23,8 +23,12 @@ import (
 type FlowlogAction string
 
 func NewFlowlogAction(value FlowlogAction) *FlowlogAction {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated FlowlogAction.
+func (m FlowlogAction) Pointer() *FlowlogAction {
+	return &m
 }
 
 const (

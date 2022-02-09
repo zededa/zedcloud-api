@@ -23,8 +23,12 @@ import (
 type ConfigWiFiKeyScheme string
 
 func NewConfigWiFiKeyScheme(value ConfigWiFiKeyScheme) *ConfigWiFiKeyScheme {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigWiFiKeyScheme.
+func (m ConfigWiFiKeyScheme) Pointer() *ConfigWiFiKeyScheme {
+	return &m
 }
 
 const (

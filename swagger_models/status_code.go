@@ -23,8 +23,12 @@ import (
 type StatusCode string
 
 func NewStatusCode(value StatusCode) *StatusCode {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated StatusCode.
+func (m StatusCode) Pointer() *StatusCode {
+	return &m
 }
 
 const (

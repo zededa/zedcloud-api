@@ -48,6 +48,8 @@ func (m *UserDataTemplate) validateCustomConfig(formats strfmt.Registry) error {
 		if err := m.CustomConfig.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customConfig")
 			}
 			return err
 		}
@@ -76,6 +78,8 @@ func (m *UserDataTemplate) contextValidateCustomConfig(ctx context.Context, form
 		if err := m.CustomConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customConfig")
 			}
 			return err
 		}

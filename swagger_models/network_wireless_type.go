@@ -23,8 +23,12 @@ import (
 type NetworkWirelessType string
 
 func NewNetworkWirelessType(value NetworkWirelessType) *NetworkWirelessType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated NetworkWirelessType.
+func (m NetworkWirelessType) Pointer() *NetworkWirelessType {
+	return &m
 }
 
 const (

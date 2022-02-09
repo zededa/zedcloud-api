@@ -54,6 +54,8 @@ func (m *AAAFailureResponseLogin) validateCause(formats strfmt.Registry) error {
 		if err := m.Cause.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cause")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cause")
 			}
 			return err
 		}
@@ -82,6 +84,8 @@ func (m *AAAFailureResponseLogin) contextValidateCause(ctx context.Context, form
 		if err := m.Cause.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cause")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cause")
 			}
 			return err
 		}

@@ -90,6 +90,8 @@ func (m *ConfigServiceResp) validateConfig(formats strfmt.Registry) error {
 		if err := m.Config.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("config")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("config")
 			}
 			return err
 		}
@@ -119,6 +121,8 @@ func (m *ConfigServiceResp) validateLastKnownStatus(formats strfmt.Registry) err
 		if err := m.LastKnownStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastKnownStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastKnownStatus")
 			}
 			return err
 		}
@@ -148,6 +152,8 @@ func (m *ConfigServiceResp) validateResult(formats strfmt.Registry) error {
 		if err := m.Result.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result")
 			}
 			return err
 		}
@@ -196,6 +202,8 @@ func (m *ConfigServiceResp) contextValidateConfig(ctx context.Context, formats s
 		if err := m.Config.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("config")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("config")
 			}
 			return err
 		}
@@ -210,6 +218,8 @@ func (m *ConfigServiceResp) contextValidateLastKnownStatus(ctx context.Context, 
 		if err := m.LastKnownStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastKnownStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastKnownStatus")
 			}
 			return err
 		}
@@ -224,6 +234,8 @@ func (m *ConfigServiceResp) contextValidateResult(ctx context.Context, formats s
 		if err := m.Result.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result")
 			}
 			return err
 		}

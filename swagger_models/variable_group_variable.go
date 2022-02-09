@@ -107,6 +107,8 @@ func (m *VariableGroupVariable) validateEncode(formats strfmt.Registry) error {
 		if err := m.Encode.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("encode")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("encode")
 			}
 			return err
 		}
@@ -129,6 +131,8 @@ func (m *VariableGroupVariable) validateFormat(formats strfmt.Registry) error {
 		if err := m.Format.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("format")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("format")
 			}
 			return err
 		}
@@ -169,6 +173,8 @@ func (m *VariableGroupVariable) validateOptions(formats strfmt.Registry) error {
 			if err := m.Options[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("options" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("options" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -216,6 +222,8 @@ func (m *VariableGroupVariable) contextValidateEncode(ctx context.Context, forma
 		if err := m.Encode.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("encode")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("encode")
 			}
 			return err
 		}
@@ -230,6 +238,8 @@ func (m *VariableGroupVariable) contextValidateFormat(ctx context.Context, forma
 		if err := m.Format.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("format")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("format")
 			}
 			return err
 		}
@@ -246,6 +256,8 @@ func (m *VariableGroupVariable) contextValidateOptions(ctx context.Context, form
 			if err := m.Options[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("options" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("options" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

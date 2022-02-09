@@ -63,6 +63,8 @@ func (m *AzureResourceAndServiceDetail) validateSKU(formats strfmt.Registry) err
 		if err := m.SKU.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("SKU")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("SKU")
 			}
 			return err
 		}
@@ -91,6 +93,8 @@ func (m *AzureResourceAndServiceDetail) contextValidateSKU(ctx context.Context, 
 		if err := m.SKU.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("SKU")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("SKU")
 			}
 			return err
 		}

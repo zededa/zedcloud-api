@@ -23,8 +23,12 @@ import (
 type ConfigNetworkType string
 
 func NewConfigNetworkType(value ConfigNetworkType) *ConfigNetworkType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigNetworkType.
+func (m ConfigNetworkType) Pointer() *ConfigNetworkType {
+	return &m
 }
 
 const (

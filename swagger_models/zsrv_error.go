@@ -55,6 +55,8 @@ func (m *ZsrvError) validateEc(formats strfmt.Registry) error {
 		if err := m.Ec.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ec")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ec")
 			}
 			return err
 		}
@@ -83,6 +85,8 @@ func (m *ZsrvError) contextValidateEc(ctx context.Context, formats strfmt.Regist
 		if err := m.Ec.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ec")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ec")
 			}
 			return err
 		}

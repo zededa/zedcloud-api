@@ -75,6 +75,8 @@ func (m *BlobInfo) validateState(formats strfmt.Registry) error {
 		if err := m.State.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("State")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("State")
 			}
 			return err
 		}
@@ -92,6 +94,8 @@ func (m *BlobInfo) validateErrInfo(formats strfmt.Registry) error {
 		if err := m.ErrInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errInfo")
 			}
 			return err
 		}
@@ -109,6 +113,8 @@ func (m *BlobInfo) validateResource(formats strfmt.Registry) error {
 		if err := m.Resource.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("resource")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resource")
 			}
 			return err
 		}
@@ -126,6 +132,8 @@ func (m *BlobInfo) validateUsage(formats strfmt.Registry) error {
 		if err := m.Usage.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("usage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("usage")
 			}
 			return err
 		}
@@ -166,6 +174,8 @@ func (m *BlobInfo) contextValidateState(ctx context.Context, formats strfmt.Regi
 		if err := m.State.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("State")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("State")
 			}
 			return err
 		}
@@ -180,6 +190,8 @@ func (m *BlobInfo) contextValidateErrInfo(ctx context.Context, formats strfmt.Re
 		if err := m.ErrInfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errInfo")
 			}
 			return err
 		}
@@ -194,6 +206,8 @@ func (m *BlobInfo) contextValidateResource(ctx context.Context, formats strfmt.R
 		if err := m.Resource.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("resource")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resource")
 			}
 			return err
 		}
@@ -208,6 +222,8 @@ func (m *BlobInfo) contextValidateUsage(ctx context.Context, formats strfmt.Regi
 		if err := m.Usage.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("usage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("usage")
 			}
 			return err
 		}

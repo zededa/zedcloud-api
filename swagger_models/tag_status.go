@@ -28,8 +28,12 @@ import (
 type TagStatus string
 
 func NewTagStatus(value TagStatus) *TagStatus {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated TagStatus.
+func (m TagStatus) Pointer() *TagStatus {
+	return &m
 }
 
 const (

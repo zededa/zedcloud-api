@@ -101,6 +101,8 @@ func (m *IoBundleStatus) validateErr(formats strfmt.Registry) error {
 		if err := m.Err.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("err")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("err")
 			}
 			return err
 		}
@@ -118,6 +120,8 @@ func (m *IoBundleStatus) validateLteInfo(formats strfmt.Registry) error {
 		if err := m.LteInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lte_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lte_info")
 			}
 			return err
 		}
@@ -158,6 +162,8 @@ func (m *IoBundleStatus) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -194,6 +200,8 @@ func (m *IoBundleStatus) contextValidateErr(ctx context.Context, formats strfmt.
 		if err := m.Err.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("err")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("err")
 			}
 			return err
 		}
@@ -208,6 +216,8 @@ func (m *IoBundleStatus) contextValidateLteInfo(ctx context.Context, formats str
 		if err := m.LteInfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lte_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lte_info")
 			}
 			return err
 		}
@@ -222,6 +232,8 @@ func (m *IoBundleStatus) contextValidateType(ctx context.Context, formats strfmt
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

@@ -23,8 +23,12 @@ import (
 type UserState string
 
 func NewUserState(value UserState) *UserState {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated UserState.
+func (m UserState) Pointer() *UserState {
+	return &m
 }
 
 const (

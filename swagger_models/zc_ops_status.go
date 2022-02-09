@@ -27,8 +27,12 @@ import (
 type ZcOpsStatus string
 
 func NewZcOpsStatus(value ZcOpsStatus) *ZcOpsStatus {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ZcOpsStatus.
+func (m ZcOpsStatus) Pointer() *ZcOpsStatus {
+	return &m
 }
 
 const (

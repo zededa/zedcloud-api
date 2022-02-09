@@ -67,6 +67,8 @@ func (m *DhcpServerConfig) validateDhcpRange(formats strfmt.Registry) error {
 		if err := m.DhcpRange.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dhcpRange")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dhcpRange")
 			}
 			return err
 		}
@@ -95,6 +97,8 @@ func (m *DhcpServerConfig) contextValidateDhcpRange(ctx context.Context, formats
 		if err := m.DhcpRange.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dhcpRange")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dhcpRange")
 			}
 			return err
 		}

@@ -75,6 +75,8 @@ func (m *DeviceConfigList) validateList(formats strfmt.Registry) error {
 			if err := m.List[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -95,6 +97,8 @@ func (m *DeviceConfigList) validateNext(formats strfmt.Registry) error {
 		if err := m.Next.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("next")
 			}
 			return err
 		}
@@ -113,6 +117,8 @@ func (m *DeviceConfigList) validateSummaryByState(formats strfmt.Registry) error
 		if err := m.SummaryByState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByState")
 			}
 			return err
 		}
@@ -151,6 +157,8 @@ func (m *DeviceConfigList) contextValidateList(ctx context.Context, formats strf
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -167,6 +175,8 @@ func (m *DeviceConfigList) contextValidateNext(ctx context.Context, formats strf
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("next")
 			}
 			return err
 		}
@@ -181,6 +191,8 @@ func (m *DeviceConfigList) contextValidateSummaryByState(ctx context.Context, fo
 		if err := m.SummaryByState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByState")
 			}
 			return err
 		}

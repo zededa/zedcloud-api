@@ -23,8 +23,12 @@ import (
 type DecsriptionCode string
 
 func NewDecsriptionCode(value DecsriptionCode) *DecsriptionCode {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated DecsriptionCode.
+func (m DecsriptionCode) Pointer() *DecsriptionCode {
+	return &m
 }
 
 const (

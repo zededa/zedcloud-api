@@ -73,6 +73,8 @@ func (m *ConfigDrive) validateDrvtype(formats strfmt.Registry) error {
 		if err := m.Drvtype.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("drvtype")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("drvtype")
 			}
 			return err
 		}
@@ -90,6 +92,8 @@ func (m *ConfigDrive) validateImage(formats strfmt.Registry) error {
 		if err := m.Image.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("image")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("image")
 			}
 			return err
 		}
@@ -107,6 +111,8 @@ func (m *ConfigDrive) validateTarget(formats strfmt.Registry) error {
 		if err := m.Target.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("target")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("target")
 			}
 			return err
 		}
@@ -143,6 +149,8 @@ func (m *ConfigDrive) contextValidateDrvtype(ctx context.Context, formats strfmt
 		if err := m.Drvtype.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("drvtype")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("drvtype")
 			}
 			return err
 		}
@@ -157,6 +165,8 @@ func (m *ConfigDrive) contextValidateImage(ctx context.Context, formats strfmt.R
 		if err := m.Image.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("image")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("image")
 			}
 			return err
 		}
@@ -171,6 +181,8 @@ func (m *ConfigDrive) contextValidateTarget(ctx context.Context, formats strfmt.
 		if err := m.Target.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("target")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("target")
 			}
 			return err
 		}

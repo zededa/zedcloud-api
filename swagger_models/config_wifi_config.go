@@ -74,6 +74,8 @@ func (m *ConfigWifiConfig) validateCipherData(formats strfmt.Registry) error {
 		if err := m.CipherData.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cipherData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cipherData")
 			}
 			return err
 		}
@@ -91,6 +93,8 @@ func (m *ConfigWifiConfig) validateCrypto(formats strfmt.Registry) error {
 		if err := m.Crypto.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("crypto")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("crypto")
 			}
 			return err
 		}
@@ -108,6 +112,8 @@ func (m *ConfigWifiConfig) validateKeyScheme(formats strfmt.Registry) error {
 		if err := m.KeyScheme.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("keyScheme")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("keyScheme")
 			}
 			return err
 		}
@@ -144,6 +150,8 @@ func (m *ConfigWifiConfig) contextValidateCipherData(ctx context.Context, format
 		if err := m.CipherData.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cipherData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cipherData")
 			}
 			return err
 		}
@@ -158,6 +166,8 @@ func (m *ConfigWifiConfig) contextValidateCrypto(ctx context.Context, formats st
 		if err := m.Crypto.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("crypto")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("crypto")
 			}
 			return err
 		}
@@ -172,6 +182,8 @@ func (m *ConfigWifiConfig) contextValidateKeyScheme(ctx context.Context, formats
 		if err := m.KeyScheme.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("keyScheme")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("keyScheme")
 			}
 			return err
 		}

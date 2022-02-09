@@ -72,6 +72,8 @@ func (m *LispConfig) validateSp(formats strfmt.Registry) error {
 			if err := m.Sp[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sp" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sp" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -104,6 +106,8 @@ func (m *LispConfig) contextValidateSp(ctx context.Context, formats strfmt.Regis
 			if err := m.Sp[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sp" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sp" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

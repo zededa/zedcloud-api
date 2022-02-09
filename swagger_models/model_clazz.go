@@ -23,8 +23,12 @@ import (
 type ModelClazz string
 
 func NewModelClazz(value ModelClazz) *ModelClazz {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ModelClazz.
+func (m ModelClazz) Pointer() *ModelClazz {
+	return &m
 }
 
 const (

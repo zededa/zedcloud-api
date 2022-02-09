@@ -90,6 +90,8 @@ func (m *ClusterPolicy) validateClusterConfig(formats strfmt.Registry) error {
 		if err := m.ClusterConfig.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clusterConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("clusterConfig")
 			}
 			return err
 		}
@@ -125,6 +127,8 @@ func (m *ClusterPolicy) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -157,6 +161,8 @@ func (m *ClusterPolicy) contextValidateClusterConfig(ctx context.Context, format
 		if err := m.ClusterConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clusterConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("clusterConfig")
 			}
 			return err
 		}
@@ -171,6 +177,8 @@ func (m *ClusterPolicy) contextValidateType(ctx context.Context, formats strfmt.
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

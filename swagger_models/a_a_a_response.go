@@ -90,6 +90,8 @@ func (m *AAAResponse) validateFailure(formats strfmt.Registry) error {
 		if err := m.Failure.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("failure")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("failure")
 			}
 			return err
 		}
@@ -107,6 +109,8 @@ func (m *AAAResponse) validateMode(formats strfmt.Registry) error {
 		if err := m.Mode.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mode")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mode")
 			}
 			return err
 		}
@@ -124,6 +128,8 @@ func (m *AAAResponse) validateNotify(formats strfmt.Registry) error {
 		if err := m.Notify.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("notify")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("notify")
 			}
 			return err
 		}
@@ -141,6 +147,8 @@ func (m *AAAResponse) validateRedirect(formats strfmt.Registry) error {
 		if err := m.Redirect.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("redirect")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("redirect")
 			}
 			return err
 		}
@@ -158,6 +166,8 @@ func (m *AAAResponse) validateResult(formats strfmt.Registry) error {
 		if err := m.Result.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result")
 			}
 			return err
 		}
@@ -175,6 +185,8 @@ func (m *AAAResponse) validateSuccess(formats strfmt.Registry) error {
 		if err := m.Success.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("success")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("success")
 			}
 			return err
 		}
@@ -192,6 +204,8 @@ func (m *AAAResponse) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -244,6 +258,8 @@ func (m *AAAResponse) contextValidateFailure(ctx context.Context, formats strfmt
 		if err := m.Failure.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("failure")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("failure")
 			}
 			return err
 		}
@@ -258,6 +274,8 @@ func (m *AAAResponse) contextValidateMode(ctx context.Context, formats strfmt.Re
 		if err := m.Mode.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mode")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mode")
 			}
 			return err
 		}
@@ -272,6 +290,8 @@ func (m *AAAResponse) contextValidateNotify(ctx context.Context, formats strfmt.
 		if err := m.Notify.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("notify")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("notify")
 			}
 			return err
 		}
@@ -286,6 +306,8 @@ func (m *AAAResponse) contextValidateRedirect(ctx context.Context, formats strfm
 		if err := m.Redirect.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("redirect")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("redirect")
 			}
 			return err
 		}
@@ -300,6 +322,8 @@ func (m *AAAResponse) contextValidateResult(ctx context.Context, formats strfmt.
 		if err := m.Result.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result")
 			}
 			return err
 		}
@@ -314,6 +338,8 @@ func (m *AAAResponse) contextValidateSuccess(ctx context.Context, formats strfmt
 		if err := m.Success.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("success")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("success")
 			}
 			return err
 		}
@@ -328,6 +354,8 @@ func (m *AAAResponse) contextValidateType(ctx context.Context, formats strfmt.Re
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

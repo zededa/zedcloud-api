@@ -23,8 +23,12 @@ import (
 type DeviceSWSubStatus string
 
 func NewDeviceSWSubStatus(value DeviceSWSubStatus) *DeviceSWSubStatus {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated DeviceSWSubStatus.
+func (m DeviceSWSubStatus) Pointer() *DeviceSWSubStatus {
+	return &m
 }
 
 const (

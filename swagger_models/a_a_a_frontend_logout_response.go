@@ -55,6 +55,8 @@ func (m *AAAFrontendLogoutResponse) validateCause(formats strfmt.Registry) error
 		if err := m.Cause.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cause")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cause")
 			}
 			return err
 		}
@@ -72,6 +74,8 @@ func (m *AAAFrontendLogoutResponse) validateToken(formats strfmt.Registry) error
 		if err := m.Token.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("token")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("token")
 			}
 			return err
 		}
@@ -104,6 +108,8 @@ func (m *AAAFrontendLogoutResponse) contextValidateCause(ctx context.Context, fo
 		if err := m.Cause.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cause")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cause")
 			}
 			return err
 		}
@@ -118,6 +124,8 @@ func (m *AAAFrontendLogoutResponse) contextValidateToken(ctx context.Context, fo
 		if err := m.Token.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("token")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("token")
 			}
 			return err
 		}

@@ -23,8 +23,12 @@ import (
 type PolicyType string
 
 func NewPolicyType(value PolicyType) *PolicyType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated PolicyType.
+func (m PolicyType) Pointer() *PolicyType {
+	return &m
 }
 
 const (

@@ -26,8 +26,12 @@ import (
 type NetworkDHCPType string
 
 func NewNetworkDHCPType(value NetworkDHCPType) *NetworkDHCPType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated NetworkDHCPType.
+func (m NetworkDHCPType) Pointer() *NetworkDHCPType {
+	return &m
 }
 
 const (

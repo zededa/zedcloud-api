@@ -24,8 +24,12 @@ import (
 type NetworkInstanceDhcpType string
 
 func NewNetworkInstanceDhcpType(value NetworkInstanceDhcpType) *NetworkInstanceDhcpType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated NetworkInstanceDhcpType.
+func (m NetworkInstanceDhcpType) Pointer() *NetworkInstanceDhcpType {
+	return &m
 }
 
 const (

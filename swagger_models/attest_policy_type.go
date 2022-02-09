@@ -24,8 +24,12 @@ import (
 type AttestPolicyType string
 
 func NewAttestPolicyType(value AttestPolicyType) *AttestPolicyType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AttestPolicyType.
+func (m AttestPolicyType) Pointer() *AttestPolicyType {
+	return &m
 }
 
 const (

@@ -23,8 +23,12 @@ import (
 type ConfigDsType string
 
 func NewConfigDsType(value ConfigDsType) *ConfigDsType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigDsType.
+func (m ConfigDsType) Pointer() *ConfigDsType {
+	return &m
 }
 
 const (

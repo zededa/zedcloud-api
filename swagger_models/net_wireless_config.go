@@ -62,6 +62,8 @@ func (m *NetWirelessConfig) validateCellularCfg(formats strfmt.Registry) error {
 		if err := m.CellularCfg.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cellularCfg")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cellularCfg")
 			}
 			return err
 		}
@@ -79,6 +81,8 @@ func (m *NetWirelessConfig) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -96,6 +100,8 @@ func (m *NetWirelessConfig) validateWifiCfg(formats strfmt.Registry) error {
 		if err := m.WifiCfg.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wifiCfg")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wifiCfg")
 			}
 			return err
 		}
@@ -132,6 +138,8 @@ func (m *NetWirelessConfig) contextValidateCellularCfg(ctx context.Context, form
 		if err := m.CellularCfg.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cellularCfg")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cellularCfg")
 			}
 			return err
 		}
@@ -146,6 +154,8 @@ func (m *NetWirelessConfig) contextValidateType(ctx context.Context, formats str
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -160,6 +170,8 @@ func (m *NetWirelessConfig) contextValidateWifiCfg(ctx context.Context, formats 
 		if err := m.WifiCfg.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wifiCfg")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wifiCfg")
 			}
 			return err
 		}

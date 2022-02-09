@@ -90,6 +90,8 @@ func (m *ConfigNetworkAdapter) validateAcls(formats strfmt.Registry) error {
 			if err := m.Acls[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("acls" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("acls" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -122,6 +124,8 @@ func (m *ConfigNetworkAdapter) contextValidateAcls(ctx context.Context, formats 
 			if err := m.Acls[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("acls" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("acls" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

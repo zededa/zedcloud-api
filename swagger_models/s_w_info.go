@@ -65,6 +65,8 @@ func (m *SWInfo) validateState(formats strfmt.Registry) error {
 		if err := m.State.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("state")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("state")
 			}
 			return err
 		}
@@ -93,6 +95,8 @@ func (m *SWInfo) contextValidateState(ctx context.Context, formats strfmt.Regist
 		if err := m.State.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("state")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("state")
 			}
 			return err
 		}

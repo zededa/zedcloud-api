@@ -55,6 +55,8 @@ func (m *CloudVersionResp) validateResult(formats strfmt.Registry) error {
 		if err := m.Result.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result")
 			}
 			return err
 		}
@@ -72,6 +74,8 @@ func (m *CloudVersionResp) validateVersion(formats strfmt.Registry) error {
 		if err := m.Version.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("version")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("version")
 			}
 			return err
 		}
@@ -104,6 +108,8 @@ func (m *CloudVersionResp) contextValidateResult(ctx context.Context, formats st
 		if err := m.Result.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result")
 			}
 			return err
 		}
@@ -118,6 +124,8 @@ func (m *CloudVersionResp) contextValidateVersion(ctx context.Context, formats s
 		if err := m.Version.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("version")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("version")
 			}
 			return err
 		}

@@ -26,8 +26,12 @@ import (
 type ConfigVMMode string
 
 func NewConfigVMMode(value ConfigVMMode) *ConfigVMMode {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigVMMode.
+func (m ConfigVMMode) Pointer() *ConfigVMMode {
+	return &m
 }
 
 const (

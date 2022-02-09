@@ -70,6 +70,8 @@ func (m *AzureResourceAndServices) validateDpsService(formats strfmt.Registry) e
 		if err := m.DpsService.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dpsService")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dpsService")
 			}
 			return err
 		}
@@ -93,6 +95,8 @@ func (m *AzureResourceAndServices) validateIotHubService(formats strfmt.Registry
 			if err := m.IotHubService[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("iotHubService" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("iotHubService" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -118,6 +122,8 @@ func (m *AzureResourceAndServices) validateResourceGroup(formats strfmt.Registry
 			if err := m.ResourceGroup[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("resourceGroup" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resourceGroup" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -156,6 +162,8 @@ func (m *AzureResourceAndServices) contextValidateDpsService(ctx context.Context
 		if err := m.DpsService.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dpsService")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dpsService")
 			}
 			return err
 		}
@@ -172,6 +180,8 @@ func (m *AzureResourceAndServices) contextValidateIotHubService(ctx context.Cont
 			if err := m.IotHubService[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("iotHubService" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("iotHubService" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -190,6 +200,8 @@ func (m *AzureResourceAndServices) contextValidateResourceGroup(ctx context.Cont
 			if err := m.ResourceGroup[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("resourceGroup" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resourceGroup" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

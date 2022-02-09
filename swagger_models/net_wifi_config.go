@@ -77,6 +77,8 @@ func (m *NetWifiConfig) validateCrypto(formats strfmt.Registry) error {
 		if err := m.Crypto.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("crypto")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("crypto")
 			}
 			return err
 		}
@@ -94,6 +96,8 @@ func (m *NetWifiConfig) validateKeyScheme(formats strfmt.Registry) error {
 		if err := m.KeyScheme.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("keyScheme")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("keyScheme")
 			}
 			return err
 		}
@@ -111,6 +115,8 @@ func (m *NetWifiConfig) validateSecret(formats strfmt.Registry) error {
 		if err := m.Secret.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("secret")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("secret")
 			}
 			return err
 		}
@@ -147,6 +153,8 @@ func (m *NetWifiConfig) contextValidateCrypto(ctx context.Context, formats strfm
 		if err := m.Crypto.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("crypto")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("crypto")
 			}
 			return err
 		}
@@ -161,6 +169,8 @@ func (m *NetWifiConfig) contextValidateKeyScheme(ctx context.Context, formats st
 		if err := m.KeyScheme.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("keyScheme")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("keyScheme")
 			}
 			return err
 		}
@@ -175,6 +185,8 @@ func (m *NetWifiConfig) contextValidateSecret(ctx context.Context, formats strfm
 		if err := m.Secret.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("secret")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("secret")
 			}
 			return err
 		}

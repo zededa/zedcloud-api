@@ -25,8 +25,12 @@ import (
 type PCRType string
 
 func NewPCRType(value PCRType) *PCRType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated PCRType.
+func (m PCRType) Pointer() *PCRType {
+	return &m
 }
 
 const (

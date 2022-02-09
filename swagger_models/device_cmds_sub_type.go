@@ -35,8 +35,12 @@ import (
 type DeviceCmdsSubType string
 
 func NewDeviceCmdsSubType(value DeviceCmdsSubType) *DeviceCmdsSubType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated DeviceCmdsSubType.
+func (m DeviceCmdsSubType) Pointer() *DeviceCmdsSubType {
+	return &m
 }
 
 const (

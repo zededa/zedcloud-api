@@ -23,8 +23,12 @@ import (
 type DeviceBootReason string
 
 func NewDeviceBootReason(value DeviceBootReason) *DeviceBootReason {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated DeviceBootReason.
+func (m DeviceBootReason) Pointer() *DeviceBootReason {
+	return &m
 }
 
 const (

@@ -75,6 +75,8 @@ func (m *Datastores) validateList(formats strfmt.Registry) error {
 			if err := m.List[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -94,6 +96,8 @@ func (m *Datastores) validateNext(formats strfmt.Registry) error {
 		if err := m.Next.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("next")
 			}
 			return err
 		}
@@ -111,6 +115,8 @@ func (m *Datastores) validateSummaryByCategory(formats strfmt.Registry) error {
 		if err := m.SummaryByCategory.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByCategory")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByCategory")
 			}
 			return err
 		}
@@ -128,6 +134,8 @@ func (m *Datastores) validateSummaryByType(formats strfmt.Registry) error {
 		if err := m.SummaryByType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByType")
 			}
 			return err
 		}
@@ -170,6 +178,8 @@ func (m *Datastores) contextValidateList(ctx context.Context, formats strfmt.Reg
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -186,6 +196,8 @@ func (m *Datastores) contextValidateNext(ctx context.Context, formats strfmt.Reg
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("next")
 			}
 			return err
 		}
@@ -200,6 +212,8 @@ func (m *Datastores) contextValidateSummaryByCategory(ctx context.Context, forma
 		if err := m.SummaryByCategory.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByCategory")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByCategory")
 			}
 			return err
 		}
@@ -214,6 +228,8 @@ func (m *Datastores) contextValidateSummaryByType(ctx context.Context, formats s
 		if err := m.SummaryByType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByType")
 			}
 			return err
 		}

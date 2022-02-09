@@ -71,6 +71,8 @@ func (m *Configipspec) validateDhcp(formats strfmt.Registry) error {
 		if err := m.Dhcp.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dhcp")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dhcp")
 			}
 			return err
 		}
@@ -88,6 +90,8 @@ func (m *Configipspec) validateDhcpRange(formats strfmt.Registry) error {
 		if err := m.DhcpRange.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dhcpRange")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dhcpRange")
 			}
 			return err
 		}
@@ -120,6 +124,8 @@ func (m *Configipspec) contextValidateDhcp(ctx context.Context, formats strfmt.R
 		if err := m.Dhcp.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dhcp")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dhcp")
 			}
 			return err
 		}
@@ -134,6 +140,8 @@ func (m *Configipspec) contextValidateDhcpRange(ctx context.Context, formats str
 		if err := m.DhcpRange.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dhcpRange")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dhcpRange")
 			}
 			return err
 		}

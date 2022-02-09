@@ -23,8 +23,12 @@ import (
 type ConfigWirelessType string
 
 func NewConfigWirelessType(value ConfigWirelessType) *ConfigWirelessType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigWirelessType.
+func (m ConfigWirelessType) Pointer() *ConfigWirelessType {
+	return &m
 }
 
 const (

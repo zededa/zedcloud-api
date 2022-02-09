@@ -167,6 +167,8 @@ func (m *DatastoreInfo) validateCertificateChain(formats strfmt.Registry) error 
 		if err := m.CertificateChain.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("certificateChain")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("certificateChain")
 			}
 			return err
 		}
@@ -214,6 +216,8 @@ func (m *DatastoreInfo) validateDsStatus(formats strfmt.Registry) error {
 		if err := m.DsStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dsStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dsStatus")
 			}
 			return err
 		}
@@ -236,6 +240,8 @@ func (m *DatastoreInfo) validateDsType(formats strfmt.Registry) error {
 		if err := m.DsType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dsType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dsType")
 			}
 			return err
 		}
@@ -286,6 +292,8 @@ func (m *DatastoreInfo) validateOriginType(formats strfmt.Registry) error {
 		if err := m.OriginType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("originType")
 			}
 			return err
 		}
@@ -303,6 +311,8 @@ func (m *DatastoreInfo) validateRevision(formats strfmt.Registry) error {
 		if err := m.Revision.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -320,6 +330,8 @@ func (m *DatastoreInfo) validateSecret(formats strfmt.Registry) error {
 		if err := m.Secret.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("secret")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("secret")
 			}
 			return err
 		}
@@ -401,6 +413,8 @@ func (m *DatastoreInfo) contextValidateCertificateChain(ctx context.Context, for
 		if err := m.CertificateChain.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("certificateChain")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("certificateChain")
 			}
 			return err
 		}
@@ -433,6 +447,8 @@ func (m *DatastoreInfo) contextValidateDsStatus(ctx context.Context, formats str
 		if err := m.DsStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dsStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dsStatus")
 			}
 			return err
 		}
@@ -447,6 +463,8 @@ func (m *DatastoreInfo) contextValidateDsType(ctx context.Context, formats strfm
 		if err := m.DsType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dsType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dsType")
 			}
 			return err
 		}
@@ -470,6 +488,8 @@ func (m *DatastoreInfo) contextValidateOriginType(ctx context.Context, formats s
 		if err := m.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("originType")
 			}
 			return err
 		}
@@ -484,6 +504,8 @@ func (m *DatastoreInfo) contextValidateRevision(ctx context.Context, formats str
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -498,6 +520,8 @@ func (m *DatastoreInfo) contextValidateSecret(ctx context.Context, formats strfm
 		if err := m.Secret.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("secret")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("secret")
 			}
 			return err
 		}

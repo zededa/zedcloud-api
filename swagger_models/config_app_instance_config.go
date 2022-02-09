@@ -181,6 +181,8 @@ func (m *ConfigAppInstanceConfig) validateAdapters(formats strfmt.Registry) erro
 			if err := m.Adapters[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("adapters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("adapters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -200,6 +202,8 @@ func (m *ConfigAppInstanceConfig) validateCipherData(formats strfmt.Registry) er
 		if err := m.CipherData.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cipherData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cipherData")
 			}
 			return err
 		}
@@ -222,6 +226,8 @@ func (m *ConfigAppInstanceConfig) validateDrives(formats strfmt.Registry) error 
 			if err := m.Drives[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("drives" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("drives" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -241,6 +247,8 @@ func (m *ConfigAppInstanceConfig) validateFixedresources(formats strfmt.Registry
 		if err := m.Fixedresources.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("fixedresources")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fixedresources")
 			}
 			return err
 		}
@@ -263,6 +271,8 @@ func (m *ConfigAppInstanceConfig) validateInterfaces(formats strfmt.Registry) er
 			if err := m.Interfaces[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("interfaces" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -282,6 +292,8 @@ func (m *ConfigAppInstanceConfig) validateMetaDataType(formats strfmt.Registry) 
 		if err := m.MetaDataType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metaDataType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metaDataType")
 			}
 			return err
 		}
@@ -299,6 +311,8 @@ func (m *ConfigAppInstanceConfig) validatePurge(formats strfmt.Registry) error {
 		if err := m.Purge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("purge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("purge")
 			}
 			return err
 		}
@@ -316,6 +330,8 @@ func (m *ConfigAppInstanceConfig) validateRestart(formats strfmt.Registry) error
 		if err := m.Restart.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("restart")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("restart")
 			}
 			return err
 		}
@@ -333,6 +349,8 @@ func (m *ConfigAppInstanceConfig) validateUuidandversion(formats strfmt.Registry
 		if err := m.Uuidandversion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("uuidandversion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("uuidandversion")
 			}
 			return err
 		}
@@ -355,6 +373,8 @@ func (m *ConfigAppInstanceConfig) validateVolumeRefList(formats strfmt.Registry)
 			if err := m.VolumeRefList[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("volumeRefList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("volumeRefList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -423,6 +443,8 @@ func (m *ConfigAppInstanceConfig) contextValidateAdapters(ctx context.Context, f
 			if err := m.Adapters[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("adapters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("adapters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -439,6 +461,8 @@ func (m *ConfigAppInstanceConfig) contextValidateCipherData(ctx context.Context,
 		if err := m.CipherData.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cipherData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cipherData")
 			}
 			return err
 		}
@@ -455,6 +479,8 @@ func (m *ConfigAppInstanceConfig) contextValidateDrives(ctx context.Context, for
 			if err := m.Drives[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("drives" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("drives" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -471,6 +497,8 @@ func (m *ConfigAppInstanceConfig) contextValidateFixedresources(ctx context.Cont
 		if err := m.Fixedresources.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("fixedresources")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fixedresources")
 			}
 			return err
 		}
@@ -487,6 +515,8 @@ func (m *ConfigAppInstanceConfig) contextValidateInterfaces(ctx context.Context,
 			if err := m.Interfaces[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("interfaces" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -503,6 +533,8 @@ func (m *ConfigAppInstanceConfig) contextValidateMetaDataType(ctx context.Contex
 		if err := m.MetaDataType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metaDataType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metaDataType")
 			}
 			return err
 		}
@@ -517,6 +549,8 @@ func (m *ConfigAppInstanceConfig) contextValidatePurge(ctx context.Context, form
 		if err := m.Purge.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("purge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("purge")
 			}
 			return err
 		}
@@ -531,6 +565,8 @@ func (m *ConfigAppInstanceConfig) contextValidateRestart(ctx context.Context, fo
 		if err := m.Restart.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("restart")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("restart")
 			}
 			return err
 		}
@@ -545,6 +581,8 @@ func (m *ConfigAppInstanceConfig) contextValidateUuidandversion(ctx context.Cont
 		if err := m.Uuidandversion.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("uuidandversion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("uuidandversion")
 			}
 			return err
 		}
@@ -561,6 +599,8 @@ func (m *ConfigAppInstanceConfig) contextValidateVolumeRefList(ctx context.Conte
 			if err := m.VolumeRefList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("volumeRefList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("volumeRefList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

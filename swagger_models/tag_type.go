@@ -27,8 +27,12 @@ import (
 type TagType string
 
 func NewTagType(value TagType) *TagType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated TagType.
+func (m TagType) Pointer() *TagType {
+	return &m
 }
 
 const (

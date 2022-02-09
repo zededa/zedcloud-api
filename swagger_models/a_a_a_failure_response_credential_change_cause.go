@@ -23,8 +23,12 @@ import (
 type AAAFailureResponseCredentialChangeCause string
 
 func NewAAAFailureResponseCredentialChangeCause(value AAAFailureResponseCredentialChangeCause) *AAAFailureResponseCredentialChangeCause {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AAAFailureResponseCredentialChangeCause.
+func (m AAAFailureResponseCredentialChangeCause) Pointer() *AAAFailureResponseCredentialChangeCause {
+	return &m
 }
 
 const (

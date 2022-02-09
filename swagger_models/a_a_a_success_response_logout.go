@@ -48,6 +48,8 @@ func (m *AAASuccessResponseLogout) validateOriginal(formats strfmt.Registry) err
 		if err := m.Original.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("original")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("original")
 			}
 			return err
 		}
@@ -76,6 +78,8 @@ func (m *AAASuccessResponseLogout) contextValidateOriginal(ctx context.Context, 
 		if err := m.Original.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("original")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("original")
 			}
 			return err
 		}

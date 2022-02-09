@@ -106,6 +106,8 @@ func (m *ConfigNetworkInstanceConfig) validateCfg(formats strfmt.Registry) error
 		if err := m.Cfg.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cfg")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cfg")
 			}
 			return err
 		}
@@ -128,6 +130,8 @@ func (m *ConfigNetworkInstanceConfig) validateDNS(formats strfmt.Registry) error
 			if err := m.DNS[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dns" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dns" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -147,6 +151,8 @@ func (m *ConfigNetworkInstanceConfig) validateInstType(formats strfmt.Registry) 
 		if err := m.InstType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("instType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("instType")
 			}
 			return err
 		}
@@ -164,6 +170,8 @@ func (m *ConfigNetworkInstanceConfig) validateIP(formats strfmt.Registry) error 
 		if err := m.IP.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ip")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ip")
 			}
 			return err
 		}
@@ -181,6 +189,8 @@ func (m *ConfigNetworkInstanceConfig) validateIPType(formats strfmt.Registry) er
 		if err := m.IPType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ipType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ipType")
 			}
 			return err
 		}
@@ -198,6 +208,8 @@ func (m *ConfigNetworkInstanceConfig) validatePort(formats strfmt.Registry) erro
 		if err := m.Port.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("port")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("port")
 			}
 			return err
 		}
@@ -215,6 +227,8 @@ func (m *ConfigNetworkInstanceConfig) validateUuidandversion(formats strfmt.Regi
 		if err := m.Uuidandversion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("uuidandversion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("uuidandversion")
 			}
 			return err
 		}
@@ -267,6 +281,8 @@ func (m *ConfigNetworkInstanceConfig) contextValidateCfg(ctx context.Context, fo
 		if err := m.Cfg.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cfg")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cfg")
 			}
 			return err
 		}
@@ -283,6 +299,8 @@ func (m *ConfigNetworkInstanceConfig) contextValidateDNS(ctx context.Context, fo
 			if err := m.DNS[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dns" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dns" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -299,6 +317,8 @@ func (m *ConfigNetworkInstanceConfig) contextValidateInstType(ctx context.Contex
 		if err := m.InstType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("instType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("instType")
 			}
 			return err
 		}
@@ -313,6 +333,8 @@ func (m *ConfigNetworkInstanceConfig) contextValidateIP(ctx context.Context, for
 		if err := m.IP.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ip")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ip")
 			}
 			return err
 		}
@@ -327,6 +349,8 @@ func (m *ConfigNetworkInstanceConfig) contextValidateIPType(ctx context.Context,
 		if err := m.IPType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ipType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ipType")
 			}
 			return err
 		}
@@ -341,6 +365,8 @@ func (m *ConfigNetworkInstanceConfig) contextValidatePort(ctx context.Context, f
 		if err := m.Port.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("port")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("port")
 			}
 			return err
 		}
@@ -355,6 +381,8 @@ func (m *ConfigNetworkInstanceConfig) contextValidateUuidandversion(ctx context.
 		if err := m.Uuidandversion.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("uuidandversion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("uuidandversion")
 			}
 			return err
 		}

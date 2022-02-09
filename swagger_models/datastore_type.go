@@ -33,8 +33,12 @@ import (
 type DatastoreType string
 
 func NewDatastoreType(value DatastoreType) *DatastoreType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated DatastoreType.
+func (m DatastoreType) Pointer() *DatastoreType {
+	return &m
 }
 
 const (

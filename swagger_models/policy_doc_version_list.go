@@ -68,6 +68,8 @@ func (m *PolicyDocVersionList) validateList(formats strfmt.Registry) error {
 			if err := m.List[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -87,6 +89,8 @@ func (m *PolicyDocVersionList) validateNext(formats strfmt.Registry) error {
 		if err := m.Next.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("next")
 			}
 			return err
 		}
@@ -104,6 +108,8 @@ func (m *PolicyDocVersionList) validateSummary(formats strfmt.Registry) error {
 		if err := m.Summary.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summary")
 			}
 			return err
 		}
@@ -142,6 +148,8 @@ func (m *PolicyDocVersionList) contextValidateList(ctx context.Context, formats 
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -158,6 +166,8 @@ func (m *PolicyDocVersionList) contextValidateNext(ctx context.Context, formats 
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("next")
 			}
 			return err
 		}
@@ -172,6 +182,8 @@ func (m *PolicyDocVersionList) contextValidateSummary(ctx context.Context, forma
 		if err := m.Summary.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summary")
 			}
 			return err
 		}

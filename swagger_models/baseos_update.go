@@ -48,6 +48,8 @@ func (m *BaseosUpdate) validateBaseimage(formats strfmt.Registry) error {
 		if err := m.Baseimage.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("baseimage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("baseimage")
 			}
 			return err
 		}
@@ -76,6 +78,8 @@ func (m *BaseosUpdate) contextValidateBaseimage(ctx context.Context, formats str
 		if err := m.Baseimage.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("baseimage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("baseimage")
 			}
 			return err
 		}

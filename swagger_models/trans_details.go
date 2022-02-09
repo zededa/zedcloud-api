@@ -58,6 +58,8 @@ func (m *TransDetails) validateCause(formats strfmt.Registry) error {
 		if err := m.Cause.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cause")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cause")
 			}
 			return err
 		}
@@ -75,6 +77,8 @@ func (m *TransDetails) validateScope(formats strfmt.Registry) error {
 		if err := m.Scope.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("scope")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scope")
 			}
 			return err
 		}
@@ -107,6 +111,8 @@ func (m *TransDetails) contextValidateCause(ctx context.Context, formats strfmt.
 		if err := m.Cause.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cause")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cause")
 			}
 			return err
 		}
@@ -121,6 +127,8 @@ func (m *TransDetails) contextValidateScope(ctx context.Context, formats strfmt.
 		if err := m.Scope.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("scope")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scope")
 			}
 			return err
 		}

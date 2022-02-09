@@ -23,8 +23,12 @@ import (
 type ConfigVolumeContentOriginType string
 
 func NewConfigVolumeContentOriginType(value ConfigVolumeContentOriginType) *ConfigVolumeContentOriginType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigVolumeContentOriginType.
+func (m ConfigVolumeContentOriginType) Pointer() *ConfigVolumeContentOriginType {
+	return &m
 }
 
 const (

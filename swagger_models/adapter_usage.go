@@ -29,8 +29,12 @@ import (
 type AdapterUsage string
 
 func NewAdapterUsage(value AdapterUsage) *AdapterUsage {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AdapterUsage.
+func (m AdapterUsage) Pointer() *AdapterUsage {
+	return &m
 }
 
 const (

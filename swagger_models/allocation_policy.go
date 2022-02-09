@@ -23,8 +23,12 @@ import (
 type AllocationPolicy string
 
 func NewAllocationPolicy(value AllocationPolicy) *AllocationPolicy {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AllocationPolicy.
+func (m AllocationPolicy) Pointer() *AllocationPolicy {
+	return &m
 }
 
 const (

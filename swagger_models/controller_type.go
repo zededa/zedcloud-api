@@ -23,8 +23,12 @@ import (
 type ControllerType string
 
 func NewControllerType(value ControllerType) *ControllerType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ControllerType.
+func (m ControllerType) Pointer() *ControllerType {
+	return &m
 }
 
 const (

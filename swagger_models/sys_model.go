@@ -167,6 +167,8 @@ func (m *SysModel) validatePCRTemplates(formats strfmt.Registry) error {
 			if err := m.PCRTemplates[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("PCRTemplates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("PCRTemplates" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -237,6 +239,8 @@ func (m *SysModel) validateIoMemberList(formats strfmt.Registry) error {
 			if err := m.IoMemberList[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ioMemberList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ioMemberList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -277,6 +281,8 @@ func (m *SysModel) validateOriginType(formats strfmt.Registry) error {
 		if err := m.OriginType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("originType")
 			}
 			return err
 		}
@@ -294,6 +300,8 @@ func (m *SysModel) validateParentDetail(formats strfmt.Registry) error {
 		if err := m.ParentDetail.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parentDetail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parentDetail")
 			}
 			return err
 		}
@@ -311,6 +319,8 @@ func (m *SysModel) validateRevision(formats strfmt.Registry) error {
 		if err := m.Revision.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -333,6 +343,8 @@ func (m *SysModel) validateState(formats strfmt.Registry) error {
 		if err := m.State.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("state")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("state")
 			}
 			return err
 		}
@@ -376,6 +388,8 @@ func (m *SysModel) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -434,6 +448,8 @@ func (m *SysModel) contextValidatePCRTemplates(ctx context.Context, formats strf
 			if err := m.PCRTemplates[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("PCRTemplates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("PCRTemplates" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -461,6 +477,8 @@ func (m *SysModel) contextValidateIoMemberList(ctx context.Context, formats strf
 			if err := m.IoMemberList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ioMemberList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ioMemberList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -477,6 +495,8 @@ func (m *SysModel) contextValidateOriginType(ctx context.Context, formats strfmt
 		if err := m.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("originType")
 			}
 			return err
 		}
@@ -491,6 +511,8 @@ func (m *SysModel) contextValidateParentDetail(ctx context.Context, formats strf
 		if err := m.ParentDetail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parentDetail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parentDetail")
 			}
 			return err
 		}
@@ -505,6 +527,8 @@ func (m *SysModel) contextValidateRevision(ctx context.Context, formats strfmt.R
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -519,6 +543,8 @@ func (m *SysModel) contextValidateState(ctx context.Context, formats strfmt.Regi
 		if err := m.State.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("state")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("state")
 			}
 			return err
 		}
@@ -533,6 +559,8 @@ func (m *SysModel) contextValidateType(ctx context.Context, formats strfmt.Regis
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

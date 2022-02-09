@@ -202,6 +202,8 @@ func (m *ImageConfig) validateImageArch(formats strfmt.Registry) error {
 		if err := m.ImageArch.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageArch")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imageArch")
 			}
 			return err
 		}
@@ -224,6 +226,8 @@ func (m *ImageConfig) validateImageFormat(formats strfmt.Registry) error {
 		if err := m.ImageFormat.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageFormat")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imageFormat")
 			}
 			return err
 		}
@@ -241,6 +245,8 @@ func (m *ImageConfig) validateImageStatus(formats strfmt.Registry) error {
 		if err := m.ImageStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imageStatus")
 			}
 			return err
 		}
@@ -263,6 +269,8 @@ func (m *ImageConfig) validateImageType(formats strfmt.Registry) error {
 		if err := m.ImageType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imageType")
 			}
 			return err
 		}
@@ -301,6 +309,8 @@ func (m *ImageConfig) validateOriginType(formats strfmt.Registry) error {
 		if err := m.OriginType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("originType")
 			}
 			return err
 		}
@@ -318,6 +328,8 @@ func (m *ImageConfig) validateRevision(formats strfmt.Registry) error {
 		if err := m.Revision.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -408,6 +420,8 @@ func (m *ImageConfig) contextValidateImageArch(ctx context.Context, formats strf
 		if err := m.ImageArch.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageArch")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imageArch")
 			}
 			return err
 		}
@@ -431,6 +445,8 @@ func (m *ImageConfig) contextValidateImageFormat(ctx context.Context, formats st
 		if err := m.ImageFormat.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageFormat")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imageFormat")
 			}
 			return err
 		}
@@ -454,6 +470,8 @@ func (m *ImageConfig) contextValidateImageStatus(ctx context.Context, formats st
 		if err := m.ImageStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imageStatus")
 			}
 			return err
 		}
@@ -468,6 +486,8 @@ func (m *ImageConfig) contextValidateImageType(ctx context.Context, formats strf
 		if err := m.ImageType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imageType")
 			}
 			return err
 		}
@@ -482,6 +502,8 @@ func (m *ImageConfig) contextValidateOriginType(ctx context.Context, formats str
 		if err := m.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("originType")
 			}
 			return err
 		}
@@ -496,6 +518,8 @@ func (m *ImageConfig) contextValidateRevision(ctx context.Context, formats strfm
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}

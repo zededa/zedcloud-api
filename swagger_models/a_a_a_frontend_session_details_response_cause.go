@@ -23,8 +23,12 @@ import (
 type AAAFrontendSessionDetailsResponseCause string
 
 func NewAAAFrontendSessionDetailsResponseCause(value AAAFrontendSessionDetailsResponseCause) *AAAFrontendSessionDetailsResponseCause {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AAAFrontendSessionDetailsResponseCause.
+func (m AAAFrontendSessionDetailsResponseCause) Pointer() *AAAFrontendSessionDetailsResponseCause {
+	return &m
 }
 
 const (

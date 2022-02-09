@@ -29,8 +29,12 @@ import (
 type Origin string
 
 func NewOrigin(value Origin) *Origin {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated Origin.
+func (m Origin) Pointer() *Origin {
+	return &m
 }
 
 const (

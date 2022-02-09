@@ -156,6 +156,8 @@ func (m *NetConfig) validateDNSList(formats strfmt.Registry) error {
 			if err := m.DNSList[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dnsList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dnsList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -188,6 +190,8 @@ func (m *NetConfig) validateIP(formats strfmt.Registry) error {
 		if err := m.IP.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ip")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ip")
 			}
 			return err
 		}
@@ -210,6 +214,8 @@ func (m *NetConfig) validateKind(formats strfmt.Registry) error {
 		if err := m.Kind.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("kind")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("kind")
 			}
 			return err
 		}
@@ -257,6 +263,8 @@ func (m *NetConfig) validateProxy(formats strfmt.Registry) error {
 		if err := m.Proxy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("proxy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("proxy")
 			}
 			return err
 		}
@@ -274,6 +282,8 @@ func (m *NetConfig) validateRevision(formats strfmt.Registry) error {
 		if err := m.Revision.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -312,6 +322,8 @@ func (m *NetConfig) validateWireless(formats strfmt.Registry) error {
 		if err := m.Wireless.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wireless")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wireless")
 			}
 			return err
 		}
@@ -366,6 +378,8 @@ func (m *NetConfig) contextValidateDNSList(ctx context.Context, formats strfmt.R
 			if err := m.DNSList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dnsList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dnsList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -391,6 +405,8 @@ func (m *NetConfig) contextValidateIP(ctx context.Context, formats strfmt.Regist
 		if err := m.IP.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ip")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ip")
 			}
 			return err
 		}
@@ -405,6 +421,8 @@ func (m *NetConfig) contextValidateKind(ctx context.Context, formats strfmt.Regi
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("kind")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("kind")
 			}
 			return err
 		}
@@ -419,6 +437,8 @@ func (m *NetConfig) contextValidateProxy(ctx context.Context, formats strfmt.Reg
 		if err := m.Proxy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("proxy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("proxy")
 			}
 			return err
 		}
@@ -433,6 +453,8 @@ func (m *NetConfig) contextValidateRevision(ctx context.Context, formats strfmt.
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -447,6 +469,8 @@ func (m *NetConfig) contextValidateWireless(ctx context.Context, formats strfmt.
 		if err := m.Wireless.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wireless")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wireless")
 			}
 			return err
 		}

@@ -33,8 +33,12 @@ import (
 type InstanceTransitionAction string
 
 func NewInstanceTransitionAction(value InstanceTransitionAction) *InstanceTransitionAction {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated InstanceTransitionAction.
+func (m InstanceTransitionAction) Pointer() *InstanceTransitionAction {
+	return &m
 }
 
 const (

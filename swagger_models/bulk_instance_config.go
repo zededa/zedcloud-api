@@ -66,6 +66,8 @@ func (m *BulkInstanceConfig) validateAppInstanceConfig(formats strfmt.Registry) 
 		if err := m.AppInstanceConfig.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appInstanceConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appInstanceConfig")
 			}
 			return err
 		}
@@ -88,6 +90,8 @@ func (m *BulkInstanceConfig) validateNetInstanceConfig(formats strfmt.Registry) 
 			if err := m.NetInstanceConfig[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("netInstanceConfig" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("netInstanceConfig" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -107,6 +111,8 @@ func (m *BulkInstanceConfig) validateNetInstanceDetail(formats strfmt.Registry) 
 		if err := m.NetInstanceDetail.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("netInstanceDetail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("netInstanceDetail")
 			}
 			return err
 		}
@@ -143,6 +149,8 @@ func (m *BulkInstanceConfig) contextValidateAppInstanceConfig(ctx context.Contex
 		if err := m.AppInstanceConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appInstanceConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appInstanceConfig")
 			}
 			return err
 		}
@@ -159,6 +167,8 @@ func (m *BulkInstanceConfig) contextValidateNetInstanceConfig(ctx context.Contex
 			if err := m.NetInstanceConfig[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("netInstanceConfig" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("netInstanceConfig" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -175,6 +185,8 @@ func (m *BulkInstanceConfig) contextValidateNetInstanceDetail(ctx context.Contex
 		if err := m.NetInstanceDetail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("netInstanceDetail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("netInstanceDetail")
 			}
 			return err
 		}

@@ -73,6 +73,8 @@ func (m *ConfigCipherContext) validateEncryptionScheme(formats strfmt.Registry) 
 		if err := m.EncryptionScheme.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("encryptionScheme")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("encryptionScheme")
 			}
 			return err
 		}
@@ -90,6 +92,8 @@ func (m *ConfigCipherContext) validateHashScheme(formats strfmt.Registry) error 
 		if err := m.HashScheme.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("hashScheme")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("hashScheme")
 			}
 			return err
 		}
@@ -107,6 +111,8 @@ func (m *ConfigCipherContext) validateKeyExchangeScheme(formats strfmt.Registry)
 		if err := m.KeyExchangeScheme.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("keyExchangeScheme")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("keyExchangeScheme")
 			}
 			return err
 		}
@@ -143,6 +149,8 @@ func (m *ConfigCipherContext) contextValidateEncryptionScheme(ctx context.Contex
 		if err := m.EncryptionScheme.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("encryptionScheme")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("encryptionScheme")
 			}
 			return err
 		}
@@ -157,6 +165,8 @@ func (m *ConfigCipherContext) contextValidateHashScheme(ctx context.Context, for
 		if err := m.HashScheme.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("hashScheme")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("hashScheme")
 			}
 			return err
 		}
@@ -171,6 +181,8 @@ func (m *ConfigCipherContext) contextValidateKeyExchangeScheme(ctx context.Conte
 		if err := m.KeyExchangeScheme.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("keyExchangeScheme")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("keyExchangeScheme")
 			}
 			return err
 		}

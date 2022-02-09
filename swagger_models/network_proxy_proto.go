@@ -23,8 +23,12 @@ import (
 type NetworkProxyProto string
 
 func NewNetworkProxyProto(value NetworkProxyProto) *NetworkProxyProto {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated NetworkProxyProto.
+func (m NetworkProxyProto) Pointer() *NetworkProxyProto {
+	return &m
 }
 
 const (

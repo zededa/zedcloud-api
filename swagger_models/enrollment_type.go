@@ -23,8 +23,12 @@ import (
 type EnrollmentType string
 
 func NewEnrollmentType(value EnrollmentType) *EnrollmentType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated EnrollmentType.
+func (m EnrollmentType) Pointer() *EnrollmentType {
+	return &m
 }
 
 const (

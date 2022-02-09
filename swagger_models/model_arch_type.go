@@ -23,8 +23,12 @@ import (
 type ModelArchType string
 
 func NewModelArchType(value ModelArchType) *ModelArchType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ModelArchType.
+func (m ModelArchType) Pointer() *ModelArchType {
+	return &m
 }
 
 const (

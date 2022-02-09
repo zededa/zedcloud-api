@@ -102,6 +102,8 @@ func (m *VMManifestSummary) validateAppType(formats strfmt.Registry) error {
 		if err := m.AppType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appType")
 			}
 			return err
 		}
@@ -119,6 +121,8 @@ func (m *VMManifestSummary) validateDeploymentType(formats strfmt.Registry) erro
 		if err := m.DeploymentType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deploymentType")
 			}
 			return err
 		}
@@ -136,6 +140,8 @@ func (m *VMManifestSummary) validateDesc(formats strfmt.Registry) error {
 		if err := m.Desc.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("desc")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("desc")
 			}
 			return err
 		}
@@ -165,6 +171,8 @@ func (m *VMManifestSummary) validateModule(formats strfmt.Registry) error {
 		if err := m.Module.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("module")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("module")
 			}
 			return err
 		}
@@ -205,6 +213,8 @@ func (m *VMManifestSummary) contextValidateAppType(ctx context.Context, formats 
 		if err := m.AppType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appType")
 			}
 			return err
 		}
@@ -219,6 +229,8 @@ func (m *VMManifestSummary) contextValidateDeploymentType(ctx context.Context, f
 		if err := m.DeploymentType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deploymentType")
 			}
 			return err
 		}
@@ -233,6 +245,8 @@ func (m *VMManifestSummary) contextValidateDesc(ctx context.Context, formats str
 		if err := m.Desc.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("desc")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("desc")
 			}
 			return err
 		}
@@ -247,6 +261,8 @@ func (m *VMManifestSummary) contextValidateModule(ctx context.Context, formats s
 		if err := m.Module.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("module")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("module")
 			}
 			return err
 		}

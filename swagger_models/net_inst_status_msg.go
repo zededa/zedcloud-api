@@ -156,6 +156,8 @@ func (m *NetInstStatusMsg) validateAssignedAdapters(formats strfmt.Registry) err
 			if err := m.AssignedAdapters[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("assignedAdapters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assignedAdapters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -200,6 +202,8 @@ func (m *NetInstStatusMsg) validateErrInfo(formats strfmt.Registry) error {
 			if err := m.ErrInfo[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errInfo" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -236,6 +240,8 @@ func (m *NetInstStatusMsg) validateIPMappings(formats strfmt.Registry) error {
 			if err := m.IPMappings[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ipMappings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ipMappings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -255,6 +261,8 @@ func (m *NetInstStatusMsg) validateKind(formats strfmt.Registry) error {
 		if err := m.Kind.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("kind")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("kind")
 			}
 			return err
 		}
@@ -292,6 +300,8 @@ func (m *NetInstStatusMsg) validateRunState(formats strfmt.Registry) error {
 		if err := m.RunState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("runState")
 			}
 			return err
 		}
@@ -326,6 +336,8 @@ func (m *NetInstStatusMsg) validateVifs(formats strfmt.Registry) error {
 			if err := m.Vifs[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("vifs" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("vifs" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -382,6 +394,8 @@ func (m *NetInstStatusMsg) contextValidateAssignedAdapters(ctx context.Context, 
 			if err := m.AssignedAdapters[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("assignedAdapters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assignedAdapters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -400,6 +414,8 @@ func (m *NetInstStatusMsg) contextValidateErrInfo(ctx context.Context, formats s
 			if err := m.ErrInfo[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errInfo" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -427,6 +443,8 @@ func (m *NetInstStatusMsg) contextValidateIPMappings(ctx context.Context, format
 			if err := m.IPMappings[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ipMappings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ipMappings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -443,6 +461,8 @@ func (m *NetInstStatusMsg) contextValidateKind(ctx context.Context, formats strf
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("kind")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("kind")
 			}
 			return err
 		}
@@ -457,6 +477,8 @@ func (m *NetInstStatusMsg) contextValidateRunState(ctx context.Context, formats 
 		if err := m.RunState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("runState")
 			}
 			return err
 		}
@@ -473,6 +495,8 @@ func (m *NetInstStatusMsg) contextValidateVifs(ctx context.Context, formats strf
 			if err := m.Vifs[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("vifs" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("vifs" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

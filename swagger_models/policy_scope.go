@@ -23,8 +23,12 @@ import (
 type PolicyScope string
 
 func NewPolicyScope(value PolicyScope) *PolicyScope {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated PolicyScope.
+func (m PolicyScope) Pointer() *PolicyScope {
+	return &m
 }
 
 const (

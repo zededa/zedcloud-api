@@ -60,6 +60,8 @@ func (m *PCRTemplate) validatePCRValues(formats strfmt.Registry) error {
 			if err := m.PCRValues[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("PCRValues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("PCRValues" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -92,6 +94,8 @@ func (m *PCRTemplate) contextValidatePCRValues(ctx context.Context, formats strf
 			if err := m.PCRValues[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("PCRValues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("PCRValues" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

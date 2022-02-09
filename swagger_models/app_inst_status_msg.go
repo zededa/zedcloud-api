@@ -233,6 +233,8 @@ func (m *AppInstStatusMsg) validateCPU(formats strfmt.Registry) error {
 		if err := m.CPU.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Cpu")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Cpu")
 			}
 			return err
 		}
@@ -255,6 +257,8 @@ func (m *AppInstStatusMsg) validateIoStatusList(formats strfmt.Registry) error {
 			if err := m.IoStatusList[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("IoStatusList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("IoStatusList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -274,6 +278,8 @@ func (m *AppInstStatusMsg) validateMemory(formats strfmt.Registry) error {
 		if err := m.Memory.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Memory")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Memory")
 			}
 			return err
 		}
@@ -291,6 +297,8 @@ func (m *AppInstStatusMsg) validateStorage(formats strfmt.Registry) error {
 		if err := m.Storage.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Storage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Storage")
 			}
 			return err
 		}
@@ -308,6 +316,8 @@ func (m *AppInstStatusMsg) validateAdminState(formats strfmt.Registry) error {
 		if err := m.AdminState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adminState")
 			}
 			return err
 		}
@@ -345,6 +355,8 @@ func (m *AppInstStatusMsg) validateAppStatusFromTPController(formats strfmt.Regi
 		if err := m.AppStatusFromTPController.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appStatusFromTPController")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appStatusFromTPController")
 			}
 			return err
 		}
@@ -362,6 +374,8 @@ func (m *AppInstStatusMsg) validateAppType(formats strfmt.Registry) error {
 		if err := m.AppType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appType")
 			}
 			return err
 		}
@@ -411,6 +425,8 @@ func (m *AppInstStatusMsg) validateDeploymentType(formats strfmt.Registry) error
 		if err := m.DeploymentType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deploymentType")
 			}
 			return err
 		}
@@ -453,6 +469,8 @@ func (m *AppInstStatusMsg) validateErrInfo(formats strfmt.Registry) error {
 			if err := m.ErrInfo[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errInfo" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -484,6 +502,8 @@ func (m *AppInstStatusMsg) validateMemorySummary(formats strfmt.Registry) error 
 		if err := m.MemorySummary.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("memorySummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("memorySummary")
 			}
 			return err
 		}
@@ -526,6 +546,8 @@ func (m *AppInstStatusMsg) validateNetCounterList(formats strfmt.Registry) error
 			if err := m.NetCounterList[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("netCounterList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("netCounterList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -550,6 +572,8 @@ func (m *AppInstStatusMsg) validateNetStatusList(formats strfmt.Registry) error 
 			if err := m.NetStatusList[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("netStatusList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("netStatusList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -589,6 +613,8 @@ func (m *AppInstStatusMsg) validateRunState(formats strfmt.Registry) error {
 		if err := m.RunState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("runState")
 			}
 			return err
 		}
@@ -611,6 +637,8 @@ func (m *AppInstStatusMsg) validateSwInfo(formats strfmt.Registry) error {
 			if err := m.SwInfo[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("swInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("swInfo" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -630,6 +658,8 @@ func (m *AppInstStatusMsg) validateSwState(formats strfmt.Registry) error {
 		if err := m.SwState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("swState")
 			}
 			return err
 		}
@@ -726,6 +756,8 @@ func (m *AppInstStatusMsg) contextValidateCPU(ctx context.Context, formats strfm
 		if err := m.CPU.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Cpu")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Cpu")
 			}
 			return err
 		}
@@ -742,6 +774,8 @@ func (m *AppInstStatusMsg) contextValidateIoStatusList(ctx context.Context, form
 			if err := m.IoStatusList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("IoStatusList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("IoStatusList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -758,6 +792,8 @@ func (m *AppInstStatusMsg) contextValidateMemory(ctx context.Context, formats st
 		if err := m.Memory.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Memory")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Memory")
 			}
 			return err
 		}
@@ -772,6 +808,8 @@ func (m *AppInstStatusMsg) contextValidateStorage(ctx context.Context, formats s
 		if err := m.Storage.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Storage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Storage")
 			}
 			return err
 		}
@@ -786,6 +824,8 @@ func (m *AppInstStatusMsg) contextValidateAdminState(ctx context.Context, format
 		if err := m.AdminState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adminState")
 			}
 			return err
 		}
@@ -800,6 +840,8 @@ func (m *AppInstStatusMsg) contextValidateAppStatusFromTPController(ctx context.
 		if err := m.AppStatusFromTPController.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appStatusFromTPController")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appStatusFromTPController")
 			}
 			return err
 		}
@@ -814,6 +856,8 @@ func (m *AppInstStatusMsg) contextValidateAppType(ctx context.Context, formats s
 		if err := m.AppType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appType")
 			}
 			return err
 		}
@@ -828,6 +872,8 @@ func (m *AppInstStatusMsg) contextValidateDeploymentType(ctx context.Context, fo
 		if err := m.DeploymentType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deploymentType")
 			}
 			return err
 		}
@@ -844,6 +890,8 @@ func (m *AppInstStatusMsg) contextValidateErrInfo(ctx context.Context, formats s
 			if err := m.ErrInfo[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errInfo" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -860,6 +908,8 @@ func (m *AppInstStatusMsg) contextValidateMemorySummary(ctx context.Context, for
 		if err := m.MemorySummary.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("memorySummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("memorySummary")
 			}
 			return err
 		}
@@ -876,6 +926,8 @@ func (m *AppInstStatusMsg) contextValidateNetCounterList(ctx context.Context, fo
 			if err := m.NetCounterList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("netCounterList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("netCounterList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -894,6 +946,8 @@ func (m *AppInstStatusMsg) contextValidateNetStatusList(ctx context.Context, for
 			if err := m.NetStatusList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("netStatusList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("netStatusList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -910,6 +964,8 @@ func (m *AppInstStatusMsg) contextValidateRunState(ctx context.Context, formats 
 		if err := m.RunState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("runState")
 			}
 			return err
 		}
@@ -926,6 +982,8 @@ func (m *AppInstStatusMsg) contextValidateSwInfo(ctx context.Context, formats st
 			if err := m.SwInfo[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("swInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("swInfo" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -942,6 +1000,8 @@ func (m *AppInstStatusMsg) contextValidateSwState(ctx context.Context, formats s
 		if err := m.SwState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("swState")
 			}
 			return err
 		}

@@ -23,8 +23,12 @@ import (
 type AAAFrontendLogoutResponseCause string
 
 func NewAAAFrontendLogoutResponseCause(value AAAFrontendLogoutResponseCause) *AAAFrontendLogoutResponseCause {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AAAFrontendLogoutResponseCause.
+func (m AAAFrontendLogoutResponseCause) Pointer() *AAAFrontendLogoutResponseCause {
+	return &m
 }
 
 const (

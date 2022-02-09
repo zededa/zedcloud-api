@@ -227,6 +227,8 @@ func (m *NetInstConfig) validateDNSList(formats strfmt.Registry) error {
 			if err := m.DNSList[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dnsList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dnsList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -258,6 +260,8 @@ func (m *NetInstConfig) validateIP(formats strfmt.Registry) error {
 		if err := m.IP.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ip")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ip")
 			}
 			return err
 		}
@@ -280,6 +284,8 @@ func (m *NetInstConfig) validateKind(formats strfmt.Registry) error {
 		if err := m.Kind.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("kind")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("kind")
 			}
 			return err
 		}
@@ -297,6 +303,8 @@ func (m *NetInstConfig) validateLisp(formats strfmt.Registry) error {
 		if err := m.Lisp.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lisp")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lisp")
 			}
 			return err
 		}
@@ -335,6 +343,8 @@ func (m *NetInstConfig) validateOpaque(formats strfmt.Registry) error {
 		if err := m.Opaque.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("opaque")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("opaque")
 			}
 			return err
 		}
@@ -361,6 +371,8 @@ func (m *NetInstConfig) validateRevision(formats strfmt.Registry) error {
 		if err := m.Revision.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -399,6 +411,8 @@ func (m *NetInstConfig) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -457,6 +471,8 @@ func (m *NetInstConfig) contextValidateDNSList(ctx context.Context, formats strf
 			if err := m.DNSList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dnsList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dnsList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -482,6 +498,8 @@ func (m *NetInstConfig) contextValidateIP(ctx context.Context, formats strfmt.Re
 		if err := m.IP.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ip")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ip")
 			}
 			return err
 		}
@@ -496,6 +514,8 @@ func (m *NetInstConfig) contextValidateKind(ctx context.Context, formats strfmt.
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("kind")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("kind")
 			}
 			return err
 		}
@@ -510,6 +530,8 @@ func (m *NetInstConfig) contextValidateLisp(ctx context.Context, formats strfmt.
 		if err := m.Lisp.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lisp")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lisp")
 			}
 			return err
 		}
@@ -524,6 +546,8 @@ func (m *NetInstConfig) contextValidateOpaque(ctx context.Context, formats strfm
 		if err := m.Opaque.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("opaque")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("opaque")
 			}
 			return err
 		}
@@ -538,6 +562,8 @@ func (m *NetInstConfig) contextValidateRevision(ctx context.Context, formats str
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -552,6 +578,8 @@ func (m *NetInstConfig) contextValidateType(ctx context.Context, formats strfmt.
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

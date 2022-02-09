@@ -76,6 +76,8 @@ func (m *CrudContent) validateClazz(formats strfmt.Registry) error {
 		if err := m.Clazz.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clazz")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("clazz")
 			}
 			return err
 		}
@@ -93,6 +95,8 @@ func (m *CrudContent) validateEncoding(formats strfmt.Registry) error {
 		if err := m.Encoding.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("encoding")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("encoding")
 			}
 			return err
 		}
@@ -110,6 +114,8 @@ func (m *CrudContent) validateJSON(formats strfmt.Registry) error {
 		if err := m.JSON.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("json")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("json")
 			}
 			return err
 		}
@@ -127,6 +133,8 @@ func (m *CrudContent) validateOid(formats strfmt.Registry) error {
 		if err := m.Oid.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("oid")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("oid")
 			}
 			return err
 		}
@@ -144,6 +152,8 @@ func (m *CrudContent) validateProtobuf(formats strfmt.Registry) error {
 		if err := m.Protobuf.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("protobuf")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("protobuf")
 			}
 			return err
 		}
@@ -188,6 +198,8 @@ func (m *CrudContent) contextValidateClazz(ctx context.Context, formats strfmt.R
 		if err := m.Clazz.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clazz")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("clazz")
 			}
 			return err
 		}
@@ -202,6 +214,8 @@ func (m *CrudContent) contextValidateEncoding(ctx context.Context, formats strfm
 		if err := m.Encoding.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("encoding")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("encoding")
 			}
 			return err
 		}
@@ -216,6 +230,8 @@ func (m *CrudContent) contextValidateJSON(ctx context.Context, formats strfmt.Re
 		if err := m.JSON.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("json")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("json")
 			}
 			return err
 		}
@@ -230,6 +246,8 @@ func (m *CrudContent) contextValidateOid(ctx context.Context, formats strfmt.Reg
 		if err := m.Oid.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("oid")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("oid")
 			}
 			return err
 		}
@@ -244,6 +262,8 @@ func (m *CrudContent) contextValidateProtobuf(ctx context.Context, formats strfm
 		if err := m.Protobuf.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("protobuf")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("protobuf")
 			}
 			return err
 		}

@@ -83,6 +83,8 @@ func (m *Details) validateAppCategory(formats strfmt.Registry) error {
 		if err := m.AppCategory.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appCategory")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appCategory")
 			}
 			return err
 		}
@@ -111,6 +113,8 @@ func (m *Details) contextValidateAppCategory(ctx context.Context, formats strfmt
 		if err := m.AppCategory.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appCategory")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appCategory")
 			}
 			return err
 		}

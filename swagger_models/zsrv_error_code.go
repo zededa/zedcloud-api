@@ -31,8 +31,12 @@ import (
 type ZsrvErrorCode string
 
 func NewZsrvErrorCode(value ZsrvErrorCode) *ZsrvErrorCode {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ZsrvErrorCode.
+func (m ZsrvErrorCode) Pointer() *ZsrvErrorCode {
+	return &m
 }
 
 const (

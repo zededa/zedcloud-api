@@ -23,8 +23,12 @@ import (
 type AAAResponseType string
 
 func NewAAAResponseType(value AAAResponseType) *AAAResponseType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AAAResponseType.
+func (m AAAResponseType) Pointer() *AAAResponseType {
+	return &m
 }
 
 const (

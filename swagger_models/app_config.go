@@ -207,6 +207,8 @@ func (m *AppConfig) validateInterfaces(formats strfmt.Registry) error {
 			if err := m.Interfaces[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("interfaces" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -227,6 +229,8 @@ func (m *AppConfig) validateManifestJSON(formats strfmt.Registry) error {
 		if err := m.ManifestJSON.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("manifestJSON")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("manifestJSON")
 			}
 			return err
 		}
@@ -265,6 +269,8 @@ func (m *AppConfig) validateNamingScheme(formats strfmt.Registry) error {
 		if err := m.NamingScheme.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("namingScheme")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("namingScheme")
 			}
 			return err
 		}
@@ -282,6 +288,8 @@ func (m *AppConfig) validateOriginType(formats strfmt.Registry) error {
 		if err := m.OriginType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("originType")
 			}
 			return err
 		}
@@ -299,6 +307,8 @@ func (m *AppConfig) validateParentDetail(formats strfmt.Registry) error {
 		if err := m.ParentDetail.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parentDetail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parentDetail")
 			}
 			return err
 		}
@@ -392,6 +402,8 @@ func (m *AppConfig) contextValidateInterfaces(ctx context.Context, formats strfm
 			if err := m.Interfaces[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("interfaces" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -408,6 +420,8 @@ func (m *AppConfig) contextValidateManifestJSON(ctx context.Context, formats str
 		if err := m.ManifestJSON.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("manifestJSON")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("manifestJSON")
 			}
 			return err
 		}
@@ -422,6 +436,8 @@ func (m *AppConfig) contextValidateNamingScheme(ctx context.Context, formats str
 		if err := m.NamingScheme.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("namingScheme")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("namingScheme")
 			}
 			return err
 		}
@@ -436,6 +452,8 @@ func (m *AppConfig) contextValidateOriginType(ctx context.Context, formats strfm
 		if err := m.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("originType")
 			}
 			return err
 		}
@@ -450,6 +468,8 @@ func (m *AppConfig) contextValidateParentDetail(ctx context.Context, formats str
 		if err := m.ParentDetail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parentDetail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parentDetail")
 			}
 			return err
 		}

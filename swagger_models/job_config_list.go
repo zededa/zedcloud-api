@@ -65,6 +65,8 @@ func (m *JobConfigList) validateJobListSummary(formats strfmt.Registry) error {
 		if err := m.JobListSummary.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("jobListSummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("jobListSummary")
 			}
 			return err
 		}
@@ -87,6 +89,8 @@ func (m *JobConfigList) validateList(formats strfmt.Registry) error {
 			if err := m.List[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -106,6 +110,8 @@ func (m *JobConfigList) validateNext(formats strfmt.Registry) error {
 		if err := m.Next.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("next")
 			}
 			return err
 		}
@@ -142,6 +148,8 @@ func (m *JobConfigList) contextValidateJobListSummary(ctx context.Context, forma
 		if err := m.JobListSummary.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("jobListSummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("jobListSummary")
 			}
 			return err
 		}
@@ -158,6 +166,8 @@ func (m *JobConfigList) contextValidateList(ctx context.Context, formats strfmt.
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -174,6 +184,8 @@ func (m *JobConfigList) contextValidateNext(ctx context.Context, formats strfmt.
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("next")
 			}
 			return err
 		}

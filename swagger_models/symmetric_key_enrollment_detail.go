@@ -62,6 +62,8 @@ func (m *SymmetricKeyEnrollmentDetail) validateGroupSymmetricKeyEnrollment(forma
 		if err := m.GroupSymmetricKeyEnrollment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("groupSymmetricKeyEnrollment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("groupSymmetricKeyEnrollment")
 			}
 			return err
 		}
@@ -79,6 +81,8 @@ func (m *SymmetricKeyEnrollmentDetail) validateIndividualSymmetricKeyEnrollment(
 		if err := m.IndividualSymmetricKeyEnrollment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("individualSymmetricKeyEnrollment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("individualSymmetricKeyEnrollment")
 			}
 			return err
 		}
@@ -96,6 +100,8 @@ func (m *SymmetricKeyEnrollmentDetail) validateType(formats strfmt.Registry) err
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -132,6 +138,8 @@ func (m *SymmetricKeyEnrollmentDetail) contextValidateGroupSymmetricKeyEnrollmen
 		if err := m.GroupSymmetricKeyEnrollment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("groupSymmetricKeyEnrollment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("groupSymmetricKeyEnrollment")
 			}
 			return err
 		}
@@ -146,6 +154,8 @@ func (m *SymmetricKeyEnrollmentDetail) contextValidateIndividualSymmetricKeyEnro
 		if err := m.IndividualSymmetricKeyEnrollment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("individualSymmetricKeyEnrollment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("individualSymmetricKeyEnrollment")
 			}
 			return err
 		}
@@ -160,6 +170,8 @@ func (m *SymmetricKeyEnrollmentDetail) contextValidateType(ctx context.Context, 
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

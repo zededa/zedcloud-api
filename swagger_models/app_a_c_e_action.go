@@ -146,6 +146,8 @@ func (m *AppACEAction) validateMapparams(formats strfmt.Registry) error {
 		if err := m.Mapparams.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mapparams")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mapparams")
 			}
 			return err
 		}
@@ -183,6 +185,8 @@ func (m *AppACEAction) contextValidateMapparams(ctx context.Context, formats str
 		if err := m.Mapparams.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mapparams")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mapparams")
 			}
 			return err
 		}

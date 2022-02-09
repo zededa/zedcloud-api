@@ -51,6 +51,8 @@ func (m *AAAFailureResponseGenerateToken) validateCause(formats strfmt.Registry)
 		if err := m.Cause.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cause")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cause")
 			}
 			return err
 		}
@@ -79,6 +81,8 @@ func (m *AAAFailureResponseGenerateToken) contextValidateCause(ctx context.Conte
 		if err := m.Cause.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cause")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cause")
 			}
 			return err
 		}

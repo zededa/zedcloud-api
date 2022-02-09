@@ -55,6 +55,8 @@ func (m *CrudStatisticsContainer) validateClazz(formats strfmt.Registry) error {
 		if err := m.Clazz.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clazz")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("clazz")
 			}
 			return err
 		}
@@ -72,6 +74,8 @@ func (m *CrudStatisticsContainer) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}
@@ -104,6 +108,8 @@ func (m *CrudStatisticsContainer) contextValidateClazz(ctx context.Context, form
 		if err := m.Clazz.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clazz")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("clazz")
 			}
 			return err
 		}
@@ -118,6 +124,8 @@ func (m *CrudStatisticsContainer) contextValidateUser(ctx context.Context, forma
 		if err := m.User.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

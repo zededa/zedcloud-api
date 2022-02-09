@@ -98,6 +98,8 @@ func (m *VolInstStatusSummaryMsg) validateDeviceState(formats strfmt.Registry) e
 		if err := m.DeviceState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deviceState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deviceState")
 			}
 			return err
 		}
@@ -115,6 +117,8 @@ func (m *VolInstStatusSummaryMsg) validateRunState(formats strfmt.Registry) erro
 		if err := m.RunState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("runState")
 			}
 			return err
 		}
@@ -132,6 +136,8 @@ func (m *VolInstStatusSummaryMsg) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -168,6 +174,8 @@ func (m *VolInstStatusSummaryMsg) contextValidateDeviceState(ctx context.Context
 		if err := m.DeviceState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deviceState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deviceState")
 			}
 			return err
 		}
@@ -182,6 +190,8 @@ func (m *VolInstStatusSummaryMsg) contextValidateRunState(ctx context.Context, f
 		if err := m.RunState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("runState")
 			}
 			return err
 		}
@@ -196,6 +206,8 @@ func (m *VolInstStatusSummaryMsg) contextValidateType(ctx context.Context, forma
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

@@ -23,8 +23,12 @@ import (
 type EnterpriseState string
 
 func NewEnterpriseState(value EnterpriseState) *EnterpriseState {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated EnterpriseState.
+func (m EnterpriseState) Pointer() *EnterpriseState {
+	return &m
 }
 
 const (

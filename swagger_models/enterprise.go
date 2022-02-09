@@ -154,6 +154,8 @@ func (m *Enterprise) validateChildEnterprises(formats strfmt.Registry) error {
 			if err := m.ChildEnterprises[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("childEnterprises" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("childEnterprises" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -230,6 +232,8 @@ func (m *Enterprise) validatePolicyList(formats strfmt.Registry) error {
 		if err := m.PolicyList.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("policyList")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("policyList")
 			}
 			return err
 		}
@@ -247,6 +251,8 @@ func (m *Enterprise) validateRevision(formats strfmt.Registry) error {
 		if err := m.Revision.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -264,6 +270,8 @@ func (m *Enterprise) validateState(formats strfmt.Registry) error {
 		if err := m.State.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("state")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("state")
 			}
 			return err
 		}
@@ -302,6 +310,8 @@ func (m *Enterprise) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -352,6 +362,8 @@ func (m *Enterprise) contextValidateChildEnterprises(ctx context.Context, format
 			if err := m.ChildEnterprises[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("childEnterprises" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("childEnterprises" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -377,6 +389,8 @@ func (m *Enterprise) contextValidatePolicyList(ctx context.Context, formats strf
 		if err := m.PolicyList.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("policyList")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("policyList")
 			}
 			return err
 		}
@@ -391,6 +405,8 @@ func (m *Enterprise) contextValidateRevision(ctx context.Context, formats strfmt
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -405,6 +421,8 @@ func (m *Enterprise) contextValidateState(ctx context.Context, formats strfmt.Re
 		if err := m.State.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("state")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("state")
 			}
 			return err
 		}
@@ -419,6 +437,8 @@ func (m *Enterprise) contextValidateType(ctx context.Context, formats strfmt.Reg
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

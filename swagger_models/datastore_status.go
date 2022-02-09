@@ -23,8 +23,12 @@ import (
 type DatastoreStatus string
 
 func NewDatastoreStatus(value DatastoreStatus) *DatastoreStatus {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated DatastoreStatus.
+func (m DatastoreStatus) Pointer() *DatastoreStatus {
+	return &m
 }
 
 const (

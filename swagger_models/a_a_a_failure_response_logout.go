@@ -58,6 +58,8 @@ func (m *AAAFailureResponseLogout) validateCause(formats strfmt.Registry) error 
 		if err := m.Cause.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cause")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cause")
 			}
 			return err
 		}
@@ -75,6 +77,8 @@ func (m *AAAFailureResponseLogout) validateOriginal(formats strfmt.Registry) err
 		if err := m.Original.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("original")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("original")
 			}
 			return err
 		}
@@ -107,6 +111,8 @@ func (m *AAAFailureResponseLogout) contextValidateCause(ctx context.Context, for
 		if err := m.Cause.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cause")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cause")
 			}
 			return err
 		}
@@ -121,6 +127,8 @@ func (m *AAAFailureResponseLogout) contextValidateOriginal(ctx context.Context, 
 		if err := m.Original.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("original")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("original")
 			}
 			return err
 		}

@@ -85,6 +85,8 @@ func (m *DeviceStatusListMsg) validateList(formats strfmt.Registry) error {
 			if err := m.List[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -104,6 +106,8 @@ func (m *DeviceStatusListMsg) validateNext(formats strfmt.Registry) error {
 		if err := m.Next.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("next")
 			}
 			return err
 		}
@@ -121,6 +125,8 @@ func (m *DeviceStatusListMsg) validateSummaryByAppInstanceCount(formats strfmt.R
 		if err := m.SummaryByAppInstanceCount.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByAppInstanceCount")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByAppInstanceCount")
 			}
 			return err
 		}
@@ -138,6 +144,8 @@ func (m *DeviceStatusListMsg) validateSummaryByEVEDistribution(formats strfmt.Re
 		if err := m.SummaryByEVEDistribution.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByEVEDistribution")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByEVEDistribution")
 			}
 			return err
 		}
@@ -155,6 +163,8 @@ func (m *DeviceStatusListMsg) validateSummaryByState(formats strfmt.Registry) er
 		if err := m.SummaryByState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByState")
 			}
 			return err
 		}
@@ -201,6 +211,8 @@ func (m *DeviceStatusListMsg) contextValidateList(ctx context.Context, formats s
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -217,6 +229,8 @@ func (m *DeviceStatusListMsg) contextValidateNext(ctx context.Context, formats s
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("next")
 			}
 			return err
 		}
@@ -231,6 +245,8 @@ func (m *DeviceStatusListMsg) contextValidateSummaryByAppInstanceCount(ctx conte
 		if err := m.SummaryByAppInstanceCount.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByAppInstanceCount")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByAppInstanceCount")
 			}
 			return err
 		}
@@ -245,6 +261,8 @@ func (m *DeviceStatusListMsg) contextValidateSummaryByEVEDistribution(ctx contex
 		if err := m.SummaryByEVEDistribution.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByEVEDistribution")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByEVEDistribution")
 			}
 			return err
 		}
@@ -259,6 +277,8 @@ func (m *DeviceStatusListMsg) contextValidateSummaryByState(ctx context.Context,
 		if err := m.SummaryByState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByState")
 			}
 			return err
 		}

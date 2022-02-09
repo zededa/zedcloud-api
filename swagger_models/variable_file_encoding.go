@@ -26,8 +26,12 @@ import (
 type VariableFileEncoding string
 
 func NewVariableFileEncoding(value VariableFileEncoding) *VariableFileEncoding {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated VariableFileEncoding.
+func (m VariableFileEncoding) Pointer() *VariableFileEncoding {
+	return &m
 }
 
 const (

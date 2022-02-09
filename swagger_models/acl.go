@@ -64,6 +64,8 @@ func (m *ACL) validateActions(formats strfmt.Registry) error {
 			if err := m.Actions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("actions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("actions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -88,6 +90,8 @@ func (m *ACL) validateMatches(formats strfmt.Registry) error {
 			if err := m.Matches[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("matches" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("matches" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -124,6 +128,8 @@ func (m *ACL) contextValidateActions(ctx context.Context, formats strfmt.Registr
 			if err := m.Actions[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("actions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("actions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -142,6 +148,8 @@ func (m *ACL) contextValidateMatches(ctx context.Context, formats strfmt.Registr
 			if err := m.Matches[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("matches" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("matches" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

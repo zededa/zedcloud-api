@@ -146,6 +146,8 @@ func (m *Tag) validateAppPolicy(formats strfmt.Registry) error {
 		if err := m.AppPolicy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appPolicy")
 			}
 			return err
 		}
@@ -163,6 +165,8 @@ func (m *Tag) validateAttestationPolicy(formats strfmt.Registry) error {
 		if err := m.AttestationPolicy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("attestationPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("attestationPolicy")
 			}
 			return err
 		}
@@ -180,6 +184,8 @@ func (m *Tag) validateCloudPolicy(formats strfmt.Registry) error {
 		if err := m.CloudPolicy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cloudPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloudPolicy")
 			}
 			return err
 		}
@@ -226,6 +232,8 @@ func (m *Tag) validateModulePolicy(formats strfmt.Registry) error {
 			if err := m.ModulePolicy[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("modulePolicy" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("modulePolicy" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -266,6 +274,8 @@ func (m *Tag) validateNetworkPolicy(formats strfmt.Registry) error {
 		if err := m.NetworkPolicy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("networkPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("networkPolicy")
 			}
 			return err
 		}
@@ -283,6 +293,8 @@ func (m *Tag) validateRevision(formats strfmt.Registry) error {
 		if err := m.Revision.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -326,6 +338,8 @@ func (m *Tag) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -386,6 +400,8 @@ func (m *Tag) contextValidateAppPolicy(ctx context.Context, formats strfmt.Regis
 		if err := m.AppPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appPolicy")
 			}
 			return err
 		}
@@ -400,6 +416,8 @@ func (m *Tag) contextValidateAttestationPolicy(ctx context.Context, formats strf
 		if err := m.AttestationPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("attestationPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("attestationPolicy")
 			}
 			return err
 		}
@@ -414,6 +432,8 @@ func (m *Tag) contextValidateCloudPolicy(ctx context.Context, formats strfmt.Reg
 		if err := m.CloudPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cloudPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloudPolicy")
 			}
 			return err
 		}
@@ -443,6 +463,8 @@ func (m *Tag) contextValidateModulePolicy(ctx context.Context, formats strfmt.Re
 			if err := m.ModulePolicy[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("modulePolicy" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("modulePolicy" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -459,6 +481,8 @@ func (m *Tag) contextValidateNetworkPolicy(ctx context.Context, formats strfmt.R
 		if err := m.NetworkPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("networkPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("networkPolicy")
 			}
 			return err
 		}
@@ -482,6 +506,8 @@ func (m *Tag) contextValidateRevision(ctx context.Context, formats strfmt.Regist
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("revision")
 			}
 			return err
 		}
@@ -496,6 +522,8 @@ func (m *Tag) contextValidateType(ctx context.Context, formats strfmt.Registry) 
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

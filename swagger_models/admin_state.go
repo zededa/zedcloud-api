@@ -29,8 +29,12 @@ import (
 type AdminState string
 
 func NewAdminState(value AdminState) *AdminState {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AdminState.
+func (m AdminState) Pointer() *AdminState {
+	return &m
 }
 
 const (

@@ -59,6 +59,8 @@ func (m *ConfigNetworkInstanceOpaqueConfig) validateLispConfig(formats strfmt.Re
 		if err := m.LispConfig.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lispConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lispConfig")
 			}
 			return err
 		}
@@ -76,6 +78,8 @@ func (m *ConfigNetworkInstanceOpaqueConfig) validateType(formats strfmt.Registry
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -108,6 +112,8 @@ func (m *ConfigNetworkInstanceOpaqueConfig) contextValidateLispConfig(ctx contex
 		if err := m.LispConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lispConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lispConfig")
 			}
 			return err
 		}
@@ -122,6 +128,8 @@ func (m *ConfigNetworkInstanceOpaqueConfig) contextValidateType(ctx context.Cont
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

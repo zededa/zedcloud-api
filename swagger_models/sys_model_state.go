@@ -27,8 +27,12 @@ import (
 type SysModelState string
 
 func NewSysModelState(value SysModelState) *SysModelState {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated SysModelState.
+func (m SysModelState) Pointer() *SysModelState {
+	return &m
 }
 
 const (

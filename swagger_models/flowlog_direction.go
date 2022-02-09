@@ -23,8 +23,12 @@ import (
 type FlowlogDirection string
 
 func NewFlowlogDirection(value FlowlogDirection) *FlowlogDirection {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated FlowlogDirection.
+func (m FlowlogDirection) Pointer() *FlowlogDirection {
+	return &m
 }
 
 const (

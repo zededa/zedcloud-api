@@ -97,6 +97,8 @@ func (m *AAASuccessResponse) validateCredential(formats strfmt.Registry) error {
 		if err := m.Credential.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("credential")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("credential")
 			}
 			return err
 		}
@@ -114,6 +116,8 @@ func (m *AAASuccessResponse) validateDetails(formats strfmt.Registry) error {
 		if err := m.Details.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("details")
 			}
 			return err
 		}
@@ -131,6 +135,8 @@ func (m *AAASuccessResponse) validateGenerateToken(formats strfmt.Registry) erro
 		if err := m.GenerateToken.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("generateToken")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("generateToken")
 			}
 			return err
 		}
@@ -148,6 +154,8 @@ func (m *AAASuccessResponse) validateLogin(formats strfmt.Registry) error {
 		if err := m.Login.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("login")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("login")
 			}
 			return err
 		}
@@ -165,6 +173,8 @@ func (m *AAASuccessResponse) validateLogout(formats strfmt.Registry) error {
 		if err := m.Logout.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("logout")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("logout")
 			}
 			return err
 		}
@@ -182,6 +192,8 @@ func (m *AAASuccessResponse) validateQuerySessionDetails(formats strfmt.Registry
 		if err := m.QuerySessionDetails.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("querySessionDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("querySessionDetails")
 			}
 			return err
 		}
@@ -199,6 +211,8 @@ func (m *AAASuccessResponse) validateRefresh(formats strfmt.Registry) error {
 		if err := m.Refresh.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("refresh")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("refresh")
 			}
 			return err
 		}
@@ -216,6 +230,8 @@ func (m *AAASuccessResponse) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -272,6 +288,8 @@ func (m *AAASuccessResponse) contextValidateCredential(ctx context.Context, form
 		if err := m.Credential.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("credential")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("credential")
 			}
 			return err
 		}
@@ -286,6 +304,8 @@ func (m *AAASuccessResponse) contextValidateDetails(ctx context.Context, formats
 		if err := m.Details.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("details")
 			}
 			return err
 		}
@@ -300,6 +320,8 @@ func (m *AAASuccessResponse) contextValidateGenerateToken(ctx context.Context, f
 		if err := m.GenerateToken.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("generateToken")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("generateToken")
 			}
 			return err
 		}
@@ -314,6 +336,8 @@ func (m *AAASuccessResponse) contextValidateLogin(ctx context.Context, formats s
 		if err := m.Login.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("login")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("login")
 			}
 			return err
 		}
@@ -328,6 +352,8 @@ func (m *AAASuccessResponse) contextValidateLogout(ctx context.Context, formats 
 		if err := m.Logout.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("logout")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("logout")
 			}
 			return err
 		}
@@ -342,6 +368,8 @@ func (m *AAASuccessResponse) contextValidateQuerySessionDetails(ctx context.Cont
 		if err := m.QuerySessionDetails.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("querySessionDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("querySessionDetails")
 			}
 			return err
 		}
@@ -356,6 +384,8 @@ func (m *AAASuccessResponse) contextValidateRefresh(ctx context.Context, formats
 		if err := m.Refresh.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("refresh")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("refresh")
 			}
 			return err
 		}
@@ -370,6 +400,8 @@ func (m *AAASuccessResponse) contextValidateType(ctx context.Context, formats st
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

@@ -68,6 +68,8 @@ func (m *AAARequestEnterpriseSignup) validateAdminUser(formats strfmt.Registry) 
 		if err := m.AdminUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adminUser")
 			}
 			return err
 		}
@@ -85,6 +87,8 @@ func (m *AAARequestEnterpriseSignup) validateEnterprise(formats strfmt.Registry)
 		if err := m.Enterprise.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enterprise")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("enterprise")
 			}
 			return err
 		}
@@ -102,6 +106,8 @@ func (m *AAARequestEnterpriseSignup) validateProfileType(formats strfmt.Registry
 		if err := m.ProfileType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("profileType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("profileType")
 			}
 			return err
 		}
@@ -138,6 +144,8 @@ func (m *AAARequestEnterpriseSignup) contextValidateAdminUser(ctx context.Contex
 		if err := m.AdminUser.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adminUser")
 			}
 			return err
 		}
@@ -152,6 +160,8 @@ func (m *AAARequestEnterpriseSignup) contextValidateEnterprise(ctx context.Conte
 		if err := m.Enterprise.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enterprise")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("enterprise")
 			}
 			return err
 		}
@@ -166,6 +176,8 @@ func (m *AAARequestEnterpriseSignup) contextValidateProfileType(ctx context.Cont
 		if err := m.ProfileType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("profileType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("profileType")
 			}
 			return err
 		}

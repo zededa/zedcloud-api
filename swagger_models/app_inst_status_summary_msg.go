@@ -179,6 +179,8 @@ func (m *AppInstStatusSummaryMsg) validateCPU(formats strfmt.Registry) error {
 		if err := m.CPU.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Cpu")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Cpu")
 			}
 			return err
 		}
@@ -196,6 +198,8 @@ func (m *AppInstStatusSummaryMsg) validateMemory(formats strfmt.Registry) error 
 		if err := m.Memory.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Memory")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Memory")
 			}
 			return err
 		}
@@ -213,6 +217,8 @@ func (m *AppInstStatusSummaryMsg) validateStorage(formats strfmt.Registry) error
 		if err := m.Storage.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Storage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Storage")
 			}
 			return err
 		}
@@ -230,6 +236,8 @@ func (m *AppInstStatusSummaryMsg) validateAdminState(formats strfmt.Registry) er
 		if err := m.AdminState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adminState")
 			}
 			return err
 		}
@@ -267,6 +275,8 @@ func (m *AppInstStatusSummaryMsg) validateAppType(formats strfmt.Registry) error
 		if err := m.AppType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appType")
 			}
 			return err
 		}
@@ -304,6 +314,8 @@ func (m *AppInstStatusSummaryMsg) validateDeploymentType(formats strfmt.Registry
 		if err := m.DeploymentType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deploymentType")
 			}
 			return err
 		}
@@ -353,6 +365,8 @@ func (m *AppInstStatusSummaryMsg) validateMemorySummary(formats strfmt.Registry)
 		if err := m.MemorySummary.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("memorySummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("memorySummary")
 			}
 			return err
 		}
@@ -410,6 +424,8 @@ func (m *AppInstStatusSummaryMsg) validateRunState(formats strfmt.Registry) erro
 		if err := m.RunState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("runState")
 			}
 			return err
 		}
@@ -427,6 +443,8 @@ func (m *AppInstStatusSummaryMsg) validateSwState(formats strfmt.Registry) error
 		if err := m.SwState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("swState")
 			}
 			return err
 		}
@@ -511,6 +529,8 @@ func (m *AppInstStatusSummaryMsg) contextValidateCPU(ctx context.Context, format
 		if err := m.CPU.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Cpu")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Cpu")
 			}
 			return err
 		}
@@ -525,6 +545,8 @@ func (m *AppInstStatusSummaryMsg) contextValidateMemory(ctx context.Context, for
 		if err := m.Memory.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Memory")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Memory")
 			}
 			return err
 		}
@@ -539,6 +561,8 @@ func (m *AppInstStatusSummaryMsg) contextValidateStorage(ctx context.Context, fo
 		if err := m.Storage.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Storage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("Storage")
 			}
 			return err
 		}
@@ -553,6 +577,8 @@ func (m *AppInstStatusSummaryMsg) contextValidateAdminState(ctx context.Context,
 		if err := m.AdminState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adminState")
 			}
 			return err
 		}
@@ -567,6 +593,8 @@ func (m *AppInstStatusSummaryMsg) contextValidateAppType(ctx context.Context, fo
 		if err := m.AppType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appType")
 			}
 			return err
 		}
@@ -581,6 +609,8 @@ func (m *AppInstStatusSummaryMsg) contextValidateDeploymentType(ctx context.Cont
 		if err := m.DeploymentType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deploymentType")
 			}
 			return err
 		}
@@ -604,6 +634,8 @@ func (m *AppInstStatusSummaryMsg) contextValidateMemorySummary(ctx context.Conte
 		if err := m.MemorySummary.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("memorySummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("memorySummary")
 			}
 			return err
 		}
@@ -618,6 +650,8 @@ func (m *AppInstStatusSummaryMsg) contextValidateRunState(ctx context.Context, f
 		if err := m.RunState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("runState")
 			}
 			return err
 		}
@@ -632,6 +666,8 @@ func (m *AppInstStatusSummaryMsg) contextValidateSwState(ctx context.Context, fo
 		if err := m.SwState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("swState")
 			}
 			return err
 		}

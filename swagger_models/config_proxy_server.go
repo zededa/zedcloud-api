@@ -54,6 +54,8 @@ func (m *ConfigProxyServer) validateProto(formats strfmt.Registry) error {
 		if err := m.Proto.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("proto")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("proto")
 			}
 			return err
 		}
@@ -82,6 +84,8 @@ func (m *ConfigProxyServer) contextValidateProto(ctx context.Context, formats st
 		if err := m.Proto.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("proto")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("proto")
 			}
 			return err
 		}

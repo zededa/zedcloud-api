@@ -23,8 +23,12 @@ import (
 type ModuleType string
 
 func NewModuleType(value ModuleType) *ModuleType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ModuleType.
+func (m ModuleType) Pointer() *ModuleType {
+	return &m
 }
 
 const (

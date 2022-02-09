@@ -57,6 +57,8 @@ func (m *BlobStatus) validateSwState(formats strfmt.Registry) error {
 		if err := m.SwState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("swState")
 			}
 			return err
 		}
@@ -85,6 +87,8 @@ func (m *BlobStatus) contextValidateSwState(ctx context.Context, formats strfmt.
 		if err := m.SwState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("swState")
 			}
 			return err
 		}

@@ -23,8 +23,12 @@ import (
 type OpaqueConfigType string
 
 func NewOpaqueConfigType(value OpaqueConfigType) *OpaqueConfigType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated OpaqueConfigType.
+func (m OpaqueConfigType) Pointer() *OpaqueConfigType {
+	return &m
 }
 
 const (

@@ -23,8 +23,12 @@ import (
 type AAALoginModeResponseMode string
 
 func NewAAALoginModeResponseMode(value AAALoginModeResponseMode) *AAALoginModeResponseMode {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AAALoginModeResponseMode.
+func (m AAALoginModeResponseMode) Pointer() *AAALoginModeResponseMode {
+	return &m
 }
 
 const (

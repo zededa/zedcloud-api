@@ -23,8 +23,12 @@ import (
 type ConfigZNetworkOpaqueConfigType string
 
 func NewConfigZNetworkOpaqueConfigType(value ConfigZNetworkOpaqueConfigType) *ConfigZNetworkOpaqueConfigType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigZNetworkOpaqueConfigType.
+func (m ConfigZNetworkOpaqueConfigType) Pointer() *ConfigZNetworkOpaqueConfigType {
+	return &m
 }
 
 const (

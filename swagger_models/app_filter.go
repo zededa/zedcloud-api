@@ -77,6 +77,8 @@ func (m *AppFilter) validateAppCategory(formats strfmt.Registry) error {
 		if err := m.AppCategory.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appCategory")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appCategory")
 			}
 			return err
 		}
@@ -94,6 +96,8 @@ func (m *AppFilter) validateAppType(formats strfmt.Registry) error {
 		if err := m.AppType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appType")
 			}
 			return err
 		}
@@ -111,6 +115,8 @@ func (m *AppFilter) validateDeploymentType(formats strfmt.Registry) error {
 		if err := m.DeploymentType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deploymentType")
 			}
 			return err
 		}
@@ -128,6 +134,8 @@ func (m *AppFilter) validateOriginType(formats strfmt.Registry) error {
 		if err := m.OriginType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("originType")
 			}
 			return err
 		}
@@ -168,6 +176,8 @@ func (m *AppFilter) contextValidateAppCategory(ctx context.Context, formats strf
 		if err := m.AppCategory.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appCategory")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appCategory")
 			}
 			return err
 		}
@@ -182,6 +192,8 @@ func (m *AppFilter) contextValidateAppType(ctx context.Context, formats strfmt.R
 		if err := m.AppType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appType")
 			}
 			return err
 		}
@@ -196,6 +208,8 @@ func (m *AppFilter) contextValidateDeploymentType(ctx context.Context, formats s
 		if err := m.DeploymentType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deploymentType")
 			}
 			return err
 		}
@@ -210,6 +224,8 @@ func (m *AppFilter) contextValidateOriginType(ctx context.Context, formats strfm
 		if err := m.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("originType")
 			}
 			return err
 		}

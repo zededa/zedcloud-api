@@ -34,8 +34,12 @@ import (
 type AppCategory string
 
 func NewAppCategory(value AppCategory) *AppCategory {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated AppCategory.
+func (m AppCategory) Pointer() *AppCategory {
+	return &m
 }
 
 const (

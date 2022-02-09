@@ -23,8 +23,12 @@ import (
 type ConfigAddressType string
 
 func NewConfigAddressType(value ConfigAddressType) *ConfigAddressType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ConfigAddressType.
+func (m ConfigAddressType) Pointer() *ConfigAddressType {
+	return &m
 }
 
 const (

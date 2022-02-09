@@ -96,6 +96,8 @@ func (m *DeviceSWInfo) validateStatus(formats strfmt.Registry) error {
 		if err := m.Status.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("status")
 			}
 			return err
 		}
@@ -113,6 +115,8 @@ func (m *DeviceSWInfo) validateSwError(formats strfmt.Registry) error {
 		if err := m.SwError.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swError")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("swError")
 			}
 			return err
 		}
@@ -130,6 +134,8 @@ func (m *DeviceSWInfo) validateSwStatus(formats strfmt.Registry) error {
 		if err := m.SwStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("swStatus")
 			}
 			return err
 		}
@@ -147,6 +153,8 @@ func (m *DeviceSWInfo) validateSwSubStatus(formats strfmt.Registry) error {
 		if err := m.SwSubStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swSubStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("swSubStatus")
 			}
 			return err
 		}
@@ -187,6 +195,8 @@ func (m *DeviceSWInfo) contextValidateStatus(ctx context.Context, formats strfmt
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("status")
 			}
 			return err
 		}
@@ -201,6 +211,8 @@ func (m *DeviceSWInfo) contextValidateSwError(ctx context.Context, formats strfm
 		if err := m.SwError.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swError")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("swError")
 			}
 			return err
 		}
@@ -215,6 +227,8 @@ func (m *DeviceSWInfo) contextValidateSwStatus(ctx context.Context, formats strf
 		if err := m.SwStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("swStatus")
 			}
 			return err
 		}
@@ -229,6 +243,8 @@ func (m *DeviceSWInfo) contextValidateSwSubStatus(ctx context.Context, formats s
 		if err := m.SwSubStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swSubStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("swSubStatus")
 			}
 			return err
 		}

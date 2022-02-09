@@ -62,6 +62,8 @@ func (m *PolicyDocVersionResp) validatePinfo(formats strfmt.Registry) error {
 		if err := m.Pinfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pinfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pinfo")
 			}
 			return err
 		}
@@ -79,6 +81,8 @@ func (m *PolicyDocVersionResp) validatePlist(formats strfmt.Registry) error {
 		if err := m.Plist.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("plist")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("plist")
 			}
 			return err
 		}
@@ -96,6 +100,8 @@ func (m *PolicyDocVersionResp) validateResult(formats strfmt.Registry) error {
 		if err := m.Result.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result")
 			}
 			return err
 		}
@@ -132,6 +138,8 @@ func (m *PolicyDocVersionResp) contextValidatePinfo(ctx context.Context, formats
 		if err := m.Pinfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pinfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pinfo")
 			}
 			return err
 		}
@@ -146,6 +154,8 @@ func (m *PolicyDocVersionResp) contextValidatePlist(ctx context.Context, formats
 		if err := m.Plist.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("plist")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("plist")
 			}
 			return err
 		}
@@ -160,6 +170,8 @@ func (m *PolicyDocVersionResp) contextValidateResult(ctx context.Context, format
 		if err := m.Result.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result")
 			}
 			return err
 		}
