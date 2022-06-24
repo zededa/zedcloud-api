@@ -15,7 +15,7 @@ func getAppInstConfig(client *zedcloudapi.Client,
 	fmt.Printf("\nSending GET AppInst Config Request\n")
 	client.XRequestIdPrefix = "zedcloudapi-client-get-appinst"
 	rspData := &swagger_models.AppInstance{}
-	err := client.GetObj("apps/instances", name, id, false, rspData)
+	_, err := client.GetObj("apps/instances", name, id, false, rspData)
 	if err != nil {
 		fmt.Printf("Failed to get AppInst. err: %+v", err)
 		return nil, err

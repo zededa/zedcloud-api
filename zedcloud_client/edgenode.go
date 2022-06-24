@@ -22,7 +22,7 @@ func setDeviceTitle(client *zedcloudapi.Client, devCfg *swagger_models.DeviceCon
 func getEdgeNodeConfig(client *zedcloudapi.Client, name, id string) *swagger_models.DeviceConfig {
 	fmt.Printf("\nSending GetDevice Request\n")
 	rspData := &swagger_models.DeviceConfig{}
-	err := client.GetObj("devices", name, id, false, rspData)
+	_, err := client.GetObj("devices", name, id, false, rspData)
 	if err != nil {
 		return rspData
 	}
