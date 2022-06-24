@@ -15,7 +15,7 @@ func getNetInstConfig(client *zedcloudapi.Client,
 	fmt.Printf("\nSending GET NetInst Config Request\n")
 	client.XRequestIdPrefix = "zedcloudapi-client-get-nwinst"
 	rspData := &swagger_models.NetInstConfig{}
-	err := client.GetObj("netinsts", name, id, false, rspData)
+	_, err := client.GetObj("netinsts", name, id, false, rspData)
 	if err != nil {
 		return nil, err
 	}

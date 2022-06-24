@@ -14,7 +14,7 @@ func getEdgeAppConfig(client *zedcloudapi.Client,
 	name, id string) (*swagger_models.AppConfig, error) {
 	fmt.Printf("\nSending getEdgeAppConfig Request\n")
 	rspData := &swagger_models.AppConfig{}
-	err := client.GetObj("apps", name, id, false, rspData)
+	_, err := client.GetObj("apps", name, id, false, rspData)
 	if err != nil {
 		return nil, err
 	}

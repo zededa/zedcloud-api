@@ -97,6 +97,13 @@ func isHttpStatusCodeSuccess(statusCode int32) bool {
 	return false
 }
 
+func IsObjectNotFound(resp *http.Response) bool {
+    if resp != nil && int32(resp.StatusCode) == http.StatusNotFound {
+        return true
+    }
+    return false
+}
+
 func (client *Client) createRequest(method, urlExtension string,
 	data interface{}) (*http.Request, error) {
 	url := client.BaseUrl + urlExtension
@@ -295,23 +302,23 @@ func (client *Client) DeleteObj(typeUrl, id string) (
 //      client.GetObj("devices", "testDevice", "", false, rspData)
 func (client *Client) GetObj(typeUrl, name, id string,
 	status bool,
-	rspBody interface{}) error {
+	rspBody interface{}) (*http.Response, error) {
 
 	if client == nil {
-		return fmt.Errorf("client.GetObj - nil client")
+		return nil, fmt.Errorf("client.GetObj - nil client")
 	}
 
 	url, err := UrlForNameOrId(name, id)
 	if err != nil {
-		return err
+		return nil, err
 	}
 	url = typeUrl + "/" + url
 	if status {
 		url += "/status"
 	}
 	client.XRequestIdPrefix = "TF-GetObj"
-	_, err = client.SendReq("GET", url, nil, rspBody)
-	return err
+	resp, err := client.SendReq("GET", url, nil, rspBody)
+	return resp, err
 }
 
 func sanitizeZedcloudUrl(zedcloudUrl string) string {
