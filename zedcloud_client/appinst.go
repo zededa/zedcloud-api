@@ -36,17 +36,18 @@ func deleteAppInst(client *zedcloudapi.Client, appID string) {
 
 func createAppInst(client *zedcloudapi.Client, params *CmdParams) {
 	title := "zedcloud_client test AppInst"
-	activate := true
+	activate := "true"
 	appType := swagger_models.AppTypeAPPTYPEVM
 	var cpus int64 = 1
 	var memory int64 = 512
+	var vnc bool = true
 	hvMode := swagger_models.HvModeHVHVM
 
 	vmInfo := swagger_models.VM{
 		Cpus:   &cpus,
 		Memory: &memory,
 		Mode:   &hvMode,
-		Vnc:    true,
+		Vnc:    &vnc,
 	}
 	cfg := &swagger_models.AppInstance{
 		Name:        &params.name,
