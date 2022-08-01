@@ -9,8 +9,6 @@ package edge_node_status
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"fmt"
-
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -33,42 +31,50 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetEdgeNodeEvents(params *GetEdgeNodeEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEdgeNodeEventsOK, error)
+	EdgeNodeStatusGetEdgeNodeEvents(params *EdgeNodeStatusGetEdgeNodeEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeEventsOK, error)
 
-	GetEdgeNodeEventsByName(params *GetEdgeNodeEventsByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEdgeNodeEventsByNameOK, error)
+	EdgeNodeStatusGetEdgeNodeEventsByName(params *EdgeNodeStatusGetEdgeNodeEventsByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeEventsByNameOK, error)
 
-	GetEdgeNodeResourceMetricsByID(params *GetEdgeNodeResourceMetricsByIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEdgeNodeResourceMetricsByIDOK, error)
+	EdgeNodeStatusGetEdgeNodeInfo(params *EdgeNodeStatusGetEdgeNodeInfoParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeInfoOK, error)
 
-	GetEdgeNodeResourceMetricsByName(params *GetEdgeNodeResourceMetricsByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEdgeNodeResourceMetricsByNameOK, error)
+	EdgeNodeStatusGetEdgeNodeInfoByName(params *EdgeNodeStatusGetEdgeNodeInfoByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeInfoByNameOK, error)
 
-	GetEdgeNodeStatus(params *GetEdgeNodeStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEdgeNodeStatusOK, error)
+	EdgeNodeStatusGetEdgeNodeRawStatus(params *EdgeNodeStatusGetEdgeNodeRawStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeRawStatusOK, error)
 
-	GetEdgeNodeStatusByName(params *GetEdgeNodeStatusByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEdgeNodeStatusByNameOK, error)
+	EdgeNodeStatusGetEdgeNodeRawStatusByName(params *EdgeNodeStatusGetEdgeNodeRawStatusByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeRawStatusByNameOK, error)
 
-	QueryEdgeNodeStatus(params *QueryEdgeNodeStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*QueryEdgeNodeStatusOK, error)
+	EdgeNodeStatusGetEdgeNodeResourceMetricsByID(params *EdgeNodeStatusGetEdgeNodeResourceMetricsByIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeResourceMetricsByIDOK, error)
+
+	EdgeNodeStatusGetEdgeNodeResourceMetricsByName(params *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeResourceMetricsByNameOK, error)
+
+	EdgeNodeStatusGetEdgeNodeStatus(params *EdgeNodeStatusGetEdgeNodeStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeStatusOK, error)
+
+	EdgeNodeStatusGetEdgeNodeStatusByName(params *EdgeNodeStatusGetEdgeNodeStatusByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeStatusByNameOK, error)
+
+	EdgeNodeStatusQueryEdgeNodeStatus(params *EdgeNodeStatusQueryEdgeNodeStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusQueryEdgeNodeStatusOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-  GetEdgeNodeEvents gets edge node events by id
+  EdgeNodeStatusGetEdgeNodeEvents gets edge node events by id
 
   Get configuration and status events of an edge node by id.
 */
-func (a *Client) GetEdgeNodeEvents(params *GetEdgeNodeEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEdgeNodeEventsOK, error) {
+func (a *Client) EdgeNodeStatusGetEdgeNodeEvents(params *EdgeNodeStatusGetEdgeNodeEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeEventsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetEdgeNodeEventsParams()
+		params = NewEdgeNodeStatusGetEdgeNodeEventsParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetEdgeNodeEvents",
+		ID:                 "EdgeNodeStatus_GetEdgeNodeEvents",
 		Method:             "GET",
 		PathPattern:        "/v1/devices/id/{objid}/events",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetEdgeNodeEventsReader{formats: a.formats},
+		Reader:             &EdgeNodeStatusGetEdgeNodeEventsReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -81,35 +87,34 @@ func (a *Client) GetEdgeNodeEvents(params *GetEdgeNodeEventsParams, authInfo run
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetEdgeNodeEventsOK)
+	success, ok := result.(*EdgeNodeStatusGetEdgeNodeEventsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetEdgeNodeEvents: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeNodeStatusGetEdgeNodeEventsDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetEdgeNodeEventsByName gets edge node events by id
+  EdgeNodeStatusGetEdgeNodeEventsByName gets edge node events by id
 
   Get configuration and status events of an edge node by id.
 */
-func (a *Client) GetEdgeNodeEventsByName(params *GetEdgeNodeEventsByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEdgeNodeEventsByNameOK, error) {
+func (a *Client) EdgeNodeStatusGetEdgeNodeEventsByName(params *EdgeNodeStatusGetEdgeNodeEventsByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeEventsByNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetEdgeNodeEventsByNameParams()
+		params = NewEdgeNodeStatusGetEdgeNodeEventsByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetEdgeNodeEventsByName",
+		ID:                 "EdgeNodeStatus_GetEdgeNodeEventsByName",
 		Method:             "GET",
 		PathPattern:        "/v1/devices/name/{objname}/events",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetEdgeNodeEventsByNameReader{formats: a.formats},
+		Reader:             &EdgeNodeStatusGetEdgeNodeEventsByNameReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -122,35 +127,194 @@ func (a *Client) GetEdgeNodeEventsByName(params *GetEdgeNodeEventsByNameParams, 
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetEdgeNodeEventsByNameOK)
+	success, ok := result.(*EdgeNodeStatusGetEdgeNodeEventsByNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetEdgeNodeEventsByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeNodeStatusGetEdgeNodeEventsByNameDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetEdgeNodeResourceMetricsByID gets edge node resource usage timeline
+  EdgeNodeStatusGetEdgeNodeInfo gets edge node info
+
+  Get the info of an edge node as reported by the edge node itself
+*/
+func (a *Client) EdgeNodeStatusGetEdgeNodeInfo(params *EdgeNodeStatusGetEdgeNodeInfoParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeInfoOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEdgeNodeStatusGetEdgeNodeInfoParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "EdgeNodeStatus_GetEdgeNodeInfo",
+		Method:             "GET",
+		PathPattern:        "/v1/devices/id/{id}/status/info",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EdgeNodeStatusGetEdgeNodeInfoReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EdgeNodeStatusGetEdgeNodeInfoOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*EdgeNodeStatusGetEdgeNodeInfoDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  EdgeNodeStatusGetEdgeNodeInfoByName gets edge node info
+
+  Get the info of an edge node as reported by the edge node itself
+*/
+func (a *Client) EdgeNodeStatusGetEdgeNodeInfoByName(params *EdgeNodeStatusGetEdgeNodeInfoByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeInfoByNameOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEdgeNodeStatusGetEdgeNodeInfoByNameParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "EdgeNodeStatus_GetEdgeNodeInfoByName",
+		Method:             "GET",
+		PathPattern:        "/v1/devices/name/{name}/status/info",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EdgeNodeStatusGetEdgeNodeInfoByNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EdgeNodeStatusGetEdgeNodeInfoByNameOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*EdgeNodeStatusGetEdgeNodeInfoByNameDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  EdgeNodeStatusGetEdgeNodeRawStatus gets edge node raw status
+
+  Get the raw status of an edge node as reported by the edge node itself
+*/
+func (a *Client) EdgeNodeStatusGetEdgeNodeRawStatus(params *EdgeNodeStatusGetEdgeNodeRawStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeRawStatusOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEdgeNodeStatusGetEdgeNodeRawStatusParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "EdgeNodeStatus_GetEdgeNodeRawStatus",
+		Method:             "GET",
+		PathPattern:        "/v1/devices/id/{id}/status/metrics/raw",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EdgeNodeStatusGetEdgeNodeRawStatusReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EdgeNodeStatusGetEdgeNodeRawStatusOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*EdgeNodeStatusGetEdgeNodeRawStatusDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  EdgeNodeStatusGetEdgeNodeRawStatusByName gets edge node raw status
+
+  Get the raw status of an edge node as reported by the edge node itself
+*/
+func (a *Client) EdgeNodeStatusGetEdgeNodeRawStatusByName(params *EdgeNodeStatusGetEdgeNodeRawStatusByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeRawStatusByNameOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEdgeNodeStatusGetEdgeNodeRawStatusByNameParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "EdgeNodeStatus_GetEdgeNodeRawStatusByName",
+		Method:             "GET",
+		PathPattern:        "/v1/devices/name/{name}/status/metrics/raw",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EdgeNodeStatusGetEdgeNodeRawStatusByNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EdgeNodeStatusGetEdgeNodeRawStatusByNameOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*EdgeNodeStatusGetEdgeNodeRawStatusByNameDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  EdgeNodeStatusGetEdgeNodeResourceMetricsByID gets edge node resource usage timeline
 
   Get the resource usage timeline of an edge node
 */
-func (a *Client) GetEdgeNodeResourceMetricsByID(params *GetEdgeNodeResourceMetricsByIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEdgeNodeResourceMetricsByIDOK, error) {
+func (a *Client) EdgeNodeStatusGetEdgeNodeResourceMetricsByID(params *EdgeNodeStatusGetEdgeNodeResourceMetricsByIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeResourceMetricsByIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetEdgeNodeResourceMetricsByIDParams()
+		params = NewEdgeNodeStatusGetEdgeNodeResourceMetricsByIDParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetEdgeNodeResourceMetricsById",
+		ID:                 "EdgeNodeStatus_GetEdgeNodeResourceMetricsById",
 		Method:             "GET",
 		PathPattern:        "/v1/devices/id/{objid}/timeSeries/{mType}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetEdgeNodeResourceMetricsByIDReader{formats: a.formats},
+		Reader:             &EdgeNodeStatusGetEdgeNodeResourceMetricsByIDReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -163,35 +327,34 @@ func (a *Client) GetEdgeNodeResourceMetricsByID(params *GetEdgeNodeResourceMetri
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetEdgeNodeResourceMetricsByIDOK)
+	success, ok := result.(*EdgeNodeStatusGetEdgeNodeResourceMetricsByIDOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetEdgeNodeResourceMetricsById: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeNodeStatusGetEdgeNodeResourceMetricsByIDDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetEdgeNodeResourceMetricsByName gets edge node resource usage timeline
+  EdgeNodeStatusGetEdgeNodeResourceMetricsByName gets edge node resource usage timeline
 
   Get the resource usage timeline of an edge node
 */
-func (a *Client) GetEdgeNodeResourceMetricsByName(params *GetEdgeNodeResourceMetricsByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEdgeNodeResourceMetricsByNameOK, error) {
+func (a *Client) EdgeNodeStatusGetEdgeNodeResourceMetricsByName(params *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeResourceMetricsByNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetEdgeNodeResourceMetricsByNameParams()
+		params = NewEdgeNodeStatusGetEdgeNodeResourceMetricsByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetEdgeNodeResourceMetricsByName",
+		ID:                 "EdgeNodeStatus_GetEdgeNodeResourceMetricsByName",
 		Method:             "GET",
 		PathPattern:        "/v1/devices/name/{objname}/timeSeries/{mType}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetEdgeNodeResourceMetricsByNameReader{formats: a.formats},
+		Reader:             &EdgeNodeStatusGetEdgeNodeResourceMetricsByNameReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -204,35 +367,34 @@ func (a *Client) GetEdgeNodeResourceMetricsByName(params *GetEdgeNodeResourceMet
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetEdgeNodeResourceMetricsByNameOK)
+	success, ok := result.(*EdgeNodeStatusGetEdgeNodeResourceMetricsByNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetEdgeNodeResourceMetricsByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeNodeStatusGetEdgeNodeResourceMetricsByNameDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetEdgeNodeStatus gets edge node status
+  EdgeNodeStatusGetEdgeNodeStatus gets edge node status
 
   Get the status of an edge node as reported by the edge node itself
 */
-func (a *Client) GetEdgeNodeStatus(params *GetEdgeNodeStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEdgeNodeStatusOK, error) {
+func (a *Client) EdgeNodeStatusGetEdgeNodeStatus(params *EdgeNodeStatusGetEdgeNodeStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetEdgeNodeStatusParams()
+		params = NewEdgeNodeStatusGetEdgeNodeStatusParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetEdgeNodeStatus",
+		ID:                 "EdgeNodeStatus_GetEdgeNodeStatus",
 		Method:             "GET",
 		PathPattern:        "/v1/devices/id/{id}/status",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetEdgeNodeStatusReader{formats: a.formats},
+		Reader:             &EdgeNodeStatusGetEdgeNodeStatusReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -245,35 +407,34 @@ func (a *Client) GetEdgeNodeStatus(params *GetEdgeNodeStatusParams, authInfo run
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetEdgeNodeStatusOK)
+	success, ok := result.(*EdgeNodeStatusGetEdgeNodeStatusOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetEdgeNodeStatus: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeNodeStatusGetEdgeNodeStatusDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetEdgeNodeStatusByName gets edge node status
+  EdgeNodeStatusGetEdgeNodeStatusByName gets edge node status
 
   Get the status of an edge node as reported by the edge node itself
 */
-func (a *Client) GetEdgeNodeStatusByName(params *GetEdgeNodeStatusByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEdgeNodeStatusByNameOK, error) {
+func (a *Client) EdgeNodeStatusGetEdgeNodeStatusByName(params *EdgeNodeStatusGetEdgeNodeStatusByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusGetEdgeNodeStatusByNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetEdgeNodeStatusByNameParams()
+		params = NewEdgeNodeStatusGetEdgeNodeStatusByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetEdgeNodeStatusByName",
+		ID:                 "EdgeNodeStatus_GetEdgeNodeStatusByName",
 		Method:             "GET",
 		PathPattern:        "/v1/devices/name/{name}/status",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetEdgeNodeStatusByNameReader{formats: a.formats},
+		Reader:             &EdgeNodeStatusGetEdgeNodeStatusByNameReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -286,35 +447,34 @@ func (a *Client) GetEdgeNodeStatusByName(params *GetEdgeNodeStatusByNameParams, 
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetEdgeNodeStatusByNameOK)
+	success, ok := result.(*EdgeNodeStatusGetEdgeNodeStatusByNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetEdgeNodeStatusByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeNodeStatusGetEdgeNodeStatusByNameDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  QueryEdgeNodeStatus queries status of edge nodes
+  EdgeNodeStatusQueryEdgeNodeStatus queries status of edge nodes
 
   Query the status of edge nodes as reported by the edge nodes themselves
 */
-func (a *Client) QueryEdgeNodeStatus(params *QueryEdgeNodeStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*QueryEdgeNodeStatusOK, error) {
+func (a *Client) EdgeNodeStatusQueryEdgeNodeStatus(params *EdgeNodeStatusQueryEdgeNodeStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNodeStatusQueryEdgeNodeStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewQueryEdgeNodeStatusParams()
+		params = NewEdgeNodeStatusQueryEdgeNodeStatusParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "QueryEdgeNodeStatus",
+		ID:                 "EdgeNodeStatus_QueryEdgeNodeStatus",
 		Method:             "GET",
 		PathPattern:        "/v1/devices/status",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &QueryEdgeNodeStatusReader{formats: a.formats},
+		Reader:             &EdgeNodeStatusQueryEdgeNodeStatusReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -327,14 +487,13 @@ func (a *Client) QueryEdgeNodeStatus(params *QueryEdgeNodeStatusParams, authInfo
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*QueryEdgeNodeStatusOK)
+	success, ok := result.(*EdgeNodeStatusQueryEdgeNodeStatusOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for QueryEdgeNodeStatus: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeNodeStatusQueryEdgeNodeStatusDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 // SetTransport changes the transport on the client

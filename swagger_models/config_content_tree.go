@@ -38,7 +38,7 @@ type ConfigContentTree struct {
 	// generation_count needs to be updated when purge is required for an existing
 	// instance. In case of new instance using the same content tree, EVE will get
 	// new content tree UUID in the device configuration from the controller.
-	GenerationCount string `json:"generation_count,omitempty"`
+	GenerationCount string `json:"generationCount,omitempty"`
 
 	// iformat
 	Iformat *ConfigFormat `json:"iformat,omitempty"`

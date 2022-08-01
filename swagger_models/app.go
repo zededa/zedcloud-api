@@ -64,6 +64,9 @@ type App struct {
 	// origin and parent related details
 	ParentDetail *ObjectParentDetail `json:"parentDetail,omitempty"`
 
+	// project access list of the app bundle
+	ProjectAccessList []string `json:"projectAccessList"`
+
 	// system defined info
 	Revision *ObjectRevision `json:"revision,omitempty"`
 

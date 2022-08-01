@@ -23,11 +23,17 @@ type NetInstFilter struct {
 	// device name
 	DeviceName string `json:"deviceName,omitempty"`
 
+	// device name pattern
+	DeviceNamePattern string `json:"deviceNamePattern,omitempty"`
+
 	// name pattern
 	NamePattern string `json:"namePattern,omitempty"`
 
 	// project name
 	ProjectName string `json:"projectName,omitempty"`
+
+	// project name pattern
+	ProjectNamePattern string `json:"projectNamePattern,omitempty"`
 
 	// tags
 	Tags map[string]string `json:"tags,omitempty"`

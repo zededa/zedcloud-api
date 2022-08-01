@@ -21,6 +21,7 @@ import (
 // Enterprise Enterprise detail
 //
 // Enterprise meta data
+// Example: {"HubspotId":"","SfdcId":"","azureSubId":"","description":"This is a test enterprise","id":"AAFlABDe6Nm63ixF5LJBbk9Keqp6","name":"zededa","parentEntpId":"","policyList":{"list":[]},"revision":{"createdAt":"2020-07-16T18:19:56Z","createdBy":"SYSTEM_ROOT","curr":"1","prev":"","updatedAt":"2020-07-16T18:19:56Z","updatedBy":"SYSTEM_ROOT"},"state":"ENTERPRISE_STATE_ACTIVE","title":"ZEDEDA Inc. USA","type":"ENTERPRISE_TYPE_UNSPECIFIED"}
 //
 // swagger:model Enterprise
 type Enterprise struct {
@@ -31,7 +32,7 @@ type Enterprise struct {
 	// sfdc Id
 	SfdcID string `json:"SfdcId,omitempty"`
 
-	// attributes
+	// enterprise level key-value pairs
 	Attributes map[string]string `json:"attributes,omitempty"`
 
 	// Azure subscription ID tied to this enterprise
@@ -39,6 +40,9 @@ type Enterprise struct {
 
 	// List of all child enterprises
 	ChildEnterprises []*EnterpriseSummary `json:"childEnterprises"`
+
+	// zedcontrol host
+	ControllerHostURL string `json:"controllerHostURL,omitempty"`
 
 	// Detailed description of the enterprise
 	// Max Length: 256

@@ -28,8 +28,14 @@ type DetailedUsers struct {
 	// Page details of the filtered records
 	Next *Cursor `json:"next,omitempty"`
 
+	// User distribution by role
+	SummaryByRoleDistribution *Summary `json:"summaryByRoleDistribution,omitempty"`
+
 	// Summary of filtered users
 	SummaryByState *Summary `json:"summaryByState,omitempty"`
+
+	// Count of online/offline users
+	SummaryByUserActivity *Summary `json:"summaryByUserActivity,omitempty"`
 }
 
 // Validate validates this detailed users
@@ -44,7 +50,15 @@ func (m *DetailedUsers) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateSummaryByRoleDistribution(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSummaryByState(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSummaryByUserActivity(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -99,6 +113,25 @@ func (m *DetailedUsers) validateNext(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DetailedUsers) validateSummaryByRoleDistribution(formats strfmt.Registry) error {
+	if swag.IsZero(m.SummaryByRoleDistribution) { // not required
+		return nil
+	}
+
+	if m.SummaryByRoleDistribution != nil {
+		if err := m.SummaryByRoleDistribution.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByRoleDistribution")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByRoleDistribution")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DetailedUsers) validateSummaryByState(formats strfmt.Registry) error {
 	if swag.IsZero(m.SummaryByState) { // not required
 		return nil
@@ -110,6 +143,25 @@ func (m *DetailedUsers) validateSummaryByState(formats strfmt.Registry) error {
 				return ve.ValidateName("summaryByState")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("summaryByState")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetailedUsers) validateSummaryByUserActivity(formats strfmt.Registry) error {
+	if swag.IsZero(m.SummaryByUserActivity) { // not required
+		return nil
+	}
+
+	if m.SummaryByUserActivity != nil {
+		if err := m.SummaryByUserActivity.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByUserActivity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByUserActivity")
 			}
 			return err
 		}
@@ -130,7 +182,15 @@ func (m *DetailedUsers) ContextValidate(ctx context.Context, formats strfmt.Regi
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateSummaryByRoleDistribution(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateSummaryByState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSummaryByUserActivity(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -176,6 +236,22 @@ func (m *DetailedUsers) contextValidateNext(ctx context.Context, formats strfmt.
 	return nil
 }
 
+func (m *DetailedUsers) contextValidateSummaryByRoleDistribution(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SummaryByRoleDistribution != nil {
+		if err := m.SummaryByRoleDistribution.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByRoleDistribution")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByRoleDistribution")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DetailedUsers) contextValidateSummaryByState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByState != nil {
@@ -184,6 +260,22 @@ func (m *DetailedUsers) contextValidateSummaryByState(ctx context.Context, forma
 				return ve.ValidateName("summaryByState")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("summaryByState")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetailedUsers) contextValidateSummaryByUserActivity(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SummaryByUserActivity != nil {
+		if err := m.SummaryByUserActivity.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByUserActivity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByUserActivity")
 			}
 			return err
 		}

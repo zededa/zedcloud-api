@@ -38,6 +38,8 @@ type VMManifest struct {
 
 	// Annotations   types.Annotations    `json:"Annotations,omitempty"`
 	// Labels        types.Labels         `json:"Labels,omitempty"`
+	//
+	// Template for Custom Configuration. Used for Cloud-Init
 	Configuration *UserDataTemplate `json:"configuration,omitempty"`
 
 	// Container specific details
@@ -48,7 +50,7 @@ type VMManifest struct {
 	// type of deployment for the app, eg: azure, k3s, standalone
 	DeploymentType *DeploymentType `json:"deploymentType,omitempty"`
 
-	// desc
+	// Description of the application
 	Desc *Details `json:"desc,omitempty"`
 
 	// Description of the Edge application
@@ -87,7 +89,7 @@ type VMManifest struct {
 	// UI map: AppEditPage:IdentityPane:Name_Field, AppDetailsPage:IdentityPane:Name_Field
 	Name string `json:"name,omitempty"`
 
-	// owner
+	// Owner of the application
 	Owner *Author `json:"owner,omitempty"`
 
 	// permissions

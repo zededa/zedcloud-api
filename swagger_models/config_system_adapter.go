@@ -15,9 +15,9 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ConfigSystemAdapter systemAdapters, are the higher l2 concept built on physicalIOs.
-// systemAdapters, gives all the required bits to turn the physical IOs
-// into useful IP endpoints.
+// ConfigSystemAdapter systemAdapters are higher-level IP-ready network endpoints.
+// systemAdapters give all the required bits to turn the physical IOs
+// and intermediate L2 objects into useful IP endpoints.
 // These endpoints can be further used to connect to controller or
 // can be shared between workload/services running on the node.
 //
@@ -40,13 +40,11 @@ type ConfigSystemAdapter struct {
 	// Higher cost adapters are only tried when none of the lower cost ones work.
 	Cost int64 `json:"cost,omitempty"`
 
-	// deprecated; need level 2 spec. sWAdapterParams allocDetails = 20;
-	// this is part of the freelink group
 	// DEPRECATED by cost below
 	FreeUplink bool `json:"freeUplink,omitempty"`
 
 	// lowerLayerName - For example, if lower layer is PhysicalAdapter
-	// ( physical interface), this should point to PhyLabel of the
+	// ( physical interface), this should point to logicallabel of the
 	// physicalIO.
 	LowerLayerName string `json:"lowerLayerName,omitempty"`
 

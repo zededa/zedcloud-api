@@ -27,7 +27,7 @@ type AppInstance struct {
 
 	// app instance activation flag
 	// Required: true
-	Activate *bool `json:"activate"`
+	Activate *string `json:"activate"`
 
 	// User defined name of the edge app, unique across the enterprise. Once app name is created, name can’t be changed
 	// Required: true
@@ -78,7 +78,7 @@ type AppInstance struct {
 	// Required: true
 	Drives []*Drive `json:"drives"`
 
-	// encrypted secrets
+	// user encrypted secrets map
 	EncryptedSecrets map[string]string `json:"encryptedSecrets,omitempty"`
 
 	// System defined universally unique Id of the app instance
@@ -125,7 +125,10 @@ type AppInstance struct {
 	// app instance object revision details
 	Revision *ObjectRevision `json:"revision,omitempty"`
 
-	// tags
+	// start delay is the time in seconds EVE should wait after boot before starting the application instance
+	StartDelayInSeconds int64 `json:"startDelayInSeconds,omitempty"`
+
+	// Tags are name/value pairs that enable you to categorize resources. Tag names are case insensitive with max_length 512 and min_length 3. Tag values are case sensitive with max_length 256 and min_length 3.
 	Tags map[string]string `json:"tags,omitempty"`
 
 	// User defined title of the app instance. Title can be changed at any time

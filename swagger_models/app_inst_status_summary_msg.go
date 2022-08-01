@@ -10,6 +10,7 @@ package swagger_models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -42,6 +43,12 @@ type AppInstStatusSummaryMsg struct {
 	// Pattern: [a-zA-Z0-9][a-zA-Z0-9_.-]+
 	AppID string `json:"appId,omitempty"`
 
+	// User defined name of the edge app, unique across the enterprise. Once edge app is created, name can’t be changed
+	// Max Length: 256
+	// Min Length: 3
+	// Pattern: [a-zA-Z0-9][a-zA-Z0-9_.-]+
+	AppName string `json:"appName,omitempty"`
+
 	// type of app
 	AppType *AppType `json:"appType,omitempty"`
 
@@ -59,6 +66,12 @@ type AppInstStatusSummaryMsg struct {
 	// Min Length: 3
 	// Pattern: [a-zA-Z0-9][a-zA-Z0-9_.-]+
 	DeviceID string `json:"deviceId,omitempty"`
+
+	// User defined name of the device, unique across the enterprise. Once device is created, name can’t be changed
+	// Max Length: 256
+	// Min Length: 3
+	// Pattern: [a-zA-Z0-9][a-zA-Z0-9_.-]+
+	DeviceName string `json:"deviceName,omitempty"`
 
 	// System defined universally unique Id of the app instance
 	// Read Only: true
@@ -80,13 +93,22 @@ type AppInstStatusSummaryMsg struct {
 	// Pattern: [a-zA-Z0-9][a-zA-Z0-9_.-]+
 	ProjectID string `json:"projectId,omitempty"`
 
+	// User defined name of the project, unique across the enterprise. Once project is created, name can’t be changed
+	// Max Length: 256
+	// Min Length: 3
+	// Pattern: [a-zA-Z0-9][a-zA-Z0-9_.-]+
+	ProjectName string `json:"projectName,omitempty"`
+
 	// operation status
 	RunState *RunState `json:"runState,omitempty"`
+
+	// Software details
+	SwInfo []*SWInfo `json:"swInfo"`
 
 	// sotware state
 	SwState *SWState `json:"swState,omitempty"`
 
-	// tags
+	// Tags are name/value pairs that enable you to categorize resources. Tag names are case insensitive with max_length 512 and min_length 3. Tag values are case sensitive with max_length 256 and min_length 3.
 	Tags map[string]string `json:"tags,omitempty"`
 
 	// User defined title of the app instance. Title can be changed at any time
@@ -120,6 +142,10 @@ func (m *AppInstStatusSummaryMsg) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateAppName(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateAppType(formats); err != nil {
 		res = append(res, err)
 	}
@@ -133,6 +159,10 @@ func (m *AppInstStatusSummaryMsg) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDeviceID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDeviceName(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -152,7 +182,15 @@ func (m *AppInstStatusSummaryMsg) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateProjectName(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateRunState(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSwInfo(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -266,6 +304,26 @@ func (m *AppInstStatusSummaryMsg) validateAppID(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *AppInstStatusSummaryMsg) validateAppName(formats strfmt.Registry) error {
+	if swag.IsZero(m.AppName) { // not required
+		return nil
+	}
+
+	if err := validate.MinLength("appName", "body", m.AppName, 3); err != nil {
+		return err
+	}
+
+	if err := validate.MaxLength("appName", "body", m.AppName, 256); err != nil {
+		return err
+	}
+
+	if err := validate.Pattern("appName", "body", m.AppName, `[a-zA-Z0-9][a-zA-Z0-9_.-]+`); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *AppInstStatusSummaryMsg) validateAppType(formats strfmt.Registry) error {
 	if swag.IsZero(m.AppType) { // not required
 		return nil
@@ -344,6 +402,26 @@ func (m *AppInstStatusSummaryMsg) validateDeviceID(formats strfmt.Registry) erro
 	return nil
 }
 
+func (m *AppInstStatusSummaryMsg) validateDeviceName(formats strfmt.Registry) error {
+	if swag.IsZero(m.DeviceName) { // not required
+		return nil
+	}
+
+	if err := validate.MinLength("deviceName", "body", m.DeviceName, 3); err != nil {
+		return err
+	}
+
+	if err := validate.MaxLength("deviceName", "body", m.DeviceName, 256); err != nil {
+		return err
+	}
+
+	if err := validate.Pattern("deviceName", "body", m.DeviceName, `[a-zA-Z0-9][a-zA-Z0-9_.-]+`); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *AppInstStatusSummaryMsg) validateID(formats strfmt.Registry) error {
 	if swag.IsZero(m.ID) { // not required
 		return nil
@@ -415,6 +493,26 @@ func (m *AppInstStatusSummaryMsg) validateProjectID(formats strfmt.Registry) err
 	return nil
 }
 
+func (m *AppInstStatusSummaryMsg) validateProjectName(formats strfmt.Registry) error {
+	if swag.IsZero(m.ProjectName) { // not required
+		return nil
+	}
+
+	if err := validate.MinLength("projectName", "body", m.ProjectName, 3); err != nil {
+		return err
+	}
+
+	if err := validate.MaxLength("projectName", "body", m.ProjectName, 256); err != nil {
+		return err
+	}
+
+	if err := validate.Pattern("projectName", "body", m.ProjectName, `[a-zA-Z0-9][a-zA-Z0-9_.-]+`); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *AppInstStatusSummaryMsg) validateRunState(formats strfmt.Registry) error {
 	if swag.IsZero(m.RunState) { // not required
 		return nil
@@ -429,6 +527,32 @@ func (m *AppInstStatusSummaryMsg) validateRunState(formats strfmt.Registry) erro
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *AppInstStatusSummaryMsg) validateSwInfo(formats strfmt.Registry) error {
+	if swag.IsZero(m.SwInfo) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.SwInfo); i++ {
+		if swag.IsZero(m.SwInfo[i]) { // not required
+			continue
+		}
+
+		if m.SwInfo[i] != nil {
+			if err := m.SwInfo[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("swInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("swInfo" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -510,6 +634,10 @@ func (m *AppInstStatusSummaryMsg) ContextValidate(ctx context.Context, formats s
 	}
 
 	if err := m.contextValidateRunState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSwInfo(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -655,6 +783,26 @@ func (m *AppInstStatusSummaryMsg) contextValidateRunState(ctx context.Context, f
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *AppInstStatusSummaryMsg) contextValidateSwInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SwInfo); i++ {
+
+		if m.SwInfo[i] != nil {
+			if err := m.SwInfo[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("swInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("swInfo" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

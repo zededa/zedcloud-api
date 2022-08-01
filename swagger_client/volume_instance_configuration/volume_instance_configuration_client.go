@@ -9,8 +9,6 @@ package volume_instance_configuration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"fmt"
-
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -33,40 +31,40 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateVolumeInstance(params *CreateVolumeInstanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateVolumeInstanceOK, error)
+	VolumeInstanceConfigurationCreateVolumeInstance(params *VolumeInstanceConfigurationCreateVolumeInstanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*VolumeInstanceConfigurationCreateVolumeInstanceOK, error)
 
-	DeleteVolumeInstance(params *DeleteVolumeInstanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteVolumeInstanceOK, error)
+	VolumeInstanceConfigurationDeleteVolumeInstance(params *VolumeInstanceConfigurationDeleteVolumeInstanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*VolumeInstanceConfigurationDeleteVolumeInstanceOK, error)
 
-	GetVolumeInstance(params *GetVolumeInstanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetVolumeInstanceOK, error)
+	VolumeInstanceConfigurationGetVolumeInstance(params *VolumeInstanceConfigurationGetVolumeInstanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*VolumeInstanceConfigurationGetVolumeInstanceOK, error)
 
-	GetVolumeInstanceByName(params *GetVolumeInstanceByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetVolumeInstanceByNameOK, error)
+	VolumeInstanceConfigurationGetVolumeInstanceByName(params *VolumeInstanceConfigurationGetVolumeInstanceByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*VolumeInstanceConfigurationGetVolumeInstanceByNameOK, error)
 
-	QueryVolumeInstances(params *QueryVolumeInstancesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*QueryVolumeInstancesOK, error)
+	VolumeInstanceConfigurationQueryVolumeInstances(params *VolumeInstanceConfigurationQueryVolumeInstancesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*VolumeInstanceConfigurationQueryVolumeInstancesOK, error)
 
-	UpdateVolumeInstance(params *UpdateVolumeInstanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateVolumeInstanceOK, error)
+	VolumeInstanceConfigurationUpdateVolumeInstance(params *VolumeInstanceConfigurationUpdateVolumeInstanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*VolumeInstanceConfigurationUpdateVolumeInstanceOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-  CreateVolumeInstance creates edge volume instance
+  VolumeInstanceConfigurationCreateVolumeInstance creates edge volume instance
 
   Create an edge volume instance record.
 */
-func (a *Client) CreateVolumeInstance(params *CreateVolumeInstanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateVolumeInstanceOK, error) {
+func (a *Client) VolumeInstanceConfigurationCreateVolumeInstance(params *VolumeInstanceConfigurationCreateVolumeInstanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*VolumeInstanceConfigurationCreateVolumeInstanceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCreateVolumeInstanceParams()
+		params = NewVolumeInstanceConfigurationCreateVolumeInstanceParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "CreateVolumeInstance",
+		ID:                 "VolumeInstanceConfiguration_CreateVolumeInstance",
 		Method:             "POST",
 		PathPattern:        "/v1/volumes/instances",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CreateVolumeInstanceReader{formats: a.formats},
+		Reader:             &VolumeInstanceConfigurationCreateVolumeInstanceReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -79,35 +77,34 @@ func (a *Client) CreateVolumeInstance(params *CreateVolumeInstanceParams, authIn
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CreateVolumeInstanceOK)
+	success, ok := result.(*VolumeInstanceConfigurationCreateVolumeInstanceOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CreateVolumeInstance: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*VolumeInstanceConfigurationCreateVolumeInstanceDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  DeleteVolumeInstance deletes volume instance
+  VolumeInstanceConfigurationDeleteVolumeInstance deletes volume instance
 
   Delete a volume instance record.
 */
-func (a *Client) DeleteVolumeInstance(params *DeleteVolumeInstanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteVolumeInstanceOK, error) {
+func (a *Client) VolumeInstanceConfigurationDeleteVolumeInstance(params *VolumeInstanceConfigurationDeleteVolumeInstanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*VolumeInstanceConfigurationDeleteVolumeInstanceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDeleteVolumeInstanceParams()
+		params = NewVolumeInstanceConfigurationDeleteVolumeInstanceParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "DeleteVolumeInstance",
+		ID:                 "VolumeInstanceConfiguration_DeleteVolumeInstance",
 		Method:             "DELETE",
 		PathPattern:        "/v1/volumes/instances/id/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &DeleteVolumeInstanceReader{formats: a.formats},
+		Reader:             &VolumeInstanceConfigurationDeleteVolumeInstanceReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -120,35 +117,34 @@ func (a *Client) DeleteVolumeInstance(params *DeleteVolumeInstanceParams, authIn
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteVolumeInstanceOK)
+	success, ok := result.(*VolumeInstanceConfigurationDeleteVolumeInstanceOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DeleteVolumeInstance: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*VolumeInstanceConfigurationDeleteVolumeInstanceDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetVolumeInstance gets edge volume instance
+  VolumeInstanceConfigurationGetVolumeInstance gets edge volume instance
 
   Get the configuration (without security details) of an edge volume instance record.
 */
-func (a *Client) GetVolumeInstance(params *GetVolumeInstanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetVolumeInstanceOK, error) {
+func (a *Client) VolumeInstanceConfigurationGetVolumeInstance(params *VolumeInstanceConfigurationGetVolumeInstanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*VolumeInstanceConfigurationGetVolumeInstanceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetVolumeInstanceParams()
+		params = NewVolumeInstanceConfigurationGetVolumeInstanceParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetVolumeInstance",
+		ID:                 "VolumeInstanceConfiguration_GetVolumeInstance",
 		Method:             "GET",
 		PathPattern:        "/v1/volumes/instances/id/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetVolumeInstanceReader{formats: a.formats},
+		Reader:             &VolumeInstanceConfigurationGetVolumeInstanceReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -161,35 +157,34 @@ func (a *Client) GetVolumeInstance(params *GetVolumeInstanceParams, authInfo run
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetVolumeInstanceOK)
+	success, ok := result.(*VolumeInstanceConfigurationGetVolumeInstanceOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetVolumeInstance: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*VolumeInstanceConfigurationGetVolumeInstanceDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetVolumeInstanceByName gets edge volume instance
+  VolumeInstanceConfigurationGetVolumeInstanceByName gets edge volume instance
 
   Get the configuration (without security details) of an edge volume instance record.
 */
-func (a *Client) GetVolumeInstanceByName(params *GetVolumeInstanceByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetVolumeInstanceByNameOK, error) {
+func (a *Client) VolumeInstanceConfigurationGetVolumeInstanceByName(params *VolumeInstanceConfigurationGetVolumeInstanceByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*VolumeInstanceConfigurationGetVolumeInstanceByNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetVolumeInstanceByNameParams()
+		params = NewVolumeInstanceConfigurationGetVolumeInstanceByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetVolumeInstanceByName",
+		ID:                 "VolumeInstanceConfiguration_GetVolumeInstanceByName",
 		Method:             "GET",
 		PathPattern:        "/v1/volumes/instances/name/{name}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetVolumeInstanceByNameReader{formats: a.formats},
+		Reader:             &VolumeInstanceConfigurationGetVolumeInstanceByNameReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -202,35 +197,34 @@ func (a *Client) GetVolumeInstanceByName(params *GetVolumeInstanceByNameParams, 
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetVolumeInstanceByNameOK)
+	success, ok := result.(*VolumeInstanceConfigurationGetVolumeInstanceByNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetVolumeInstanceByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*VolumeInstanceConfigurationGetVolumeInstanceByNameDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  QueryVolumeInstances queries edge volume instances
+  VolumeInstanceConfigurationQueryVolumeInstances queries edge volume instances
 
   Query the edge volume instance records.
 */
-func (a *Client) QueryVolumeInstances(params *QueryVolumeInstancesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*QueryVolumeInstancesOK, error) {
+func (a *Client) VolumeInstanceConfigurationQueryVolumeInstances(params *VolumeInstanceConfigurationQueryVolumeInstancesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*VolumeInstanceConfigurationQueryVolumeInstancesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewQueryVolumeInstancesParams()
+		params = NewVolumeInstanceConfigurationQueryVolumeInstancesParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "QueryVolumeInstances",
+		ID:                 "VolumeInstanceConfiguration_QueryVolumeInstances",
 		Method:             "GET",
 		PathPattern:        "/v1/volumes/instances",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &QueryVolumeInstancesReader{formats: a.formats},
+		Reader:             &VolumeInstanceConfigurationQueryVolumeInstancesReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -243,35 +237,34 @@ func (a *Client) QueryVolumeInstances(params *QueryVolumeInstancesParams, authIn
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*QueryVolumeInstancesOK)
+	success, ok := result.(*VolumeInstanceConfigurationQueryVolumeInstancesOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for QueryVolumeInstances: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*VolumeInstanceConfigurationQueryVolumeInstancesDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  UpdateVolumeInstance updates edge volume instance
+  VolumeInstanceConfigurationUpdateVolumeInstance updates edge volume instance
 
   Update an edge volume instance. The usual pattern to update an edge volume instance record is to retrieve the record and update with the modified values in a new body to update the edge volume instance record.
 */
-func (a *Client) UpdateVolumeInstance(params *UpdateVolumeInstanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateVolumeInstanceOK, error) {
+func (a *Client) VolumeInstanceConfigurationUpdateVolumeInstance(params *VolumeInstanceConfigurationUpdateVolumeInstanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*VolumeInstanceConfigurationUpdateVolumeInstanceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUpdateVolumeInstanceParams()
+		params = NewVolumeInstanceConfigurationUpdateVolumeInstanceParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "UpdateVolumeInstance",
+		ID:                 "VolumeInstanceConfiguration_UpdateVolumeInstance",
 		Method:             "PUT",
 		PathPattern:        "/v1/volumes/instances/id/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &UpdateVolumeInstanceReader{formats: a.formats},
+		Reader:             &VolumeInstanceConfigurationUpdateVolumeInstanceReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -284,14 +277,13 @@ func (a *Client) UpdateVolumeInstance(params *UpdateVolumeInstanceParams, authIn
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*UpdateVolumeInstanceOK)
+	success, ok := result.(*VolumeInstanceConfigurationUpdateVolumeInstanceOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for UpdateVolumeInstance: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*VolumeInstanceConfigurationUpdateVolumeInstanceDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 // SetTransport changes the transport on the client

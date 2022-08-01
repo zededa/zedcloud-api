@@ -23,7 +23,7 @@ import (
 type Cursor struct {
 
 	// OrderBy helps in sorting the list response
-	OrderBy string `json:"orderBy,omitempty"`
+	OrderBy []string `json:"orderBy"`
 
 	// Page Number
 	PageNum int64 `json:"pageNum,omitempty"`

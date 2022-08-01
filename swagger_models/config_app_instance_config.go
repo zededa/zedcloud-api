@@ -81,7 +81,7 @@ type ConfigAppInstanceConfig struct {
 	// If the profile list is empty it means wildcard; application will
 	// be started independent of the global or local profile specified for the
 	// device.
-	ProfileList []string `json:"profile_list"`
+	ProfileList []string `json:"profileList"`
 
 	// The EVE behavior for a purge command is to restart the application instance
 	// with the first drive/volumeRef recreated from its origin.
@@ -97,6 +97,14 @@ type ConfigAppInstanceConfig struct {
 	// will restart more than once.
 	// EVE can assume that the adapters did not change.
 	Restart *ConfigInstanceOpsCmd `json:"restart,omitempty"`
+
+	// start_delay_in_seconds - Applicable only when EVE boots up fresh and starts
+	// applications for the first time after boot up. This is the amount of time that
+	// EVE waits (after boot finish) before starting each application.
+	// Default value 0 -> start application immediately.
+	// Non-Zero value -> After EVE is ready to start application instance, wait for the
+	// given amount of time before starting the respective application instance.
+	StartDelayInSeconds int64 `json:"startDelayInSeconds,omitempty"`
 
 	// App Instance initialization configuration data provided by user
 	// This will be used as "user-data" in cloud-init

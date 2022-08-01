@@ -22,7 +22,7 @@ import (
 type IPSpec struct {
 
 	// deprecated
-	DeprecatedDhcp bool `json:"deprecated_dhcp,omitempty"`
+	DeprecatedDhcp bool `json:"deprecatedDhcp,omitempty"`
 
 	// dhcp
 	Dhcp *NetworkDHCPType `json:"dhcp,omitempty"`

@@ -38,7 +38,7 @@ type VM struct {
 
 	// VNC
 	// Required: true
-	Vnc bool `json:"vnc"`
+	Vnc *bool `json:"vnc"`
 
 	// VNC display
 	// Read Only: true
@@ -115,7 +115,7 @@ func (m *VM) validateMode(formats strfmt.Registry) error {
 
 func (m *VM) validateVnc(formats strfmt.Registry) error {
 
-	if err := validate.Required("vnc", "body", bool(m.Vnc)); err != nil {
+	if err := validate.Required("vnc", "body", m.Vnc); err != nil {
 		return err
 	}
 

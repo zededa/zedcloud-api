@@ -9,8 +9,6 @@ package cloud_diagnostics
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"fmt"
-
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -33,50 +31,50 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateCloudPolicyDocument(params *CreateCloudPolicyDocumentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateCloudPolicyDocumentOK, error)
+	CloudDiagnosticsCreateCloudPolicyDocument(params *CloudDiagnosticsCreateCloudPolicyDocumentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsCreateCloudPolicyDocumentOK, error)
 
-	DeleteCloudPolicyDocument(params *DeleteCloudPolicyDocumentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteCloudPolicyDocumentOK, error)
+	CloudDiagnosticsDeleteCloudPolicyDocument(params *CloudDiagnosticsDeleteCloudPolicyDocumentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsDeleteCloudPolicyDocumentOK, error)
 
-	GetCloudPolicy(params *GetCloudPolicyParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetCloudPolicyOK, error)
+	CloudDiagnosticsGetCloudPolicy(params *CloudDiagnosticsGetCloudPolicyParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsGetCloudPolicyOK, error)
 
-	GetCloudPolicyDocument(params *GetCloudPolicyDocumentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetCloudPolicyDocumentOK, error)
+	CloudDiagnosticsGetCloudPolicyDocument(params *CloudDiagnosticsGetCloudPolicyDocumentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsGetCloudPolicyDocumentOK, error)
 
-	GetCloudPolicyVersion(params *GetCloudPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetCloudPolicyVersionOK, error)
+	CloudDiagnosticsGetCloudPolicyVersion(params *CloudDiagnosticsGetCloudPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsGetCloudPolicyVersionOK, error)
 
-	GetClusterHealthReport(params *GetClusterHealthReportParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetClusterHealthReportOK, error)
+	CloudDiagnosticsGetClusterHealthReport(params *CloudDiagnosticsGetClusterHealthReportParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsGetClusterHealthReportOK, error)
 
-	GetClusterVersion(params *GetClusterVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetClusterVersionOK, error)
+	CloudDiagnosticsGetClusterVersion(params *CloudDiagnosticsGetClusterVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsGetClusterVersionOK, error)
 
-	MarkCloudPolicyLatest(params *MarkCloudPolicyLatestParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*MarkCloudPolicyLatestOK, error)
+	CloudDiagnosticsMarkCloudPolicyLatest(params *CloudDiagnosticsMarkCloudPolicyLatestParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsMarkCloudPolicyLatestOK, error)
 
-	QueryCloudPolicies(params *QueryCloudPoliciesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*QueryCloudPoliciesOK, error)
+	CloudDiagnosticsQueryCloudPolicies(params *CloudDiagnosticsQueryCloudPoliciesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsQueryCloudPoliciesOK, error)
 
-	CheckClusterHealth(params *CheckClusterHealthParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CheckClusterHealthOK, error)
+	CloudDiagnosticsCheckClusterHealth(params *CloudDiagnosticsCheckClusterHealthParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsCheckClusterHealthOK, error)
 
-	CheckClusterHealth2(params *CheckClusterHealth2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CheckClusterHealth2OK, error)
+	CloudDiagnosticsCheckClusterHealth2(params *CloudDiagnosticsCheckClusterHealth2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsCheckClusterHealth2OK, error)
 
-	CheckMicroserviceHealth(params *CheckMicroserviceHealthParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CheckMicroserviceHealthOK, error)
+	CloudDiagnosticsCheckMicroserviceHealth(params *CloudDiagnosticsCheckMicroserviceHealthParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsCheckMicroserviceHealthOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-  CreateCloudPolicyDocument create cloud policy document API
+  CloudDiagnosticsCreateCloudPolicyDocument cloud diagnostics create cloud policy document API
 */
-func (a *Client) CreateCloudPolicyDocument(params *CreateCloudPolicyDocumentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateCloudPolicyDocumentOK, error) {
+func (a *Client) CloudDiagnosticsCreateCloudPolicyDocument(params *CloudDiagnosticsCreateCloudPolicyDocumentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsCreateCloudPolicyDocumentOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCreateCloudPolicyDocumentParams()
+		params = NewCloudDiagnosticsCreateCloudPolicyDocumentParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "CreateCloudPolicyDocument",
+		ID:                 "CloudDiagnostics_CreateCloudPolicyDocument",
 		Method:             "POST",
 		PathPattern:        "/v1/cloud/policies",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CreateCloudPolicyDocumentReader{formats: a.formats},
+		Reader:             &CloudDiagnosticsCreateCloudPolicyDocumentReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -89,33 +87,32 @@ func (a *Client) CreateCloudPolicyDocument(params *CreateCloudPolicyDocumentPara
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CreateCloudPolicyDocumentOK)
+	success, ok := result.(*CloudDiagnosticsCreateCloudPolicyDocumentOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CreateCloudPolicyDocument: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CloudDiagnosticsCreateCloudPolicyDocumentDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  DeleteCloudPolicyDocument delete cloud policy document API
+  CloudDiagnosticsDeleteCloudPolicyDocument cloud diagnostics delete cloud policy document API
 */
-func (a *Client) DeleteCloudPolicyDocument(params *DeleteCloudPolicyDocumentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteCloudPolicyDocumentOK, error) {
+func (a *Client) CloudDiagnosticsDeleteCloudPolicyDocument(params *CloudDiagnosticsDeleteCloudPolicyDocumentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsDeleteCloudPolicyDocumentOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDeleteCloudPolicyDocumentParams()
+		params = NewCloudDiagnosticsDeleteCloudPolicyDocumentParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "DeleteCloudPolicyDocument",
+		ID:                 "CloudDiagnostics_DeleteCloudPolicyDocument",
 		Method:             "DELETE",
 		PathPattern:        "/v1/cloud/policies/id/{fileURL}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &DeleteCloudPolicyDocumentReader{formats: a.formats},
+		Reader:             &CloudDiagnosticsDeleteCloudPolicyDocumentReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -128,35 +125,34 @@ func (a *Client) DeleteCloudPolicyDocument(params *DeleteCloudPolicyDocumentPara
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteCloudPolicyDocumentOK)
+	success, ok := result.(*CloudDiagnosticsDeleteCloudPolicyDocumentOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DeleteCloudPolicyDocument: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CloudDiagnosticsDeleteCloudPolicyDocumentDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetCloudPolicy gets cloud policy latest version
+  CloudDiagnosticsGetCloudPolicy gets cloud policy latest version
 
   Get policy record for latest version of Cloud policy.
 */
-func (a *Client) GetCloudPolicy(params *GetCloudPolicyParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetCloudPolicyOK, error) {
+func (a *Client) CloudDiagnosticsGetCloudPolicy(params *CloudDiagnosticsGetCloudPolicyParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsGetCloudPolicyOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetCloudPolicyParams()
+		params = NewCloudDiagnosticsGetCloudPolicyParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetCloudPolicy",
+		ID:                 "CloudDiagnostics_GetCloudPolicy",
 		Method:             "GET",
 		PathPattern:        "/v1/cloud/policies/name/{policy}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetCloudPolicyReader{formats: a.formats},
+		Reader:             &CloudDiagnosticsGetCloudPolicyReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -169,35 +165,34 @@ func (a *Client) GetCloudPolicy(params *GetCloudPolicyParams, authInfo runtime.C
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetCloudPolicyOK)
+	success, ok := result.(*CloudDiagnosticsGetCloudPolicyOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetCloudPolicy: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CloudDiagnosticsGetCloudPolicyDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetCloudPolicyDocument gets cloud policy document
+  CloudDiagnosticsGetCloudPolicyDocument gets cloud policy document
 
   Get policy document for specific version of Cloud policy.
 */
-func (a *Client) GetCloudPolicyDocument(params *GetCloudPolicyDocumentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetCloudPolicyDocumentOK, error) {
+func (a *Client) CloudDiagnosticsGetCloudPolicyDocument(params *CloudDiagnosticsGetCloudPolicyDocumentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsGetCloudPolicyDocumentOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetCloudPolicyDocumentParams()
+		params = NewCloudDiagnosticsGetCloudPolicyDocumentParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetCloudPolicyDocument",
+		ID:                 "CloudDiagnostics_GetCloudPolicyDocument",
 		Method:             "GET",
 		PathPattern:        "/v1/cloud/policies/id/{fileURL}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetCloudPolicyDocumentReader{formats: a.formats},
+		Reader:             &CloudDiagnosticsGetCloudPolicyDocumentReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -210,35 +205,34 @@ func (a *Client) GetCloudPolicyDocument(params *GetCloudPolicyDocumentParams, au
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetCloudPolicyDocumentOK)
+	success, ok := result.(*CloudDiagnosticsGetCloudPolicyDocumentOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetCloudPolicyDocument: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CloudDiagnosticsGetCloudPolicyDocumentDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetCloudPolicyVersion gets cloud policy specific version
+  CloudDiagnosticsGetCloudPolicyVersion gets cloud policy specific version
 
   Get policy record for specific version of Cloud policy.
 */
-func (a *Client) GetCloudPolicyVersion(params *GetCloudPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetCloudPolicyVersionOK, error) {
+func (a *Client) CloudDiagnosticsGetCloudPolicyVersion(params *CloudDiagnosticsGetCloudPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsGetCloudPolicyVersionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetCloudPolicyVersionParams()
+		params = NewCloudDiagnosticsGetCloudPolicyVersionParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetCloudPolicyVersion",
+		ID:                 "CloudDiagnostics_GetCloudPolicyVersion",
 		Method:             "GET",
 		PathPattern:        "/v1/cloud/policies/name/{policy}/{version}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetCloudPolicyVersionReader{formats: a.formats},
+		Reader:             &CloudDiagnosticsGetCloudPolicyVersionReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -251,35 +245,34 @@ func (a *Client) GetCloudPolicyVersion(params *GetCloudPolicyVersionParams, auth
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetCloudPolicyVersionOK)
+	success, ok := result.(*CloudDiagnosticsGetCloudPolicyVersionOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetCloudPolicyVersion: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CloudDiagnosticsGetCloudPolicyVersionDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetClusterHealthReport gets cloud services health report
+  CloudDiagnosticsGetClusterHealthReport gets cloud services health report
 
   Get Cloud services health report.
 */
-func (a *Client) GetClusterHealthReport(params *GetClusterHealthReportParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetClusterHealthReportOK, error) {
+func (a *Client) CloudDiagnosticsGetClusterHealthReport(params *CloudDiagnosticsGetClusterHealthReportParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsGetClusterHealthReportOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetClusterHealthReportParams()
+		params = NewCloudDiagnosticsGetClusterHealthReportParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetClusterHealthReport",
+		ID:                 "CloudDiagnostics_GetClusterHealthReport",
 		Method:             "GET",
 		PathPattern:        "/v1/cloud/healthreport",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetClusterHealthReportReader{formats: a.formats},
+		Reader:             &CloudDiagnosticsGetClusterHealthReportReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -292,35 +285,34 @@ func (a *Client) GetClusterHealthReport(params *GetClusterHealthReportParams, au
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetClusterHealthReportOK)
+	success, ok := result.(*CloudDiagnosticsGetClusterHealthReportOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetClusterHealthReport: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CloudDiagnosticsGetClusterHealthReportDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetClusterVersion gets cloud controller software version
+  CloudDiagnosticsGetClusterVersion gets cloud controller software version
 
   Get Cloud controller software version.
 */
-func (a *Client) GetClusterVersion(params *GetClusterVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetClusterVersionOK, error) {
+func (a *Client) CloudDiagnosticsGetClusterVersion(params *CloudDiagnosticsGetClusterVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsGetClusterVersionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetClusterVersionParams()
+		params = NewCloudDiagnosticsGetClusterVersionParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetClusterVersion",
+		ID:                 "CloudDiagnostics_GetClusterVersion",
 		Method:             "GET",
 		PathPattern:        "/v1/cloud/version",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetClusterVersionReader{formats: a.formats},
+		Reader:             &CloudDiagnosticsGetClusterVersionReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -333,33 +325,32 @@ func (a *Client) GetClusterVersion(params *GetClusterVersionParams, authInfo run
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetClusterVersionOK)
+	success, ok := result.(*CloudDiagnosticsGetClusterVersionOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetClusterVersion: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CloudDiagnosticsGetClusterVersionDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  MarkCloudPolicyLatest mark cloud policy latest API
+  CloudDiagnosticsMarkCloudPolicyLatest cloud diagnostics mark cloud policy latest API
 */
-func (a *Client) MarkCloudPolicyLatest(params *MarkCloudPolicyLatestParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*MarkCloudPolicyLatestOK, error) {
+func (a *Client) CloudDiagnosticsMarkCloudPolicyLatest(params *CloudDiagnosticsMarkCloudPolicyLatestParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsMarkCloudPolicyLatestOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewMarkCloudPolicyLatestParams()
+		params = NewCloudDiagnosticsMarkCloudPolicyLatestParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "MarkCloudPolicyLatest",
+		ID:                 "CloudDiagnostics_MarkCloudPolicyLatest",
 		Method:             "PUT",
 		PathPattern:        "/v1/cloud/policies",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &MarkCloudPolicyLatestReader{formats: a.formats},
+		Reader:             &CloudDiagnosticsMarkCloudPolicyLatestReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -372,35 +363,34 @@ func (a *Client) MarkCloudPolicyLatest(params *MarkCloudPolicyLatestParams, auth
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*MarkCloudPolicyLatestOK)
+	success, ok := result.(*CloudDiagnosticsMarkCloudPolicyLatestOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for MarkCloudPolicyLatest: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CloudDiagnosticsMarkCloudPolicyLatestDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  QueryCloudPolicies queries cloud policies
+  CloudDiagnosticsQueryCloudPolicies queries cloud policies
 
   Query policy records of latest version of Cloud policies.
 */
-func (a *Client) QueryCloudPolicies(params *QueryCloudPoliciesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*QueryCloudPoliciesOK, error) {
+func (a *Client) CloudDiagnosticsQueryCloudPolicies(params *CloudDiagnosticsQueryCloudPoliciesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsQueryCloudPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewQueryCloudPoliciesParams()
+		params = NewCloudDiagnosticsQueryCloudPoliciesParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "QueryCloudPolicies",
+		ID:                 "CloudDiagnostics_QueryCloudPolicies",
 		Method:             "GET",
 		PathPattern:        "/v1/cloud/policies",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &QueryCloudPoliciesReader{formats: a.formats},
+		Reader:             &CloudDiagnosticsQueryCloudPoliciesReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -413,35 +403,34 @@ func (a *Client) QueryCloudPolicies(params *QueryCloudPoliciesParams, authInfo r
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*QueryCloudPoliciesOK)
+	success, ok := result.(*CloudDiagnosticsQueryCloudPoliciesOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for QueryCloudPolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CloudDiagnosticsQueryCloudPoliciesDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  CheckClusterHealth checks cloud reachability
+  CloudDiagnosticsCheckClusterHealth checks cloud reachability
 
   Check Cloud reachability by sending a ping message to API gateway. API gateway will echo back either "pong" or the id specified.
 */
-func (a *Client) CheckClusterHealth(params *CheckClusterHealthParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CheckClusterHealthOK, error) {
+func (a *Client) CloudDiagnosticsCheckClusterHealth(params *CloudDiagnosticsCheckClusterHealthParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsCheckClusterHealthOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCheckClusterHealthParams()
+		params = NewCloudDiagnosticsCheckClusterHealthParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "checkClusterHealth",
+		ID:                 "CloudDiagnostics_checkClusterHealth",
 		Method:             "GET",
 		PathPattern:        "/v1/cloud/ping",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CheckClusterHealthReader{formats: a.formats},
+		Reader:             &CloudDiagnosticsCheckClusterHealthReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -454,35 +443,34 @@ func (a *Client) CheckClusterHealth(params *CheckClusterHealthParams, authInfo r
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CheckClusterHealthOK)
+	success, ok := result.(*CloudDiagnosticsCheckClusterHealthOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for checkClusterHealth: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CloudDiagnosticsCheckClusterHealthDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  CheckClusterHealth2 checks cloud reachability
+  CloudDiagnosticsCheckClusterHealth2 checks cloud reachability
 
   Check Cloud reachability by sending a ping message to API gateway. API gateway will echo back either "pong" or the id specified.
 */
-func (a *Client) CheckClusterHealth2(params *CheckClusterHealth2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CheckClusterHealth2OK, error) {
+func (a *Client) CloudDiagnosticsCheckClusterHealth2(params *CloudDiagnosticsCheckClusterHealth2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsCheckClusterHealth2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCheckClusterHealth2Params()
+		params = NewCloudDiagnosticsCheckClusterHealth2Params()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "checkClusterHealth2",
+		ID:                 "CloudDiagnostics_checkClusterHealth2",
 		Method:             "GET",
 		PathPattern:        "/v1/cloud/ping/id/{pingId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CheckClusterHealth2Reader{formats: a.formats},
+		Reader:             &CloudDiagnosticsCheckClusterHealth2Reader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -495,35 +483,34 @@ func (a *Client) CheckClusterHealth2(params *CheckClusterHealth2Params, authInfo
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CheckClusterHealth2OK)
+	success, ok := result.(*CloudDiagnosticsCheckClusterHealth2OK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for checkClusterHealth2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CloudDiagnosticsCheckClusterHealth2Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  CheckMicroserviceHealth checks cloud services health
+  CloudDiagnosticsCheckMicroserviceHealth checks cloud services health
 
   Check Cloud services health by sending a hello name to microservice behind API Gateway. Microservice will echo back the name.
 */
-func (a *Client) CheckMicroserviceHealth(params *CheckMicroserviceHealthParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CheckMicroserviceHealthOK, error) {
+func (a *Client) CloudDiagnosticsCheckMicroserviceHealth(params *CloudDiagnosticsCheckMicroserviceHealthParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CloudDiagnosticsCheckMicroserviceHealthOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCheckMicroserviceHealthParams()
+		params = NewCloudDiagnosticsCheckMicroserviceHealthParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "checkMicroserviceHealth",
+		ID:                 "CloudDiagnostics_checkMicroserviceHealth",
 		Method:             "POST",
 		PathPattern:        "/v1/hello",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CheckMicroserviceHealthReader{formats: a.formats},
+		Reader:             &CloudDiagnosticsCheckMicroserviceHealthReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -536,14 +523,13 @@ func (a *Client) CheckMicroserviceHealth(params *CheckMicroserviceHealthParams, 
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CheckMicroserviceHealthOK)
+	success, ok := result.(*CloudDiagnosticsCheckMicroserviceHealthOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for checkMicroserviceHealth: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CloudDiagnosticsCheckMicroserviceHealthDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 // SetTransport changes the transport on the client

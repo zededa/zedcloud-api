@@ -18,7 +18,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DeviceStatusMsg device status msg
+// DeviceStatusMsg to be deprecated
 //
 // swagger:model DeviceStatusMsg
 type DeviceStatusMsg struct {
@@ -125,6 +125,8 @@ type DeviceStatusMsg struct {
 	SwInfo []*DeviceSWInfo `json:"swInfo"`
 
 	// deprecated = 6;
+	//
+	// Tags are name/value pairs that enable you to categorize resources. Tag names are case insensitive with max_length 512 and min_length 3. Tag values are case sensitive with max_length 256 and min_length 3.
 	Tags map[string]string `json:"tags,omitempty"`
 
 	// title

@@ -40,6 +40,9 @@ type AppInstFilter struct {
 	// Pattern: [a-zA-Z0-9][a-zA-Z0-9_.-]+
 	DeviceName string `json:"deviceName,omitempty"`
 
+	// device name pattern
+	DeviceNamePattern string `json:"deviceNamePattern,omitempty"`
+
 	// name pattern
 	NamePattern string `json:"namePattern,omitempty"`
 
@@ -48,6 +51,9 @@ type AppInstFilter struct {
 	// Min Length: 3
 	// Pattern: [a-zA-Z0-9][a-zA-Z0-9_.-]+
 	ProjectName string `json:"projectName,omitempty"`
+
+	// project name pattern
+	ProjectNamePattern string `json:"projectNamePattern,omitempty"`
 }
 
 // Validate validates this app inst filter

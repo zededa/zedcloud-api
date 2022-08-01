@@ -33,7 +33,8 @@ type Tag struct {
 	// Attestation policy to enforce on all devices of this project
 	AttestationPolicy *PolicyConfig `json:"attestationPolicy,omitempty"`
 
-	// attr
+	// Resource group wide configuration for edge nodes
+	// Read Only: true
 	Attr map[string]string `json:"attr,omitempty"`
 
 	// Resource group wide policy for Azure IoTEdge configuration to be applied to all edge applications
@@ -360,6 +361,10 @@ func (m *Tag) ContextValidate(ctx context.Context, formats strfmt.Registry) erro
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateAttr(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateCloudPolicy(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -422,6 +427,11 @@ func (m *Tag) contextValidateAttestationPolicy(ctx context.Context, formats strf
 			return err
 		}
 	}
+
+	return nil
+}
+
+func (m *Tag) contextValidateAttr(ctx context.Context, formats strfmt.Registry) error {
 
 	return nil
 }

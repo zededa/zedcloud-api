@@ -42,6 +42,15 @@ const (
 
 	// NetworkKindNETWORKKINDV6 captures enum value "NETWORK_KIND_V6"
 	NetworkKindNETWORKKINDV6 NetworkKind = "NETWORK_KIND_V6"
+
+	// NetworkKindNETWORKKINDV4ONLY captures enum value "NETWORK_KIND_V4_ONLY"
+	NetworkKindNETWORKKINDV4ONLY NetworkKind = "NETWORK_KIND_V4_ONLY"
+
+	// NetworkKindNETWORKKINDV6ONLY captures enum value "NETWORK_KIND_V6_ONLY"
+	NetworkKindNETWORKKINDV6ONLY NetworkKind = "NETWORK_KIND_V6_ONLY"
+
+	// NetworkKindNETWORKKINDDUALV4V6 captures enum value "NETWORK_KIND_DUAL_V4_V6"
+	NetworkKindNETWORKKINDDUALV4V6 NetworkKind = "NETWORK_KIND_DUAL_V4_V6"
 )
 
 // for schema
@@ -49,7 +58,7 @@ var networkKindEnum []interface{}
 
 func init() {
 	var res []NetworkKind
-	if err := json.Unmarshal([]byte(`["NETWORK_KIND_UNSPECIFIED","NETWORK_KIND_V4","NETWORK_KIND_V6"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["NETWORK_KIND_UNSPECIFIED","NETWORK_KIND_V4","NETWORK_KIND_V6","NETWORK_KIND_V4_ONLY","NETWORK_KIND_V6_ONLY","NETWORK_KIND_DUAL_V4_V6"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

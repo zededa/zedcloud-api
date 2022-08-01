@@ -32,7 +32,7 @@ type ManifestInfo struct {
 	// Next version of edge application available
 	NextBundleVersion string `json:"nextBundleVersion,omitempty"`
 
-	// params
+	// Common and Custom parameters for deciding on transition actions
 	Params map[string]string `json:"params,omitempty"`
 
 	// Recommended transition action

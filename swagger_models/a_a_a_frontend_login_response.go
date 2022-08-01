@@ -15,6 +15,7 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // AAAFrontendLoginResponse a a a frontend login response
@@ -40,6 +41,13 @@ type AAAFrontendLoginResponse struct {
 	// no of login attempts left
 	NoOfLoginAttemptsLeft int64 `json:"noOfLoginAttemptsLeft,omitempty"`
 
+	// password expiry notification period in seconds
+	PasswordExpiryNotificationPeriodInSeconds int64 `json:"passwordExpiryNotificationPeriodInSeconds,omitempty"`
+
+	// password expiry time
+	// Format: date-time
+	PasswordExpiryTime strfmt.DateTime `json:"passwordExpiryTime,omitempty"`
+
 	// BEGIN: Only valid when Verbose is requesed
 	Policies []*Policy `json:"policies"`
 
@@ -54,6 +62,9 @@ type AAAFrontendLoginResponse struct {
 
 	// simple user
 	SimpleUser *SimpleUser `json:"simpleUser,omitempty"`
+
+	// temp token
+	TempToken *Token64 `json:"tempToken,omitempty"`
 
 	// token
 	Token *Token64 `json:"token,omitempty"`
@@ -86,6 +97,10 @@ func (m *AAAFrontendLoginResponse) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validatePasswordExpiryTime(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validatePolicies(formats); err != nil {
 		res = append(res, err)
 	}
@@ -99,6 +114,10 @@ func (m *AAAFrontendLoginResponse) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSimpleUser(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTempToken(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -207,6 +226,18 @@ func (m *AAAFrontendLoginResponse) validateLoginToken(formats strfmt.Registry) e
 	return nil
 }
 
+func (m *AAAFrontendLoginResponse) validatePasswordExpiryTime(formats strfmt.Registry) error {
+	if swag.IsZero(m.PasswordExpiryTime) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("passwordExpiryTime", "body", "date-time", m.PasswordExpiryTime.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *AAAFrontendLoginResponse) validatePolicies(formats strfmt.Registry) error {
 	if swag.IsZero(m.Policies) { // not required
 		return nil
@@ -290,6 +321,25 @@ func (m *AAAFrontendLoginResponse) validateSimpleUser(formats strfmt.Registry) e
 	return nil
 }
 
+func (m *AAAFrontendLoginResponse) validateTempToken(formats strfmt.Registry) error {
+	if swag.IsZero(m.TempToken) { // not required
+		return nil
+	}
+
+	if m.TempToken != nil {
+		if err := m.TempToken.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("tempToken")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("tempToken")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *AAAFrontendLoginResponse) validateToken(formats strfmt.Registry) error {
 	if swag.IsZero(m.Token) { // not required
 		return nil
@@ -346,6 +396,10 @@ func (m *AAAFrontendLoginResponse) ContextValidate(ctx context.Context, formats 
 	}
 
 	if err := m.contextValidateSimpleUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTempToken(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -499,6 +553,22 @@ func (m *AAAFrontendLoginResponse) contextValidateSimpleUser(ctx context.Context
 				return ve.ValidateName("simpleUser")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("simpleUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AAAFrontendLoginResponse) contextValidateTempToken(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TempToken != nil {
+		if err := m.TempToken.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("tempToken")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("tempToken")
 			}
 			return err
 		}

@@ -21,8 +21,14 @@ import (
 // swagger:model VolInstFilter
 type VolInstFilter struct {
 
+	// app inst name
+	AppInstName string `json:"appInstName,omitempty"`
+
 	// device name
 	DeviceName string `json:"deviceName,omitempty"`
+
+	// device name pattern
+	DeviceNamePattern string `json:"deviceNamePattern,omitempty"`
 
 	// label name
 	LabelName string `json:"labelName,omitempty"`
@@ -32,6 +38,9 @@ type VolInstFilter struct {
 
 	// project name
 	ProjectName string `json:"projectName,omitempty"`
+
+	// project name pattern
+	ProjectNamePattern string `json:"projectNamePattern,omitempty"`
 
 	// type
 	Type *VolumeInstanceType `json:"type,omitempty"`

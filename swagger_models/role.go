@@ -21,6 +21,7 @@ import (
 // Role Role detail
 //
 // Role meta data
+// Example: {"description":"","id":"AAGFABAEqnH4je5PHZTXSmHOs-XC","name":"SysRoot","revision":{"createdAt":"2020-07-16T18:19:56Z","createdBy":"SYSTEM_ROOT","curr":"1","prev":"","updatedAt":"1970-01-01T00:00:01Z","updatedBy":"SYSTEM_ROOT"},"scopes":[{"accessApp":"PermissionAccessCreateReadUpdateDelete","accessDevice":"PermissionAccessCreateReadUpdateDelete","accessEnterprise":"PermissionAccessCreateReadUpdateDelete","accessStorage":"PermissionAccessCreateReadUpdateDelete","accessUser":"PermissionAccessCreateReadUpdateDelete","enterpriseFilter":["srAll"],"projectFilter":["srAll"]}],"state":"ROLE_STATE_ACTIVE","title":"SysRoot","type":"USER_ROLE_CLUSTER"}
 //
 // swagger:model Role
 type Role struct {

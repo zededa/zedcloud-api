@@ -9,8 +9,6 @@ package artifact_manager
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"fmt"
-
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -33,40 +31,40 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateArtifact(params *CreateArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateArtifactOK, error)
+	ArtifactManagerCreateArtifact(params *ArtifactManagerCreateArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArtifactManagerCreateArtifactOK, error)
 
-	DeleteArtifact(params *DeleteArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteArtifactOK, error)
+	ArtifactManagerDeleteArtifact(params *ArtifactManagerDeleteArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArtifactManagerDeleteArtifactOK, error)
 
-	GetArtifactSignedURL(params *GetArtifactSignedURLParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetArtifactSignedURLOK, error)
+	ArtifactManagerGetArtifactSignedURL(params *ArtifactManagerGetArtifactSignedURLParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArtifactManagerGetArtifactSignedURLOK, error)
 
-	GetArtifactStream(params *GetArtifactStreamParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetArtifactStreamOK, *GetArtifactStreamPartialContent, error)
+	ArtifactManagerGetArtifactStream(params *ArtifactManagerGetArtifactStreamParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArtifactManagerGetArtifactStreamOK, *ArtifactManagerGetArtifactStreamPartialContent, error)
 
-	QueryArtifacts(params *QueryArtifactsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*QueryArtifactsOK, error)
+	ArtifactManagerQueryArtifacts(params *ArtifactManagerQueryArtifactsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArtifactManagerQueryArtifactsOK, error)
 
-	UploadArtifact(params *UploadArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UploadArtifactOK, *UploadArtifactAccepted, error)
+	ArtifactManagerUploadArtifact(params *ArtifactManagerUploadArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArtifactManagerUploadArtifactOK, *ArtifactManagerUploadArtifactAccepted, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-  CreateArtifact creates artifact file in the file storage
+  ArtifactManagerCreateArtifact creates artifact file in the file storage
 
   Create the artifact file in the file storage in AWS S3 or Azure BlobStorage
 */
-func (a *Client) CreateArtifact(params *CreateArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateArtifactOK, error) {
+func (a *Client) ArtifactManagerCreateArtifact(params *ArtifactManagerCreateArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArtifactManagerCreateArtifactOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCreateArtifactParams()
+		params = NewArtifactManagerCreateArtifactParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "CreateArtifact",
+		ID:                 "ArtifactManager_CreateArtifact",
 		Method:             "POST",
 		PathPattern:        "/v1/artifacts",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CreateArtifactReader{formats: a.formats},
+		Reader:             &ArtifactManagerCreateArtifactReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -79,35 +77,34 @@ func (a *Client) CreateArtifact(params *CreateArtifactParams, authInfo runtime.C
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CreateArtifactOK)
+	success, ok := result.(*ArtifactManagerCreateArtifactOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CreateArtifact: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ArtifactManagerCreateArtifactDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  DeleteArtifact deletes artifact file form the datastore
+  ArtifactManagerDeleteArtifact deletes artifact file form the datastore
 
   Drops the artifact file from the file storage in AWS S3 or Azure BlobStorage
 */
-func (a *Client) DeleteArtifact(params *DeleteArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteArtifactOK, error) {
+func (a *Client) ArtifactManagerDeleteArtifact(params *ArtifactManagerDeleteArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArtifactManagerDeleteArtifactOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDeleteArtifactParams()
+		params = NewArtifactManagerDeleteArtifactParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "DeleteArtifact",
+		ID:                 "ArtifactManager_DeleteArtifact",
 		Method:             "DELETE",
 		PathPattern:        "/v1/artifacts/id/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &DeleteArtifactReader{formats: a.formats},
+		Reader:             &ArtifactManagerDeleteArtifactReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -120,35 +117,34 @@ func (a *Client) DeleteArtifact(params *DeleteArtifactParams, authInfo runtime.C
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteArtifactOK)
+	success, ok := result.(*ArtifactManagerDeleteArtifactOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DeleteArtifact: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ArtifactManagerDeleteArtifactDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetArtifactSignedURL generates the signed Url for accessing the resource
+  ArtifactManagerGetArtifactSignedURL generates the signed Url for accessing the resource
 
   Generate the URL which can be used to access the resource from datastore like s3, Azure etc for specified amount of time.
 */
-func (a *Client) GetArtifactSignedURL(params *GetArtifactSignedURLParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetArtifactSignedURLOK, error) {
+func (a *Client) ArtifactManagerGetArtifactSignedURL(params *ArtifactManagerGetArtifactSignedURLParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArtifactManagerGetArtifactSignedURLOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetArtifactSignedURLParams()
+		params = NewArtifactManagerGetArtifactSignedURLParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetArtifactSignedUrl",
+		ID:                 "ArtifactManager_GetArtifactSignedUrl",
 		Method:             "GET",
 		PathPattern:        "/v1/artifacts/id/{id}/url",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetArtifactSignedURLReader{formats: a.formats},
+		Reader:             &ArtifactManagerGetArtifactSignedURLReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -161,35 +157,34 @@ func (a *Client) GetArtifactSignedURL(params *GetArtifactSignedURLParams, authIn
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetArtifactSignedURLOK)
+	success, ok := result.(*ArtifactManagerGetArtifactSignedURLOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetArtifactSignedUrl: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ArtifactManagerGetArtifactSignedURLDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetArtifactStream downloads artifact file chunk by chunk
+  ArtifactManagerGetArtifactStream downloads artifact file chunk by chunk
 
   Downloads the artifact file in a stream from the file storage
 */
-func (a *Client) GetArtifactStream(params *GetArtifactStreamParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetArtifactStreamOK, *GetArtifactStreamPartialContent, error) {
+func (a *Client) ArtifactManagerGetArtifactStream(params *ArtifactManagerGetArtifactStreamParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArtifactManagerGetArtifactStreamOK, *ArtifactManagerGetArtifactStreamPartialContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetArtifactStreamParams()
+		params = NewArtifactManagerGetArtifactStreamParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetArtifactStream",
+		ID:                 "ArtifactManager_GetArtifactStream",
 		Method:             "GET",
 		PathPattern:        "/v1/artifacts/id/{id}",
-		ProducesMediaTypes: []string{"application/json"},
+		ProducesMediaTypes: []string{"application/octet-stream"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetArtifactStreamReader{formats: a.formats},
+		Reader:             &ArtifactManagerGetArtifactStreamReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -203,35 +198,35 @@ func (a *Client) GetArtifactStream(params *GetArtifactStreamParams, authInfo run
 		return nil, nil, err
 	}
 	switch value := result.(type) {
-	case *GetArtifactStreamOK:
+	case *ArtifactManagerGetArtifactStreamOK:
 		return value, nil, nil
-	case *GetArtifactStreamPartialContent:
+	case *ArtifactManagerGetArtifactStreamPartialContent:
 		return nil, value, nil
 	}
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for artifact_manager: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	// unexpected success response
+	unexpectedSuccess := result.(*ArtifactManagerGetArtifactStreamDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  QueryArtifacts queries artifact files
+  ArtifactManagerQueryArtifacts queries artifact files
 
   Query the artifact file records.
 */
-func (a *Client) QueryArtifacts(params *QueryArtifactsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*QueryArtifactsOK, error) {
+func (a *Client) ArtifactManagerQueryArtifacts(params *ArtifactManagerQueryArtifactsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArtifactManagerQueryArtifactsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewQueryArtifactsParams()
+		params = NewArtifactManagerQueryArtifactsParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "QueryArtifacts",
+		ID:                 "ArtifactManager_QueryArtifacts",
 		Method:             "GET",
 		PathPattern:        "/v1/artifacts",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &QueryArtifactsReader{formats: a.formats},
+		Reader:             &ArtifactManagerQueryArtifactsReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -244,35 +239,34 @@ func (a *Client) QueryArtifacts(params *QueryArtifactsParams, authInfo runtime.C
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*QueryArtifactsOK)
+	success, ok := result.(*ArtifactManagerQueryArtifactsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for QueryArtifacts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ArtifactManagerQueryArtifactsDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  UploadArtifact uploads the given chunk into the specified multiple part file
+  ArtifactManagerUploadArtifact uploads the given chunk into the specified multiple part file
 
   Uploads the given chunk into the specified file
 */
-func (a *Client) UploadArtifact(params *UploadArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UploadArtifactOK, *UploadArtifactAccepted, error) {
+func (a *Client) ArtifactManagerUploadArtifact(params *ArtifactManagerUploadArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArtifactManagerUploadArtifactOK, *ArtifactManagerUploadArtifactAccepted, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUploadArtifactParams()
+		params = NewArtifactManagerUploadArtifactParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "UploadArtifact",
+		ID:                 "ArtifactManager_UploadArtifact",
 		Method:             "PUT",
 		PathPattern:        "/v1/artifacts/id/{id}/upload/chunked",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &UploadArtifactReader{formats: a.formats},
+		Reader:             &ArtifactManagerUploadArtifactReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -286,14 +280,14 @@ func (a *Client) UploadArtifact(params *UploadArtifactParams, authInfo runtime.C
 		return nil, nil, err
 	}
 	switch value := result.(type) {
-	case *UploadArtifactOK:
+	case *ArtifactManagerUploadArtifactOK:
 		return value, nil, nil
-	case *UploadArtifactAccepted:
+	case *ArtifactManagerUploadArtifactAccepted:
 		return nil, value, nil
 	}
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for artifact_manager: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	// unexpected success response
+	unexpectedSuccess := result.(*ArtifactManagerUploadArtifactDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 // SetTransport changes the transport on the client

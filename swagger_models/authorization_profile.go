@@ -20,6 +20,7 @@ import (
 // AuthorizationProfile Authorization profile detail
 //
 // Authorization profile  meta data
+// Example: {"active":true,"defaultRoleId":"SysRoot","description":"","enterpriseId":"AAFlABDe6Nm63ixF5LJBbk9Keqp6","id":"AAGVABAmkIXXqJJPkpx1E_DKK2Gs","name":"test_profile","oauthProfile":{"OIDCEndPoint":"https://foo.com","clientID":"test","clientSecret":"","cryptoKey":"","encryptedSecrets":{},"roleScope":""},"revision":{"createdAt":"2020-07-17T06:27:27Z","createdBy":"us.root@zededa.com","curr":"1","prev":"","updatedAt":"2020-07-17T06:27:27Z","updatedBy":"us.root@zededa.com"},"testOnly":false,"title":"test_profile","type":"AUTH_TYPE_OAUTH"}
 //
 // swagger:model AuthorizationProfile
 type AuthorizationProfile struct {
@@ -35,6 +36,9 @@ type AuthorizationProfile struct {
 	// Detailed description of the profile
 	// Max Length: 256
 	Description string `json:"description,omitempty"`
+
+	// Do not automatically create new users if this is set
+	DisableAutoUserCreate bool `json:"disableAutoUserCreate,omitempty"`
 
 	// Parent enterprise ID of the authorization profile
 	// Pattern: [0-9A-Za-z_=-]{28}
@@ -54,6 +58,9 @@ type AuthorizationProfile struct {
 
 	// Oauth profile configuration details
 	OauthProfile *OAUTHProfile `json:"oauthProfile,omitempty"`
+
+	// password profile
+	PasswordProfile *PasswordProfile `json:"passwordProfile,omitempty"`
 
 	// Authorization profile type
 	ProfileType *AuthProfileType `json:"profileType,omitempty"`
@@ -101,6 +108,10 @@ func (m *AuthorizationProfile) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateOauthProfile(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePasswordProfile(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -215,6 +226,25 @@ func (m *AuthorizationProfile) validateOauthProfile(formats strfmt.Registry) err
 	return nil
 }
 
+func (m *AuthorizationProfile) validatePasswordProfile(formats strfmt.Registry) error {
+	if swag.IsZero(m.PasswordProfile) { // not required
+		return nil
+	}
+
+	if m.PasswordProfile != nil {
+		if err := m.PasswordProfile.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("passwordProfile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("passwordProfile")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *AuthorizationProfile) validateProfileType(formats strfmt.Registry) error {
 	if swag.IsZero(m.ProfileType) { // not required
 		return nil
@@ -305,6 +335,10 @@ func (m *AuthorizationProfile) ContextValidate(ctx context.Context, formats strf
 		res = append(res, err)
 	}
 
+	if err := m.contextValidatePasswordProfile(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateProfileType(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -340,6 +374,22 @@ func (m *AuthorizationProfile) contextValidateOauthProfile(ctx context.Context, 
 				return ve.ValidateName("oauthProfile")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("oauthProfile")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AuthorizationProfile) contextValidatePasswordProfile(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PasswordProfile != nil {
+		if err := m.PasswordProfile.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("passwordProfile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("passwordProfile")
 			}
 			return err
 		}

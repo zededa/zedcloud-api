@@ -10,6 +10,7 @@ package swagger_models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -26,6 +27,9 @@ type AppFilter struct {
 
 	// app type, eg: vm, container, module
 	AppType *AppType `json:"appType,omitempty"`
+
+	// category types of the bundle
+	Categories []*AppCategory `json:"categories"`
 
 	// category type of the bundle
 	Category string `json:"category,omitempty"`
@@ -51,6 +55,10 @@ func (m *AppFilter) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateAppType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCategories(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -106,6 +114,32 @@ func (m *AppFilter) validateAppType(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *AppFilter) validateCategories(formats strfmt.Registry) error {
+	if swag.IsZero(m.Categories) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Categories); i++ {
+		if swag.IsZero(m.Categories[i]) { // not required
+			continue
+		}
+
+		if m.Categories[i] != nil {
+			if err := m.Categories[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("categories" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("categories" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *AppFilter) validateDeploymentType(formats strfmt.Registry) error {
 	if swag.IsZero(m.DeploymentType) { // not required
 		return nil
@@ -156,6 +190,10 @@ func (m *AppFilter) ContextValidate(ctx context.Context, formats strfmt.Registry
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateCategories(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateDeploymentType(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -197,6 +235,26 @@ func (m *AppFilter) contextValidateAppType(ctx context.Context, formats strfmt.R
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *AppFilter) contextValidateCategories(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Categories); i++ {
+
+		if m.Categories[i] != nil {
+			if err := m.Categories[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("categories" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("categories" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

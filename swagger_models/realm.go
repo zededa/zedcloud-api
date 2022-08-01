@@ -20,6 +20,7 @@ import (
 // Realm Realm detail
 //
 // Realm meta data
+// Example: {"description":"Test realm","enterpriseId":"AAFlABDe6Nm63ixF5LJBbk9Keqp6","id":"EAJ1ABAi-KOom7dJlrBoE8eq1pj9","name":"zededa.com","revision":{"createdAt":"2020-07-17T06:03:14Z","createdBy":"us.root@zededa.com","curr":"1","prev":"","updatedAt":"2020-07-17T06:03:14Z","updatedBy":"us.root@zededa.com"},"title":"zededa"}
 //
 // swagger:model Realm
 type Realm struct {

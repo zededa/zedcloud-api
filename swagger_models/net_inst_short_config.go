@@ -20,6 +20,7 @@ import (
 // NetInstShortConfig Network instance summary configuration
 //
 // Network instance provides Edge applications a variety of connectivity choices for all types of networks. This enables logical secure connectivity between Edge applications within a single Edge node and within a logical group of Edge nodes. This provides summary configuration of a Network instance.
+// Example: {"id":"d85a545f-6510-4327-b03d-c02eef119e99","name":"sample-app"}
 //
 // swagger:model NetInstShortConfig
 type NetInstShortConfig struct {
@@ -50,7 +51,7 @@ type NetInstShortConfig struct {
 	// project Id
 	ProjectID string `json:"projectId,omitempty"`
 
-	// tags
+	// Tags are name/value pairs that enable you to categorize resources. Tag names are case insensitive with max_length 512 and min_length 3. Tag values are case sensitive with max_length 256 and min_length 3.
 	Tags map[string]string `json:"tags,omitempty"`
 
 	// type

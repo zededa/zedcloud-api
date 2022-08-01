@@ -42,6 +42,9 @@ type ConfigEdgeDevConfig struct {
 	// Baseos Config Block
 	Baseos *ConfigBaseOS `json:"baseos,omitempty"`
 
+	// A list of bond interfaces (LAGs) aggregating physical network adapters.
+	Bonds []*ConfigBondAdapter `json:"bonds"`
+
 	// controller supplies a list of cipher contexts,
 	// containing certificate and other details, to be
 	// used for sensitive data decryption
@@ -58,14 +61,14 @@ type ConfigEdgeDevConfig struct {
 	// controller_epoch indicates current epoch of config
 	// if we set new epoch, EVE sends all info messages to controller
 	// it captures when a new controller takes over and needs all the info be resent
-	ControllerEpoch string `json:"controller_epoch,omitempty"`
+	ControllerEpoch string `json:"controllerEpoch,omitempty"`
 
 	// This field is used by the device to detect when it needs to re-download
 	// the controller certs using the /certs API endpoint.
 	// The controller just needs to ensure this value changes when it wants the
 	// device to re-fetch the controller certs, for instance by having it
 	// be a hash of all of the controller certificates.
-	ControllercertConfighash string `json:"controllercert_confighash,omitempty"`
+	ControllercertConfighash string `json:"controllercertConfighash,omitempty"`
 
 	// datastores
 	Datastores []*ConfigDatastoreConfig `json:"datastores"`
@@ -74,11 +77,17 @@ type ConfigEdgeDevConfig struct {
 	//  Adapters and Non-Network Adapters ( USB / Com etc )
 	DeviceIoList []*ConfigPhysicalIO `json:"deviceIoList"`
 
+	// disks configuration
+	Disks *ConfigDisksConfig `json:"disks,omitempty"`
+
+	// edge-view configuration
+	Edgeview *ConfigEdgeViewConfig `json:"edgeview,omitempty"`
+
 	// global_profile, if set, controls set of applications which will run.
 	// The Activate=true app instances which have this profile in their profile_list
 	// will run. If the global_profile is not set, then the profile_list is not
 	// used to gate the application instances.
-	GlobalProfile string `json:"global_profile,omitempty"`
+	GlobalProfile string `json:"globalProfile,omitempty"`
 
 	// id
 	ID *ConfigUUIDandVersion `json:"id,omitempty"`
@@ -95,13 +104,13 @@ type ConfigEdgeDevConfig struct {
 	//    10.1.1.1
 	//    hostname
 	// If the port number is not specified, it will default to 8888
-	LocalProfileServer string `json:"local_profile_server,omitempty"`
+	LocalProfileServer string `json:"localProfileServer,omitempty"`
 
 	// deprecated 23;
 	// If maintence_mode is set the device will operate in a limited mode e.g.,
 	// not start applications etc as to enable inspection of its state and
 	// recover from bad state.
-	MaintenanceMode bool `json:"maintenance_mode,omitempty"`
+	MaintenanceMode bool `json:"maintenanceMode,omitempty"`
 
 	// Override dmidecode info if set
 	Manufacturer string `json:"manufacturer,omitempty"`
@@ -118,15 +127,27 @@ type ConfigEdgeDevConfig struct {
 	// Together with a local_profile_server one can specify a
 	// profile_server_token. EVE must verify that the response from the
 	// local_profile_server contains this token.
-	ProfileServerToken string `json:"profile_server_token,omitempty"`
+	ProfileServerToken string `json:"profileServerToken,omitempty"`
 
 	// reboot
 	Reboot *ConfigDeviceOpsCmd `json:"reboot,omitempty"`
+
+	// Graceful shutdown of all app instances on the edge node.
+	// Any local profile server is shut down after all the other app instances
+	// have halted.
+	// Note that this does not power off the edge node since there is no remote
+	// power on capability; power off can be done locally using the Local Profile
+	// Server API.
+	Shutdown *ConfigDeviceOpsCmd `json:"shutdown,omitempty"`
 
 	// systemAdapterList - List of DeviceNetworkAdapters. Only Network
 	//  adapters ( Ex: eth0, wlan1 etc ) have a corresponding SystemAdapter.
 	// non-Network adapters do not have systemadapters.
 	SystemAdapterList []*ConfigSystemAdapter `json:"systemAdapterList"`
+
+	// A list of VLAN sub-interfaces configured for EVE management traffic and
+	// for local network instances.
+	Vlans []*ConfigVlanAdapter `json:"vlans"`
 
 	// volumes
 	Volumes []*ConfigVolume `json:"volumes"`
@@ -152,6 +173,10 @@ func (m *ConfigEdgeDevConfig) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateBonds(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCipherContexts(formats); err != nil {
 		res = append(res, err)
 	}
@@ -172,6 +197,14 @@ func (m *ConfigEdgeDevConfig) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDisks(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEdgeview(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -188,7 +221,15 @@ func (m *ConfigEdgeDevConfig) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateShutdown(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSystemAdapterList(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVlans(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -287,6 +328,32 @@ func (m *ConfigEdgeDevConfig) validateBaseos(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *ConfigEdgeDevConfig) validateBonds(formats strfmt.Registry) error {
+	if swag.IsZero(m.Bonds) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Bonds); i++ {
+		if swag.IsZero(m.Bonds[i]) { // not required
+			continue
+		}
+
+		if m.Bonds[i] != nil {
+			if err := m.Bonds[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("bonds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("bonds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -422,6 +489,44 @@ func (m *ConfigEdgeDevConfig) validateDeviceIoList(formats strfmt.Registry) erro
 	return nil
 }
 
+func (m *ConfigEdgeDevConfig) validateDisks(formats strfmt.Registry) error {
+	if swag.IsZero(m.Disks) { // not required
+		return nil
+	}
+
+	if m.Disks != nil {
+		if err := m.Disks.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("disks")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("disks")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConfigEdgeDevConfig) validateEdgeview(formats strfmt.Registry) error {
+	if swag.IsZero(m.Edgeview) { // not required
+		return nil
+	}
+
+	if m.Edgeview != nil {
+		if err := m.Edgeview.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("edgeview")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edgeview")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *ConfigEdgeDevConfig) validateID(formats strfmt.Registry) error {
 	if swag.IsZero(m.ID) { // not required
 		return nil
@@ -512,6 +617,25 @@ func (m *ConfigEdgeDevConfig) validateReboot(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *ConfigEdgeDevConfig) validateShutdown(formats strfmt.Registry) error {
+	if swag.IsZero(m.Shutdown) { // not required
+		return nil
+	}
+
+	if m.Shutdown != nil {
+		if err := m.Shutdown.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("shutdown")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shutdown")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *ConfigEdgeDevConfig) validateSystemAdapterList(formats strfmt.Registry) error {
 	if swag.IsZero(m.SystemAdapterList) { // not required
 		return nil
@@ -528,6 +652,32 @@ func (m *ConfigEdgeDevConfig) validateSystemAdapterList(formats strfmt.Registry)
 					return ve.ValidateName("systemAdapterList" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("systemAdapterList" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ConfigEdgeDevConfig) validateVlans(formats strfmt.Registry) error {
+	if swag.IsZero(m.Vlans) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Vlans); i++ {
+		if swag.IsZero(m.Vlans[i]) { // not required
+			continue
+		}
+
+		if m.Vlans[i] != nil {
+			if err := m.Vlans[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("vlans" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("vlans" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -584,6 +734,10 @@ func (m *ConfigEdgeDevConfig) ContextValidate(ctx context.Context, formats strfm
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateBonds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateCipherContexts(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -604,6 +758,14 @@ func (m *ConfigEdgeDevConfig) ContextValidate(ctx context.Context, formats strfm
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateDisks(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEdgeview(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateID(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -620,7 +782,15 @@ func (m *ConfigEdgeDevConfig) ContextValidate(ctx context.Context, formats strfm
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateShutdown(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateSystemAdapterList(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVlans(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -701,6 +871,26 @@ func (m *ConfigEdgeDevConfig) contextValidateBaseos(ctx context.Context, formats
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *ConfigEdgeDevConfig) contextValidateBonds(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Bonds); i++ {
+
+		if m.Bonds[i] != nil {
+			if err := m.Bonds[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("bonds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("bonds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -806,6 +996,38 @@ func (m *ConfigEdgeDevConfig) contextValidateDeviceIoList(ctx context.Context, f
 	return nil
 }
 
+func (m *ConfigEdgeDevConfig) contextValidateDisks(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Disks != nil {
+		if err := m.Disks.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("disks")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("disks")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConfigEdgeDevConfig) contextValidateEdgeview(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Edgeview != nil {
+		if err := m.Edgeview.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("edgeview")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edgeview")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *ConfigEdgeDevConfig) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ID != nil {
@@ -878,6 +1100,22 @@ func (m *ConfigEdgeDevConfig) contextValidateReboot(ctx context.Context, formats
 	return nil
 }
 
+func (m *ConfigEdgeDevConfig) contextValidateShutdown(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Shutdown != nil {
+		if err := m.Shutdown.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("shutdown")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shutdown")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *ConfigEdgeDevConfig) contextValidateSystemAdapterList(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.SystemAdapterList); i++ {
@@ -888,6 +1126,26 @@ func (m *ConfigEdgeDevConfig) contextValidateSystemAdapterList(ctx context.Conte
 					return ve.ValidateName("systemAdapterList" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("systemAdapterList" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ConfigEdgeDevConfig) contextValidateVlans(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Vlans); i++ {
+
+		if m.Vlans[i] != nil {
+			if err := m.Vlans[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("vlans" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("vlans" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -9,8 +9,6 @@ package image_configuration
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"fmt"
-
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -33,56 +31,56 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateImage(params *CreateImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateImageOK, error)
+	ImageConfigurationCreateImage(params *ImageConfigurationCreateImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationCreateImageOK, error)
 
-	DeleteImage(params *DeleteImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteImageOK, error)
+	ImageConfigurationDeleteImage(params *ImageConfigurationDeleteImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationDeleteImageOK, error)
 
-	DeleteLatestImage(params *DeleteLatestImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteLatestImageOK, error)
+	ImageConfigurationDeleteLatestImage(params *ImageConfigurationDeleteLatestImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationDeleteLatestImageOK, error)
 
-	GetImage(params *GetImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetImageOK, error)
+	ImageConfigurationGetImage(params *ImageConfigurationGetImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationGetImageOK, error)
 
-	GetImageByName(params *GetImageByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetImageByNameOK, error)
+	ImageConfigurationGetImageByName(params *ImageConfigurationGetImageByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationGetImageByNameOK, error)
 
-	GetLatestImageVersion(params *GetLatestImageVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetLatestImageVersionOK, error)
+	ImageConfigurationGetLatestImageVersion(params *ImageConfigurationGetLatestImageVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationGetLatestImageVersionOK, error)
 
-	MarkEveImageLatest(params *MarkEveImageLatestParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*MarkEveImageLatestOK, error)
+	ImageConfigurationMarkEveImageLatest(params *ImageConfigurationMarkEveImageLatestParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationMarkEveImageLatestOK, error)
 
-	MarkEveImageLatest2(params *MarkEveImageLatest2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*MarkEveImageLatest2OK, error)
+	ImageConfigurationMarkEveImageLatest2(params *ImageConfigurationMarkEveImageLatest2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationMarkEveImageLatest2OK, error)
 
-	QueryImages(params *QueryImagesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*QueryImagesOK, error)
+	ImageConfigurationQueryImages(params *ImageConfigurationQueryImagesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationQueryImagesOK, error)
 
-	QueryLatestImageVersions(params *QueryLatestImageVersionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*QueryLatestImageVersionsOK, error)
+	ImageConfigurationQueryLatestImageVersions(params *ImageConfigurationQueryLatestImageVersionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationQueryLatestImageVersionsOK, error)
 
-	UpdateImage(params *UpdateImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateImageOK, error)
+	ImageConfigurationUpdateImage(params *ImageConfigurationUpdateImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationUpdateImageOK, error)
 
-	UplinkImage(params *UplinkImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UplinkImageOK, *UplinkImageAccepted, error)
+	ImageConfigurationUplinkImage(params *ImageConfigurationUplinkImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationUplinkImageOK, *ImageConfigurationUplinkImageAccepted, error)
 
-	UploadImageChunked(params *UploadImageChunkedParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UploadImageChunkedOK, *UploadImageChunkedAccepted, error)
+	ImageConfigurationUploadImageChunked(params *ImageConfigurationUploadImageChunkedParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationUploadImageChunkedOK, *ImageConfigurationUploadImageChunkedAccepted, error)
 
-	UploadImageFile(params *UploadImageFileParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UploadImageFileOK, *UploadImageFileAccepted, error)
+	ImageConfigurationUploadImageFile(params *ImageConfigurationUploadImageFileParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationUploadImageFileOK, *ImageConfigurationUploadImageFileAccepted, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-  CreateImage creates edge application image
+  ImageConfigurationCreateImage creates edge application image
 
   Create an edge application image record.
 */
-func (a *Client) CreateImage(params *CreateImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateImageOK, error) {
+func (a *Client) ImageConfigurationCreateImage(params *ImageConfigurationCreateImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationCreateImageOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCreateImageParams()
+		params = NewImageConfigurationCreateImageParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "CreateImage",
+		ID:                 "ImageConfiguration_CreateImage",
 		Method:             "POST",
 		PathPattern:        "/v1/apps/images",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CreateImageReader{formats: a.formats},
+		Reader:             &ImageConfigurationCreateImageReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -95,35 +93,34 @@ func (a *Client) CreateImage(params *CreateImageParams, authInfo runtime.ClientA
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CreateImageOK)
+	success, ok := result.(*ImageConfigurationCreateImageOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CreateImage: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ImageConfigurationCreateImageDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  DeleteImage deletes edge application image
+  ImageConfigurationDeleteImage deletes edge application image
 
   Delete an edge application image record.
 */
-func (a *Client) DeleteImage(params *DeleteImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteImageOK, error) {
+func (a *Client) ImageConfigurationDeleteImage(params *ImageConfigurationDeleteImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationDeleteImageOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDeleteImageParams()
+		params = NewImageConfigurationDeleteImageParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "DeleteImage",
+		ID:                 "ImageConfiguration_DeleteImage",
 		Method:             "DELETE",
 		PathPattern:        "/v1/apps/images/id/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &DeleteImageReader{formats: a.formats},
+		Reader:             &ImageConfigurationDeleteImageReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -136,35 +133,34 @@ func (a *Client) DeleteImage(params *DeleteImageParams, authInfo runtime.ClientA
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteImageOK)
+	success, ok := result.(*ImageConfigurationDeleteImageOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DeleteImage: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ImageConfigurationDeleteImageDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  DeleteLatestImage deletes edge application image
+  ImageConfigurationDeleteLatestImage deletes edge application image
 
   Delete an edge application image record.
 */
-func (a *Client) DeleteLatestImage(params *DeleteLatestImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteLatestImageOK, error) {
+func (a *Client) ImageConfigurationDeleteLatestImage(params *ImageConfigurationDeleteLatestImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationDeleteLatestImageOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDeleteLatestImageParams()
+		params = NewImageConfigurationDeleteLatestImageParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "DeleteLatestImage",
+		ID:                 "ImageConfiguration_DeleteLatestImage",
 		Method:             "DELETE",
 		PathPattern:        "/v1/apps/images/baseos/latest",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &DeleteLatestImageReader{formats: a.formats},
+		Reader:             &ImageConfigurationDeleteLatestImageReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -177,35 +173,34 @@ func (a *Client) DeleteLatestImage(params *DeleteLatestImageParams, authInfo run
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteLatestImageOK)
+	success, ok := result.(*ImageConfigurationDeleteLatestImageOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DeleteLatestImage: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ImageConfigurationDeleteLatestImageDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetImage gets edge application image
+  ImageConfigurationGetImage gets edge application image
 
   Get the configuration (without security details) of an edge application image record.
 */
-func (a *Client) GetImage(params *GetImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetImageOK, error) {
+func (a *Client) ImageConfigurationGetImage(params *ImageConfigurationGetImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationGetImageOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetImageParams()
+		params = NewImageConfigurationGetImageParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetImage",
+		ID:                 "ImageConfiguration_GetImage",
 		Method:             "GET",
 		PathPattern:        "/v1/apps/images/id/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetImageReader{formats: a.formats},
+		Reader:             &ImageConfigurationGetImageReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -218,35 +213,34 @@ func (a *Client) GetImage(params *GetImageParams, authInfo runtime.ClientAuthInf
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetImageOK)
+	success, ok := result.(*ImageConfigurationGetImageOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetImage: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ImageConfigurationGetImageDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetImageByName gets edge application image
+  ImageConfigurationGetImageByName gets edge application image
 
   Get the configuration (without security details) of an edge application image record.
 */
-func (a *Client) GetImageByName(params *GetImageByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetImageByNameOK, error) {
+func (a *Client) ImageConfigurationGetImageByName(params *ImageConfigurationGetImageByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationGetImageByNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetImageByNameParams()
+		params = NewImageConfigurationGetImageByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetImageByName",
+		ID:                 "ImageConfiguration_GetImageByName",
 		Method:             "GET",
 		PathPattern:        "/v1/apps/images/name/{name}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetImageByNameReader{formats: a.formats},
+		Reader:             &ImageConfigurationGetImageByNameReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -259,35 +253,34 @@ func (a *Client) GetImageByName(params *GetImageByNameParams, authInfo runtime.C
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetImageByNameOK)
+	success, ok := result.(*ImageConfigurationGetImageByNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetImageByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ImageConfigurationGetImageByNameDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetLatestImageVersion gets latest version of e v e image
+  ImageConfigurationGetLatestImageVersion gets latest version of e v e image
 
   Query the latest version of EVE image for given hardware architecture.
 */
-func (a *Client) GetLatestImageVersion(params *GetLatestImageVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetLatestImageVersionOK, error) {
+func (a *Client) ImageConfigurationGetLatestImageVersion(params *ImageConfigurationGetLatestImageVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationGetLatestImageVersionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetLatestImageVersionParams()
+		params = NewImageConfigurationGetLatestImageVersionParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetLatestImageVersion",
+		ID:                 "ImageConfiguration_GetLatestImageVersion",
 		Method:             "GET",
 		PathPattern:        "/v1/apps/images/baseos/latest/hwclass/{imageArch}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetLatestImageVersionReader{formats: a.formats},
+		Reader:             &ImageConfigurationGetLatestImageVersionReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -300,35 +293,34 @@ func (a *Client) GetLatestImageVersion(params *GetLatestImageVersionParams, auth
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetLatestImageVersionOK)
+	success, ok := result.(*ImageConfigurationGetLatestImageVersionOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetLatestImageVersion: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ImageConfigurationGetLatestImageVersionDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  MarkEveImageLatest marks eve image as latest
+  ImageConfigurationMarkEveImageLatest marks eve image as latest
 
   Mark Eve image as latest for a given hardware architecture.
 */
-func (a *Client) MarkEveImageLatest(params *MarkEveImageLatestParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*MarkEveImageLatestOK, error) {
+func (a *Client) ImageConfigurationMarkEveImageLatest(params *ImageConfigurationMarkEveImageLatestParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationMarkEveImageLatestOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewMarkEveImageLatestParams()
+		params = NewImageConfigurationMarkEveImageLatestParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "MarkEveImageLatest",
+		ID:                 "ImageConfiguration_MarkEveImageLatest",
 		Method:             "PUT",
 		PathPattern:        "/v1/apps/images/baseos/latest",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &MarkEveImageLatestReader{formats: a.formats},
+		Reader:             &ImageConfigurationMarkEveImageLatestReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -341,35 +333,34 @@ func (a *Client) MarkEveImageLatest(params *MarkEveImageLatestParams, authInfo r
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*MarkEveImageLatestOK)
+	success, ok := result.(*ImageConfigurationMarkEveImageLatestOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for MarkEveImageLatest: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ImageConfigurationMarkEveImageLatestDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  MarkEveImageLatest2 marks eve image as latest
+  ImageConfigurationMarkEveImageLatest2 marks eve image as latest
 
   Mark Eve image as latest for a given hardware architecture.
 */
-func (a *Client) MarkEveImageLatest2(params *MarkEveImageLatest2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*MarkEveImageLatest2OK, error) {
+func (a *Client) ImageConfigurationMarkEveImageLatest2(params *ImageConfigurationMarkEveImageLatest2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationMarkEveImageLatest2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewMarkEveImageLatest2Params()
+		params = NewImageConfigurationMarkEveImageLatest2Params()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "MarkEveImageLatest2",
+		ID:                 "ImageConfiguration_MarkEveImageLatest2",
 		Method:             "PUT",
 		PathPattern:        "/v1/apps/images/baseos/latest/hwclass/{imageArch}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &MarkEveImageLatest2Reader{formats: a.formats},
+		Reader:             &ImageConfigurationMarkEveImageLatest2Reader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -382,35 +373,34 @@ func (a *Client) MarkEveImageLatest2(params *MarkEveImageLatest2Params, authInfo
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*MarkEveImageLatest2OK)
+	success, ok := result.(*ImageConfigurationMarkEveImageLatest2OK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for MarkEveImageLatest2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ImageConfigurationMarkEveImageLatest2Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  QueryImages queries edge application images
+  ImageConfigurationQueryImages queries edge application images
 
   Query the edge application image records.
 */
-func (a *Client) QueryImages(params *QueryImagesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*QueryImagesOK, error) {
+func (a *Client) ImageConfigurationQueryImages(params *ImageConfigurationQueryImagesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationQueryImagesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewQueryImagesParams()
+		params = NewImageConfigurationQueryImagesParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "QueryImages",
+		ID:                 "ImageConfiguration_QueryImages",
 		Method:             "GET",
 		PathPattern:        "/v1/apps/images",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &QueryImagesReader{formats: a.formats},
+		Reader:             &ImageConfigurationQueryImagesReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -423,35 +413,34 @@ func (a *Client) QueryImages(params *QueryImagesParams, authInfo runtime.ClientA
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*QueryImagesOK)
+	success, ok := result.(*ImageConfigurationQueryImagesOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for QueryImages: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ImageConfigurationQueryImagesDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  QueryLatestImageVersions queries latest version of e v e image for each hardware architecture
+  ImageConfigurationQueryLatestImageVersions queries latest version of e v e image for each hardware architecture
 
   Query the latest version of EVE image for each hardware architecture.
 */
-func (a *Client) QueryLatestImageVersions(params *QueryLatestImageVersionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*QueryLatestImageVersionsOK, error) {
+func (a *Client) ImageConfigurationQueryLatestImageVersions(params *ImageConfigurationQueryLatestImageVersionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationQueryLatestImageVersionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewQueryLatestImageVersionsParams()
+		params = NewImageConfigurationQueryLatestImageVersionsParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "QueryLatestImageVersions",
+		ID:                 "ImageConfiguration_QueryLatestImageVersions",
 		Method:             "GET",
 		PathPattern:        "/v1/apps/images/baseos/latest",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &QueryLatestImageVersionsReader{formats: a.formats},
+		Reader:             &ImageConfigurationQueryLatestImageVersionsReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -464,35 +453,34 @@ func (a *Client) QueryLatestImageVersions(params *QueryLatestImageVersionsParams
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*QueryLatestImageVersionsOK)
+	success, ok := result.(*ImageConfigurationQueryLatestImageVersionsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for QueryLatestImageVersions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ImageConfigurationQueryLatestImageVersionsDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  UpdateImage updates edge application image
+  ImageConfigurationUpdateImage updates edge application image
 
   Update an edge application image. The usual pattern to update an edge application image record is to retrieve the record and update with the modified values in a new body to update the edge application image record.
 */
-func (a *Client) UpdateImage(params *UpdateImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateImageOK, error) {
+func (a *Client) ImageConfigurationUpdateImage(params *ImageConfigurationUpdateImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationUpdateImageOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUpdateImageParams()
+		params = NewImageConfigurationUpdateImageParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "UpdateImage",
+		ID:                 "ImageConfiguration_UpdateImage",
 		Method:             "PUT",
 		PathPattern:        "/v1/apps/images/id/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &UpdateImageReader{formats: a.formats},
+		Reader:             &ImageConfigurationUpdateImageReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -505,35 +493,34 @@ func (a *Client) UpdateImage(params *UpdateImageParams, authInfo runtime.ClientA
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*UpdateImageOK)
+	success, ok := result.(*ImageConfigurationUpdateImageOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for UpdateImage: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ImageConfigurationUpdateImageDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  UplinkImage uplinks edge application image
+  ImageConfigurationUplinkImage uplinks edge application image
 
   Uplinks the edge application image record to an existing binry file in the datastore.
 */
-func (a *Client) UplinkImage(params *UplinkImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UplinkImageOK, *UplinkImageAccepted, error) {
+func (a *Client) ImageConfigurationUplinkImage(params *ImageConfigurationUplinkImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationUplinkImageOK, *ImageConfigurationUplinkImageAccepted, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUplinkImageParams()
+		params = NewImageConfigurationUplinkImageParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "UplinkImage",
+		ID:                 "ImageConfiguration_UplinkImage",
 		Method:             "PUT",
 		PathPattern:        "/v1/apps/images/name/{name}/uplink",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &UplinkImageReader{formats: a.formats},
+		Reader:             &ImageConfigurationUplinkImageReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -547,35 +534,35 @@ func (a *Client) UplinkImage(params *UplinkImageParams, authInfo runtime.ClientA
 		return nil, nil, err
 	}
 	switch value := result.(type) {
-	case *UplinkImageOK:
+	case *ImageConfigurationUplinkImageOK:
 		return value, nil, nil
-	case *UplinkImageAccepted:
+	case *ImageConfigurationUplinkImageAccepted:
 		return nil, value, nil
 	}
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for image_configuration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	// unexpected success response
+	unexpectedSuccess := result.(*ImageConfigurationUplinkImageDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  UploadImageChunked uploads edge application image binary file
+  ImageConfigurationUploadImageChunked uploads edge application image binary file
 
   Uploads the edge application image binary file in the datastore. This method uses multiple HTTP requests to upload image binary file in smaller chunks. Recommended for larger file size.
 */
-func (a *Client) UploadImageChunked(params *UploadImageChunkedParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UploadImageChunkedOK, *UploadImageChunkedAccepted, error) {
+func (a *Client) ImageConfigurationUploadImageChunked(params *ImageConfigurationUploadImageChunkedParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationUploadImageChunkedOK, *ImageConfigurationUploadImageChunkedAccepted, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUploadImageChunkedParams()
+		params = NewImageConfigurationUploadImageChunkedParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "UploadImageChunked",
+		ID:                 "ImageConfiguration_UploadImageChunked",
 		Method:             "PUT",
 		PathPattern:        "/v1/apps/images/name/{name}/upload/chunked",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &UploadImageChunkedReader{formats: a.formats},
+		Reader:             &ImageConfigurationUploadImageChunkedReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -589,35 +576,35 @@ func (a *Client) UploadImageChunked(params *UploadImageChunkedParams, authInfo r
 		return nil, nil, err
 	}
 	switch value := result.(type) {
-	case *UploadImageChunkedOK:
+	case *ImageConfigurationUploadImageChunkedOK:
 		return value, nil, nil
-	case *UploadImageChunkedAccepted:
+	case *ImageConfigurationUploadImageChunkedAccepted:
 		return nil, value, nil
 	}
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for image_configuration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	// unexpected success response
+	unexpectedSuccess := result.(*ImageConfigurationUploadImageChunkedDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  UploadImageFile uploads edge application image binary file
+  ImageConfigurationUploadImageFile uploads edge application image binary file
 
   Uploads the edge application image binary file in the datastore. This method uses single HTTP request to upload the entire image binary file. Recommended for smaller file size.
 */
-func (a *Client) UploadImageFile(params *UploadImageFileParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UploadImageFileOK, *UploadImageFileAccepted, error) {
+func (a *Client) ImageConfigurationUploadImageFile(params *ImageConfigurationUploadImageFileParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImageConfigurationUploadImageFileOK, *ImageConfigurationUploadImageFileAccepted, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUploadImageFileParams()
+		params = NewImageConfigurationUploadImageFileParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "UploadImageFile",
+		ID:                 "ImageConfiguration_UploadImageFile",
 		Method:             "PUT",
 		PathPattern:        "/v1/apps/images/name/{name}/upload/file",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"multipart/form-data"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &UploadImageFileReader{formats: a.formats},
+		Reader:             &ImageConfigurationUploadImageFileReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -631,14 +618,14 @@ func (a *Client) UploadImageFile(params *UploadImageFileParams, authInfo runtime
 		return nil, nil, err
 	}
 	switch value := result.(type) {
-	case *UploadImageFileOK:
+	case *ImageConfigurationUploadImageFileOK:
 		return value, nil, nil
-	case *UploadImageFileAccepted:
+	case *ImageConfigurationUploadImageFileAccepted:
 		return nil, value, nil
 	}
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for image_configuration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	// unexpected success response
+	unexpectedSuccess := result.(*ImageConfigurationUploadImageFileDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 // SetTransport changes the transport on the client

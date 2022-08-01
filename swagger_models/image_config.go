@@ -20,6 +20,7 @@ import (
 // ImageConfig Image metadata detail
 //
 // Image metadata for edge gateway Base OS or for eedge applications.
+// Example: {"description":"My test image in QCOW2 format for Edge computing","dsId":"7927f6e3-484d-4105-a98e-868b21c1cb61","id":"d1125b0f-633d-459c-99c6-f47e7467cebc","imageArch":"AMD64","imageError":"Image uplinked successfully...","imageFormat":3,"imageLocal":"","imageRelUrl":"edge/computing/AMD64","imageSha256":"ADC5BB9DD39F83DD74C276B0BA119FB27925A5CDEA343FE1F2C8433F28AB345B","imageSizeBytes":142016512,"imageStatus":4,"imageType":2,"imageVersion":"","name":"my-test-image","originType":2,"revision":{"createdAt":{"seconds":1592068270},"createdBy":"admin@my-company.com","curr":"1","updatedAt":{"seconds":1592068271},"updatedBy":"admin@my-company.com"},"title":"My Test Image for Edge Computing"}
 //
 // swagger:model ImageConfig
 type ImageConfig struct {
@@ -84,6 +85,9 @@ type ImageConfig struct {
 	// Origin type of image.
 	// Read Only: true
 	OriginType *Origin `json:"originType,omitempty"`
+
+	// project access list of the image
+	ProjectAccessList []string `json:"projectAccessList"`
 
 	// system defined info
 	// Read Only: true

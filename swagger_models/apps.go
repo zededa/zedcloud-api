@@ -28,6 +28,12 @@ type Apps struct {
 	// cursor next
 	Next *Cursor `json:"next,omitempty"`
 
+	// app distribution summary
+	SummaryByAppInstanceDistribution *Summary `json:"summaryByAppInstanceDistribution,omitempty"`
+
+	// edge applications by appType
+	SummaryByAppType *Summary `json:"summaryByAppType,omitempty"`
+
 	// edge applications by category
 	SummaryByCategory *Summary `json:"summaryByCategory,omitempty"`
 
@@ -44,6 +50,14 @@ func (m *Apps) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateNext(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSummaryByAppInstanceDistribution(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSummaryByAppType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -106,6 +120,44 @@ func (m *Apps) validateNext(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *Apps) validateSummaryByAppInstanceDistribution(formats strfmt.Registry) error {
+	if swag.IsZero(m.SummaryByAppInstanceDistribution) { // not required
+		return nil
+	}
+
+	if m.SummaryByAppInstanceDistribution != nil {
+		if err := m.SummaryByAppInstanceDistribution.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByAppInstanceDistribution")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByAppInstanceDistribution")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Apps) validateSummaryByAppType(formats strfmt.Registry) error {
+	if swag.IsZero(m.SummaryByAppType) { // not required
+		return nil
+	}
+
+	if m.SummaryByAppType != nil {
+		if err := m.SummaryByAppType.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByAppType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByAppType")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *Apps) validateSummaryByCategory(formats strfmt.Registry) error {
 	if swag.IsZero(m.SummaryByCategory) { // not required
 		return nil
@@ -156,6 +208,14 @@ func (m *Apps) ContextValidate(ctx context.Context, formats strfmt.Registry) err
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateSummaryByAppInstanceDistribution(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSummaryByAppType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateSummaryByCategory(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -198,6 +258,38 @@ func (m *Apps) contextValidateNext(ctx context.Context, formats strfmt.Registry)
 				return ve.ValidateName("next")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("next")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Apps) contextValidateSummaryByAppInstanceDistribution(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SummaryByAppInstanceDistribution != nil {
+		if err := m.SummaryByAppInstanceDistribution.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByAppInstanceDistribution")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByAppInstanceDistribution")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Apps) contextValidateSummaryByAppType(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SummaryByAppType != nil {
+		if err := m.SummaryByAppType.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByAppType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByAppType")
 			}
 			return err
 		}

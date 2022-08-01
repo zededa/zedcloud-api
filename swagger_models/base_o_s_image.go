@@ -26,11 +26,14 @@ type BaseOSImage struct {
 
 	// activation flag
 	// Required: true
-	Activate bool `json:"activate"`
+	Activate *bool `json:"activate"`
 
 	// image name
 	// Required: true
 	ImageName *string `json:"imageName"`
+
+	// immutable Volume for this base image
+	ImvolID string `json:"imvolId,omitempty"`
 
 	// system generated unique id for an image
 	// Required: true
@@ -69,7 +72,7 @@ func (m *BaseOSImage) Validate(formats strfmt.Registry) error {
 
 func (m *BaseOSImage) validateActivate(formats strfmt.Registry) error {
 
-	if err := validate.Required("activate", "body", bool(m.Activate)); err != nil {
+	if err := validate.Required("activate", "body", m.Activate); err != nil {
 		return err
 	}
 

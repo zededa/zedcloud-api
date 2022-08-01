@@ -39,7 +39,7 @@ type EventQueryResponseItem struct {
 	Instance string `json:"instance,omitempty"`
 
 	// Event resources
-	JSONData interface{} `json:"json_data,omitempty"`
+	JSONData interface{} `json:"jsonData,omitempty"`
 
 	// project name
 	Project string `json:"project,omitempty"`

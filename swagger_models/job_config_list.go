@@ -24,23 +24,19 @@ import (
 // swagger:model JobConfigList
 type JobConfigList struct {
 
-	// Summary information about job list records.
-	JobListSummary *Summary `json:"jobListSummary,omitempty"`
-
 	// Details of job list records.
 	List []*JobConfig `json:"list"`
 
 	// Returned record page.
 	Next *Cursor `json:"next,omitempty"`
+
+	// Summary information about job list records.
+	SummaryByState *Summary `json:"summaryByState,omitempty"`
 }
 
 // Validate validates this job config list
 func (m *JobConfigList) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateJobListSummary(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateList(formats); err != nil {
 		res = append(res, err)
@@ -50,28 +46,13 @@ func (m *JobConfigList) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateSummaryByState(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *JobConfigList) validateJobListSummary(formats strfmt.Registry) error {
-	if swag.IsZero(m.JobListSummary) { // not required
-		return nil
-	}
-
-	if m.JobListSummary != nil {
-		if err := m.JobListSummary.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("jobListSummary")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("jobListSummary")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 
@@ -120,13 +101,28 @@ func (m *JobConfigList) validateNext(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *JobConfigList) validateSummaryByState(formats strfmt.Registry) error {
+	if swag.IsZero(m.SummaryByState) { // not required
+		return nil
+	}
+
+	if m.SummaryByState != nil {
+		if err := m.SummaryByState.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByState")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this job config list based on the context it is used
 func (m *JobConfigList) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.contextValidateJobListSummary(ctx, formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.contextValidateList(ctx, formats); err != nil {
 		res = append(res, err)
@@ -136,25 +132,13 @@ func (m *JobConfigList) ContextValidate(ctx context.Context, formats strfmt.Regi
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateSummaryByState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *JobConfigList) contextValidateJobListSummary(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.JobListSummary != nil {
-		if err := m.JobListSummary.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("jobListSummary")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("jobListSummary")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 
@@ -186,6 +170,22 @@ func (m *JobConfigList) contextValidateNext(ctx context.Context, formats strfmt.
 				return ve.ValidateName("next")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("next")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *JobConfigList) contextValidateSummaryByState(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SummaryByState != nil {
+		if err := m.SummaryByState.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByState")
 			}
 			return err
 		}

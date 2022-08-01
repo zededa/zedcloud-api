@@ -9,8 +9,6 @@ package edge_network_instance_status
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"fmt"
-
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -33,34 +31,36 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetEdgeNetworkInstanceStatus(params *GetEdgeNetworkInstanceStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEdgeNetworkInstanceStatusOK, error)
+	EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatus(params *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusOK, error)
 
-	GetEdgeNetworkInstanceStatusByName(params *GetEdgeNetworkInstanceStatusByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEdgeNetworkInstanceStatusByNameOK, error)
+	EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusByName(params *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusByNameOK, error)
 
-	QueryEdgeNetworkInstanceStatus(params *QueryEdgeNetworkInstanceStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*QueryEdgeNetworkInstanceStatusOK, error)
+	EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatus(params *EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusOK, error)
+
+	EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusConfig(params *EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusConfigOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-  GetEdgeNetworkInstanceStatus gets edge network instance status
+  EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatus gets edge network instance status
 
   Get the status of an edge network instance as reported by the edge node where the edge network instance has been deployed.
 */
-func (a *Client) GetEdgeNetworkInstanceStatus(params *GetEdgeNetworkInstanceStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEdgeNetworkInstanceStatusOK, error) {
+func (a *Client) EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatus(params *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetEdgeNetworkInstanceStatusParams()
+		params = NewEdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetEdgeNetworkInstanceStatus",
+		ID:                 "EdgeNetworkInstanceStatus_GetEdgeNetworkInstanceStatus",
 		Method:             "GET",
 		PathPattern:        "/v1/netinsts/id/{id}/status",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetEdgeNetworkInstanceStatusReader{formats: a.formats},
+		Reader:             &EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -73,35 +73,34 @@ func (a *Client) GetEdgeNetworkInstanceStatus(params *GetEdgeNetworkInstanceStat
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetEdgeNetworkInstanceStatusOK)
+	success, ok := result.(*EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetEdgeNetworkInstanceStatus: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetEdgeNetworkInstanceStatusByName gets edge network instance status
+  EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusByName gets edge network instance status
 
   Get the status of an edge network instance as reported by the edge node where the edge network instance has been deployed.
 */
-func (a *Client) GetEdgeNetworkInstanceStatusByName(params *GetEdgeNetworkInstanceStatusByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEdgeNetworkInstanceStatusByNameOK, error) {
+func (a *Client) EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusByName(params *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusByNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetEdgeNetworkInstanceStatusByNameParams()
+		params = NewEdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetEdgeNetworkInstanceStatusByName",
+		ID:                 "EdgeNetworkInstanceStatus_GetEdgeNetworkInstanceStatusByName",
 		Method:             "GET",
 		PathPattern:        "/v1/netinsts/name/{name}/status",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetEdgeNetworkInstanceStatusByNameReader{formats: a.formats},
+		Reader:             &EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusByNameReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -114,35 +113,34 @@ func (a *Client) GetEdgeNetworkInstanceStatusByName(params *GetEdgeNetworkInstan
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetEdgeNetworkInstanceStatusByNameOK)
+	success, ok := result.(*EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusByNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetEdgeNetworkInstanceStatusByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusByNameDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  QueryEdgeNetworkInstanceStatus queries status of edge network instances
+  EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatus queries status of edge network instances
 
   Query the status of edge network instances as reported by the edge nodes where the edge network instances have been deployed.
 */
-func (a *Client) QueryEdgeNetworkInstanceStatus(params *QueryEdgeNetworkInstanceStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*QueryEdgeNetworkInstanceStatusOK, error) {
+func (a *Client) EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatus(params *EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewQueryEdgeNetworkInstanceStatusParams()
+		params = NewEdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "QueryEdgeNetworkInstanceStatus",
+		ID:                 "EdgeNetworkInstanceStatus_QueryEdgeNetworkInstanceStatus",
 		Method:             "GET",
 		PathPattern:        "/v1/netinsts/status",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &QueryEdgeNetworkInstanceStatusReader{formats: a.formats},
+		Reader:             &EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -155,14 +153,53 @@ func (a *Client) QueryEdgeNetworkInstanceStatus(params *QueryEdgeNetworkInstance
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*QueryEdgeNetworkInstanceStatusOK)
+	success, ok := result.(*EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for QueryEdgeNetworkInstanceStatus: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusConfig queries status and config of edge network instances
+
+  Query the status and config of edge network instances as reported by the edge nodes where the edge network instances have been deployed.
+*/
+func (a *Client) EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusConfig(params *EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusConfigOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusConfigParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "EdgeNetworkInstanceStatus_QueryEdgeNetworkInstanceStatusConfig",
+		Method:             "GET",
+		PathPattern:        "/v1/netinsts/status-config",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusConfigOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*EdgeNetworkInstanceStatusQueryEdgeNetworkInstanceStatusConfigDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 // SetTransport changes the transport on the client

@@ -22,7 +22,7 @@ import (
 type ConfigBaseOS struct {
 
 	// UUID for ContentTree with BaseOS image
-	ContentTreeUUID string `json:"content_tree_uuid,omitempty"`
+	ContentTreeUUID string `json:"contentTreeUuid,omitempty"`
 
 	// retry_update
 	// Retry the BaseOs update if the update failed previously.
@@ -32,7 +32,7 @@ type ConfigBaseOS struct {
 	// 3) If this image is same as active image, but status is NOT yet UPDATED, or
 	//    if the update to this image is in progress, wait till the update
 	//    concludes (Success / Error+rollback) - then trigger the retry as needed.
-	RetryUpdate *ConfigDeviceOpsCmd `json:"retry_update,omitempty"`
+	RetryUpdate *ConfigDeviceOpsCmd `json:"retryUpdate,omitempty"`
 }
 
 // Validate validates this config base o s
@@ -57,9 +57,9 @@ func (m *ConfigBaseOS) validateRetryUpdate(formats strfmt.Registry) error {
 	if m.RetryUpdate != nil {
 		if err := m.RetryUpdate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("retry_update")
+				return ve.ValidateName("retryUpdate")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("retry_update")
+				return ce.ValidateName("retryUpdate")
 			}
 			return err
 		}
@@ -87,9 +87,9 @@ func (m *ConfigBaseOS) contextValidateRetryUpdate(ctx context.Context, formats s
 	if m.RetryUpdate != nil {
 		if err := m.RetryUpdate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("retry_update")
+				return ve.ValidateName("retryUpdate")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("retry_update")
+				return ce.ValidateName("retryUpdate")
 			}
 			return err
 		}

@@ -15,6 +15,11 @@
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         }
     },
+    "tags": [
+        {
+            "name": "IdentityAccessManagement"
+        }
+    ],
     "host": "zedcontrol.zededa.net",
     "basePath": "/api",
     "schemes": [
@@ -31,7 +36,7 @@
             "get": {
                 "summary": "Query AAA profiles",
                 "description": "Query the AAA profile records.",
-                "operationId": "QueryAuthProfiles",
+                "operationId": "IdentityAccessManagement_QueryAuthProfiles",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -68,6 +73,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -75,8 +86,7 @@
                         "name": "summary",
                         "in": "query",
                         "required": false,
-                        "type": "boolean",
-                        "format": "boolean"
+                        "type": "boolean"
                     },
                     {
                         "name": "filter.sfdcid",
@@ -122,8 +132,13 @@
                         "name": "filter.all",
                         "in": "query",
                         "required": false,
-                        "type": "boolean",
-                        "format": "boolean"
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "filter.roleName",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
                     },
                     {
                         "name": "next.pageToken",
@@ -137,7 +152,11 @@
                         "description": "OrderBy helps in sorting the list response",
                         "in": "query",
                         "required": false,
-                        "type": "string"
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
                     },
                     {
                         "name": "next.pageNum",
@@ -182,7 +201,7 @@
             "post": {
                 "summary": "Create AAA profile",
                 "description": "Create an AAA profile record.",
-                "operationId": "CreateAuthProfile",
+                "operationId": "IdentityAccessManagement_CreateAuthProfile",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -225,6 +244,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -257,7 +282,7 @@
             "get": {
                 "summary": "Get AAA profile",
                 "description": "Get the configuration (without security details) of an AAA profile record.",
-                "operationId": "GetAuthProfile",
+                "operationId": "IdentityAccessManagement_GetAuthProfile",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -294,6 +319,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -322,7 +353,7 @@
             "delete": {
                 "summary": "Delete AAA profile",
                 "description": "Delete an AAA profile record.",
-                "operationId": "DeleteAuthProfile",
+                "operationId": "IdentityAccessManagement_DeleteAuthProfile",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -359,6 +390,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -387,7 +424,7 @@
             "put": {
                 "summary": "Update AAA profile",
                 "description": "Update an AAA profile record. The usual pattern to update an AAA profile record is to retrieve the record and update with the modified values in a new body to update the AAA profile record.",
-                "operationId": "UpdateAuthProfile",
+                "operationId": "IdentityAccessManagement_UpdateAuthProfile",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -430,6 +467,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -445,7 +488,105 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/AuthorizationProfile"
+                            "type": "object",
+                            "example": {
+                                "id": "AAGVABAmkIXXqJJPkpx1E_DKK2Gs",
+                                "enterpriseId": "AAFlABDe6Nm63ixF5LJBbk9Keqp6",
+                                "name": "test_profile",
+                                "type": "AUTH_TYPE_OAUTH",
+                                "oauthProfile": {
+                                    "OIDCEndPoint": "https://foo.com",
+                                    "clientID": "test",
+                                    "clientSecret": "",
+                                    "encryptedSecrets": {},
+                                    "cryptoKey": "",
+                                    "roleScope": ""
+                                },
+                                "testOnly": false,
+                                "active": true,
+                                "defaultRoleId": "SysRoot",
+                                "title": "test_profile",
+                                "description": "",
+                                "revision": {
+                                    "prev": "",
+                                    "curr": "1",
+                                    "createdAt": "2020-07-17T06:27:27Z",
+                                    "createdBy": "us.root@zededa.com",
+                                    "updatedAt": "2020-07-17T06:27:27Z",
+                                    "updatedBy": "us.root@zededa.com"
+                                }
+                            },
+                            "properties": {
+                                "enterpriseId": {
+                                    "type": "string",
+                                    "description": "Parent enterprise ID of the authorization profile",
+                                    "pattern": "[0-9A-Za-z_=-]{28}",
+                                    "uniqueItems": true
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "description": "User defined name of the profile. Profile name is unique within an enterprise. Name can't be changed once created",
+                                    "maxLength": 256,
+                                    "minLength": 3,
+                                    "pattern": "[a-zA-Z0-9][a-zA-Z0-9_.-]+",
+                                    "uniqueItems": true
+                                },
+                                "type": {
+                                    "$ref": "#/definitions/AuthType",
+                                    "description": "Type of the profile"
+                                },
+                                "oauthProfile": {
+                                    "$ref": "#/definitions/OAUTHProfile",
+                                    "description": "Oauth profile configuration details"
+                                },
+                                "passwordProfile": {
+                                    "$ref": "#/definitions/PasswordProfile"
+                                },
+                                "testOnly": {
+                                    "type": "boolean"
+                                },
+                                "active": {
+                                    "type": "boolean",
+                                    "description": "Mark this profile as active. Only one profile can be active in a given enterprise"
+                                },
+                                "defaultRoleId": {
+                                    "type": "string",
+                                    "description": "Default Role ID to associate with the profile",
+                                    "pattern": "[0-9A-Za-z_=-]{28}"
+                                },
+                                "title": {
+                                    "type": "string",
+                                    "description": "User defined title for the profile. Title can be changed anytime",
+                                    "maxLength": 256,
+                                    "minLength": 3,
+                                    "pattern": "[a-zA-Z0-9]+[a-zA-Z0-9!-~ ]+"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "description": "Detailed description of the profile",
+                                    "maxLength": 256
+                                },
+                                "profileType": {
+                                    "$ref": "#/definitions/AuthProfileType",
+                                    "description": "Authorization profile type"
+                                },
+                                "disableAutoUserCreate": {
+                                    "type": "boolean",
+                                    "description": "Do not automatically create new users if this is set"
+                                },
+                                "revision": {
+                                    "$ref": "#/definitions/ObjectRevision",
+                                    "description": "system defined info",
+                                    "readOnly": true
+                                }
+                            },
+                            "description": "Authorization profile  meta data",
+                            "title": "Authorization profile detail",
+                            "required": [
+                                "name",
+                                "title",
+                                "defaultRoleId"
+                            ]
                         }
                     },
                     {
@@ -469,7 +610,7 @@
             "get": {
                 "summary": "Get AAA profile",
                 "description": "Get the configuration (without security details) of an AAA profile record.",
-                "operationId": "GetAuthProfileByName",
+                "operationId": "IdentityAccessManagement_GetAuthProfileByName",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -506,6 +647,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -536,7 +683,7 @@
             "post": {
                 "summary": "Create IAM credential",
                 "description": "Create an IAM credential record.",
-                "operationId": "CreateCredential",
+                "operationId": "IdentityAccessManagement_CreateCredential",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -579,6 +726,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -609,7 +762,7 @@
             "put": {
                 "summary": "Update IAM credential",
                 "description": "Update an IAM credential record.",
-                "operationId": "UpdateCredential",
+                "operationId": "IdentityAccessManagement_UpdateCredential",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -651,6 +804,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -684,7 +843,7 @@
             "delete": {
                 "summary": "Delete IAM credential",
                 "description": "Delete an IAM credential record.",
-                "operationId": "DeleteCredential",
+                "operationId": "IdentityAccessManagement_DeleteCredential",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -721,6 +880,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -751,7 +916,7 @@
             "put": {
                 "summary": "Update IAM credential",
                 "description": "Update user's own IAM credential record.",
-                "operationId": "UpdateCredentialSelf",
+                "operationId": "IdentityAccessManagement_UpdateCredentialSelf",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -794,6 +959,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -826,7 +997,7 @@
             "get": {
                 "summary": "Query IAM Enterprises",
                 "description": "Query the IAM Enterprises records.",
-                "operationId": "QueryEnterprises",
+                "operationId": "IdentityAccessManagement_QueryEnterprises",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -863,6 +1034,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -870,8 +1047,7 @@
                         "name": "summary",
                         "in": "query",
                         "required": false,
-                        "type": "boolean",
-                        "format": "boolean"
+                        "type": "boolean"
                     },
                     {
                         "name": "filter.sfdcid",
@@ -917,8 +1093,13 @@
                         "name": "filter.all",
                         "in": "query",
                         "required": false,
-                        "type": "boolean",
-                        "format": "boolean"
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "filter.roleName",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
                     },
                     {
                         "name": "next.pageToken",
@@ -932,7 +1113,11 @@
                         "description": "OrderBy helps in sorting the list response",
                         "in": "query",
                         "required": false,
-                        "type": "string"
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
                     },
                     {
                         "name": "next.pageNum",
@@ -977,7 +1162,7 @@
             "post": {
                 "summary": "Create IAM Enterprise",
                 "description": "Create an IAM enterprise record.",
-                "operationId": "CreateEnterprise",
+                "operationId": "IdentityAccessManagement_CreateEnterprise",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -1020,6 +1205,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -1052,7 +1243,7 @@
             "get": {
                 "summary": "Get enterprise",
                 "description": "Get the configuration (without security details) and status of an enterprise record.",
-                "operationId": "GetEnterprise",
+                "operationId": "IdentityAccessManagement_GetEnterprise",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -1089,6 +1280,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -1117,7 +1314,7 @@
             "delete": {
                 "summary": "Delete IAM role",
                 "description": "Delete an IAM enterprise record.",
-                "operationId": "DeleteEnterprise",
+                "operationId": "IdentityAccessManagement_DeleteEnterprise",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -1160,6 +1357,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -1188,7 +1391,7 @@
             "put": {
                 "summary": "Update enterprise",
                 "description": "Update an enterprise record. The usual pattern to update an enterprise record is to retrieve the record and update with the modified values in a new body to update the enterprise record.",
-                "operationId": "UpdateEnterprise2",
+                "operationId": "IdentityAccessManagement_UpdateEnterprise2",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -1231,6 +1434,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -1246,7 +1455,120 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Enterprise"
+                            "type": "object",
+                            "example": {
+                                "id": "AAFlABDe6Nm63ixF5LJBbk9Keqp6",
+                                "name": "zededa",
+                                "SfdcId": "",
+                                "HubspotId": "",
+                                "state": "ENTERPRISE_STATE_ACTIVE",
+                                "type": "ENTERPRISE_TYPE_UNSPECIFIED",
+                                "policyList": {
+                                    "list": []
+                                },
+                                "parentEntpId": "",
+                                "azureSubId": "",
+                                "title": "ZEDEDA Inc. USA",
+                                "description": "This is a test enterprise",
+                                "revision": {
+                                    "prev": "",
+                                    "curr": "1",
+                                    "createdAt": "2020-07-16T18:19:56Z",
+                                    "createdBy": "SYSTEM_ROOT",
+                                    "updatedAt": "2020-07-16T18:19:56Z",
+                                    "updatedBy": "SYSTEM_ROOT"
+                                }
+                            },
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "User defined name of the enterprise. Once enterprise is created, name can\u2019t be changed",
+                                    "maxLength": 256,
+                                    "minLength": 3,
+                                    "pattern": "[a-zA-Z0-9][a-zA-Z0-9_.-]+",
+                                    "uniqueItems": true
+                                },
+                                "SfdcId": {
+                                    "type": "string"
+                                },
+                                "HubspotId": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "$ref": "#/definitions/EnterpriseState",
+                                    "description": "Enterprise state"
+                                },
+                                "type": {
+                                    "$ref": "#/definitions/EnterpriseType",
+                                    "description": "Enterprise type"
+                                },
+                                "policyList": {
+                                    "$ref": "#/definitions/PolicyVersionList",
+                                    "description": "Policy version list"
+                                },
+                                "parentEntpId": {
+                                    "type": "string",
+                                    "description": "Parent enterprise ID",
+                                    "title": "string id = 100;\nstring name = 101;",
+                                    "pattern": "[0-9A-Za-z_=-]{28}"
+                                },
+                                "azureSubId": {
+                                    "type": "string",
+                                    "description": "Azure subscription ID tied to this enterprise"
+                                },
+                                "title": {
+                                    "type": "string",
+                                    "description": "User defined title for the enterprise. Title can be changed any time",
+                                    "maxLength": 256,
+                                    "minLength": 3,
+                                    "pattern": "[a-zA-Z0-9]+[a-zA-Z0-9!-~ ]+"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "description": "Detailed description of the enterprise",
+                                    "maxLength": 256
+                                },
+                                "revision": {
+                                    "$ref": "#/definitions/ObjectRevision",
+                                    "description": "system defined info",
+                                    "readOnly": true
+                                },
+                                "realms": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "description": "List of realms associated with the enterprise"
+                                },
+                                "attributes": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    },
+                                    "description": "enterprise level key-value pairs"
+                                },
+                                "inheritAuthFromParent": {
+                                    "type": "boolean",
+                                    "description": "Perform authorization using parent enterprise"
+                                },
+                                "childEnterprises": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/EnterpriseSummary"
+                                    },
+                                    "description": "List of all child enterprises"
+                                },
+                                "controllerHostURL": {
+                                    "type": "string",
+                                    "description": "zedcontrol host"
+                                }
+                            },
+                            "description": "Enterprise meta data",
+                            "title": "Enterprise detail",
+                            "required": [
+                                "name",
+                                "title"
+                            ]
                         }
                     },
                     {
@@ -1270,7 +1592,7 @@
             "get": {
                 "summary": "Get enterprise",
                 "description": "Get the configuration (without security details) and status of an enterprise record.",
-                "operationId": "GetEnterpriseByName",
+                "operationId": "IdentityAccessManagement_GetEnterpriseByName",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -1306,6 +1628,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -1337,7 +1665,7 @@
             "get": {
                 "summary": "Get own enterprise",
                 "description": "Get the configuration (without security details) and status of user's own enterprise record.",
-                "operationId": "GetEnterpriseSelf",
+                "operationId": "IdentityAccessManagement_GetEnterpriseSelf",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -1374,6 +1702,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "tags": [
@@ -1396,7 +1730,7 @@
             "put": {
                 "summary": "Update enterprise",
                 "description": "Update an enterprise record. The usual pattern to update an enterprise record is to retrieve the record and update with the modified values in a new body to update the enterprise record.",
-                "operationId": "UpdateEnterprise",
+                "operationId": "IdentityAccessManagement_UpdateEnterprise",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -1438,6 +1772,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -1471,7 +1811,7 @@
             "post": {
                 "summary": "Login locally",
                 "description": "Login with zedcontrol as identity provider.",
-                "operationId": "Login",
+                "operationId": "IdentityAccessManagement_Login",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -1501,6 +1841,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -1534,7 +1880,7 @@
             "post": {
                 "summary": "Login externally",
                 "description": "Login with external identity provider (e.g. Okta, gmail, Azure AD etc.). If the enterprise has an AAA Profile configured, zedcontrol will redirect the user to the login page of the external identity provider.",
-                "operationId": "LoginExternal",
+                "operationId": "IdentityAccessManagement_LoginExternal",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -1564,6 +1910,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -1597,7 +1949,7 @@
             "post": {
                 "summary": "Reset forgotten password",
                 "description": "Reset password in case it is forgotten",
-                "operationId": "LoginForgotPassword",
+                "operationId": "IdentityAccessManagement_LoginForgotPassword",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -1627,6 +1979,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -1660,7 +2018,7 @@
             "post": {
                 "summary": "Get AAA mode of the user",
                 "description": "Get the AAA mode of the user. AAA mode can be authentication and authorization with zedcontrol as identity provider or authentication (and optionally authorization) with external identity provider. Oauth2 is supported for external authentication protocols.",
-                "operationId": "LoginMode",
+                "operationId": "IdentityAccessManagement_LoginMode",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -1690,6 +2048,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -1723,7 +2087,7 @@
             "post": {
                 "summary": "Login callback",
                 "description": "Login callback for external OAauth2 identity provider",
-                "operationId": "LoginExternalOAuth2Callback",
+                "operationId": "IdentityAccessManagement_LoginExternalOAuth2Callback",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -1753,6 +2117,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -1786,7 +2156,7 @@
             "post": {
                 "summary": "Sign up for a new enterprise account",
                 "description": "Sign up for a new enterprise account in zedcontrol. Enterprise will not be active unless admin user is validated with email.",
-                "operationId": "SignupEnterprise",
+                "operationId": "IdentityAccessManagement_SignupEnterprise",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -1816,6 +2186,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -1849,7 +2225,7 @@
             "post": {
                 "summary": "Get enterprise",
                 "description": "Get the configuration (without security details) and status of an enterprise record.",
-                "operationId": "SignupUser",
+                "operationId": "IdentityAccessManagement_SignupUser",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -1879,6 +2255,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -1912,7 +2294,7 @@
             "post": {
                 "summary": "Logout",
                 "description": "Logout from zedcontrol. Current user session will be terminated. In case of login with external identity provider, user session in the identity provider will not be impacted.",
-                "operationId": "Logout",
+                "operationId": "IdentityAccessManagement_Logout",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -1942,6 +2324,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -1975,7 +2363,7 @@
             "get": {
                 "summary": "Query all realms",
                 "description": "Query all realms.",
-                "operationId": "QueryRealms",
+                "operationId": "IdentityAccessManagement_QueryRealms",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -2012,6 +2400,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -2019,8 +2413,7 @@
                         "name": "summary",
                         "in": "query",
                         "required": false,
-                        "type": "boolean",
-                        "format": "boolean"
+                        "type": "boolean"
                     },
                     {
                         "name": "filter.sfdcid",
@@ -2066,8 +2459,13 @@
                         "name": "filter.all",
                         "in": "query",
                         "required": false,
-                        "type": "boolean",
-                        "format": "boolean"
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "filter.roleName",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
                     },
                     {
                         "name": "next.pageToken",
@@ -2081,7 +2479,11 @@
                         "description": "OrderBy helps in sorting the list response",
                         "in": "query",
                         "required": false,
-                        "type": "string"
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
                     },
                     {
                         "name": "next.pageNum",
@@ -2126,7 +2528,7 @@
             "post": {
                 "summary": "Create a realm for an enterprise",
                 "description": "Create a realm. For example, zededa.com can be registered as a realm for an enterprise. Only those Oauth users who belong to this domain will be allowed to login to the enterprise.",
-                "operationId": "CreateRealm",
+                "operationId": "IdentityAccessManagement_CreateRealm",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -2169,6 +2571,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -2201,7 +2609,7 @@
             "get": {
                 "summary": "Get a realm",
                 "description": "Get the details of a realm",
-                "operationId": "GetRealm",
+                "operationId": "IdentityAccessManagement_GetRealm",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -2238,6 +2646,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -2266,7 +2680,7 @@
             "delete": {
                 "summary": "Delete a realm",
                 "description": "Delete a realm.",
-                "operationId": "DeleteRealm",
+                "operationId": "IdentityAccessManagement_DeleteRealm",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -2303,6 +2717,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -2331,7 +2751,7 @@
             "put": {
                 "summary": "Update a realm",
                 "description": "Update a realm. The usual pattern to update a realm is to retrieve the record and update with the modified values in a new body to update the realm.",
-                "operationId": "UpdateRealm",
+                "operationId": "IdentityAccessManagement_UpdateRealm",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -2374,6 +2794,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -2389,7 +2815,62 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Realm"
+                            "type": "object",
+                            "example": {
+                                "id": "EAJ1ABAi-KOom7dJlrBoE8eq1pj9",
+                                "name": "zededa.com",
+                                "enterpriseId": "AAFlABDe6Nm63ixF5LJBbk9Keqp6",
+                                "title": "zededa",
+                                "description": "Test realm",
+                                "revision": {
+                                    "prev": "",
+                                    "curr": "1",
+                                    "createdAt": "2020-07-17T06:03:14Z",
+                                    "createdBy": "us.root@zededa.com",
+                                    "updatedAt": "2020-07-17T06:03:14Z",
+                                    "updatedBy": "us.root@zededa.com"
+                                }
+                            },
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "User defined name of the realm. Name cannot be changed once created",
+                                    "maxLength": 256,
+                                    "minLength": 3,
+                                    "pattern": "[a-zA-Z0-9][a-zA-Z0-9_.-]+",
+                                    "uniqueItems": true
+                                },
+                                "enterpriseId": {
+                                    "type": "string",
+                                    "description": "Enterprise ID of the enterprise where the realm is to be created",
+                                    "pattern": "[0-9A-Za-z_=-]{28}",
+                                    "uniqueItems": true
+                                },
+                                "title": {
+                                    "type": "string",
+                                    "description": "User defined title of the realm. Title can be changed anytime",
+                                    "maxLength": 256,
+                                    "minLength": 3,
+                                    "pattern": "[a-zA-Z0-9]+[a-zA-Z0-9!-~ ]+"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "description": "Detailed description of the realm",
+                                    "maxLength": 256
+                                },
+                                "revision": {
+                                    "$ref": "#/definitions/ObjectRevision",
+                                    "description": "System defined info",
+                                    "readOnly": true
+                                }
+                            },
+                            "description": "Realm meta data",
+                            "title": "Realm detail",
+                            "required": [
+                                "name",
+                                "title",
+                                "enterpriseId"
+                            ]
                         }
                     },
                     {
@@ -2413,7 +2894,7 @@
             "get": {
                 "summary": "Get IAM realm",
                 "description": "Get a realm by name.",
-                "operationId": "GetRealmByName",
+                "operationId": "IdentityAccessManagement_GetRealmByName",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -2450,6 +2931,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -2480,7 +2967,7 @@
             "get": {
                 "summary": "Query IAM Roles",
                 "description": "Query the IAM Role records.",
-                "operationId": "QueryRoles",
+                "operationId": "IdentityAccessManagement_QueryRoles",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -2517,6 +3004,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -2524,8 +3017,7 @@
                         "name": "summary",
                         "in": "query",
                         "required": false,
-                        "type": "boolean",
-                        "format": "boolean"
+                        "type": "boolean"
                     },
                     {
                         "name": "filter.sfdcid",
@@ -2571,8 +3063,13 @@
                         "name": "filter.all",
                         "in": "query",
                         "required": false,
-                        "type": "boolean",
-                        "format": "boolean"
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "filter.roleName",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
                     },
                     {
                         "name": "next.pageToken",
@@ -2586,7 +3083,11 @@
                         "description": "OrderBy helps in sorting the list response",
                         "in": "query",
                         "required": false,
-                        "type": "string"
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
                     },
                     {
                         "name": "next.pageNum",
@@ -2631,7 +3132,7 @@
             "post": {
                 "summary": "Create IAM role",
                 "description": "Create an IAM role record.",
-                "operationId": "CreateRole",
+                "operationId": "IdentityAccessManagement_CreateRole",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -2674,6 +3175,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -2706,7 +3213,7 @@
             "get": {
                 "summary": "Get IAM role",
                 "description": "Get the configuration (without security details) of an IAM role record.",
-                "operationId": "GetRole",
+                "operationId": "IdentityAccessManagement_GetRole",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -2743,6 +3250,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -2771,7 +3284,7 @@
             "delete": {
                 "summary": "Delete IAM role",
                 "description": "Delete an IAM role record.",
-                "operationId": "DeleteRole",
+                "operationId": "IdentityAccessManagement_DeleteRole",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -2814,6 +3327,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -2842,7 +3361,7 @@
             "put": {
                 "summary": "Update IAM role",
                 "description": "Update an IAM role record. The usual pattern to update an IAM role record is to retrieve the record and update with the modified values in a new body to update the IAM role record.",
-                "operationId": "UpdateRole",
+                "operationId": "IdentityAccessManagement_UpdateRole",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -2885,6 +3404,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -2900,7 +3425,88 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Role"
+                            "type": "object",
+                            "example": {
+                                "id": "AAGFABAEqnH4je5PHZTXSmHOs-XC",
+                                "name": "SysRoot",
+                                "title": "SysRoot",
+                                "description": "",
+                                "revision": {
+                                    "prev": "",
+                                    "curr": "1",
+                                    "createdAt": "2020-07-16T18:19:56Z",
+                                    "createdBy": "SYSTEM_ROOT",
+                                    "updatedAt": "1970-01-01T00:00:01Z",
+                                    "updatedBy": "SYSTEM_ROOT"
+                                },
+                                "type": "USER_ROLE_CLUSTER",
+                                "state": "ROLE_STATE_ACTIVE",
+                                "scopes": [
+                                    {
+                                        "accessDevice": "PermissionAccessCreateReadUpdateDelete",
+                                        "accessApp": "PermissionAccessCreateReadUpdateDelete",
+                                        "accessUser": "PermissionAccessCreateReadUpdateDelete",
+                                        "accessStorage": "PermissionAccessCreateReadUpdateDelete",
+                                        "accessEnterprise": "PermissionAccessCreateReadUpdateDelete",
+                                        "enterpriseFilter": [
+                                            "srAll"
+                                        ],
+                                        "projectFilter": [
+                                            "srAll"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "User defined name of the role. Name cannot be changed once created",
+                                    "maxLength": 256,
+                                    "minLength": 3,
+                                    "pattern": "[a-zA-Z0-9][a-zA-Z0-9_.-]+",
+                                    "uniqueItems": true
+                                },
+                                "title": {
+                                    "type": "string",
+                                    "description": "User defined title of the role. Title can be changed anytime",
+                                    "maxLength": 256,
+                                    "minLength": 3,
+                                    "pattern": "[a-zA-Z0-9]+[a-zA-Z0-9!-~ ]+"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "description": "Detailed description of the role",
+                                    "maxLength": 256
+                                },
+                                "revision": {
+                                    "$ref": "#/definitions/ObjectRevision",
+                                    "description": "System defined info",
+                                    "readOnly": true
+                                },
+                                "type": {
+                                    "$ref": "#/definitions/UserRole",
+                                    "description": "Type of the role"
+                                },
+                                "state": {
+                                    "$ref": "#/definitions/RoleState",
+                                    "description": "State of the role"
+                                },
+                                "scopes": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Scope"
+                                    },
+                                    "description": "Scopes/Permissions associated with the role"
+                                }
+                            },
+                            "description": "Role meta data",
+                            "title": "Role detail",
+                            "required": [
+                                "name",
+                                "title",
+                                "type",
+                                "scopes"
+                            ]
                         }
                     },
                     {
@@ -2924,7 +3530,7 @@
             "get": {
                 "summary": "Get IAM role",
                 "description": "Get the configuration (without security details) of an IAM role record.",
-                "operationId": "GetRoleByName",
+                "operationId": "IdentityAccessManagement_GetRoleByName",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -2960,6 +3566,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -2991,7 +3603,7 @@
             "get": {
                 "summary": "Get own IAM role",
                 "description": "Get the configuration (without security details) of user's own IAM role record.",
-                "operationId": "GetRoleSelf",
+                "operationId": "IdentityAccessManagement_GetRoleSelf",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -3028,6 +3640,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "tags": [
@@ -3052,7 +3670,7 @@
             "get": {
                 "summary": "Query user sessions",
                 "description": "Query all the active user sessions for all users.",
-                "operationId": "QueryUserSessions",
+                "operationId": "IdentityAccessManagement_QueryUserSessions",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -3082,6 +3700,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -3113,7 +3737,7 @@
             "put": {
                 "summary": "Refresh current user session",
                 "description": "Refresh the current user session. The current session will be extended for another 4 hours.",
-                "operationId": "RefreshUserSession",
+                "operationId": "IdentityAccessManagement_RefreshUserSession",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -3144,6 +3768,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "tags": [
@@ -3168,7 +3798,7 @@
             "get": {
                 "summary": "Get current user session",
                 "description": "Get the details of the current user session.",
-                "operationId": "GetUserSessionSelf",
+                "operationId": "IdentityAccessManagement_GetUserSessionSelf",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -3198,6 +3828,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -3229,7 +3865,7 @@
             "post": {
                 "summary": "Generate a new session token",
                 "description": "Generate a new token with an extended expiry time. The desired expiry time should be passed as number of seconds.",
-                "operationId": "CreateUserSessionSelf",
+                "operationId": "IdentityAccessManagement_CreateUserSessionSelf",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -3260,6 +3896,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "tags": [
@@ -3284,7 +3926,7 @@
             "get": {
                 "summary": "Get user session",
                 "description": "Get the details of a user session with given session token.",
-                "operationId": "GetUserSession",
+                "operationId": "IdentityAccessManagement_GetUserSession",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -3314,6 +3956,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -3345,7 +3993,7 @@
             "get": {
                 "summary": "Query IAM users",
                 "description": "Query the IAM user records.",
-                "operationId": "QueryUsers",
+                "operationId": "IdentityAccessManagement_QueryUsers",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -3382,6 +4030,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -3389,8 +4043,7 @@
                         "name": "summary",
                         "in": "query",
                         "required": false,
-                        "type": "boolean",
-                        "format": "boolean"
+                        "type": "boolean"
                     },
                     {
                         "name": "filter.sfdcid",
@@ -3436,8 +4089,13 @@
                         "name": "filter.all",
                         "in": "query",
                         "required": false,
-                        "type": "boolean",
-                        "format": "boolean"
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "filter.roleName",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
                     },
                     {
                         "name": "next.pageToken",
@@ -3451,7 +4109,11 @@
                         "description": "OrderBy helps in sorting the list response",
                         "in": "query",
                         "required": false,
-                        "type": "string"
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
                     },
                     {
                         "name": "next.pageNum",
@@ -3496,7 +4158,7 @@
             "post": {
                 "summary": "Create IAM user",
                 "description": "Create an IAM user record.",
-                "operationId": "CreateUser",
+                "operationId": "IdentityAccessManagement_CreateUser",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -3539,6 +4201,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -3571,7 +4239,7 @@
             "get": {
                 "summary": "Get IAM user",
                 "description": "Get the configuration (without security details) of an IAM user record.",
-                "operationId": "GetUser",
+                "operationId": "IdentityAccessManagement_GetUser",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -3608,6 +4276,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -3636,7 +4310,7 @@
             "delete": {
                 "summary": "Delete IAM user",
                 "description": "Delete an IAM user record.",
-                "operationId": "DeleteUser",
+                "operationId": "IdentityAccessManagement_DeleteUser",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -3673,6 +4347,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -3701,7 +4381,7 @@
             "put": {
                 "summary": "Update IAM user",
                 "description": "Update an IAM user record. The usual pattern to update an IAM user record is to retrieve the record and update with the modified values in a new body to update the IAM user record.",
-                "operationId": "UpdateUser2",
+                "operationId": "IdentityAccessManagement_UpdateUser2",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -3744,6 +4424,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "parameters": [
@@ -3759,7 +4445,146 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/DetailedUser"
+                            "type": "object",
+                            "example": {
+                                "id": "AAF1ABCtMaCnVHZN_b9cm2yUEkgp",
+                                "username": "test@zededa.com",
+                                "SfdcId": "",
+                                "HubspotId": "",
+                                "revision": {
+                                    "prev": "",
+                                    "curr": "3",
+                                    "createdAt": "2020-07-16T18:19:56Z",
+                                    "createdBy": "SYSTEM_ROOT",
+                                    "updatedAt": "1970-01-01T00:00:01Z",
+                                    "updatedBy": "SYSTEM_ROOT"
+                                },
+                                "state": "USER_STATE_ACTIVE",
+                                "firstName": "ROOT",
+                                "locale": "EN",
+                                "fullName": "ZEDEDA root user",
+                                "timeZone": "",
+                                "roleName": "SysRoot",
+                                "type": "AUTH_TYPE_UNSPECIFIED",
+                                "email": "us.root@zededa.com",
+                                "phone": "",
+                                "notifyPref": "email",
+                                "LastLoginTime": "2020-07-17T06:02:36Z",
+                                "LastLogoutTime": "1970-01-01T00:00:01Z",
+                                "emailState": "ID_STATE_VERIFIED",
+                                "phoneState": "ID_STATE_UNSPECIFIED",
+                                "customUserInput": {}
+                            },
+                            "properties": {
+                                "username": {
+                                    "type": "string",
+                                    "description": "User defined name",
+                                    "maxLength": 256,
+                                    "minLength": 3,
+                                    "pattern": "[a-zA-Z0-9][a-zA-Z0-9_.-]+",
+                                    "uniqueItems": true
+                                },
+                                "SfdcId": {
+                                    "type": "string"
+                                },
+                                "HubspotId": {
+                                    "type": "string"
+                                },
+                                "revision": {
+                                    "$ref": "#/definitions/ObjectRevision",
+                                    "description": "system defined info",
+                                    "readOnly": true
+                                },
+                                "state": {
+                                    "$ref": "#/definitions/UserState",
+                                    "description": "User state",
+                                    "readOnly": true
+                                },
+                                "firstName": {
+                                    "type": "string",
+                                    "description": "First name of the user"
+                                },
+                                "locale": {
+                                    "type": "string",
+                                    "description": "Locale of the user"
+                                },
+                                "fullName": {
+                                    "type": "string",
+                                    "description": "Full name of the user"
+                                },
+                                "timeZone": {
+                                    "type": "string",
+                                    "description": "Preferred time zone of the user"
+                                },
+                                "roleId": {
+                                    "type": "string",
+                                    "description": "Role associated with the user",
+                                    "pattern": "[0-9A-Za-z_=-]{28}"
+                                },
+                                "type": {
+                                    "$ref": "#/definitions/AuthType",
+                                    "description": "Type of the user"
+                                },
+                                "email": {
+                                    "type": "string",
+                                    "description": "Email of the user"
+                                },
+                                "phone": {
+                                    "type": "string",
+                                    "description": "Phone number of the user"
+                                },
+                                "notifyPref": {
+                                    "type": "string",
+                                    "description": "Notification preference of the user"
+                                },
+                                "LastLoginTime": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Last login time of the user",
+                                    "title": "Operational Status to be returned to CLI/UI"
+                                },
+                                "LastLogoutTime": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Last logout time of the user"
+                                },
+                                "emailState": {
+                                    "$ref": "#/definitions/IdState",
+                                    "description": "Email state",
+                                    "readOnly": true
+                                },
+                                "phoneState": {
+                                    "$ref": "#/definitions/IdState",
+                                    "description": "Phone state",
+                                    "readOnly": true
+                                },
+                                "customUserInput": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    },
+                                    "description": "Custom user parameters"
+                                },
+                                "allowedEnterprises": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/AllowedEnterprise"
+                                    },
+                                    "description": "Permitted list of enterprises with their associated roles"
+                                },
+                                "enterpriseId": {
+                                    "type": "string",
+                                    "description": "Origin enterprise of the user",
+                                    "readOnly": true
+                                }
+                            },
+                            "description": "User meta data",
+                            "title": "User detail",
+                            "required": [
+                                "username",
+                                "email",
+                                "roleId"
+                            ]
                         }
                     },
                     {
@@ -3783,7 +4608,7 @@
             "get": {
                 "summary": "Get IAM user",
                 "description": "Get the configuration (without security details) of an IAM user record.",
-                "operationId": "GetUserByName",
+                "operationId": "IdentityAccessManagement_GetUserByName",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -3819,6 +4644,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -3850,7 +4681,7 @@
             "get": {
                 "summary": "Get own IAM user",
                 "description": "Get the configuration (without security details) of user's own IAM user record.",
-                "operationId": "GetUserSelf",
+                "operationId": "IdentityAccessManagement_GetUserSelf",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -3887,6 +4718,12 @@
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
                         }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
+                        }
                     }
                 },
                 "tags": [
@@ -3909,7 +4746,7 @@
             "put": {
                 "summary": "Update IAM user",
                 "description": "Update an IAM user record. The usual pattern to update an IAM user record is to retrieve the record and update with the modified values in a new body to update the IAM user record.",
-                "operationId": "UpdateUser",
+                "operationId": "IdentityAccessManagement_UpdateUser",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
@@ -3951,6 +4788,12 @@
                         "description": "Gateway Timeout. The API gateway did not receive a timely response from an upstream microservice it needed to communicate with in order to complete the request.",
                         "schema": {
                             "$ref": "#/definitions/ZsrvResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/googlerpcStatus"
                         }
                     }
                 },
@@ -4068,6 +4911,9 @@
                 "noOfLoginAttemptsLeft": {
                     "type": "integer",
                     "format": "int64"
+                },
+                "tempToken": {
+                    "$ref": "#/definitions/Token64"
                 }
             }
         },
@@ -4096,7 +4942,8 @@
                 "AAAFailureResponseLoginCauseEnterpriseCreatedState",
                 "AAAFailureResponseLoginCauseUserCreatedState",
                 "AAAFailureResponseLoginCausePasswordMismatchAndMaxFailedPwdAttempt",
-                "AAAFailureResponseLoginCausePasswordDecryptionFailed"
+                "AAAFailureResponseLoginCausePasswordDecryptionFailed",
+                "AAAFailureResponseLoginCausePasswordExpired"
             ],
             "default": "__INVALID__",
             "title": "Reason why authentication failed, this is more detailed than should be passed on to external clients"
@@ -4449,6 +5296,17 @@
                 },
                 "apiToken": {
                     "$ref": "#/definitions/Token64"
+                },
+                "passwordExpiryTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "passwordExpiryNotificationPeriodInSeconds": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "isJWTValid": {
+                    "type": "boolean"
                 }
             },
             "title": "AAA was successful"
@@ -4636,6 +5494,17 @@
                 },
                 "apiToken": {
                     "$ref": "#/definitions/Token64"
+                },
+                "passwordExpiryTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "passwordExpiryNotificationPeriodInSeconds": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "tempToken": {
+                    "$ref": "#/definitions/Token64"
                 }
             }
         },
@@ -4669,7 +5538,8 @@
                 "UPDATE_LOGINTIME_FAILED",
                 "CREDENTIAL_MISMATCH_MAX_FAILED_PWD_ATTEMPT",
                 "REDIRECT",
-                "DECRYPTION_FAILED"
+                "DECRYPTION_FAILED",
+                "PASSWORD_EXPIRED"
             ],
             "default": "UNSPECIFIED",
             "title": "- EXCEPTION: Some exception has occurred on the server"
@@ -4678,6 +5548,9 @@
             "type": "object",
             "properties": {
                 "usernameAtRealm": {
+                    "type": "string"
+                },
+                "enterpriseName": {
                     "type": "string"
                 }
             }
@@ -4699,24 +5572,19 @@
                 },
                 "verbosePolicy": {
                     "type": "boolean",
-                    "format": "boolean",
                     "title": "How verbal should the response be"
                 },
                 "verboseSimpleUser": {
-                    "type": "boolean",
-                    "format": "boolean"
+                    "type": "boolean"
                 },
                 "verboseDetailedUser": {
-                    "type": "boolean",
-                    "format": "boolean"
+                    "type": "boolean"
                 },
                 "verboseRealm": {
-                    "type": "boolean",
-                    "format": "boolean"
+                    "type": "boolean"
                 },
                 "verboseEnterprise": {
-                    "type": "boolean",
-                    "format": "boolean"
+                    "type": "boolean"
                 },
                 "enterpriseName": {
                     "type": "string"
@@ -4854,7 +5722,8 @@
                 "AUTH_PROFILE_TYPE_UNSPECIFIED",
                 "AUTH_PROFILE_TYPE_OAUTH_AZURE_AD",
                 "AUTH_PROFILE_TYPE_OAUTH_GOOGLE",
-                "AUTH_PROFILE_TYPE_OAUTH_CUSTOM"
+                "AUTH_PROFILE_TYPE_OAUTH_CUSTOM",
+                "AUTH_PROFILE_TYPE_LOCAL"
             ],
             "default": "AUTH_PROFILE_TYPE_UNSPECIFIED"
         },
@@ -4870,6 +5739,33 @@
         },
         "AuthorizationProfile": {
             "type": "object",
+            "example": {
+                "id": "AAGVABAmkIXXqJJPkpx1E_DKK2Gs",
+                "enterpriseId": "AAFlABDe6Nm63ixF5LJBbk9Keqp6",
+                "name": "test_profile",
+                "type": "AUTH_TYPE_OAUTH",
+                "oauthProfile": {
+                    "OIDCEndPoint": "https://foo.com",
+                    "clientID": "test",
+                    "clientSecret": "",
+                    "encryptedSecrets": {},
+                    "cryptoKey": "",
+                    "roleScope": ""
+                },
+                "testOnly": false,
+                "active": true,
+                "defaultRoleId": "SysRoot",
+                "title": "test_profile",
+                "description": "",
+                "revision": {
+                    "prev": "",
+                    "curr": "1",
+                    "createdAt": "2020-07-17T06:27:27Z",
+                    "createdBy": "us.root@zededa.com",
+                    "updatedAt": "2020-07-17T06:27:27Z",
+                    "updatedBy": "us.root@zededa.com"
+                }
+            },
             "properties": {
                 "id": {
                     "type": "string",
@@ -4900,13 +5796,14 @@
                     "$ref": "#/definitions/OAUTHProfile",
                     "description": "Oauth profile configuration details"
                 },
+                "passwordProfile": {
+                    "$ref": "#/definitions/PasswordProfile"
+                },
                 "testOnly": {
-                    "type": "boolean",
-                    "format": "boolean"
+                    "type": "boolean"
                 },
                 "active": {
                     "type": "boolean",
-                    "format": "boolean",
                     "description": "Mark this profile as active. Only one profile can be active in a given enterprise"
                 },
                 "defaultRoleId": {
@@ -4929,6 +5826,10 @@
                 "profileType": {
                     "$ref": "#/definitions/AuthProfileType",
                     "description": "Authorization profile type"
+                },
+                "disableAutoUserCreate": {
+                    "type": "boolean",
+                    "description": "Do not automatically create new users if this is set"
                 },
                 "revision": {
                     "$ref": "#/definitions/ObjectRevision",
@@ -4983,8 +5884,7 @@
                     "type": "string"
                 },
                 "forgot": {
-                    "type": "boolean",
-                    "format": "boolean"
+                    "type": "boolean"
                 },
                 "salt": {
                     "type": "integer",
@@ -5296,7 +6196,10 @@
                     "description": "Page Token"
                 },
                 "orderBy": {
-                    "type": "string",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
                     "description": "OrderBy helps in sorting the list response"
                 },
                 "pageNum": {
@@ -5320,6 +6223,35 @@
         },
         "DetailedUser": {
             "type": "object",
+            "example": {
+                "id": "AAF1ABCtMaCnVHZN_b9cm2yUEkgp",
+                "username": "test@zededa.com",
+                "SfdcId": "",
+                "HubspotId": "",
+                "revision": {
+                    "prev": "",
+                    "curr": "3",
+                    "createdAt": "2020-07-16T18:19:56Z",
+                    "createdBy": "SYSTEM_ROOT",
+                    "updatedAt": "1970-01-01T00:00:01Z",
+                    "updatedBy": "SYSTEM_ROOT"
+                },
+                "state": "USER_STATE_ACTIVE",
+                "firstName": "ROOT",
+                "locale": "EN",
+                "fullName": "ZEDEDA root user",
+                "timeZone": "",
+                "roleName": "SysRoot",
+                "type": "AUTH_TYPE_UNSPECIFIED",
+                "email": "us.root@zededa.com",
+                "phone": "",
+                "notifyPref": "email",
+                "LastLoginTime": "2020-07-17T06:02:36Z",
+                "LastLogoutTime": "1970-01-01T00:00:01Z",
+                "emailState": "ID_STATE_VERIFIED",
+                "phoneState": "ID_STATE_UNSPECIFIED",
+                "customUserInput": {}
+            },
             "properties": {
                 "id": {
                     "type": "string",
@@ -5414,7 +6346,8 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Custom user parameters"
                 },
                 "allowedEnterprises": {
                     "type": "array",
@@ -5451,6 +6384,14 @@
                     },
                     "description": "List of users"
                 },
+                "summaryByUserActivity": {
+                    "$ref": "#/definitions/Summary",
+                    "description": "Count of online/offline users"
+                },
+                "summaryByRoleDistribution": {
+                    "$ref": "#/definitions/Summary",
+                    "description": "User distribution by role"
+                },
                 "next": {
                     "$ref": "#/definitions/Cursor",
                     "description": "Page details of the filtered records"
@@ -5479,6 +6420,22 @@
         },
         "DocPolicy": {
             "type": "object",
+            "example": {
+                "id": "EAJ1ABAi-KOom7dJlrBoE8eq1pj9",
+                "policyName": "xxxxxxxxx",
+                "version": "xxxxxxx",
+                "fileURL": "xxxxxxxx",
+                "serverHost": "zedcontrol.local.zededa.net",
+                "latest": false,
+                "revision": {
+                    "prev": "",
+                    "curr": "1",
+                    "createdAt": "2020-07-17T06:03:14Z",
+                    "createdBy": "us.root@zededa.com",
+                    "updatedAt": "2020-07-17T06:03:14Z",
+                    "updatedBy": "us.root@zededa.com"
+                }
+            },
             "properties": {
                 "id": {
                     "type": "string",
@@ -5509,7 +6466,6 @@
                 },
                 "latest": {
                     "type": "boolean",
-                    "format": "boolean",
                     "description": "Mark latest docpolicy check"
                 },
                 "revision": {
@@ -5526,6 +6482,19 @@
         },
         "DocPolicySummary": {
             "type": "object",
+            "example": {
+                "policyName": "xxxxxxxxx",
+                "version": "xxxxxxx",
+                "fileURL": "xxxxxxxx",
+                "revision": {
+                    "prev": "",
+                    "curr": "1",
+                    "createdAt": "2020-07-17T06:03:14Z",
+                    "createdBy": "us.root@zededa.com",
+                    "updatedAt": "2020-07-17T06:03:14Z",
+                    "updatedBy": "us.root@zededa.com"
+                }
+            },
             "properties": {
                 "policy": {
                     "type": "string",
@@ -5554,6 +6523,29 @@
         },
         "Enterprise": {
             "type": "object",
+            "example": {
+                "id": "AAFlABDe6Nm63ixF5LJBbk9Keqp6",
+                "name": "zededa",
+                "SfdcId": "",
+                "HubspotId": "",
+                "state": "ENTERPRISE_STATE_ACTIVE",
+                "type": "ENTERPRISE_TYPE_UNSPECIFIED",
+                "policyList": {
+                    "list": []
+                },
+                "parentEntpId": "",
+                "azureSubId": "",
+                "title": "ZEDEDA Inc. USA",
+                "description": "This is a test enterprise",
+                "revision": {
+                    "prev": "",
+                    "curr": "1",
+                    "createdAt": "2020-07-16T18:19:56Z",
+                    "createdBy": "SYSTEM_ROOT",
+                    "updatedAt": "2020-07-16T18:19:56Z",
+                    "updatedBy": "SYSTEM_ROOT"
+                }
+            },
             "properties": {
                 "id": {
                     "type": "string",
@@ -5626,11 +6618,11 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    }
+                    },
+                    "description": "enterprise level key-value pairs"
                 },
                 "inheritAuthFromParent": {
                     "type": "boolean",
-                    "format": "boolean",
                     "description": "Perform authorization using parent enterprise"
                 },
                 "childEnterprises": {
@@ -5639,6 +6631,10 @@
                         "$ref": "#/definitions/EnterpriseSummary"
                     },
                     "description": "List of all child enterprises"
+                },
+                "controllerHostURL": {
+                    "type": "string",
+                    "description": "zedcontrol host"
                 }
             },
             "description": "Enterprise meta data",
@@ -5724,8 +6720,10 @@
                     "type": "string"
                 },
                 "all": {
-                    "type": "boolean",
-                    "format": "boolean"
+                    "type": "boolean"
+                },
+                "roleName": {
+                    "type": "string"
                 }
             }
         },
@@ -5746,6 +6744,16 @@
                 }
             },
             "title": "Generic identifier, base64 encoding"
+        },
+        "JWTAuthProfileAlgorithm": {
+            "type": "string",
+            "enum": [
+                "None",
+                "RS256",
+                "RS384",
+                "RS512"
+            ],
+            "default": "None"
         },
         "ModelClazz": {
             "type": "string",
@@ -5791,8 +6799,22 @@
                 "roleScope": {
                     "type": "string",
                     "description": "OIDC scope to fetch application role"
+                },
+                "jwtAuthProfile": {
+                    "$ref": "#/definitions/OAUTHProfileJWTAuthProfile"
                 }
             }
+        },
+        "OAUTHProfileJWTAuthProfile": {
+            "type": "object",
+            "properties": {
+                "alg": {
+                    "$ref": "#/definitions/JWTAuthProfileAlgorithm",
+                    "description": "Algorithm for JWT signature verification"
+                }
+            },
+            "description": "Config for JWT based authentication, jwks_uri is derived from OIDC Well Known Endpoints",
+            "title": "JWT Authentication profile detail"
         },
         "ObjectRevision": {
             "type": "object",
@@ -5875,6 +6897,51 @@
             },
             "title": "Base64 encoded opaque token"
         },
+        "PasswordProfile": {
+            "type": "object",
+            "properties": {
+                "minLength": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "maxLength": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "minNumericChars": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "minSymbolChars": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "minUppercaseChars": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "minLowercaseChars": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "maxPasswordAge": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "minPasswordAge": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "numPrevPasswordCheck": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "passwordExpiryNotificationPeriodInSeconds": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
         "Policies": {
             "type": "object",
             "properties": {
@@ -5911,8 +6978,7 @@
                     "type": "string"
                 },
                 "external": {
-                    "type": "boolean",
-                    "format": "boolean"
+                    "type": "boolean"
                 }
             }
         },
@@ -6044,6 +7110,21 @@
         },
         "Realm": {
             "type": "object",
+            "example": {
+                "id": "EAJ1ABAi-KOom7dJlrBoE8eq1pj9",
+                "name": "zededa.com",
+                "enterpriseId": "AAFlABDe6Nm63ixF5LJBbk9Keqp6",
+                "title": "zededa",
+                "description": "Test realm",
+                "revision": {
+                    "prev": "",
+                    "curr": "1",
+                    "createdAt": "2020-07-17T06:03:14Z",
+                    "createdBy": "us.root@zededa.com",
+                    "updatedAt": "2020-07-17T06:03:14Z",
+                    "updatedBy": "us.root@zededa.com"
+                }
+            },
             "properties": {
                 "id": {
                     "type": "string",
@@ -6114,6 +7195,37 @@
         },
         "Role": {
             "type": "object",
+            "example": {
+                "id": "AAGFABAEqnH4je5PHZTXSmHOs-XC",
+                "name": "SysRoot",
+                "title": "SysRoot",
+                "description": "",
+                "revision": {
+                    "prev": "",
+                    "curr": "1",
+                    "createdAt": "2020-07-16T18:19:56Z",
+                    "createdBy": "SYSTEM_ROOT",
+                    "updatedAt": "1970-01-01T00:00:01Z",
+                    "updatedBy": "SYSTEM_ROOT"
+                },
+                "type": "USER_ROLE_CLUSTER",
+                "state": "ROLE_STATE_ACTIVE",
+                "scopes": [
+                    {
+                        "accessDevice": "PermissionAccessCreateReadUpdateDelete",
+                        "accessApp": "PermissionAccessCreateReadUpdateDelete",
+                        "accessUser": "PermissionAccessCreateReadUpdateDelete",
+                        "accessStorage": "PermissionAccessCreateReadUpdateDelete",
+                        "accessEnterprise": "PermissionAccessCreateReadUpdateDelete",
+                        "enterpriseFilter": [
+                            "srAll"
+                        ],
+                        "projectFilter": [
+                            "srAll"
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "id": {
                     "type": "string",
@@ -6247,22 +7359,30 @@
             "type": "object",
             "properties": {
                 "sessionId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "DEPRECATED. sessionId is obfuscated for security reasons",
+                    "readOnly": true
                 },
                 "expiresAt": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "session expiry time"
                 },
                 "userName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Logged in user name"
                 },
                 "clientIp": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "IP address of the logged in user"
                 },
                 "userAgent": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "user agent details"
                 }
-            }
+            },
+            "description": "Details of all logged in session",
+            "title": "Session detail"
         },
         "SimpleUser": {
             "type": "object",
@@ -6302,7 +7422,8 @@
                     "additionalProperties": {
                         "type": "integer",
                         "format": "int64"
-                    }
+                    },
+                    "description": "Values: Map for storing <string, uint32>"
                 }
             },
             "description": "Summary is used to store the Summary details",
@@ -6485,6 +7606,36 @@
                         "$ref": "#/definitions/ZsrvError"
                     },
                     "title": "one or more errors will be set if the operation failed\ni.e. httpStatusCode != 2xx"
+                }
+            }
+        },
+        "googlerpcStatus": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "details": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/protobufAny"
+                    }
+                }
+            }
+        },
+        "protobufAny": {
+            "type": "object",
+            "properties": {
+                "typeUrl": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string",
+                    "format": "byte"
                 }
             }
         }

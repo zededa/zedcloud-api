@@ -42,7 +42,8 @@ type JobConfig struct {
 	// Pattern: [a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}
 	ID string `json:"id,omitempty"`
 
-	// individual op status
+	// status of individual field of the given object
+	// Read Only: true
 	IndividualOpStatus map[string]string `json:"individualOpStatus,omitempty"`
 
 	// User defined name of the job request, unique across the enterprise. Once object is created, name can’t be changed
@@ -305,6 +306,10 @@ func (m *JobConfig) ContextValidate(ctx context.Context, formats strfmt.Registry
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateIndividualOpStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateObjectType(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -358,6 +363,11 @@ func (m *JobConfig) contextValidateID(ctx context.Context, formats strfmt.Regist
 	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
 		return err
 	}
+
+	return nil
+}
+
+func (m *JobConfig) contextValidateIndividualOpStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	return nil
 }

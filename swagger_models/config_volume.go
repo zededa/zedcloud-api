@@ -27,7 +27,7 @@ import (
 type ConfigVolume struct {
 
 	// clear text
-	ClearText bool `json:"clear_text,omitempty"`
+	ClearText bool `json:"clearText,omitempty"`
 
 	// display name
 	DisplayName string `json:"displayName,omitempty"`

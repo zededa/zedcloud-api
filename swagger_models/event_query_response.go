@@ -32,6 +32,9 @@ type EventQueryResponse struct {
 	// Cursor filter
 	// Required: true
 	Next *Cursor `json:"next"`
+
+	// Summary of filtered events.
+	Summary *Summary `json:"summary,omitempty"`
 }
 
 // Validate validates this event query response
@@ -43,6 +46,10 @@ func (m *EventQueryResponse) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateNext(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSummary(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -99,6 +106,25 @@ func (m *EventQueryResponse) validateNext(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *EventQueryResponse) validateSummary(formats strfmt.Registry) error {
+	if swag.IsZero(m.Summary) { // not required
+		return nil
+	}
+
+	if m.Summary != nil {
+		if err := m.Summary.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summary")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this event query response based on the context it is used
 func (m *EventQueryResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -108,6 +134,10 @@ func (m *EventQueryResponse) ContextValidate(ctx context.Context, formats strfmt
 	}
 
 	if err := m.contextValidateNext(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSummary(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -145,6 +175,22 @@ func (m *EventQueryResponse) contextValidateNext(ctx context.Context, formats st
 				return ve.ValidateName("next")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("next")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EventQueryResponse) contextValidateSummary(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Summary != nil {
+		if err := m.Summary.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summary")
 			}
 			return err
 		}

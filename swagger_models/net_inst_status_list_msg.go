@@ -27,6 +27,12 @@ type NetInstStatusListMsg struct {
 
 	// next
 	Next *Cursor `json:"next,omitempty"`
+
+	// Summary information about netinstance status list records by addressing type.
+	SummaryByAddressType *Summary `json:"summaryByAddressType,omitempty"`
+
+	// Summary information about netinstance status list records by network instance kind.
+	SummaryByKind *Summary `json:"summaryByKind,omitempty"`
 }
 
 // Validate validates this net inst status list msg
@@ -38,6 +44,14 @@ func (m *NetInstStatusListMsg) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateNext(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSummaryByAddressType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSummaryByKind(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -92,6 +106,44 @@ func (m *NetInstStatusListMsg) validateNext(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *NetInstStatusListMsg) validateSummaryByAddressType(formats strfmt.Registry) error {
+	if swag.IsZero(m.SummaryByAddressType) { // not required
+		return nil
+	}
+
+	if m.SummaryByAddressType != nil {
+		if err := m.SummaryByAddressType.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByAddressType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByAddressType")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *NetInstStatusListMsg) validateSummaryByKind(formats strfmt.Registry) error {
+	if swag.IsZero(m.SummaryByKind) { // not required
+		return nil
+	}
+
+	if m.SummaryByKind != nil {
+		if err := m.SummaryByKind.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByKind")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByKind")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this net inst status list msg based on the context it is used
 func (m *NetInstStatusListMsg) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -101,6 +153,14 @@ func (m *NetInstStatusListMsg) ContextValidate(ctx context.Context, formats strf
 	}
 
 	if err := m.contextValidateNext(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSummaryByAddressType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSummaryByKind(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -138,6 +198,38 @@ func (m *NetInstStatusListMsg) contextValidateNext(ctx context.Context, formats 
 				return ve.ValidateName("next")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("next")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *NetInstStatusListMsg) contextValidateSummaryByAddressType(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SummaryByAddressType != nil {
+		if err := m.SummaryByAddressType.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByAddressType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByAddressType")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *NetInstStatusListMsg) contextValidateSummaryByKind(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SummaryByKind != nil {
+		if err := m.SummaryByKind.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByKind")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByKind")
 			}
 			return err
 		}

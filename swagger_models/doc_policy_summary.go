@@ -20,6 +20,7 @@ import (
 // DocPolicySummary DocPolicy detail
 //
 // DocPolicy meta data
+// Example: {"fileURL":"xxxxxxxx","policyName":"xxxxxxxxx","revision":{"createdAt":"2020-07-17T06:03:14Z","createdBy":"us.root@zededa.com","curr":"1","prev":"","updatedAt":"2020-07-17T06:03:14Z","updatedBy":"us.root@zededa.com"},"version":"xxxxxxx"}
 //
 // swagger:model DocPolicySummary
 type DocPolicySummary struct {

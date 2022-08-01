@@ -29,6 +29,9 @@ type AAAFailureResponseLogin struct {
 
 	// no of login attempts left
 	NoOfLoginAttemptsLeft int64 `json:"noOfLoginAttemptsLeft,omitempty"`
+
+	// temp token
+	TempToken *Token64 `json:"tempToken,omitempty"`
 }
 
 // Validate validates this a a a failure response login
@@ -36,6 +39,10 @@ func (m *AAAFailureResponseLogin) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCause(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTempToken(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -64,11 +71,34 @@ func (m *AAAFailureResponseLogin) validateCause(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *AAAFailureResponseLogin) validateTempToken(formats strfmt.Registry) error {
+	if swag.IsZero(m.TempToken) { // not required
+		return nil
+	}
+
+	if m.TempToken != nil {
+		if err := m.TempToken.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("tempToken")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("tempToken")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this a a a failure response login based on the context it is used
 func (m *AAAFailureResponseLogin) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateCause(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTempToken(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -86,6 +116,22 @@ func (m *AAAFailureResponseLogin) contextValidateCause(ctx context.Context, form
 				return ve.ValidateName("cause")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("cause")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AAAFailureResponseLogin) contextValidateTempToken(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TempToken != nil {
+		if err := m.TempToken.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("tempToken")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("tempToken")
 			}
 			return err
 		}

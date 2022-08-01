@@ -33,6 +33,12 @@ type VMManifestImage struct {
 	// UI map: AppEditPage:DrivesPane:Ignorepurge, AppDetailsPage:DrivesPane:Ignorepurgee_Field
 	Ignorepurge bool `json:"ignorepurge,omitempty"`
 
+	// UI map: AppEditPage:DrivesPane:Image_Format_Field, AppDetailsPage:DrivesPane:Image_Format_Field
+	Imageformat *ConfigFormat `json:"imageformat,omitempty"`
+
+	// UI map: AppEditPage:DrivesPane:Image_ID_Field, AppDetailsPage:DrivesPane:Image_ID_Field
+	Imageid string `json:"imageid,omitempty"`
+
 	// UI map: AppEditPage:DrivesPane:Image_Name_Field, AppDetailsPage:DrivesPane:Image_Name_Field
 	Imagename string `json:"imagename,omitempty"`
 
@@ -64,6 +70,10 @@ type VMManifestImage struct {
 func (m *VMManifestImage) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateImageformat(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateParams(formats); err != nil {
 		res = append(res, err)
 	}
@@ -71,6 +81,25 @@ func (m *VMManifestImage) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *VMManifestImage) validateImageformat(formats strfmt.Registry) error {
+	if swag.IsZero(m.Imageformat) { // not required
+		return nil
+	}
+
+	if m.Imageformat != nil {
+		if err := m.Imageformat.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("imageformat")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imageformat")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -104,6 +133,10 @@ func (m *VMManifestImage) validateParams(formats strfmt.Registry) error {
 func (m *VMManifestImage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateImageformat(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateParams(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -111,6 +144,22 @@ func (m *VMManifestImage) ContextValidate(ctx context.Context, formats strfmt.Re
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *VMManifestImage) contextValidateImageformat(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Imageformat != nil {
+		if err := m.Imageformat.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("imageformat")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imageformat")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

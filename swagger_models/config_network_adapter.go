@@ -26,7 +26,7 @@ type ConfigNetworkAdapter struct {
 	// app interface with access vlan id of zero will be treated as trunk port
 	// valid vlan id range: 2 - 4093
 	// vlan id 1 is implicitly used by linux bridges
-	AccessVlanID int64 `json:"access_vlan_id,omitempty"`
+	AccessVlanID int64 `json:"accessVlanId,omitempty"`
 
 	// firewall
 	Acls []*ConfigACE `json:"acls"`

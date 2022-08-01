@@ -22,6 +22,9 @@ type NetCellularConfig struct {
 
 	// a p n
 	APN string `json:"APN,omitempty"`
+
+	// location tracking
+	LocationTracking bool `json:"locationTracking,omitempty"`
 }
 
 // Validate validates this net cellular config

@@ -30,6 +30,9 @@ type ConfigVMConfig struct {
 	// devicetree
 	Devicetree string `json:"devicetree,omitempty"`
 
+	// disable logs
+	DisableLogs bool `json:"disableLogs,omitempty"`
+
 	// dtdev
 	Dtdev []string `json:"dtdev"`
 

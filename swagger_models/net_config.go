@@ -21,6 +21,7 @@ import (
 // NetConfig Network detailed configuration
 //
 // Network provides Edge nodes a variety of connectivity choices for all types of networks. This enables physical connectivity with Ethernet, WiFi, LTE to communicate with ZEDEDA Cloud controller and Data Centres.
+// Example: {"id":"d85a545f-6510-4327-b03d-c02eef119e99","name":"sample-app"}
 //
 // swagger:model NetConfig
 type NetConfig struct {

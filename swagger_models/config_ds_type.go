@@ -53,6 +53,9 @@ const (
 
 	// ConfigDsTypeDsAzureBlob captures enum value "DsAzureBlob"
 	ConfigDsTypeDsAzureBlob ConfigDsType = "DsAzureBlob"
+
+	// ConfigDsTypeDsGoogleStorage captures enum value "DsGoogleStorage"
+	ConfigDsTypeDsGoogleStorage ConfigDsType = "DsGoogleStorage"
 )
 
 // for schema
@@ -60,7 +63,7 @@ var configDsTypeEnum []interface{}
 
 func init() {
 	var res []ConfigDsType
-	if err := json.Unmarshal([]byte(`["DsUnknown","DsHttp","DsHttps","DsS3","DsSFTP","DsContainerRegistry","DsAzureBlob"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["DsUnknown","DsHttp","DsHttps","DsS3","DsSFTP","DsContainerRegistry","DsAzureBlob","DsGoogleStorage"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

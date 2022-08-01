@@ -101,6 +101,9 @@ const (
 
 	// AAAFailureResponseLoginCauseAAAFailureResponseLoginCausePasswordDecryptionFailed captures enum value "AAAFailureResponseLoginCausePasswordDecryptionFailed"
 	AAAFailureResponseLoginCauseAAAFailureResponseLoginCausePasswordDecryptionFailed AAAFailureResponseLoginCause = "AAAFailureResponseLoginCausePasswordDecryptionFailed"
+
+	// AAAFailureResponseLoginCauseAAAFailureResponseLoginCausePasswordExpired captures enum value "AAAFailureResponseLoginCausePasswordExpired"
+	AAAFailureResponseLoginCauseAAAFailureResponseLoginCausePasswordExpired AAAFailureResponseLoginCause = "AAAFailureResponseLoginCausePasswordExpired"
 )
 
 // for schema
@@ -108,7 +111,7 @@ var aAAFailureResponseLoginCauseEnum []interface{}
 
 func init() {
 	var res []AAAFailureResponseLoginCause
-	if err := json.Unmarshal([]byte(`["__INVALID__","AAAFailureResponseLoginCauseGarbage","AAAFailureResponseLoginCauseRealmUnknown","AAAFailureResponseLoginCauseUserUnknown","AAAFailureResponseLoginCauseUserSuspended","AAAFailureResponseLoginCausePasswordMismatch","AAAFailureResponseLoginCauseChallengeMismatch","AAAFailureResponseLoginCauseNoSuchCredentials","AAAFailureResponseLoginCauseException","AAAFailureResponseLoginCauseEnterpriseUnknown","AAAFailureResponseLoginCauseSchemeUnknown","AAAFailureResponseLoginCauseUserSignedupState","AAAFailureResponseLoginCauseRoleUnknown","AAAFailureResponseLoginCauseUpdateLastLoginTimeFailed","AAAFailureResponseLoginCauseEnterpriseInactive","AAAFailureResponseLoginCauseUserInactive","AAAFailureResponseLoginCauseEnterpriseSignedupState","AAAFailureResponseLoginCauseEnterpriseUnknownState","AAAFailureResponseLoginCauseUserUnknownState","AAAFailureResponseLoginCauseEnterpriseCreatedState","AAAFailureResponseLoginCauseUserCreatedState","AAAFailureResponseLoginCausePasswordMismatchAndMaxFailedPwdAttempt","AAAFailureResponseLoginCausePasswordDecryptionFailed"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["__INVALID__","AAAFailureResponseLoginCauseGarbage","AAAFailureResponseLoginCauseRealmUnknown","AAAFailureResponseLoginCauseUserUnknown","AAAFailureResponseLoginCauseUserSuspended","AAAFailureResponseLoginCausePasswordMismatch","AAAFailureResponseLoginCauseChallengeMismatch","AAAFailureResponseLoginCauseNoSuchCredentials","AAAFailureResponseLoginCauseException","AAAFailureResponseLoginCauseEnterpriseUnknown","AAAFailureResponseLoginCauseSchemeUnknown","AAAFailureResponseLoginCauseUserSignedupState","AAAFailureResponseLoginCauseRoleUnknown","AAAFailureResponseLoginCauseUpdateLastLoginTimeFailed","AAAFailureResponseLoginCauseEnterpriseInactive","AAAFailureResponseLoginCauseUserInactive","AAAFailureResponseLoginCauseEnterpriseSignedupState","AAAFailureResponseLoginCauseEnterpriseUnknownState","AAAFailureResponseLoginCauseUserUnknownState","AAAFailureResponseLoginCauseEnterpriseCreatedState","AAAFailureResponseLoginCauseUserCreatedState","AAAFailureResponseLoginCausePasswordMismatchAndMaxFailedPwdAttempt","AAAFailureResponseLoginCausePasswordDecryptionFailed","AAAFailureResponseLoginCausePasswordExpired"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

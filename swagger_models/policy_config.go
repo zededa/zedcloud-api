@@ -30,7 +30,7 @@ type PolicyConfig struct {
 	// attestation policy to enforce on all devices in this project
 	AttestationPolicy *AttestationPolicy `json:"attestationPolicy,omitempty"`
 
-	// attr
+	// Mapping of policy  variable keys and policy variable values
 	Attr map[string]string `json:"attr,omitempty"`
 
 	// azure policy, which is used in configuring azure iot-edge.

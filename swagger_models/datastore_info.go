@@ -28,8 +28,6 @@ type DatastoreInfo struct {
 	// api key
 	APIKey string `json:"apiKey,omitempty"`
 
-	// datastore certificate if applicable
-	//
 	// Certificate chain of the certificate
 	CertificateChain *CertificateChain `json:"certificateChain,omitempty"`
 
@@ -60,7 +58,8 @@ type DatastoreInfo struct {
 	// Required: true
 	DsType *DatastoreType `json:"dsType"`
 
-	// encrypted secrets
+	// Internal - Encrypted sensitive data
+	// Read Only: true
 	EncryptedSecrets map[string]string `json:"encryptedSecrets,omitempty"`
 
 	// enterprise Id
@@ -78,9 +77,15 @@ type DatastoreInfo struct {
 	// Pattern: [a-zA-Z0-9][a-zA-Z0-9_.-]+
 	Name *string `json:"name"`
 
+	// knob for sending creds in clear text
+	NeedClearText bool `json:"needClearText,omitempty"`
+
 	// Origin type of datastore.
 	// Read Only: true
 	OriginType *Origin `json:"originType,omitempty"`
+
+	// project access list of the datastore
+	ProjectAccessList []string `json:"projectAccessList"`
 
 	// Datastore region - valid for AWS S3 and Azure BlobStorage
 	Region string `json:"region,omitempty"`
@@ -385,6 +390,10 @@ func (m *DatastoreInfo) ContextValidate(ctx context.Context, formats strfmt.Regi
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateEncryptedSecrets(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateID(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -469,6 +478,11 @@ func (m *DatastoreInfo) contextValidateDsType(ctx context.Context, formats strfm
 			return err
 		}
 	}
+
+	return nil
+}
+
+func (m *DatastoreInfo) contextValidateEncryptedSecrets(ctx context.Context, formats strfmt.Registry) error {
 
 	return nil
 }

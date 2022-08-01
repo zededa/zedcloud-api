@@ -27,6 +27,12 @@ type BulkConfig struct {
 	// bundle import
 	BundleImport *BundleImport `json:"bundleImport,omitempty"`
 
+	// deployment tag update
+	DeploymentTagUpdate *DeploymentTagUpdate `json:"deploymentTagUpdate,omitempty"`
+
+	// device project and target update
+	DeviceProjectAndTargetUpdate *DeviceProjectAndTargetUpdate `json:"deviceProjectAndTargetUpdate,omitempty"`
+
 	// instance deploy
 	InstanceDeploy *AppInstanceDeploy `json:"instanceDeploy,omitempty"`
 
@@ -44,6 +50,9 @@ type BulkConfig struct {
 
 	// selection criteria
 	SelectionCriteria *SelectionCriteria `json:"selectionCriteria,omitempty"`
+
+	// tag update
+	TagUpdate *TagUpdate `json:"tagUpdate,omitempty"`
 }
 
 // Validate validates this bulk config
@@ -55,6 +64,14 @@ func (m *BulkConfig) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateBundleImport(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDeploymentTagUpdate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDeviceProjectAndTargetUpdate(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -71,6 +88,10 @@ func (m *BulkConfig) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSelectionCriteria(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTagUpdate(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -110,6 +131,44 @@ func (m *BulkConfig) validateBundleImport(formats strfmt.Registry) error {
 				return ve.ValidateName("bundleImport")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("bundleImport")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BulkConfig) validateDeploymentTagUpdate(formats strfmt.Registry) error {
+	if swag.IsZero(m.DeploymentTagUpdate) { // not required
+		return nil
+	}
+
+	if m.DeploymentTagUpdate != nil {
+		if err := m.DeploymentTagUpdate.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("deploymentTagUpdate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deploymentTagUpdate")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BulkConfig) validateDeviceProjectAndTargetUpdate(formats strfmt.Registry) error {
+	if swag.IsZero(m.DeviceProjectAndTargetUpdate) { // not required
+		return nil
+	}
+
+	if m.DeviceProjectAndTargetUpdate != nil {
+		if err := m.DeviceProjectAndTargetUpdate.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("deviceProjectAndTargetUpdate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deviceProjectAndTargetUpdate")
 			}
 			return err
 		}
@@ -194,6 +253,25 @@ func (m *BulkConfig) validateSelectionCriteria(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *BulkConfig) validateTagUpdate(formats strfmt.Registry) error {
+	if swag.IsZero(m.TagUpdate) { // not required
+		return nil
+	}
+
+	if m.TagUpdate != nil {
+		if err := m.TagUpdate.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("tagUpdate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("tagUpdate")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this bulk config based on the context it is used
 func (m *BulkConfig) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -203,6 +281,14 @@ func (m *BulkConfig) ContextValidate(ctx context.Context, formats strfmt.Registr
 	}
 
 	if err := m.contextValidateBundleImport(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDeploymentTagUpdate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDeviceProjectAndTargetUpdate(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -219,6 +305,10 @@ func (m *BulkConfig) ContextValidate(ctx context.Context, formats strfmt.Registr
 	}
 
 	if err := m.contextValidateSelectionCriteria(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTagUpdate(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -252,6 +342,38 @@ func (m *BulkConfig) contextValidateBundleImport(ctx context.Context, formats st
 				return ve.ValidateName("bundleImport")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("bundleImport")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BulkConfig) contextValidateDeploymentTagUpdate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DeploymentTagUpdate != nil {
+		if err := m.DeploymentTagUpdate.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("deploymentTagUpdate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deploymentTagUpdate")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BulkConfig) contextValidateDeviceProjectAndTargetUpdate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DeviceProjectAndTargetUpdate != nil {
+		if err := m.DeviceProjectAndTargetUpdate.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("deviceProjectAndTargetUpdate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deviceProjectAndTargetUpdate")
 			}
 			return err
 		}
@@ -316,6 +438,22 @@ func (m *BulkConfig) contextValidateSelectionCriteria(ctx context.Context, forma
 				return ve.ValidateName("selectionCriteria")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("selectionCriteria")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BulkConfig) contextValidateTagUpdate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TagUpdate != nil {
+		if err := m.TagUpdate.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("tagUpdate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("tagUpdate")
 			}
 			return err
 		}

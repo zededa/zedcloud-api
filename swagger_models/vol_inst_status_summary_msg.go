@@ -29,6 +29,9 @@ type VolInstStatusSummaryMsg struct {
 	// device Id
 	DeviceID string `json:"deviceId,omitempty"`
 
+	// device name
+	DeviceName string `json:"deviceName,omitempty"`
+
 	// device state
 	DeviceState *SWState `json:"deviceState,omitempty"`
 
@@ -43,6 +46,9 @@ type VolInstStatusSummaryMsg struct {
 
 	// project Id
 	ProjectID string `json:"projectId,omitempty"`
+
+	// project name
+	ProjectName string `json:"projectName,omitempty"`
 
 	// run state
 	RunState *RunState `json:"runState,omitempty"`

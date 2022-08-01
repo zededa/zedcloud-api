@@ -21,8 +21,14 @@ import (
 // swagger:model VolInstStatusFilter
 type VolInstStatusFilter struct {
 
+	// app inst name
+	AppInstName string `json:"appInstName,omitempty"`
+
 	// device name
 	DeviceName string `json:"deviceName,omitempty"`
+
+	// device name pattern
+	DeviceNamePattern string `json:"deviceNamePattern,omitempty"`
 
 	// image name
 	ImageName string `json:"imageName,omitempty"`
@@ -32,6 +38,9 @@ type VolInstStatusFilter struct {
 
 	// project name
 	ProjectName string `json:"projectName,omitempty"`
+
+	// project name pattern
+	ProjectNamePattern string `json:"projectNamePattern,omitempty"`
 
 	// run state
 	RunState *RunState `json:"runState,omitempty"`

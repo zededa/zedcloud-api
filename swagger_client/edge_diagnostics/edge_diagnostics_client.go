@@ -9,8 +9,6 @@ package edge_diagnostics
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"fmt"
-
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -33,48 +31,48 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetDeviceTwinConfig(params *GetDeviceTwinConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceTwinConfigOK, error)
+	EdgeDiagnosticsGetDeviceTwinConfig(params *EdgeDiagnosticsGetDeviceTwinConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetDeviceTwinConfigOK, error)
 
-	GetDeviceTwinConfigByName(params *GetDeviceTwinConfigByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceTwinConfigByNameOK, error)
+	EdgeDiagnosticsGetDeviceTwinConfigByName(params *EdgeDiagnosticsGetDeviceTwinConfigByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetDeviceTwinConfigByNameOK, error)
 
-	GetDeviceTwinNextConfig(params *GetDeviceTwinNextConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceTwinNextConfigOK, error)
+	EdgeDiagnosticsGetDeviceTwinNextConfig(params *EdgeDiagnosticsGetDeviceTwinNextConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetDeviceTwinNextConfigOK, error)
 
-	GetDeviceTwinNextConfigByName(params *GetDeviceTwinNextConfigByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceTwinNextConfigByNameOK, error)
+	EdgeDiagnosticsGetDeviceTwinNextConfigByName(params *EdgeDiagnosticsGetDeviceTwinNextConfigByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetDeviceTwinNextConfigByNameOK, error)
 
-	GetDeviceTwinOfflineConfigByName(params *GetDeviceTwinOfflineConfigByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceTwinOfflineConfigByNameOK, error)
+	EdgeDiagnosticsGetDeviceTwinOfflineConfigByName(params *EdgeDiagnosticsGetDeviceTwinOfflineConfigByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetDeviceTwinOfflineConfigByNameOK, error)
 
-	GetDeviceTwinOfflineNextConfig(params *GetDeviceTwinOfflineNextConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceTwinOfflineNextConfigOK, error)
+	EdgeDiagnosticsGetDeviceTwinOfflineNextConfig(params *EdgeDiagnosticsGetDeviceTwinOfflineNextConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetDeviceTwinOfflineNextConfigOK, error)
 
-	GetEventsTimeline(params *GetEventsTimelineParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEventsTimelineOK, error)
+	EdgeDiagnosticsGetEventsTimeline(params *EdgeDiagnosticsGetEventsTimelineParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetEventsTimelineOK, error)
 
-	GetResourceMetricsTimeline(params *GetResourceMetricsTimelineParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetResourceMetricsTimelineOK, error)
+	EdgeDiagnosticsGetResourceMetricsTimeline(params *EdgeDiagnosticsGetResourceMetricsTimelineParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetResourceMetricsTimelineOK, error)
 
-	GetResourceMetricsTimeline2(params *GetResourceMetricsTimeline2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetResourceMetricsTimeline2OK, error)
+	EdgeDiagnosticsGetResourceMetricsTimeline2(params *EdgeDiagnosticsGetResourceMetricsTimeline2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetResourceMetricsTimeline2OK, error)
 
-	RegenDeviceConfig(params *RegenDeviceConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RegenDeviceConfigOK, error)
+	EdgeDiagnosticsRegenDeviceConfig(params *EdgeDiagnosticsRegenDeviceConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsRegenDeviceConfigOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-  GetDeviceTwinConfig gets current device twin configuration
+  EdgeDiagnosticsGetDeviceTwinConfig gets current device twin configuration
 
   Get currentnext Device twin configuration for the edge node. Edge node has read this configuration when it queried Cloud controller last time.
 */
-func (a *Client) GetDeviceTwinConfig(params *GetDeviceTwinConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceTwinConfigOK, error) {
+func (a *Client) EdgeDiagnosticsGetDeviceTwinConfig(params *EdgeDiagnosticsGetDeviceTwinConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetDeviceTwinConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetDeviceTwinConfigParams()
+		params = NewEdgeDiagnosticsGetDeviceTwinConfigParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetDeviceTwinConfig",
+		ID:                 "EdgeDiagnostics_GetDeviceTwinConfig",
 		Method:             "GET",
 		PathPattern:        "/v1/devices/id/{id}/config",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetDeviceTwinConfigReader{formats: a.formats},
+		Reader:             &EdgeDiagnosticsGetDeviceTwinConfigReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -87,35 +85,34 @@ func (a *Client) GetDeviceTwinConfig(params *GetDeviceTwinConfigParams, authInfo
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetDeviceTwinConfigOK)
+	success, ok := result.(*EdgeDiagnosticsGetDeviceTwinConfigOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetDeviceTwinConfig: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeDiagnosticsGetDeviceTwinConfigDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetDeviceTwinConfigByName gets current device twin configuration
+  EdgeDiagnosticsGetDeviceTwinConfigByName gets current device twin configuration
 
   Get currentnext Device twin configuration for the edge node. Edge node has read this configuration when it queried Cloud controller last time.
 */
-func (a *Client) GetDeviceTwinConfigByName(params *GetDeviceTwinConfigByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceTwinConfigByNameOK, error) {
+func (a *Client) EdgeDiagnosticsGetDeviceTwinConfigByName(params *EdgeDiagnosticsGetDeviceTwinConfigByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetDeviceTwinConfigByNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetDeviceTwinConfigByNameParams()
+		params = NewEdgeDiagnosticsGetDeviceTwinConfigByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetDeviceTwinConfigByName",
+		ID:                 "EdgeDiagnostics_GetDeviceTwinConfigByName",
 		Method:             "GET",
 		PathPattern:        "/v1/devices/name/{name}/config",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetDeviceTwinConfigByNameReader{formats: a.formats},
+		Reader:             &EdgeDiagnosticsGetDeviceTwinConfigByNameReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -128,35 +125,34 @@ func (a *Client) GetDeviceTwinConfigByName(params *GetDeviceTwinConfigByNamePara
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetDeviceTwinConfigByNameOK)
+	success, ok := result.(*EdgeDiagnosticsGetDeviceTwinConfigByNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetDeviceTwinConfigByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeDiagnosticsGetDeviceTwinConfigByNameDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetDeviceTwinNextConfig gets next device twin configuration
+  EdgeDiagnosticsGetDeviceTwinNextConfig gets next device twin configuration
 
   Get next Device twin configuration for the edge node. Edge node will get this configuration when it queries Cloud controller next time.
 */
-func (a *Client) GetDeviceTwinNextConfig(params *GetDeviceTwinNextConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceTwinNextConfigOK, error) {
+func (a *Client) EdgeDiagnosticsGetDeviceTwinNextConfig(params *EdgeDiagnosticsGetDeviceTwinNextConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetDeviceTwinNextConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetDeviceTwinNextConfigParams()
+		params = NewEdgeDiagnosticsGetDeviceTwinNextConfigParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetDeviceTwinNextConfig",
+		ID:                 "EdgeDiagnostics_GetDeviceTwinNextConfig",
 		Method:             "GET",
 		PathPattern:        "/v1/devices/id/{id}/config/next",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetDeviceTwinNextConfigReader{formats: a.formats},
+		Reader:             &EdgeDiagnosticsGetDeviceTwinNextConfigReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -169,35 +165,34 @@ func (a *Client) GetDeviceTwinNextConfig(params *GetDeviceTwinNextConfigParams, 
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetDeviceTwinNextConfigOK)
+	success, ok := result.(*EdgeDiagnosticsGetDeviceTwinNextConfigOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetDeviceTwinNextConfig: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeDiagnosticsGetDeviceTwinNextConfigDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetDeviceTwinNextConfigByName gets next device twin configuration
+  EdgeDiagnosticsGetDeviceTwinNextConfigByName gets next device twin configuration
 
   Get next Device twin configuration for the edge node. Edge node will get this configuration when it queries Cloud controller next time.
 */
-func (a *Client) GetDeviceTwinNextConfigByName(params *GetDeviceTwinNextConfigByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceTwinNextConfigByNameOK, error) {
+func (a *Client) EdgeDiagnosticsGetDeviceTwinNextConfigByName(params *EdgeDiagnosticsGetDeviceTwinNextConfigByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetDeviceTwinNextConfigByNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetDeviceTwinNextConfigByNameParams()
+		params = NewEdgeDiagnosticsGetDeviceTwinNextConfigByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetDeviceTwinNextConfigByName",
+		ID:                 "EdgeDiagnostics_GetDeviceTwinNextConfigByName",
 		Method:             "GET",
 		PathPattern:        "/v1/devices/name/{name}/config/next",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetDeviceTwinNextConfigByNameReader{formats: a.formats},
+		Reader:             &EdgeDiagnosticsGetDeviceTwinNextConfigByNameReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -210,35 +205,34 @@ func (a *Client) GetDeviceTwinNextConfigByName(params *GetDeviceTwinNextConfigBy
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetDeviceTwinNextConfigByNameOK)
+	success, ok := result.(*EdgeDiagnosticsGetDeviceTwinNextConfigByNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetDeviceTwinNextConfigByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeDiagnosticsGetDeviceTwinNextConfigByNameDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetDeviceTwinOfflineConfigByName gets offline device twin configuration
+  EdgeDiagnosticsGetDeviceTwinOfflineConfigByName gets offline device twin configuration
 
   Get offline Device twin configuration for the edge node. Edge node will get this configuration when it queries Cloud controller next time.
 */
-func (a *Client) GetDeviceTwinOfflineConfigByName(params *GetDeviceTwinOfflineConfigByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceTwinOfflineConfigByNameOK, error) {
+func (a *Client) EdgeDiagnosticsGetDeviceTwinOfflineConfigByName(params *EdgeDiagnosticsGetDeviceTwinOfflineConfigByNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetDeviceTwinOfflineConfigByNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetDeviceTwinOfflineConfigByNameParams()
+		params = NewEdgeDiagnosticsGetDeviceTwinOfflineConfigByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetDeviceTwinOfflineConfigByName",
+		ID:                 "EdgeDiagnostics_GetDeviceTwinOfflineConfigByName",
 		Method:             "GET",
 		PathPattern:        "/v1/devices/name/{name}/config/offline",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetDeviceTwinOfflineConfigByNameReader{formats: a.formats},
+		Reader:             &EdgeDiagnosticsGetDeviceTwinOfflineConfigByNameReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -251,35 +245,34 @@ func (a *Client) GetDeviceTwinOfflineConfigByName(params *GetDeviceTwinOfflineCo
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetDeviceTwinOfflineConfigByNameOK)
+	success, ok := result.(*EdgeDiagnosticsGetDeviceTwinOfflineConfigByNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetDeviceTwinOfflineConfigByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeDiagnosticsGetDeviceTwinOfflineConfigByNameDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetDeviceTwinOfflineNextConfig gets offline device twin configuration
+  EdgeDiagnosticsGetDeviceTwinOfflineNextConfig gets offline device twin configuration
 
   Get offline Device twin configuration for the edge node. Edge node will get this configuration when it queries Cloud controller next time.
 */
-func (a *Client) GetDeviceTwinOfflineNextConfig(params *GetDeviceTwinOfflineNextConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceTwinOfflineNextConfigOK, error) {
+func (a *Client) EdgeDiagnosticsGetDeviceTwinOfflineNextConfig(params *EdgeDiagnosticsGetDeviceTwinOfflineNextConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetDeviceTwinOfflineNextConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetDeviceTwinOfflineNextConfigParams()
+		params = NewEdgeDiagnosticsGetDeviceTwinOfflineNextConfigParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetDeviceTwinOfflineNextConfig",
+		ID:                 "EdgeDiagnostics_GetDeviceTwinOfflineNextConfig",
 		Method:             "GET",
 		PathPattern:        "/v1/devices/id/{id}/config/offline",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetDeviceTwinOfflineNextConfigReader{formats: a.formats},
+		Reader:             &EdgeDiagnosticsGetDeviceTwinOfflineNextConfigReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -292,35 +285,34 @@ func (a *Client) GetDeviceTwinOfflineNextConfig(params *GetDeviceTwinOfflineNext
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetDeviceTwinOfflineNextConfigOK)
+	success, ok := result.(*EdgeDiagnosticsGetDeviceTwinOfflineNextConfigOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetDeviceTwinOfflineNextConfig: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeDiagnosticsGetDeviceTwinOfflineNextConfigDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetEventsTimeline gets events timeline
+  EdgeDiagnosticsGetEventsTimeline gets events timeline
 
   Get aggregated events timeline
 */
-func (a *Client) GetEventsTimeline(params *GetEventsTimelineParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEventsTimelineOK, error) {
+func (a *Client) EdgeDiagnosticsGetEventsTimeline(params *EdgeDiagnosticsGetEventsTimelineParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetEventsTimelineOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetEventsTimelineParams()
+		params = NewEdgeDiagnosticsGetEventsTimelineParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetEventsTimeline",
+		ID:                 "EdgeDiagnostics_GetEventsTimeline",
 		Method:             "GET",
 		PathPattern:        "/v1/events",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetEventsTimelineReader{formats: a.formats},
+		Reader:             &EdgeDiagnosticsGetEventsTimelineReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -333,35 +325,34 @@ func (a *Client) GetEventsTimeline(params *GetEventsTimelineParams, authInfo run
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetEventsTimelineOK)
+	success, ok := result.(*EdgeDiagnosticsGetEventsTimelineOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetEventsTimeline: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeDiagnosticsGetEventsTimelineDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetResourceMetricsTimeline gets resource usage timeline
+  EdgeDiagnosticsGetResourceMetricsTimeline gets resource usage timeline
 
   Get the aggregated resource usage timeline as reported by the edge nodes and edge application instances.
 */
-func (a *Client) GetResourceMetricsTimeline(params *GetResourceMetricsTimelineParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetResourceMetricsTimelineOK, error) {
+func (a *Client) EdgeDiagnosticsGetResourceMetricsTimeline(params *EdgeDiagnosticsGetResourceMetricsTimelineParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetResourceMetricsTimelineOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetResourceMetricsTimelineParams()
+		params = NewEdgeDiagnosticsGetResourceMetricsTimelineParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetResourceMetricsTimeline",
+		ID:                 "EdgeDiagnostics_GetResourceMetricsTimeline",
 		Method:             "GET",
 		PathPattern:        "/v1/events/timeSeries/{mType}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetResourceMetricsTimelineReader{formats: a.formats},
+		Reader:             &EdgeDiagnosticsGetResourceMetricsTimelineReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -374,35 +365,34 @@ func (a *Client) GetResourceMetricsTimeline(params *GetResourceMetricsTimelinePa
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetResourceMetricsTimelineOK)
+	success, ok := result.(*EdgeDiagnosticsGetResourceMetricsTimelineOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetResourceMetricsTimeline: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeDiagnosticsGetResourceMetricsTimelineDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  GetResourceMetricsTimeline2 gets resource usage timeline
+  EdgeDiagnosticsGetResourceMetricsTimeline2 gets resource usage timeline
 
   Get the aggregated resource usage timeline as reported by the edge nodes and edge application instances.
 */
-func (a *Client) GetResourceMetricsTimeline2(params *GetResourceMetricsTimeline2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetResourceMetricsTimeline2OK, error) {
+func (a *Client) EdgeDiagnosticsGetResourceMetricsTimeline2(params *EdgeDiagnosticsGetResourceMetricsTimeline2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsGetResourceMetricsTimeline2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetResourceMetricsTimeline2Params()
+		params = NewEdgeDiagnosticsGetResourceMetricsTimeline2Params()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetResourceMetricsTimeline2",
+		ID:                 "EdgeDiagnostics_GetResourceMetricsTimeline2",
 		Method:             "GET",
 		PathPattern:        "/v1/timeSeries/{mType}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetResourceMetricsTimeline2Reader{formats: a.formats},
+		Reader:             &EdgeDiagnosticsGetResourceMetricsTimeline2Reader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -415,35 +405,34 @@ func (a *Client) GetResourceMetricsTimeline2(params *GetResourceMetricsTimeline2
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetResourceMetricsTimeline2OK)
+	success, ok := result.(*EdgeDiagnosticsGetResourceMetricsTimeline2OK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetResourceMetricsTimeline2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeDiagnosticsGetResourceMetricsTimeline2Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
-  RegenDeviceConfig res generate device configuration
+  EdgeDiagnosticsRegenDeviceConfig res generate device configuration
 
   Re-generate the device configuration. Edge node will get this configuration when it queries Cloud controller next time.
 */
-func (a *Client) RegenDeviceConfig(params *RegenDeviceConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RegenDeviceConfigOK, error) {
+func (a *Client) EdgeDiagnosticsRegenDeviceConfig(params *EdgeDiagnosticsRegenDeviceConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EdgeDiagnosticsRegenDeviceConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewRegenDeviceConfigParams()
+		params = NewEdgeDiagnosticsRegenDeviceConfigParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "RegenDeviceConfig",
+		ID:                 "EdgeDiagnostics_RegenDeviceConfig",
 		Method:             "PUT",
 		PathPattern:        "/v1/devices/id/{id}/config",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &RegenDeviceConfigReader{formats: a.formats},
+		Reader:             &EdgeDiagnosticsRegenDeviceConfigReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -456,14 +445,13 @@ func (a *Client) RegenDeviceConfig(params *RegenDeviceConfigParams, authInfo run
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*RegenDeviceConfigOK)
+	success, ok := result.(*EdgeDiagnosticsRegenDeviceConfigOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for RegenDeviceConfig: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EdgeDiagnosticsRegenDeviceConfigDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 // SetTransport changes the transport on the client

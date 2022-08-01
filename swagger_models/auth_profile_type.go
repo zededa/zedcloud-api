@@ -44,6 +44,9 @@ const (
 
 	// AuthProfileTypeAUTHPROFILETYPEOAUTHCUSTOM captures enum value "AUTH_PROFILE_TYPE_OAUTH_CUSTOM"
 	AuthProfileTypeAUTHPROFILETYPEOAUTHCUSTOM AuthProfileType = "AUTH_PROFILE_TYPE_OAUTH_CUSTOM"
+
+	// AuthProfileTypeAUTHPROFILETYPELOCAL captures enum value "AUTH_PROFILE_TYPE_LOCAL"
+	AuthProfileTypeAUTHPROFILETYPELOCAL AuthProfileType = "AUTH_PROFILE_TYPE_LOCAL"
 )
 
 // for schema
@@ -51,7 +54,7 @@ var authProfileTypeEnum []interface{}
 
 func init() {
 	var res []AuthProfileType
-	if err := json.Unmarshal([]byte(`["AUTH_PROFILE_TYPE_UNSPECIFIED","AUTH_PROFILE_TYPE_OAUTH_AZURE_AD","AUTH_PROFILE_TYPE_OAUTH_GOOGLE","AUTH_PROFILE_TYPE_OAUTH_CUSTOM"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AUTH_PROFILE_TYPE_UNSPECIFIED","AUTH_PROFILE_TYPE_OAUTH_AZURE_AD","AUTH_PROFILE_TYPE_OAUTH_GOOGLE","AUTH_PROFILE_TYPE_OAUTH_CUSTOM","AUTH_PROFILE_TYPE_LOCAL"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

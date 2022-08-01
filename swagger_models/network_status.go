@@ -32,6 +32,9 @@ type NetworkStatus struct {
 	// Network error details
 	ErrInfo *DeviceError `json:"errInfo,omitempty"`
 
+	// Location from GNSS receivers on WWAN type adapters
+	GpsLocation *GPSLocation `json:"gpsLocation,omitempty"`
+
 	// ifName
 	IfName string `json:"ifName,omitempty"`
 
@@ -63,6 +66,10 @@ func (m *NetworkStatus) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateErrInfo(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGpsLocation(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -110,6 +117,25 @@ func (m *NetworkStatus) validateErrInfo(formats strfmt.Registry) error {
 				return ve.ValidateName("errInfo")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("errInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *NetworkStatus) validateGpsLocation(formats strfmt.Registry) error {
+	if swag.IsZero(m.GpsLocation) { // not required
+		return nil
+	}
+
+	if m.GpsLocation != nil {
+		if err := m.GpsLocation.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("gpsLocation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("gpsLocation")
 			}
 			return err
 		}
@@ -168,6 +194,10 @@ func (m *NetworkStatus) ContextValidate(ctx context.Context, formats strfmt.Regi
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateGpsLocation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateLocation(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -206,6 +236,22 @@ func (m *NetworkStatus) contextValidateErrInfo(ctx context.Context, formats strf
 				return ve.ValidateName("errInfo")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("errInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *NetworkStatus) contextValidateGpsLocation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.GpsLocation != nil {
+		if err := m.GpsLocation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("gpsLocation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("gpsLocation")
 			}
 			return err
 		}

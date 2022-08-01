@@ -25,6 +25,9 @@ import (
 // swagger:model AppSummary
 type AppSummary struct {
 
+	// App instance count
+	AppInstCount int32 `json:"appInstCount,omitempty"`
+
 	// user defined cpus for bundle
 	Cpus int64 `json:"cpus,omitempty"`
 
@@ -57,7 +60,8 @@ type AppSummary struct {
 	Networks int64 `json:"networks,omitempty"`
 
 	// origin of object
-	OriginType *Origin `json:"originType,omitempty"`
+	// Required: true
+	OriginType *Origin `json:"originType"`
 
 	// origin and parent related details
 	ParentDetail *ObjectParentDetail `json:"parentDetail,omitempty"`
@@ -177,8 +181,13 @@ func (m *AppSummary) validateName(formats strfmt.Registry) error {
 }
 
 func (m *AppSummary) validateOriginType(formats strfmt.Registry) error {
-	if swag.IsZero(m.OriginType) { // not required
-		return nil
+
+	if err := validate.Required("originType", "body", m.OriginType); err != nil {
+		return err
+	}
+
+	if err := validate.Required("originType", "body", m.OriginType); err != nil {
+		return err
 	}
 
 	if m.OriginType != nil {

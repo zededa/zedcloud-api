@@ -27,7 +27,7 @@ type ConfigVolumeRef struct {
 
 	// Indicates volume mount point inside container
 	// if mount_dir is empty then it will be mounted on /mnt
-	MountDir string `json:"mount_dir,omitempty"`
+	MountDir string `json:"mountDir,omitempty"`
 
 	// uuid
 	UUID string `json:"uuid,omitempty"`

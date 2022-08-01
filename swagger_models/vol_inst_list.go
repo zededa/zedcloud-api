@@ -30,6 +30,9 @@ type VolInstList struct {
 
 	// next
 	Next *Cursor `json:"next,omitempty"`
+
+	// summary by type
+	SummaryByType *Summary `json:"summaryByType,omitempty"`
 }
 
 // Validate validates this vol inst list
@@ -45,6 +48,10 @@ func (m *VolInstList) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateNext(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSummaryByType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -125,6 +132,25 @@ func (m *VolInstList) validateNext(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *VolInstList) validateSummaryByType(formats strfmt.Registry) error {
+	if swag.IsZero(m.SummaryByType) { // not required
+		return nil
+	}
+
+	if m.SummaryByType != nil {
+		if err := m.SummaryByType.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByType")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this vol inst list based on the context it is used
 func (m *VolInstList) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -138,6 +164,10 @@ func (m *VolInstList) ContextValidate(ctx context.Context, formats strfmt.Regist
 	}
 
 	if err := m.contextValidateNext(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSummaryByType(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -195,6 +225,22 @@ func (m *VolInstList) contextValidateNext(ctx context.Context, formats strfmt.Re
 				return ve.ValidateName("next")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("next")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *VolInstList) contextValidateSummaryByType(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SummaryByType != nil {
+		if err := m.SummaryByType.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByType")
 			}
 			return err
 		}

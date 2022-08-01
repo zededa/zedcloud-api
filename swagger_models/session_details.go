@@ -17,25 +17,28 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// SessionDetails session details
+// SessionDetails Session detail
+//
+// Details of all logged in session
 //
 // swagger:model SessionDetails
 type SessionDetails struct {
 
-	// client Ip
+	// IP address of the logged in user
 	ClientIP string `json:"clientIp,omitempty"`
 
-	// expires at
+	// session expiry time
 	// Format: date-time
 	ExpiresAt strfmt.DateTime `json:"expiresAt,omitempty"`
 
-	// session Id
+	// DEPRECATED. sessionId is obfuscated for security reasons
+	// Read Only: true
 	SessionID string `json:"sessionId,omitempty"`
 
-	// user agent
+	// user agent details
 	UserAgent string `json:"userAgent,omitempty"`
 
-	// user name
+	// Logged in user name
 	UserName string `json:"userName,omitempty"`
 }
 
@@ -65,8 +68,26 @@ func (m *SessionDetails) validateExpiresAt(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this session details based on context it is used
+// ContextValidate validate this session details based on the context it is used
 func (m *SessionDetails) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateSessionID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SessionDetails) contextValidateSessionID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "sessionId", "body", string(m.SessionID)); err != nil {
+		return err
+	}
+
 	return nil
 }
 

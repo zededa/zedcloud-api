@@ -17,7 +17,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DeviceCmdsSubType - DeviceNoOp: Device Operation: No Operation
+// DeviceCmdsSubType  - DeviceNoOp: Device Operation: No Operation
 //  - DeviceStart: Device Operation: Start
 //  - DeviceStop: Device Operation: Stop
 //  - DeviceReboot: Device Operation: Reboot: Power cycle the device
@@ -30,6 +30,10 @@ import (
 //  - DeviceOffboard: Device Operation Type: offboard the device
 //  - DeviceActivate: Device Activate
 //  - DeviceDeActivate: Device Deactivate
+//  - DeviceBaseosRetry: Device Operation: Retry OS
+//  - DeviceStartDebugMode: Device Operation: Run device in debug mode.
+//  - DeviceStopDebugMode: Device Operation: Stop device in debug mode.
+//  - PreparePowerOff: Device Operation: Gracefully shutdown all apps and prepare for power down.
 //
 // swagger:model DeviceCmdsSubType
 type DeviceCmdsSubType string
@@ -83,6 +87,18 @@ const (
 
 	// DeviceCmdsSubTypeDeviceDeActivate captures enum value "DeviceDeActivate"
 	DeviceCmdsSubTypeDeviceDeActivate DeviceCmdsSubType = "DeviceDeActivate"
+
+	// DeviceCmdsSubTypeDeviceBaseosRetry captures enum value "DeviceBaseosRetry"
+	DeviceCmdsSubTypeDeviceBaseosRetry DeviceCmdsSubType = "DeviceBaseosRetry"
+
+	// DeviceCmdsSubTypeDeviceStartDebugMode captures enum value "DeviceStartDebugMode"
+	DeviceCmdsSubTypeDeviceStartDebugMode DeviceCmdsSubType = "DeviceStartDebugMode"
+
+	// DeviceCmdsSubTypeDeviceStopDebugMode captures enum value "DeviceStopDebugMode"
+	DeviceCmdsSubTypeDeviceStopDebugMode DeviceCmdsSubType = "DeviceStopDebugMode"
+
+	// DeviceCmdsSubTypePreparePowerOff captures enum value "PreparePowerOff"
+	DeviceCmdsSubTypePreparePowerOff DeviceCmdsSubType = "PreparePowerOff"
 )
 
 // for schema
@@ -90,7 +106,7 @@ var deviceCmdsSubTypeEnum []interface{}
 
 func init() {
 	var res []DeviceCmdsSubType
-	if err := json.Unmarshal([]byte(`["DeviceNoOp","DeviceStart","DeviceStop","DeviceReboot","DeviceShutdown","DeviceUpdateOS","DeviceApplyOS","DeviceReset","DeviceAddOS","DeviceDropOS","DeviceOffboard","DeviceActivate","DeviceDeActivate"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["DeviceNoOp","DeviceStart","DeviceStop","DeviceReboot","DeviceShutdown","DeviceUpdateOS","DeviceApplyOS","DeviceReset","DeviceAddOS","DeviceDropOS","DeviceOffboard","DeviceActivate","DeviceDeActivate","DeviceBaseosRetry","DeviceStartDebugMode","DeviceStopDebugMode","PreparePowerOff"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

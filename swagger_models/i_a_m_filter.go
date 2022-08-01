@@ -35,6 +35,9 @@ type IAMFilter struct {
 	// projectid
 	Projectid []string `json:"projectid"`
 
+	// role name
+	RoleName string `json:"roleName,omitempty"`
+
 	// sfdcid
 	Sfdcid string `json:"sfdcid,omitempty"`
 

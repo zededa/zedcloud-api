@@ -21,6 +21,7 @@ import (
 // DetailedUser User detail
 //
 // User meta data
+// Example: {"HubspotId":"","LastLoginTime":"2020-07-17T06:02:36Z","LastLogoutTime":"1970-01-01T00:00:01Z","SfdcId":"","customUserInput":{},"email":"us.root@zededa.com","emailState":"ID_STATE_VERIFIED","firstName":"ROOT","fullName":"ZEDEDA root user","id":"AAF1ABCtMaCnVHZN_b9cm2yUEkgp","locale":"EN","notifyPref":"email","phone":"","phoneState":"ID_STATE_UNSPECIFIED","revision":{"createdAt":"2020-07-16T18:19:56Z","createdBy":"SYSTEM_ROOT","curr":"3","prev":"","updatedAt":"1970-01-01T00:00:01Z","updatedBy":"SYSTEM_ROOT"},"roleName":"SysRoot","state":"USER_STATE_ACTIVE","timeZone":"","type":"AUTH_TYPE_UNSPECIFIED","username":"test@zededa.com"}
 //
 // swagger:model DetailedUser
 type DetailedUser struct {
@@ -44,7 +45,7 @@ type DetailedUser struct {
 	// Permitted list of enterprises with their associated roles
 	AllowedEnterprises []*AllowedEnterprise `json:"allowedEnterprises"`
 
-	// custom user input
+	// Custom user parameters
 	CustomUserInput map[string]string `json:"customUserInput,omitempty"`
 
 	// Email of the user

@@ -15,6 +15,7 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // AAASuccessResponseLogin AAA was successful
@@ -34,8 +35,18 @@ type AAASuccessResponseLogin struct {
 	// enterprise Id
 	EnterpriseID *Identifier64 `json:"enterpriseId,omitempty"`
 
+	// is j w t valid
+	IsJWTValid bool `json:"isJWTValid,omitempty"`
+
 	// login token
 	LoginToken *Token64 `json:"loginToken,omitempty"`
+
+	// password expiry notification period in seconds
+	PasswordExpiryNotificationPeriodInSeconds int64 `json:"passwordExpiryNotificationPeriodInSeconds,omitempty"`
+
+	// password expiry time
+	// Format: date-time
+	PasswordExpiryTime strfmt.DateTime `json:"passwordExpiryTime,omitempty"`
 
 	// BEGIN: Only valid when a certain verbosity level is requested
 	Policies []*Policy `json:"policies"`
@@ -80,6 +91,10 @@ func (m *AAASuccessResponseLogin) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLoginToken(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePasswordExpiryTime(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -207,6 +222,18 @@ func (m *AAASuccessResponseLogin) validateLoginToken(formats strfmt.Registry) er
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *AAASuccessResponseLogin) validatePasswordExpiryTime(formats strfmt.Registry) error {
+	if swag.IsZero(m.PasswordExpiryTime) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("passwordExpiryTime", "body", "date-time", m.PasswordExpiryTime.String(), formats); err != nil {
+		return err
 	}
 
 	return nil

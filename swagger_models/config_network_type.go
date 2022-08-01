@@ -50,6 +50,15 @@ const (
 
 	// ConfigNetworkTypeCryptoEID captures enum value "CryptoEID"
 	ConfigNetworkTypeCryptoEID ConfigNetworkType = "CryptoEID"
+
+	// ConfigNetworkTypeV4Only captures enum value "V4Only"
+	ConfigNetworkTypeV4Only ConfigNetworkType = "V4Only"
+
+	// ConfigNetworkTypeV6Only captures enum value "V6Only"
+	ConfigNetworkTypeV6Only ConfigNetworkType = "V6Only"
+
+	// ConfigNetworkTypeDualV4V6 captures enum value "DualV4V6"
+	ConfigNetworkTypeDualV4V6 ConfigNetworkType = "DualV4V6"
 )
 
 // for schema
@@ -57,7 +66,7 @@ var configNetworkTypeEnum []interface{}
 
 func init() {
 	var res []ConfigNetworkType
-	if err := json.Unmarshal([]byte(`["NETWORKTYPENOOP","V4","V6","CryptoV4","CryptoV6","CryptoEID"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["NETWORKTYPENOOP","V4","V6","CryptoV4","CryptoV6","CryptoEID","V4Only","V6Only","DualV4V6"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

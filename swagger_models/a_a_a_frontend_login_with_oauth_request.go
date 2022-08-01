@@ -20,6 +20,9 @@ import (
 // swagger:model AAA_Frontend_LoginWithOauthRequest
 type AAAFrontendLoginWithOauthRequest struct {
 
+	// enterprise name
+	EnterpriseName string `json:"enterpriseName,omitempty"`
+
 	// username at realm
 	UsernameAtRealm string `json:"usernameAtRealm,omitempty"`
 }

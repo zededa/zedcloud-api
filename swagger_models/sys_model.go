@@ -21,6 +21,7 @@ import (
 // SysModel SysModel  payload details
 //
 // SysModel consists of various model attributes like id, name, title, brandId etc
+// Example: {"id":"d1125b0f-633d-459c-99c6-f47e7467cebc","name":"zed-model","title":"sample model"}
 //
 // swagger:model SysModel
 type SysModel struct {
@@ -28,7 +29,7 @@ type SysModel struct {
 	// PCR templates keyed by EVE version
 	PCRTemplates []*PCRTemplate `json:"PCRTemplates"`
 
-	// attr
+	// Map of <string, string> which defines attr
 	// Required: true
 	Attr map[string]string `json:"attr"`
 
@@ -49,7 +50,7 @@ type SysModel struct {
 	// List of IoMembers
 	IoMemberList []*IoMember `json:"ioMemberList"`
 
-	// logo
+	// Map of <string, string> which holds the key:url for the logo artifact of the model
 	Logo map[string]string `json:"logo,omitempty"`
 
 	// user defined model name
@@ -60,7 +61,8 @@ type SysModel struct {
 	Name *string `json:"name"`
 
 	// origin of object
-	OriginType *Origin `json:"originType,omitempty"`
+	// Required: true
+	OriginType *Origin `json:"originType"`
 
 	// origin and parent related details
 	ParentDetail *ObjectParentDetail `json:"parentDetail,omitempty"`
@@ -273,8 +275,13 @@ func (m *SysModel) validateName(formats strfmt.Registry) error {
 }
 
 func (m *SysModel) validateOriginType(formats strfmt.Registry) error {
-	if swag.IsZero(m.OriginType) { // not required
-		return nil
+
+	if err := validate.Required("originType", "body", m.OriginType); err != nil {
+		return err
+	}
+
+	if err := validate.Required("originType", "body", m.OriginType); err != nil {
+		return err
 	}
 
 	if m.OriginType != nil {

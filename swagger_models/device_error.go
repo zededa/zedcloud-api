@@ -34,7 +34,7 @@ type DeviceError struct {
 	Entities []*DeviceEntity `json:"entities"`
 
 	// condition for retry
-	RetryCondition string `json:"retry_condition,omitempty"`
+	RetryCondition string `json:"retryCondition,omitempty"`
 
 	// Severity of the error
 	// Required: true

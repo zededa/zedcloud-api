@@ -24,10 +24,10 @@ import (
 type LTEAdapter struct {
 
 	// Name of Cell Module
-	CellModuleName string `json:"cell_module_name,omitempty"`
+	CellModuleName string `json:"cellModuleName,omitempty"`
 
 	// Firmware Version of Cell Radio.
-	FirmwareVersion string `json:"firmware_version,omitempty"`
+	FirmwareVersion string `json:"firmwareVersion,omitempty"`
 
 	// iccid of the SIM
 	Iccid string `json:"iccid,omitempty"`
@@ -39,10 +39,10 @@ type LTEAdapter struct {
 	Imsi string `json:"imsi,omitempty"`
 
 	// Name of SIM card.
-	SimName string `json:"sim_name,omitempty"`
+	SimName string `json:"simName,omitempty"`
 
 	// State of SimCard
-	SimcardState *SimcardState `json:"simcard_state,omitempty"`
+	SimcardState *SimcardState `json:"simcardState,omitempty"`
 }
 
 // Validate validates this l t e adapter
@@ -67,9 +67,9 @@ func (m *LTEAdapter) validateSimcardState(formats strfmt.Registry) error {
 	if m.SimcardState != nil {
 		if err := m.SimcardState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("simcard_state")
+				return ve.ValidateName("simcardState")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("simcard_state")
+				return ce.ValidateName("simcardState")
 			}
 			return err
 		}
@@ -97,9 +97,9 @@ func (m *LTEAdapter) contextValidateSimcardState(ctx context.Context, formats st
 	if m.SimcardState != nil {
 		if err := m.SimcardState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("simcard_state")
+				return ve.ValidateName("simcardState")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("simcard_state")
+				return ce.ValidateName("simcardState")
 			}
 			return err
 		}

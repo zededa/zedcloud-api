@@ -38,7 +38,7 @@ type VMManifestSummary struct {
 	// type of deployment for the app, eg: azure, k3s, standalone
 	DeploymentType *DeploymentType `json:"deploymentType,omitempty"`
 
-	// desc
+	// Details of the Edge App
 	Desc *Details `json:"desc,omitempty"`
 
 	// Description of the Edge application

@@ -30,6 +30,9 @@ type AppInstStatusListMsg struct {
 	// cursor next
 	Next *Cursor `json:"next,omitempty"`
 
+	// app instance summary by application type
+	SummaryByAppType *Summary `json:"summaryByAppType,omitempty"`
+
 	// app instance status by state
 	SummaryByState *Summary `json:"summaryByState,omitempty"`
 }
@@ -43,6 +46,10 @@ func (m *AppInstStatusListMsg) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateNext(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSummaryByAppType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -101,6 +108,25 @@ func (m *AppInstStatusListMsg) validateNext(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *AppInstStatusListMsg) validateSummaryByAppType(formats strfmt.Registry) error {
+	if swag.IsZero(m.SummaryByAppType) { // not required
+		return nil
+	}
+
+	if m.SummaryByAppType != nil {
+		if err := m.SummaryByAppType.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByAppType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByAppType")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *AppInstStatusListMsg) validateSummaryByState(formats strfmt.Registry) error {
 	if swag.IsZero(m.SummaryByState) { // not required
 		return nil
@@ -129,6 +155,10 @@ func (m *AppInstStatusListMsg) ContextValidate(ctx context.Context, formats strf
 	}
 
 	if err := m.contextValidateNext(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSummaryByAppType(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -170,6 +200,22 @@ func (m *AppInstStatusListMsg) contextValidateNext(ctx context.Context, formats 
 				return ve.ValidateName("next")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("next")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AppInstStatusListMsg) contextValidateSummaryByAppType(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SummaryByAppType != nil {
+		if err := m.SummaryByAppType.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryByAppType")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("summaryByAppType")
 			}
 			return err
 		}
