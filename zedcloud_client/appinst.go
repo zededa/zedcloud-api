@@ -5,6 +5,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/spf13/cobra"
 	zedcloudapi "github.com/zededa/zedcloud-api"
 	"github.com/zededa/zedcloud-api/swagger_models"
@@ -36,17 +37,18 @@ func deleteAppInst(client *zedcloudapi.Client, appID string) {
 
 func createAppInst(client *zedcloudapi.Client, params *CmdParams) {
 	title := "zedcloud_client test AppInst"
-	activate := true
+	activate := "true"
 	appType := swagger_models.AppTypeAPPTYPEVM
 	var cpus int64 = 1
 	var memory int64 = 512
 	hvMode := swagger_models.HvModeHVHVM
+	vnc := true
 
 	vmInfo := swagger_models.VM{
 		Cpus:   &cpus,
 		Memory: &memory,
 		Mode:   &hvMode,
-		Vnc:    true,
+		Vnc:    &vnc,
 	}
 	cfg := &swagger_models.AppInstance{
 		Name:        &params.name,

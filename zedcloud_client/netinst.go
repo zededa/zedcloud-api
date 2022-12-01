@@ -5,6 +5,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/spf13/cobra"
 	zedcloudapi "github.com/zededa/zedcloud-api"
 	"github.com/zededa/zedcloud-api/swagger_models"
@@ -30,7 +31,7 @@ func createNetInst(client *zedcloudapi.Client, name, edgeNodeId string) {
 		Name:          &name,
 		Title:         &title,
 		Description:   title,
-		DeviceDefault: false,
+		DeviceDefault: "false",
 		DeviceID:      &edgeNodeId,
 		Kind:          &kind,
 		Type:          &dhcpType,
