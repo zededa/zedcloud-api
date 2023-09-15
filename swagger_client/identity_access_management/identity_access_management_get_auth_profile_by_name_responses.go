@@ -111,6 +111,11 @@ func (o *IdentityAccessManagementGetAuthProfileByNameOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management get auth profile by name o k response
+func (o *IdentityAccessManagementGetAuthProfileByNameOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementGetAuthProfileByNameOK) Error() string {
 	return fmt.Sprintf("[GET /v1/authorization/profiles/name/{name}][%d] identityAccessManagementGetAuthProfileByNameOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *IdentityAccessManagementGetAuthProfileByNameUnauthorized) IsServerError
 // IsCode returns true when this identity access management get auth profile by name unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementGetAuthProfileByNameUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management get auth profile by name unauthorized response
+func (o *IdentityAccessManagementGetAuthProfileByNameUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementGetAuthProfileByNameUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *IdentityAccessManagementGetAuthProfileByNameForbidden) IsCode(code int)
 	return code == 403
 }
 
+// Code gets the status code for the identity access management get auth profile by name forbidden response
+func (o *IdentityAccessManagementGetAuthProfileByNameForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementGetAuthProfileByNameForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/authorization/profiles/name/{name}][%d] identityAccessManagementGetAuthProfileByNameForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *IdentityAccessManagementGetAuthProfileByNameNotFound) IsServerError() b
 // IsCode returns true when this identity access management get auth profile by name not found response a status code equal to that given
 func (o *IdentityAccessManagementGetAuthProfileByNameNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management get auth profile by name not found response
+func (o *IdentityAccessManagementGetAuthProfileByNameNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementGetAuthProfileByNameNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *IdentityAccessManagementGetAuthProfileByNameInternalServerError) IsCode
 	return code == 500
 }
 
+// Code gets the status code for the identity access management get auth profile by name internal server error response
+func (o *IdentityAccessManagementGetAuthProfileByNameInternalServerError) Code() int {
+	return 500
+}
+
 func (o *IdentityAccessManagementGetAuthProfileByNameInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/authorization/profiles/name/{name}][%d] identityAccessManagementGetAuthProfileByNameInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *IdentityAccessManagementGetAuthProfileByNameGatewayTimeout) IsCode(code
 	return code == 504
 }
 
+// Code gets the status code for the identity access management get auth profile by name gateway timeout response
+func (o *IdentityAccessManagementGetAuthProfileByNameGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementGetAuthProfileByNameGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/authorization/profiles/name/{name}][%d] identityAccessManagementGetAuthProfileByNameGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type IdentityAccessManagementGetAuthProfileByNameDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management get auth profile by name default response
-func (o *IdentityAccessManagementGetAuthProfileByNameDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management get auth profile by name default response has a 2xx status code
 func (o *IdentityAccessManagementGetAuthProfileByNameDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *IdentityAccessManagementGetAuthProfileByNameDefault) IsServerError() bo
 // IsCode returns true when this identity access management get auth profile by name default response a status code equal to that given
 func (o *IdentityAccessManagementGetAuthProfileByNameDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management get auth profile by name default response
+func (o *IdentityAccessManagementGetAuthProfileByNameDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementGetAuthProfileByNameDefault) Error() string {

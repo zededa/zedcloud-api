@@ -103,6 +103,11 @@ func (m *AppInstanceLogsResponse) ContextValidate(ctx context.Context, formats s
 func (m *AppInstanceLogsResponse) contextValidateContent(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Content != nil {
+
+		if swag.IsZero(m.Content) { // not required
+			return nil
+		}
+
 		if err := m.Content.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("content")
@@ -119,6 +124,11 @@ func (m *AppInstanceLogsResponse) contextValidateContent(ctx context.Context, fo
 func (m *AppInstanceLogsResponse) contextValidateResult(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Result != nil {
+
+		if swag.IsZero(m.Result) { // not required
+			return nil
+		}
+
 		if err := m.Result.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result")

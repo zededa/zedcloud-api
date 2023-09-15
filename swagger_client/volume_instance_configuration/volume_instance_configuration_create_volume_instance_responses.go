@@ -117,6 +117,11 @@ func (o *VolumeInstanceConfigurationCreateVolumeInstanceOK) IsCode(code int) boo
 	return code == 200
 }
 
+// Code gets the status code for the volume instance configuration create volume instance o k response
+func (o *VolumeInstanceConfigurationCreateVolumeInstanceOK) Code() int {
+	return 200
+}
+
 func (o *VolumeInstanceConfigurationCreateVolumeInstanceOK) Error() string {
 	return fmt.Sprintf("[POST /v1/volumes/instances][%d] volumeInstanceConfigurationCreateVolumeInstanceOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *VolumeInstanceConfigurationCreateVolumeInstanceBadRequest) IsServerErro
 // IsCode returns true when this volume instance configuration create volume instance bad request response a status code equal to that given
 func (o *VolumeInstanceConfigurationCreateVolumeInstanceBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the volume instance configuration create volume instance bad request response
+func (o *VolumeInstanceConfigurationCreateVolumeInstanceBadRequest) Code() int {
+	return 400
 }
 
 func (o *VolumeInstanceConfigurationCreateVolumeInstanceBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *VolumeInstanceConfigurationCreateVolumeInstanceUnauthorized) IsCode(cod
 	return code == 401
 }
 
+// Code gets the status code for the volume instance configuration create volume instance unauthorized response
+func (o *VolumeInstanceConfigurationCreateVolumeInstanceUnauthorized) Code() int {
+	return 401
+}
+
 func (o *VolumeInstanceConfigurationCreateVolumeInstanceUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /v1/volumes/instances][%d] volumeInstanceConfigurationCreateVolumeInstanceUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *VolumeInstanceConfigurationCreateVolumeInstanceForbidden) IsServerError
 // IsCode returns true when this volume instance configuration create volume instance forbidden response a status code equal to that given
 func (o *VolumeInstanceConfigurationCreateVolumeInstanceForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the volume instance configuration create volume instance forbidden response
+func (o *VolumeInstanceConfigurationCreateVolumeInstanceForbidden) Code() int {
+	return 403
 }
 
 func (o *VolumeInstanceConfigurationCreateVolumeInstanceForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *VolumeInstanceConfigurationCreateVolumeInstanceConflict) IsCode(code in
 	return code == 409
 }
 
+// Code gets the status code for the volume instance configuration create volume instance conflict response
+func (o *VolumeInstanceConfigurationCreateVolumeInstanceConflict) Code() int {
+	return 409
+}
+
 func (o *VolumeInstanceConfigurationCreateVolumeInstanceConflict) Error() string {
 	return fmt.Sprintf("[POST /v1/volumes/instances][%d] volumeInstanceConfigurationCreateVolumeInstanceConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *VolumeInstanceConfigurationCreateVolumeInstanceInternalServerError) IsS
 // IsCode returns true when this volume instance configuration create volume instance internal server error response a status code equal to that given
 func (o *VolumeInstanceConfigurationCreateVolumeInstanceInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the volume instance configuration create volume instance internal server error response
+func (o *VolumeInstanceConfigurationCreateVolumeInstanceInternalServerError) Code() int {
+	return 500
 }
 
 func (o *VolumeInstanceConfigurationCreateVolumeInstanceInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *VolumeInstanceConfigurationCreateVolumeInstanceGatewayTimeout) IsCode(c
 	return code == 504
 }
 
+// Code gets the status code for the volume instance configuration create volume instance gateway timeout response
+func (o *VolumeInstanceConfigurationCreateVolumeInstanceGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *VolumeInstanceConfigurationCreateVolumeInstanceGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/volumes/instances][%d] volumeInstanceConfigurationCreateVolumeInstanceGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type VolumeInstanceConfigurationCreateVolumeInstanceDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the volume instance configuration create volume instance default response
-func (o *VolumeInstanceConfigurationCreateVolumeInstanceDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this volume instance configuration create volume instance default response has a 2xx status code
 func (o *VolumeInstanceConfigurationCreateVolumeInstanceDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *VolumeInstanceConfigurationCreateVolumeInstanceDefault) IsServerError()
 // IsCode returns true when this volume instance configuration create volume instance default response a status code equal to that given
 func (o *VolumeInstanceConfigurationCreateVolumeInstanceDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the volume instance configuration create volume instance default response
+func (o *VolumeInstanceConfigurationCreateVolumeInstanceDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *VolumeInstanceConfigurationCreateVolumeInstanceDefault) Error() string {

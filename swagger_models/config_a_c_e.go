@@ -160,6 +160,11 @@ func (m *ConfigACE) contextValidateActions(ctx context.Context, formats strfmt.R
 	for i := 0; i < len(m.Actions); i++ {
 
 		if m.Actions[i] != nil {
+
+			if swag.IsZero(m.Actions[i]) { // not required
+				return nil
+			}
+
 			if err := m.Actions[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("actions" + "." + strconv.Itoa(i))
@@ -178,6 +183,11 @@ func (m *ConfigACE) contextValidateActions(ctx context.Context, formats strfmt.R
 func (m *ConfigACE) contextValidateDir(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Dir != nil {
+
+		if swag.IsZero(m.Dir) { // not required
+			return nil
+		}
+
 		if err := m.Dir.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dir")
@@ -196,6 +206,11 @@ func (m *ConfigACE) contextValidateMatches(ctx context.Context, formats strfmt.R
 	for i := 0; i < len(m.Matches); i++ {
 
 		if m.Matches[i] != nil {
+
+			if swag.IsZero(m.Matches[i]) { // not required
+				return nil
+			}
+
 			if err := m.Matches[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("matches" + "." + strconv.Itoa(i))

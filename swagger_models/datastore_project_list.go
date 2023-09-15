@@ -114,6 +114,11 @@ func (m *DatastoreProjectList) ContextValidate(ctx context.Context, formats strf
 func (m *DatastoreProjectList) contextValidateNext(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Next != nil {
+
+		if swag.IsZero(m.Next) { // not required
+			return nil
+		}
+
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
@@ -132,6 +137,11 @@ func (m *DatastoreProjectList) contextValidateProjectDetails(ctx context.Context
 	for i := 0; i < len(m.ProjectDetails); i++ {
 
 		if m.ProjectDetails[i] != nil {
+
+			if swag.IsZero(m.ProjectDetails[i]) { // not required
+				return nil
+			}
+
 			if err := m.ProjectDetails[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("projectDetails" + "." + strconv.Itoa(i))

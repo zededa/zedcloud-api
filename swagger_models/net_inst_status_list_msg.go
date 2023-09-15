@@ -173,6 +173,11 @@ func (m *NetInstStatusListMsg) contextValidateList(ctx context.Context, formats 
 	for i := 0; i < len(m.List); i++ {
 
 		if m.List[i] != nil {
+
+			if swag.IsZero(m.List[i]) { // not required
+				return nil
+			}
+
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
@@ -191,6 +196,11 @@ func (m *NetInstStatusListMsg) contextValidateList(ctx context.Context, formats 
 func (m *NetInstStatusListMsg) contextValidateNext(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Next != nil {
+
+		if swag.IsZero(m.Next) { // not required
+			return nil
+		}
+
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
@@ -207,6 +217,11 @@ func (m *NetInstStatusListMsg) contextValidateNext(ctx context.Context, formats 
 func (m *NetInstStatusListMsg) contextValidateSummaryByAddressType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByAddressType != nil {
+
+		if swag.IsZero(m.SummaryByAddressType) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByAddressType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByAddressType")
@@ -223,6 +238,11 @@ func (m *NetInstStatusListMsg) contextValidateSummaryByAddressType(ctx context.C
 func (m *NetInstStatusListMsg) contextValidateSummaryByKind(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByKind != nil {
+
+		if swag.IsZero(m.SummaryByKind) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByKind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByKind")

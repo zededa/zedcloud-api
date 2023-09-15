@@ -283,6 +283,11 @@ func (m *AAAFailureResponse) ContextValidate(ctx context.Context, formats strfmt
 func (m *AAAFailureResponse) contextValidateCredential(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Credential != nil {
+
+		if swag.IsZero(m.Credential) { // not required
+			return nil
+		}
+
 		if err := m.Credential.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("credential")
@@ -299,6 +304,11 @@ func (m *AAAFailureResponse) contextValidateCredential(ctx context.Context, form
 func (m *AAAFailureResponse) contextValidateDetails(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Details != nil {
+
+		if swag.IsZero(m.Details) { // not required
+			return nil
+		}
+
 		if err := m.Details.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("details")
@@ -315,6 +325,11 @@ func (m *AAAFailureResponse) contextValidateDetails(ctx context.Context, formats
 func (m *AAAFailureResponse) contextValidateGenerateToken(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.GenerateToken != nil {
+
+		if swag.IsZero(m.GenerateToken) { // not required
+			return nil
+		}
+
 		if err := m.GenerateToken.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("generateToken")
@@ -331,6 +346,11 @@ func (m *AAAFailureResponse) contextValidateGenerateToken(ctx context.Context, f
 func (m *AAAFailureResponse) contextValidateLogin(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Login != nil {
+
+		if swag.IsZero(m.Login) { // not required
+			return nil
+		}
+
 		if err := m.Login.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("login")
@@ -347,6 +367,11 @@ func (m *AAAFailureResponse) contextValidateLogin(ctx context.Context, formats s
 func (m *AAAFailureResponse) contextValidateLogout(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Logout != nil {
+
+		if swag.IsZero(m.Logout) { // not required
+			return nil
+		}
+
 		if err := m.Logout.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("logout")
@@ -363,6 +388,11 @@ func (m *AAAFailureResponse) contextValidateLogout(ctx context.Context, formats 
 func (m *AAAFailureResponse) contextValidateQuerySessionDetails(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.QuerySessionDetails != nil {
+
+		if swag.IsZero(m.QuerySessionDetails) { // not required
+			return nil
+		}
+
 		if err := m.QuerySessionDetails.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("querySessionDetails")
@@ -379,6 +409,11 @@ func (m *AAAFailureResponse) contextValidateQuerySessionDetails(ctx context.Cont
 func (m *AAAFailureResponse) contextValidateRefresh(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Refresh != nil {
+
+		if swag.IsZero(m.Refresh) { // not required
+			return nil
+		}
+
 		if err := m.Refresh.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("refresh")
@@ -395,6 +430,11 @@ func (m *AAAFailureResponse) contextValidateRefresh(ctx context.Context, formats
 func (m *AAAFailureResponse) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

@@ -122,6 +122,11 @@ func (m *MetricQueryResponse) contextValidateList(ctx context.Context, formats s
 	for i := 0; i < len(m.List); i++ {
 
 		if m.List[i] != nil {
+
+			if swag.IsZero(m.List[i]) { // not required
+				return nil
+			}
+
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
@@ -140,6 +145,11 @@ func (m *MetricQueryResponse) contextValidateList(ctx context.Context, formats s
 func (m *MetricQueryResponse) contextValidateThreshold(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Threshold != nil {
+
+		if swag.IsZero(m.Threshold) { // not required
+			return nil
+		}
+
 		if err := m.Threshold.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("threshold")

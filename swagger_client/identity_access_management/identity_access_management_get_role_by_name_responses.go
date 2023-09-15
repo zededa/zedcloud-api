@@ -111,6 +111,11 @@ func (o *IdentityAccessManagementGetRoleByNameOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management get role by name o k response
+func (o *IdentityAccessManagementGetRoleByNameOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementGetRoleByNameOK) Error() string {
 	return fmt.Sprintf("[GET /v1/roles/name/{name}][%d] identityAccessManagementGetRoleByNameOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *IdentityAccessManagementGetRoleByNameUnauthorized) IsServerError() bool
 // IsCode returns true when this identity access management get role by name unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementGetRoleByNameUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management get role by name unauthorized response
+func (o *IdentityAccessManagementGetRoleByNameUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementGetRoleByNameUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *IdentityAccessManagementGetRoleByNameForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the identity access management get role by name forbidden response
+func (o *IdentityAccessManagementGetRoleByNameForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementGetRoleByNameForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/roles/name/{name}][%d] identityAccessManagementGetRoleByNameForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *IdentityAccessManagementGetRoleByNameNotFound) IsServerError() bool {
 // IsCode returns true when this identity access management get role by name not found response a status code equal to that given
 func (o *IdentityAccessManagementGetRoleByNameNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management get role by name not found response
+func (o *IdentityAccessManagementGetRoleByNameNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementGetRoleByNameNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *IdentityAccessManagementGetRoleByNameInternalServerError) IsCode(code i
 	return code == 500
 }
 
+// Code gets the status code for the identity access management get role by name internal server error response
+func (o *IdentityAccessManagementGetRoleByNameInternalServerError) Code() int {
+	return 500
+}
+
 func (o *IdentityAccessManagementGetRoleByNameInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/roles/name/{name}][%d] identityAccessManagementGetRoleByNameInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *IdentityAccessManagementGetRoleByNameGatewayTimeout) IsCode(code int) b
 	return code == 504
 }
 
+// Code gets the status code for the identity access management get role by name gateway timeout response
+func (o *IdentityAccessManagementGetRoleByNameGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementGetRoleByNameGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/roles/name/{name}][%d] identityAccessManagementGetRoleByNameGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type IdentityAccessManagementGetRoleByNameDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management get role by name default response
-func (o *IdentityAccessManagementGetRoleByNameDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management get role by name default response has a 2xx status code
 func (o *IdentityAccessManagementGetRoleByNameDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *IdentityAccessManagementGetRoleByNameDefault) IsServerError() bool {
 // IsCode returns true when this identity access management get role by name default response a status code equal to that given
 func (o *IdentityAccessManagementGetRoleByNameDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management get role by name default response
+func (o *IdentityAccessManagementGetRoleByNameDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementGetRoleByNameDefault) Error() string {

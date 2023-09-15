@@ -117,6 +117,11 @@ func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge node configuration stop edgeview edge node o k response
+func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/edgeview/disable][%d] edgeNodeConfigurationStopEdgeviewEdgeNodeOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeUnauthorized) IsServerError() 
 // IsCode returns true when this edge node configuration stop edgeview edge node unauthorized response a status code equal to that given
 func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge node configuration stop edgeview edge node unauthorized response
+func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeUnauthorized) Error() string {
@@ -243,6 +253,11 @@ func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeForbidden) IsCode(code int) bo
 	return code == 403
 }
 
+// Code gets the status code for the edge node configuration stop edgeview edge node forbidden response
+func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/edgeview/disable][%d] edgeNodeConfigurationStopEdgeviewEdgeNodeForbidden  %+v", 403, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeNotFound) IsServerError() bool
 // IsCode returns true when this edge node configuration stop edgeview edge node not found response a status code equal to that given
 func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge node configuration stop edgeview edge node not found response
+func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeNotFound) Error() string {
@@ -369,6 +389,11 @@ func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeConflict) IsCode(code int) boo
 	return code == 409
 }
 
+// Code gets the status code for the edge node configuration stop edgeview edge node conflict response
+func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeConflict) Code() int {
+	return 409
+}
+
 func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/edgeview/disable][%d] edgeNodeConfigurationStopEdgeviewEdgeNodeConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeInternalServerError) IsServerE
 // IsCode returns true when this edge node configuration stop edgeview edge node internal server error response a status code equal to that given
 func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the edge node configuration stop edgeview edge node internal server error response
+func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeGatewayTimeout) IsCode(code in
 	return code == 504
 }
 
+// Code gets the status code for the edge node configuration stop edgeview edge node gateway timeout response
+func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/edgeview/disable][%d] edgeNodeConfigurationStopEdgeviewEdgeNodeGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type EdgeNodeConfigurationStopEdgeviewEdgeNodeDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node configuration stop edgeview edge node default response
-func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node configuration stop edgeview edge node default response has a 2xx status code
 func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeDefault) IsServerError() bool 
 // IsCode returns true when this edge node configuration stop edgeview edge node default response a status code equal to that given
 func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node configuration stop edgeview edge node default response
+func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeConfigurationStopEdgeviewEdgeNodeDefault) Error() string {

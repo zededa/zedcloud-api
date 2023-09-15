@@ -122,6 +122,11 @@ func (o *IdentityAccessManagementUpdateRoleOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management update role o k response
+func (o *IdentityAccessManagementUpdateRoleOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementUpdateRoleOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/roles/id/{id}][%d] identityAccessManagementUpdateRoleOK  %+v", 200, o.Payload)
 }
@@ -183,6 +188,11 @@ func (o *IdentityAccessManagementUpdateRoleUnauthorized) IsServerError() bool {
 // IsCode returns true when this identity access management update role unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementUpdateRoleUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management update role unauthorized response
+func (o *IdentityAccessManagementUpdateRoleUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementUpdateRoleUnauthorized) Error() string {
@@ -248,6 +258,11 @@ func (o *IdentityAccessManagementUpdateRoleForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the identity access management update role forbidden response
+func (o *IdentityAccessManagementUpdateRoleForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementUpdateRoleForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/roles/id/{id}][%d] identityAccessManagementUpdateRoleForbidden  %+v", 403, o.Payload)
 }
@@ -309,6 +324,11 @@ func (o *IdentityAccessManagementUpdateRoleNotFound) IsServerError() bool {
 // IsCode returns true when this identity access management update role not found response a status code equal to that given
 func (o *IdentityAccessManagementUpdateRoleNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management update role not found response
+func (o *IdentityAccessManagementUpdateRoleNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementUpdateRoleNotFound) Error() string {
@@ -374,6 +394,11 @@ func (o *IdentityAccessManagementUpdateRoleConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the identity access management update role conflict response
+func (o *IdentityAccessManagementUpdateRoleConflict) Code() int {
+	return 409
+}
+
 func (o *IdentityAccessManagementUpdateRoleConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/roles/id/{id}][%d] identityAccessManagementUpdateRoleConflict  %+v", 409, o.Payload)
 }
@@ -435,6 +460,11 @@ func (o *IdentityAccessManagementUpdateRoleInternalServerError) IsServerError() 
 // IsCode returns true when this identity access management update role internal server error response a status code equal to that given
 func (o *IdentityAccessManagementUpdateRoleInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management update role internal server error response
+func (o *IdentityAccessManagementUpdateRoleInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementUpdateRoleInternalServerError) Error() string {
@@ -500,6 +530,11 @@ func (o *IdentityAccessManagementUpdateRoleGatewayTimeout) IsCode(code int) bool
 	return code == 504
 }
 
+// Code gets the status code for the identity access management update role gateway timeout response
+func (o *IdentityAccessManagementUpdateRoleGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementUpdateRoleGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/roles/id/{id}][%d] identityAccessManagementUpdateRoleGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -542,11 +577,6 @@ type IdentityAccessManagementUpdateRoleDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management update role default response
-func (o *IdentityAccessManagementUpdateRoleDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management update role default response has a 2xx status code
 func (o *IdentityAccessManagementUpdateRoleDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -570,6 +600,11 @@ func (o *IdentityAccessManagementUpdateRoleDefault) IsServerError() bool {
 // IsCode returns true when this identity access management update role default response a status code equal to that given
 func (o *IdentityAccessManagementUpdateRoleDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management update role default response
+func (o *IdentityAccessManagementUpdateRoleDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementUpdateRoleDefault) Error() string {
@@ -849,6 +884,11 @@ func (o *IdentityAccessManagementUpdateRoleBody) ContextValidate(ctx context.Con
 func (o *IdentityAccessManagementUpdateRoleBody) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Revision != nil {
+
+		if swag.IsZero(o.Revision) { // not required
+			return nil
+		}
+
 		if err := o.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "revision")
@@ -867,6 +907,11 @@ func (o *IdentityAccessManagementUpdateRoleBody) contextValidateScopes(ctx conte
 	for i := 0; i < len(o.Scopes); i++ {
 
 		if o.Scopes[i] != nil {
+
+			if swag.IsZero(o.Scopes[i]) { // not required
+				return nil
+			}
+
 			if err := o.Scopes[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("body" + "." + "scopes" + "." + strconv.Itoa(i))
@@ -885,6 +930,11 @@ func (o *IdentityAccessManagementUpdateRoleBody) contextValidateScopes(ctx conte
 func (o *IdentityAccessManagementUpdateRoleBody) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.State != nil {
+
+		if swag.IsZero(o.State) { // not required
+			return nil
+		}
+
 		if err := o.State.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "state")
@@ -901,6 +951,7 @@ func (o *IdentityAccessManagementUpdateRoleBody) contextValidateState(ctx contex
 func (o *IdentityAccessManagementUpdateRoleBody) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Type != nil {
+
 		if err := o.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "type")

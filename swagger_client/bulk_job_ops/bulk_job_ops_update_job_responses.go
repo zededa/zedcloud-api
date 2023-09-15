@@ -127,6 +127,11 @@ func (o *BulkJobOpsUpdateJobOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the bulk job ops update job o k response
+func (o *BulkJobOpsUpdateJobOK) Code() int {
+	return 200
+}
+
 func (o *BulkJobOpsUpdateJobOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/id/{id}][%d] bulkJobOpsUpdateJobOK  %+v", 200, o.Payload)
 }
@@ -188,6 +193,11 @@ func (o *BulkJobOpsUpdateJobBadRequest) IsServerError() bool {
 // IsCode returns true when this bulk job ops update job bad request response a status code equal to that given
 func (o *BulkJobOpsUpdateJobBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the bulk job ops update job bad request response
+func (o *BulkJobOpsUpdateJobBadRequest) Code() int {
+	return 400
 }
 
 func (o *BulkJobOpsUpdateJobBadRequest) Error() string {
@@ -253,6 +263,11 @@ func (o *BulkJobOpsUpdateJobUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the bulk job ops update job unauthorized response
+func (o *BulkJobOpsUpdateJobUnauthorized) Code() int {
+	return 401
+}
+
 func (o *BulkJobOpsUpdateJobUnauthorized) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/id/{id}][%d] bulkJobOpsUpdateJobUnauthorized  %+v", 401, o.Payload)
 }
@@ -314,6 +329,11 @@ func (o *BulkJobOpsUpdateJobForbidden) IsServerError() bool {
 // IsCode returns true when this bulk job ops update job forbidden response a status code equal to that given
 func (o *BulkJobOpsUpdateJobForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the bulk job ops update job forbidden response
+func (o *BulkJobOpsUpdateJobForbidden) Code() int {
+	return 403
 }
 
 func (o *BulkJobOpsUpdateJobForbidden) Error() string {
@@ -379,6 +399,11 @@ func (o *BulkJobOpsUpdateJobNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the bulk job ops update job not found response
+func (o *BulkJobOpsUpdateJobNotFound) Code() int {
+	return 404
+}
+
 func (o *BulkJobOpsUpdateJobNotFound) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/id/{id}][%d] bulkJobOpsUpdateJobNotFound  %+v", 404, o.Payload)
 }
@@ -440,6 +465,11 @@ func (o *BulkJobOpsUpdateJobConflict) IsServerError() bool {
 // IsCode returns true when this bulk job ops update job conflict response a status code equal to that given
 func (o *BulkJobOpsUpdateJobConflict) IsCode(code int) bool {
 	return code == 409
+}
+
+// Code gets the status code for the bulk job ops update job conflict response
+func (o *BulkJobOpsUpdateJobConflict) Code() int {
+	return 409
 }
 
 func (o *BulkJobOpsUpdateJobConflict) Error() string {
@@ -505,6 +535,11 @@ func (o *BulkJobOpsUpdateJobInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the bulk job ops update job internal server error response
+func (o *BulkJobOpsUpdateJobInternalServerError) Code() int {
+	return 500
+}
+
 func (o *BulkJobOpsUpdateJobInternalServerError) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/id/{id}][%d] bulkJobOpsUpdateJobInternalServerError  %+v", 500, o.Payload)
 }
@@ -568,6 +603,11 @@ func (o *BulkJobOpsUpdateJobGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the bulk job ops update job gateway timeout response
+func (o *BulkJobOpsUpdateJobGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *BulkJobOpsUpdateJobGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/id/{id}][%d] bulkJobOpsUpdateJobGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -610,11 +650,6 @@ type BulkJobOpsUpdateJobDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the bulk job ops update job default response
-func (o *BulkJobOpsUpdateJobDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this bulk job ops update job default response has a 2xx status code
 func (o *BulkJobOpsUpdateJobDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -638,6 +673,11 @@ func (o *BulkJobOpsUpdateJobDefault) IsServerError() bool {
 // IsCode returns true when this bulk job ops update job default response a status code equal to that given
 func (o *BulkJobOpsUpdateJobDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the bulk job ops update job default response
+func (o *BulkJobOpsUpdateJobDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *BulkJobOpsUpdateJobDefault) Error() string {
@@ -989,6 +1029,7 @@ func (o *BulkJobOpsUpdateJobBody) contextValidateIndividualOpStatus(ctx context.
 func (o *BulkJobOpsUpdateJobBody) contextValidateObjectType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ObjectType != nil {
+
 		if err := o.ObjectType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "objectType")
@@ -1005,6 +1046,11 @@ func (o *BulkJobOpsUpdateJobBody) contextValidateObjectType(ctx context.Context,
 func (o *BulkJobOpsUpdateJobBody) contextValidateOperationType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.OperationType != nil {
+
+		if swag.IsZero(o.OperationType) { // not required
+			return nil
+		}
+
 		if err := o.OperationType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "operationType")
@@ -1021,6 +1067,11 @@ func (o *BulkJobOpsUpdateJobBody) contextValidateOperationType(ctx context.Conte
 func (o *BulkJobOpsUpdateJobBody) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Revision != nil {
+
+		if swag.IsZero(o.Revision) { // not required
+			return nil
+		}
+
 		if err := o.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "revision")
@@ -1037,6 +1088,11 @@ func (o *BulkJobOpsUpdateJobBody) contextValidateRevision(ctx context.Context, f
 func (o *BulkJobOpsUpdateJobBody) contextValidateSelectionCriteria(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.SelectionCriteria != nil {
+
+		if swag.IsZero(o.SelectionCriteria) { // not required
+			return nil
+		}
+
 		if err := o.SelectionCriteria.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "selectionCriteria")
@@ -1062,6 +1118,11 @@ func (o *BulkJobOpsUpdateJobBody) contextValidateStartTime(ctx context.Context, 
 func (o *BulkJobOpsUpdateJobBody) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Status != nil {
+
+		if swag.IsZero(o.Status) { // not required
+			return nil
+		}
+
 		if err := o.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "status")

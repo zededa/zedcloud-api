@@ -111,6 +111,11 @@ func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusOK) IsCo
 	return code == 200
 }
 
+// Code gets the status code for the edge application instance status query edge application instance status o k response
+func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusOK) Code() int {
+	return 200
+}
+
 func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusOK) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/status][%d] edgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusBadReque
 // IsCode returns true when this edge application instance status query edge application instance status bad request response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the edge application instance status query edge application instance status bad request response
+func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusBadRequest) Code() int {
+	return 400
 }
 
 func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusUnauthor
 	return code == 401
 }
 
+// Code gets the status code for the edge application instance status query edge application instance status unauthorized response
+func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusUnauthorized) Code() int {
+	return 401
+}
+
 func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/status][%d] edgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusForbidde
 // IsCode returns true when this edge application instance status query edge application instance status forbidden response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the edge application instance status query edge application instance status forbidden response
+func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusForbidden) Code() int {
+	return 403
 }
 
 func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusInternal
 	return code == 500
 }
 
+// Code gets the status code for the edge application instance status query edge application instance status internal server error response
+func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/status][%d] edgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusGatewayT
 	return code == 504
 }
 
+// Code gets the status code for the edge application instance status query edge application instance status gateway timeout response
+func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/status][%d] edgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusDefault stru
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge application instance status query edge application instance status default response
-func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge application instance status query edge application instance status default response has a 2xx status code
 func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusDefault)
 // IsCode returns true when this edge application instance status query edge application instance status default response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge application instance status query edge application instance status default response
+func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeApplicationInstanceStatusQueryEdgeApplicationInstanceStatusDefault) Error() string {

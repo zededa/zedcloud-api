@@ -233,6 +233,11 @@ func (m *Apps) contextValidateList(ctx context.Context, formats strfmt.Registry)
 	for i := 0; i < len(m.List); i++ {
 
 		if m.List[i] != nil {
+
+			if swag.IsZero(m.List[i]) { // not required
+				return nil
+			}
+
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
@@ -251,6 +256,11 @@ func (m *Apps) contextValidateList(ctx context.Context, formats strfmt.Registry)
 func (m *Apps) contextValidateNext(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Next != nil {
+
+		if swag.IsZero(m.Next) { // not required
+			return nil
+		}
+
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
@@ -267,6 +277,11 @@ func (m *Apps) contextValidateNext(ctx context.Context, formats strfmt.Registry)
 func (m *Apps) contextValidateSummaryByAppInstanceDistribution(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByAppInstanceDistribution != nil {
+
+		if swag.IsZero(m.SummaryByAppInstanceDistribution) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByAppInstanceDistribution.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByAppInstanceDistribution")
@@ -283,6 +298,11 @@ func (m *Apps) contextValidateSummaryByAppInstanceDistribution(ctx context.Conte
 func (m *Apps) contextValidateSummaryByAppType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByAppType != nil {
+
+		if swag.IsZero(m.SummaryByAppType) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByAppType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByAppType")
@@ -299,6 +319,11 @@ func (m *Apps) contextValidateSummaryByAppType(ctx context.Context, formats strf
 func (m *Apps) contextValidateSummaryByCategory(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByCategory != nil {
+
+		if swag.IsZero(m.SummaryByCategory) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByCategory.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByCategory")
@@ -315,6 +340,11 @@ func (m *Apps) contextValidateSummaryByCategory(ctx context.Context, formats str
 func (m *Apps) contextValidateSummaryByOrigin(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByOrigin != nil {
+
+		if swag.IsZero(m.SummaryByOrigin) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByOrigin.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByOrigin")

@@ -121,6 +121,11 @@ func (o *DatastoreConfigurationUpdateDatastoreOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the datastore configuration update datastore o k response
+func (o *DatastoreConfigurationUpdateDatastoreOK) Code() int {
+	return 200
+}
+
 func (o *DatastoreConfigurationUpdateDatastoreOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/datastores/id/{id}][%d] datastoreConfigurationUpdateDatastoreOK  %+v", 200, o.Payload)
 }
@@ -182,6 +187,11 @@ func (o *DatastoreConfigurationUpdateDatastoreUnauthorized) IsServerError() bool
 // IsCode returns true when this datastore configuration update datastore unauthorized response a status code equal to that given
 func (o *DatastoreConfigurationUpdateDatastoreUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the datastore configuration update datastore unauthorized response
+func (o *DatastoreConfigurationUpdateDatastoreUnauthorized) Code() int {
+	return 401
 }
 
 func (o *DatastoreConfigurationUpdateDatastoreUnauthorized) Error() string {
@@ -247,6 +257,11 @@ func (o *DatastoreConfigurationUpdateDatastoreForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the datastore configuration update datastore forbidden response
+func (o *DatastoreConfigurationUpdateDatastoreForbidden) Code() int {
+	return 403
+}
+
 func (o *DatastoreConfigurationUpdateDatastoreForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/datastores/id/{id}][%d] datastoreConfigurationUpdateDatastoreForbidden  %+v", 403, o.Payload)
 }
@@ -308,6 +323,11 @@ func (o *DatastoreConfigurationUpdateDatastoreNotFound) IsServerError() bool {
 // IsCode returns true when this datastore configuration update datastore not found response a status code equal to that given
 func (o *DatastoreConfigurationUpdateDatastoreNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the datastore configuration update datastore not found response
+func (o *DatastoreConfigurationUpdateDatastoreNotFound) Code() int {
+	return 404
 }
 
 func (o *DatastoreConfigurationUpdateDatastoreNotFound) Error() string {
@@ -373,6 +393,11 @@ func (o *DatastoreConfigurationUpdateDatastoreConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the datastore configuration update datastore conflict response
+func (o *DatastoreConfigurationUpdateDatastoreConflict) Code() int {
+	return 409
+}
+
 func (o *DatastoreConfigurationUpdateDatastoreConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/datastores/id/{id}][%d] datastoreConfigurationUpdateDatastoreConflict  %+v", 409, o.Payload)
 }
@@ -434,6 +459,11 @@ func (o *DatastoreConfigurationUpdateDatastoreInternalServerError) IsServerError
 // IsCode returns true when this datastore configuration update datastore internal server error response a status code equal to that given
 func (o *DatastoreConfigurationUpdateDatastoreInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the datastore configuration update datastore internal server error response
+func (o *DatastoreConfigurationUpdateDatastoreInternalServerError) Code() int {
+	return 500
 }
 
 func (o *DatastoreConfigurationUpdateDatastoreInternalServerError) Error() string {
@@ -499,6 +529,11 @@ func (o *DatastoreConfigurationUpdateDatastoreGatewayTimeout) IsCode(code int) b
 	return code == 504
 }
 
+// Code gets the status code for the datastore configuration update datastore gateway timeout response
+func (o *DatastoreConfigurationUpdateDatastoreGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *DatastoreConfigurationUpdateDatastoreGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/datastores/id/{id}][%d] datastoreConfigurationUpdateDatastoreGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -541,11 +576,6 @@ type DatastoreConfigurationUpdateDatastoreDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the datastore configuration update datastore default response
-func (o *DatastoreConfigurationUpdateDatastoreDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this datastore configuration update datastore default response has a 2xx status code
 func (o *DatastoreConfigurationUpdateDatastoreDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -569,6 +599,11 @@ func (o *DatastoreConfigurationUpdateDatastoreDefault) IsServerError() bool {
 // IsCode returns true when this datastore configuration update datastore default response a status code equal to that given
 func (o *DatastoreConfigurationUpdateDatastoreDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the datastore configuration update datastore default response
+func (o *DatastoreConfigurationUpdateDatastoreDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DatastoreConfigurationUpdateDatastoreDefault) Error() string {
@@ -973,6 +1008,11 @@ func (o *DatastoreConfigurationUpdateDatastoreBody) ContextValidate(ctx context.
 func (o *DatastoreConfigurationUpdateDatastoreBody) contextValidateCertificateChain(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.CertificateChain != nil {
+
+		if swag.IsZero(o.CertificateChain) { // not required
+			return nil
+		}
+
 		if err := o.CertificateChain.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "certificateChain")
@@ -1007,6 +1047,11 @@ func (o *DatastoreConfigurationUpdateDatastoreBody) contextValidateDsErr(ctx con
 func (o *DatastoreConfigurationUpdateDatastoreBody) contextValidateDsStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.DsStatus != nil {
+
+		if swag.IsZero(o.DsStatus) { // not required
+			return nil
+		}
+
 		if err := o.DsStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "dsStatus")
@@ -1023,6 +1068,7 @@ func (o *DatastoreConfigurationUpdateDatastoreBody) contextValidateDsStatus(ctx 
 func (o *DatastoreConfigurationUpdateDatastoreBody) contextValidateDsType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.DsType != nil {
+
 		if err := o.DsType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "dsType")
@@ -1044,6 +1090,11 @@ func (o *DatastoreConfigurationUpdateDatastoreBody) contextValidateEncryptedSecr
 func (o *DatastoreConfigurationUpdateDatastoreBody) contextValidateOriginType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.OriginType != nil {
+
+		if swag.IsZero(o.OriginType) { // not required
+			return nil
+		}
+
 		if err := o.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "originType")
@@ -1060,6 +1111,11 @@ func (o *DatastoreConfigurationUpdateDatastoreBody) contextValidateOriginType(ct
 func (o *DatastoreConfigurationUpdateDatastoreBody) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Revision != nil {
+
+		if swag.IsZero(o.Revision) { // not required
+			return nil
+		}
+
 		if err := o.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "revision")
@@ -1076,6 +1132,11 @@ func (o *DatastoreConfigurationUpdateDatastoreBody) contextValidateRevision(ctx 
 func (o *DatastoreConfigurationUpdateDatastoreBody) contextValidateSecret(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Secret != nil {
+
+		if swag.IsZero(o.Secret) { // not required
+			return nil
+		}
+
 		if err := o.Secret.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "secret")

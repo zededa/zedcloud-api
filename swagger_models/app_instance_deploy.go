@@ -84,6 +84,11 @@ func (m *AppInstanceDeploy) contextValidateInstanceConfig(ctx context.Context, f
 	for i := 0; i < len(m.InstanceConfig); i++ {
 
 		if m.InstanceConfig[i] != nil {
+
+			if swag.IsZero(m.InstanceConfig[i]) { // not required
+				return nil
+			}
+
 			if err := m.InstanceConfig[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("instanceConfig" + "." + strconv.Itoa(i))

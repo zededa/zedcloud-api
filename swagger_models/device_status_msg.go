@@ -909,6 +909,11 @@ func (m *DeviceStatusMsg) ContextValidate(ctx context.Context, formats strfmt.Re
 func (m *DeviceStatusMsg) contextValidateCPU(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CPU != nil {
+
+		if swag.IsZero(m.CPU) { // not required
+			return nil
+		}
+
 		if err := m.CPU.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Cpu")
@@ -925,6 +930,11 @@ func (m *DeviceStatusMsg) contextValidateCPU(ctx context.Context, formats strfmt
 func (m *DeviceStatusMsg) contextValidateMemory(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Memory != nil {
+
+		if swag.IsZero(m.Memory) { // not required
+			return nil
+		}
+
 		if err := m.Memory.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Memory")
@@ -941,6 +951,11 @@ func (m *DeviceStatusMsg) contextValidateMemory(ctx context.Context, formats str
 func (m *DeviceStatusMsg) contextValidateStorage(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Storage != nil {
+
+		if swag.IsZero(m.Storage) { // not required
+			return nil
+		}
+
 		if err := m.Storage.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Storage")
@@ -957,6 +972,11 @@ func (m *DeviceStatusMsg) contextValidateStorage(ctx context.Context, formats st
 func (m *DeviceStatusMsg) contextValidateAdminState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AdminState != nil {
+
+		if swag.IsZero(m.AdminState) { // not required
+			return nil
+		}
+
 		if err := m.AdminState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminState")
@@ -973,6 +993,11 @@ func (m *DeviceStatusMsg) contextValidateAdminState(ctx context.Context, formats
 func (m *DeviceStatusMsg) contextValidateAttestState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AttestState != nil {
+
+		if swag.IsZero(m.AttestState) { // not required
+			return nil
+		}
+
 		if err := m.AttestState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("attestState")
@@ -991,6 +1016,11 @@ func (m *DeviceStatusMsg) contextValidateBlobList(ctx context.Context, formats s
 	for i := 0; i < len(m.BlobList); i++ {
 
 		if m.BlobList[i] != nil {
+
+			if swag.IsZero(m.BlobList[i]) { // not required
+				return nil
+			}
+
 			if err := m.BlobList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("blobList" + "." + strconv.Itoa(i))
@@ -1009,6 +1039,11 @@ func (m *DeviceStatusMsg) contextValidateBlobList(ctx context.Context, formats s
 func (m *DeviceStatusMsg) contextValidateCapabilities(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Capabilities != nil {
+
+		if swag.IsZero(m.Capabilities) { // not required
+			return nil
+		}
+
 		if err := m.Capabilities.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("capabilities")
@@ -1027,6 +1062,11 @@ func (m *DeviceStatusMsg) contextValidateDataSecInfo(ctx context.Context, format
 	for i := 0; i < len(m.DataSecInfo); i++ {
 
 		if m.DataSecInfo[i] != nil {
+
+			if swag.IsZero(m.DataSecInfo[i]) { // not required
+				return nil
+			}
+
 			if err := m.DataSecInfo[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dataSecInfo" + "." + strconv.Itoa(i))
@@ -1047,6 +1087,11 @@ func (m *DeviceStatusMsg) contextValidateDevError(ctx context.Context, formats s
 	for i := 0; i < len(m.DevError); i++ {
 
 		if m.DevError[i] != nil {
+
+			if swag.IsZero(m.DevError[i]) { // not required
+				return nil
+			}
+
 			if err := m.DevError[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("devError" + "." + strconv.Itoa(i))
@@ -1065,6 +1110,11 @@ func (m *DeviceStatusMsg) contextValidateDevError(ctx context.Context, formats s
 func (m *DeviceStatusMsg) contextValidateDeviceRebootReason(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DeviceRebootReason != nil {
+
+		if swag.IsZero(m.DeviceRebootReason) { // not required
+			return nil
+		}
+
 		if err := m.DeviceRebootReason.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deviceRebootReason")
@@ -1081,6 +1131,11 @@ func (m *DeviceStatusMsg) contextValidateDeviceRebootReason(ctx context.Context,
 func (m *DeviceStatusMsg) contextValidateDinfo(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Dinfo != nil {
+
+		if swag.IsZero(m.Dinfo) { // not required
+			return nil
+		}
+
 		if err := m.Dinfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dinfo")
@@ -1097,6 +1152,11 @@ func (m *DeviceStatusMsg) contextValidateDinfo(ctx context.Context, formats strf
 func (m *DeviceStatusMsg) contextValidateDNS(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DNS != nil {
+
+		if swag.IsZero(m.DNS) { // not required
+			return nil
+		}
+
 		if err := m.DNS.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dns")
@@ -1115,6 +1175,11 @@ func (m *DeviceStatusMsg) contextValidateIoStatusList(ctx context.Context, forma
 	for i := 0; i < len(m.IoStatusList); i++ {
 
 		if m.IoStatusList[i] != nil {
+
+			if swag.IsZero(m.IoStatusList[i]) { // not required
+				return nil
+			}
+
 			if err := m.IoStatusList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ioStatusList" + "." + strconv.Itoa(i))
@@ -1133,6 +1198,11 @@ func (m *DeviceStatusMsg) contextValidateIoStatusList(ctx context.Context, forma
 func (m *DeviceStatusMsg) contextValidateMemorySummary(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.MemorySummary != nil {
+
+		if swag.IsZero(m.MemorySummary) { // not required
+			return nil
+		}
+
 		if err := m.MemorySummary.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("memorySummary")
@@ -1149,6 +1219,11 @@ func (m *DeviceStatusMsg) contextValidateMemorySummary(ctx context.Context, form
 func (m *DeviceStatusMsg) contextValidateMinfo(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Minfo != nil {
+
+		if swag.IsZero(m.Minfo) { // not required
+			return nil
+		}
+
 		if err := m.Minfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("minfo")
@@ -1167,6 +1242,11 @@ func (m *DeviceStatusMsg) contextValidateNetCounterList(ctx context.Context, for
 	for i := 0; i < len(m.NetCounterList); i++ {
 
 		if m.NetCounterList[i] != nil {
+
+			if swag.IsZero(m.NetCounterList[i]) { // not required
+				return nil
+			}
+
 			if err := m.NetCounterList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("netCounterList" + "." + strconv.Itoa(i))
@@ -1187,6 +1267,11 @@ func (m *DeviceStatusMsg) contextValidateNetStatusList(ctx context.Context, form
 	for i := 0; i < len(m.NetStatusList); i++ {
 
 		if m.NetStatusList[i] != nil {
+
+			if swag.IsZero(m.NetStatusList[i]) { // not required
+				return nil
+			}
+
 			if err := m.NetStatusList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("netStatusList" + "." + strconv.Itoa(i))
@@ -1205,6 +1290,11 @@ func (m *DeviceStatusMsg) contextValidateNetStatusList(ctx context.Context, form
 func (m *DeviceStatusMsg) contextValidateRunState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.RunState != nil {
+
+		if swag.IsZero(m.RunState) { // not required
+			return nil
+		}
+
 		if err := m.RunState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
@@ -1223,6 +1313,11 @@ func (m *DeviceStatusMsg) contextValidateStorageList(ctx context.Context, format
 	for i := 0; i < len(m.StorageList); i++ {
 
 		if m.StorageList[i] != nil {
+
+			if swag.IsZero(m.StorageList[i]) { // not required
+				return nil
+			}
+
 			if err := m.StorageList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("storageList" + "." + strconv.Itoa(i))
@@ -1243,6 +1338,11 @@ func (m *DeviceStatusMsg) contextValidateSwInfo(ctx context.Context, formats str
 	for i := 0; i < len(m.SwInfo); i++ {
 
 		if m.SwInfo[i] != nil {
+
+			if swag.IsZero(m.SwInfo[i]) { // not required
+				return nil
+			}
+
 			if err := m.SwInfo[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("swInfo" + "." + strconv.Itoa(i))
@@ -1263,6 +1363,11 @@ func (m *DeviceStatusMsg) contextValidateZcCounters(ctx context.Context, formats
 	for i := 0; i < len(m.ZcCounters); i++ {
 
 		if m.ZcCounters[i] != nil {
+
+			if swag.IsZero(m.ZcCounters[i]) { // not required
+				return nil
+			}
+
 			if err := m.ZcCounters[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("zcCounters" + "." + strconv.Itoa(i))
@@ -1281,6 +1386,11 @@ func (m *DeviceStatusMsg) contextValidateZcCounters(ctx context.Context, formats
 func (m *DeviceStatusMsg) contextValidateZpoolMetrics(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ZpoolMetrics != nil {
+
+		if swag.IsZero(m.ZpoolMetrics) { // not required
+			return nil
+		}
+
 		if err := m.ZpoolMetrics.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("zpoolMetrics")

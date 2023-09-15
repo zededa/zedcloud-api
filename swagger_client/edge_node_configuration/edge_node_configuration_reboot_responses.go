@@ -117,6 +117,11 @@ func (o *EdgeNodeConfigurationRebootOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge node configuration reboot o k response
+func (o *EdgeNodeConfigurationRebootOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeConfigurationRebootOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/reboot][%d] edgeNodeConfigurationRebootOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *EdgeNodeConfigurationRebootUnauthorized) IsServerError() bool {
 // IsCode returns true when this edge node configuration reboot unauthorized response a status code equal to that given
 func (o *EdgeNodeConfigurationRebootUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge node configuration reboot unauthorized response
+func (o *EdgeNodeConfigurationRebootUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNodeConfigurationRebootUnauthorized) Error() string {
@@ -243,6 +253,11 @@ func (o *EdgeNodeConfigurationRebootForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the edge node configuration reboot forbidden response
+func (o *EdgeNodeConfigurationRebootForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNodeConfigurationRebootForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/reboot][%d] edgeNodeConfigurationRebootForbidden  %+v", 403, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *EdgeNodeConfigurationRebootNotFound) IsServerError() bool {
 // IsCode returns true when this edge node configuration reboot not found response a status code equal to that given
 func (o *EdgeNodeConfigurationRebootNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge node configuration reboot not found response
+func (o *EdgeNodeConfigurationRebootNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNodeConfigurationRebootNotFound) Error() string {
@@ -369,6 +389,11 @@ func (o *EdgeNodeConfigurationRebootConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the edge node configuration reboot conflict response
+func (o *EdgeNodeConfigurationRebootConflict) Code() int {
+	return 409
+}
+
 func (o *EdgeNodeConfigurationRebootConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/reboot][%d] edgeNodeConfigurationRebootConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *EdgeNodeConfigurationRebootInternalServerError) IsServerError() bool {
 // IsCode returns true when this edge node configuration reboot internal server error response a status code equal to that given
 func (o *EdgeNodeConfigurationRebootInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the edge node configuration reboot internal server error response
+func (o *EdgeNodeConfigurationRebootInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EdgeNodeConfigurationRebootInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *EdgeNodeConfigurationRebootGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the edge node configuration reboot gateway timeout response
+func (o *EdgeNodeConfigurationRebootGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeConfigurationRebootGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/reboot][%d] edgeNodeConfigurationRebootGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type EdgeNodeConfigurationRebootDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node configuration reboot default response
-func (o *EdgeNodeConfigurationRebootDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node configuration reboot default response has a 2xx status code
 func (o *EdgeNodeConfigurationRebootDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *EdgeNodeConfigurationRebootDefault) IsServerError() bool {
 // IsCode returns true when this edge node configuration reboot default response a status code equal to that given
 func (o *EdgeNodeConfigurationRebootDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node configuration reboot default response
+func (o *EdgeNodeConfigurationRebootDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeConfigurationRebootDefault) Error() string {

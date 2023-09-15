@@ -81,6 +81,11 @@ func (m *NetProxyServer) ContextValidate(ctx context.Context, formats strfmt.Reg
 func (m *NetProxyServer) contextValidateProto(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Proto != nil {
+
+		if swag.IsZero(m.Proto) { // not required
+			return nil
+		}
+
 		if err := m.Proto.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("proto")

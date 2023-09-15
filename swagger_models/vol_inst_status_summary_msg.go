@@ -175,6 +175,11 @@ func (m *VolInstStatusSummaryMsg) ContextValidate(ctx context.Context, formats s
 func (m *VolInstStatusSummaryMsg) contextValidateDeviceState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DeviceState != nil {
+
+		if swag.IsZero(m.DeviceState) { // not required
+			return nil
+		}
+
 		if err := m.DeviceState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deviceState")
@@ -191,6 +196,11 @@ func (m *VolInstStatusSummaryMsg) contextValidateDeviceState(ctx context.Context
 func (m *VolInstStatusSummaryMsg) contextValidateRunState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.RunState != nil {
+
+		if swag.IsZero(m.RunState) { // not required
+			return nil
+		}
+
 		if err := m.RunState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
@@ -207,6 +217,11 @@ func (m *VolInstStatusSummaryMsg) contextValidateRunState(ctx context.Context, f
 func (m *VolInstStatusSummaryMsg) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

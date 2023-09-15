@@ -117,6 +117,11 @@ func (o *EdgeDiagnosticsRegenDeviceConfigOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge diagnostics regen device config o k response
+func (o *EdgeDiagnosticsRegenDeviceConfigOK) Code() int {
+	return 200
+}
+
 func (o *EdgeDiagnosticsRegenDeviceConfigOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/config][%d] edgeDiagnosticsRegenDeviceConfigOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *EdgeDiagnosticsRegenDeviceConfigBadRequest) IsServerError() bool {
 // IsCode returns true when this edge diagnostics regen device config bad request response a status code equal to that given
 func (o *EdgeDiagnosticsRegenDeviceConfigBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the edge diagnostics regen device config bad request response
+func (o *EdgeDiagnosticsRegenDeviceConfigBadRequest) Code() int {
+	return 400
 }
 
 func (o *EdgeDiagnosticsRegenDeviceConfigBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *EdgeDiagnosticsRegenDeviceConfigUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the edge diagnostics regen device config unauthorized response
+func (o *EdgeDiagnosticsRegenDeviceConfigUnauthorized) Code() int {
+	return 401
+}
+
 func (o *EdgeDiagnosticsRegenDeviceConfigUnauthorized) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/config][%d] edgeDiagnosticsRegenDeviceConfigUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *EdgeDiagnosticsRegenDeviceConfigForbidden) IsServerError() bool {
 // IsCode returns true when this edge diagnostics regen device config forbidden response a status code equal to that given
 func (o *EdgeDiagnosticsRegenDeviceConfigForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the edge diagnostics regen device config forbidden response
+func (o *EdgeDiagnosticsRegenDeviceConfigForbidden) Code() int {
+	return 403
 }
 
 func (o *EdgeDiagnosticsRegenDeviceConfigForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *EdgeDiagnosticsRegenDeviceConfigNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the edge diagnostics regen device config not found response
+func (o *EdgeDiagnosticsRegenDeviceConfigNotFound) Code() int {
+	return 404
+}
+
 func (o *EdgeDiagnosticsRegenDeviceConfigNotFound) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/config][%d] edgeDiagnosticsRegenDeviceConfigNotFound  %+v", 404, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *EdgeDiagnosticsRegenDeviceConfigInternalServerError) IsServerError() bo
 // IsCode returns true when this edge diagnostics regen device config internal server error response a status code equal to that given
 func (o *EdgeDiagnosticsRegenDeviceConfigInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the edge diagnostics regen device config internal server error response
+func (o *EdgeDiagnosticsRegenDeviceConfigInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EdgeDiagnosticsRegenDeviceConfigInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *EdgeDiagnosticsRegenDeviceConfigGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the edge diagnostics regen device config gateway timeout response
+func (o *EdgeDiagnosticsRegenDeviceConfigGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeDiagnosticsRegenDeviceConfigGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/config][%d] edgeDiagnosticsRegenDeviceConfigGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type EdgeDiagnosticsRegenDeviceConfigDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge diagnostics regen device config default response
-func (o *EdgeDiagnosticsRegenDeviceConfigDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge diagnostics regen device config default response has a 2xx status code
 func (o *EdgeDiagnosticsRegenDeviceConfigDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *EdgeDiagnosticsRegenDeviceConfigDefault) IsServerError() bool {
 // IsCode returns true when this edge diagnostics regen device config default response a status code equal to that given
 func (o *EdgeDiagnosticsRegenDeviceConfigDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge diagnostics regen device config default response
+func (o *EdgeDiagnosticsRegenDeviceConfigDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeDiagnosticsRegenDeviceConfigDefault) Error() string {

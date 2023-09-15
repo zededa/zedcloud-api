@@ -86,6 +86,11 @@ func (m *ProjectSummaryReport) contextValidateDeviceDistribution(ctx context.Con
 	for i := 0; i < len(m.DeviceDistribution); i++ {
 
 		if m.DeviceDistribution[i] != nil {
+
+			if swag.IsZero(m.DeviceDistribution[i]) { // not required
+				return nil
+			}
+
 			if err := m.DeviceDistribution[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("deviceDistribution" + "." + strconv.Itoa(i))

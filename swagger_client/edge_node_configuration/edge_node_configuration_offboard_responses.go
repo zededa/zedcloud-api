@@ -111,6 +111,11 @@ func (o *EdgeNodeConfigurationOffboardOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge node configuration offboard o k response
+func (o *EdgeNodeConfigurationOffboardOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeConfigurationOffboardOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/Offboard][%d] edgeNodeConfigurationOffboardOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeNodeConfigurationOffboardUnauthorized) IsServerError() bool {
 // IsCode returns true when this edge node configuration offboard unauthorized response a status code equal to that given
 func (o *EdgeNodeConfigurationOffboardUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge node configuration offboard unauthorized response
+func (o *EdgeNodeConfigurationOffboardUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNodeConfigurationOffboardUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeNodeConfigurationOffboardForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the edge node configuration offboard forbidden response
+func (o *EdgeNodeConfigurationOffboardForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNodeConfigurationOffboardForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/Offboard][%d] edgeNodeConfigurationOffboardForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeNodeConfigurationOffboardNotFound) IsServerError() bool {
 // IsCode returns true when this edge node configuration offboard not found response a status code equal to that given
 func (o *EdgeNodeConfigurationOffboardNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge node configuration offboard not found response
+func (o *EdgeNodeConfigurationOffboardNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNodeConfigurationOffboardNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeNodeConfigurationOffboardInternalServerError) IsCode(code int) bool
 	return code == 500
 }
 
+// Code gets the status code for the edge node configuration offboard internal server error response
+func (o *EdgeNodeConfigurationOffboardInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeNodeConfigurationOffboardInternalServerError) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/Offboard][%d] edgeNodeConfigurationOffboardInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeNodeConfigurationOffboardGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the edge node configuration offboard gateway timeout response
+func (o *EdgeNodeConfigurationOffboardGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeConfigurationOffboardGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/Offboard][%d] edgeNodeConfigurationOffboardGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeNodeConfigurationOffboardDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node configuration offboard default response
-func (o *EdgeNodeConfigurationOffboardDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node configuration offboard default response has a 2xx status code
 func (o *EdgeNodeConfigurationOffboardDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeNodeConfigurationOffboardDefault) IsServerError() bool {
 // IsCode returns true when this edge node configuration offboard default response a status code equal to that given
 func (o *EdgeNodeConfigurationOffboardDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node configuration offboard default response
+func (o *EdgeNodeConfigurationOffboardDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeConfigurationOffboardDefault) Error() string {

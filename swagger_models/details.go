@@ -116,6 +116,7 @@ func (m *Details) ContextValidate(ctx context.Context, formats strfmt.Registry) 
 func (m *Details) contextValidateAppCategory(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AppCategory != nil {
+
 		if err := m.AppCategory.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appCategory")

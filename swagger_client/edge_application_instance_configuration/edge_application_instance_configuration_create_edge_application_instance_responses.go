@@ -117,6 +117,11 @@ func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceOK) Is
 	return code == 200
 }
 
+// Code gets the status code for the edge application instance configuration create edge application instance o k response
+func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceOK) Code() int {
+	return 200
+}
+
 func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceOK) Error() string {
 	return fmt.Sprintf("[POST /v1/apps/instances][%d] edgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceBadReq
 // IsCode returns true when this edge application instance configuration create edge application instance bad request response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the edge application instance configuration create edge application instance bad request response
+func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceBadRequest) Code() int {
+	return 400
 }
 
 func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceUnauth
 	return code == 401
 }
 
+// Code gets the status code for the edge application instance configuration create edge application instance unauthorized response
+func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceUnauthorized) Code() int {
+	return 401
+}
+
 func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /v1/apps/instances][%d] edgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceForbid
 // IsCode returns true when this edge application instance configuration create edge application instance forbidden response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the edge application instance configuration create edge application instance forbidden response
+func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceForbidden) Code() int {
+	return 403
 }
 
 func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceConfli
 	return code == 409
 }
 
+// Code gets the status code for the edge application instance configuration create edge application instance conflict response
+func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceConflict) Code() int {
+	return 409
+}
+
 func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceConflict) Error() string {
 	return fmt.Sprintf("[POST /v1/apps/instances][%d] edgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceIntern
 // IsCode returns true when this edge application instance configuration create edge application instance internal server error response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the edge application instance configuration create edge application instance internal server error response
+func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceGatewa
 	return code == 504
 }
 
+// Code gets the status code for the edge application instance configuration create edge application instance gateway timeout response
+func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/apps/instances][%d] edgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceDefault st
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge application instance configuration create edge application instance default response
-func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge application instance configuration create edge application instance default response has a 2xx status code
 func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceDefaul
 // IsCode returns true when this edge application instance configuration create edge application instance default response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge application instance configuration create edge application instance default response
+func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeApplicationInstanceConfigurationCreateEdgeApplicationInstanceDefault) Error() string {

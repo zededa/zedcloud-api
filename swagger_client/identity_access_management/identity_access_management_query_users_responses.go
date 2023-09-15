@@ -111,6 +111,11 @@ func (o *IdentityAccessManagementQueryUsersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management query users o k response
+func (o *IdentityAccessManagementQueryUsersOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementQueryUsersOK) Error() string {
 	return fmt.Sprintf("[GET /v1/users][%d] identityAccessManagementQueryUsersOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *IdentityAccessManagementQueryUsersBadRequest) IsServerError() bool {
 // IsCode returns true when this identity access management query users bad request response a status code equal to that given
 func (o *IdentityAccessManagementQueryUsersBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the identity access management query users bad request response
+func (o *IdentityAccessManagementQueryUsersBadRequest) Code() int {
+	return 400
 }
 
 func (o *IdentityAccessManagementQueryUsersBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *IdentityAccessManagementQueryUsersUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the identity access management query users unauthorized response
+func (o *IdentityAccessManagementQueryUsersUnauthorized) Code() int {
+	return 401
+}
+
 func (o *IdentityAccessManagementQueryUsersUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/users][%d] identityAccessManagementQueryUsersUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *IdentityAccessManagementQueryUsersForbidden) IsServerError() bool {
 // IsCode returns true when this identity access management query users forbidden response a status code equal to that given
 func (o *IdentityAccessManagementQueryUsersForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the identity access management query users forbidden response
+func (o *IdentityAccessManagementQueryUsersForbidden) Code() int {
+	return 403
 }
 
 func (o *IdentityAccessManagementQueryUsersForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *IdentityAccessManagementQueryUsersInternalServerError) IsCode(code int)
 	return code == 500
 }
 
+// Code gets the status code for the identity access management query users internal server error response
+func (o *IdentityAccessManagementQueryUsersInternalServerError) Code() int {
+	return 500
+}
+
 func (o *IdentityAccessManagementQueryUsersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/users][%d] identityAccessManagementQueryUsersInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *IdentityAccessManagementQueryUsersGatewayTimeout) IsCode(code int) bool
 	return code == 504
 }
 
+// Code gets the status code for the identity access management query users gateway timeout response
+func (o *IdentityAccessManagementQueryUsersGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementQueryUsersGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/users][%d] identityAccessManagementQueryUsersGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type IdentityAccessManagementQueryUsersDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management query users default response
-func (o *IdentityAccessManagementQueryUsersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management query users default response has a 2xx status code
 func (o *IdentityAccessManagementQueryUsersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *IdentityAccessManagementQueryUsersDefault) IsServerError() bool {
 // IsCode returns true when this identity access management query users default response a status code equal to that given
 func (o *IdentityAccessManagementQueryUsersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management query users default response
+func (o *IdentityAccessManagementQueryUsersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementQueryUsersDefault) Error() string {

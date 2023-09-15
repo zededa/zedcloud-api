@@ -166,6 +166,11 @@ func (m *AzurePolicy) ContextValidate(ctx context.Context, formats strfmt.Regist
 func (m *AzurePolicy) contextValidateAzureResourceAndServices(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AzureResourceAndServices != nil {
+
+		if swag.IsZero(m.AzureResourceAndServices) { // not required
+			return nil
+		}
+
 		if err := m.AzureResourceAndServices.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("azureResourceAndServices")
@@ -182,6 +187,11 @@ func (m *AzurePolicy) contextValidateAzureResourceAndServices(ctx context.Contex
 func (m *AzurePolicy) contextValidateCertificate(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Certificate != nil {
+
+		if swag.IsZero(m.Certificate) { // not required
+			return nil
+		}
+
 		if err := m.Certificate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("certificate")

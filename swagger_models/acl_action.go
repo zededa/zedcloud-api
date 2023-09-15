@@ -138,6 +138,11 @@ func (m *ACLAction) ContextValidate(ctx context.Context, formats strfmt.Registry
 func (m *ACLAction) contextValidateLimitValue(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.LimitValue != nil {
+
+		if swag.IsZero(m.LimitValue) { // not required
+			return nil
+		}
+
 		if err := m.LimitValue.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("limitValue")
@@ -154,6 +159,11 @@ func (m *ACLAction) contextValidateLimitValue(ctx context.Context, formats strfm
 func (m *ACLAction) contextValidatePortmapto(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Portmapto != nil {
+
+		if swag.IsZero(m.Portmapto) { // not required
+			return nil
+		}
+
 		if err := m.Portmapto.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("portmapto")

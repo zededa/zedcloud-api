@@ -157,6 +157,7 @@ func (m *AzureResourceAndServices) ContextValidate(ctx context.Context, formats 
 func (m *AzureResourceAndServices) contextValidateDpsService(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DpsService != nil {
+
 		if err := m.DpsService.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dpsService")
@@ -175,6 +176,11 @@ func (m *AzureResourceAndServices) contextValidateIotHubService(ctx context.Cont
 	for i := 0; i < len(m.IotHubService); i++ {
 
 		if m.IotHubService[i] != nil {
+
+			if swag.IsZero(m.IotHubService[i]) { // not required
+				return nil
+			}
+
 			if err := m.IotHubService[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("iotHubService" + "." + strconv.Itoa(i))
@@ -195,6 +201,11 @@ func (m *AzureResourceAndServices) contextValidateResourceGroup(ctx context.Cont
 	for i := 0; i < len(m.ResourceGroup); i++ {
 
 		if m.ResourceGroup[i] != nil {
+
+			if swag.IsZero(m.ResourceGroup[i]) { // not required
+				return nil
+			}
+
 			if err := m.ResourceGroup[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("resourceGroup" + "." + strconv.Itoa(i))

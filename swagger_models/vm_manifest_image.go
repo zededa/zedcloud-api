@@ -148,6 +148,11 @@ func (m *VMManifestImage) ContextValidate(ctx context.Context, formats strfmt.Re
 func (m *VMManifestImage) contextValidateImageformat(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Imageformat != nil {
+
+		if swag.IsZero(m.Imageformat) { // not required
+			return nil
+		}
+
 		if err := m.Imageformat.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageformat")
@@ -166,6 +171,11 @@ func (m *VMManifestImage) contextValidateParams(ctx context.Context, formats str
 	for i := 0; i < len(m.Params); i++ {
 
 		if m.Params[i] != nil {
+
+			if swag.IsZero(m.Params[i]) { // not required
+				return nil
+			}
+
 			if err := m.Params[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("params" + "." + strconv.Itoa(i))

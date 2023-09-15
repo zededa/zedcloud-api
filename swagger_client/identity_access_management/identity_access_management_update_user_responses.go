@@ -117,6 +117,11 @@ func (o *IdentityAccessManagementUpdateUserOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management update user o k response
+func (o *IdentityAccessManagementUpdateUserOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementUpdateUserOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/users/self][%d] identityAccessManagementUpdateUserOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *IdentityAccessManagementUpdateUserUnauthorized) IsServerError() bool {
 // IsCode returns true when this identity access management update user unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementUpdateUserUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management update user unauthorized response
+func (o *IdentityAccessManagementUpdateUserUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementUpdateUserUnauthorized) Error() string {
@@ -243,6 +253,11 @@ func (o *IdentityAccessManagementUpdateUserForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the identity access management update user forbidden response
+func (o *IdentityAccessManagementUpdateUserForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementUpdateUserForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/users/self][%d] identityAccessManagementUpdateUserForbidden  %+v", 403, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *IdentityAccessManagementUpdateUserNotFound) IsServerError() bool {
 // IsCode returns true when this identity access management update user not found response a status code equal to that given
 func (o *IdentityAccessManagementUpdateUserNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management update user not found response
+func (o *IdentityAccessManagementUpdateUserNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementUpdateUserNotFound) Error() string {
@@ -369,6 +389,11 @@ func (o *IdentityAccessManagementUpdateUserConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the identity access management update user conflict response
+func (o *IdentityAccessManagementUpdateUserConflict) Code() int {
+	return 409
+}
+
 func (o *IdentityAccessManagementUpdateUserConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/users/self][%d] identityAccessManagementUpdateUserConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *IdentityAccessManagementUpdateUserInternalServerError) IsServerError() 
 // IsCode returns true when this identity access management update user internal server error response a status code equal to that given
 func (o *IdentityAccessManagementUpdateUserInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management update user internal server error response
+func (o *IdentityAccessManagementUpdateUserInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementUpdateUserInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *IdentityAccessManagementUpdateUserGatewayTimeout) IsCode(code int) bool
 	return code == 504
 }
 
+// Code gets the status code for the identity access management update user gateway timeout response
+func (o *IdentityAccessManagementUpdateUserGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementUpdateUserGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/users/self][%d] identityAccessManagementUpdateUserGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type IdentityAccessManagementUpdateUserDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management update user default response
-func (o *IdentityAccessManagementUpdateUserDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management update user default response has a 2xx status code
 func (o *IdentityAccessManagementUpdateUserDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *IdentityAccessManagementUpdateUserDefault) IsServerError() bool {
 // IsCode returns true when this identity access management update user default response a status code equal to that given
 func (o *IdentityAccessManagementUpdateUserDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management update user default response
+func (o *IdentityAccessManagementUpdateUserDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementUpdateUserDefault) Error() string {

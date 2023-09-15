@@ -117,6 +117,11 @@ func (o *IdentityAccessManagementUpdateCredentialOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management update credential o k response
+func (o *IdentityAccessManagementUpdateCredentialOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementUpdateCredentialOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/credentials][%d] identityAccessManagementUpdateCredentialOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *IdentityAccessManagementUpdateCredentialUnauthorized) IsServerError() b
 // IsCode returns true when this identity access management update credential unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementUpdateCredentialUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management update credential unauthorized response
+func (o *IdentityAccessManagementUpdateCredentialUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementUpdateCredentialUnauthorized) Error() string {
@@ -243,6 +253,11 @@ func (o *IdentityAccessManagementUpdateCredentialForbidden) IsCode(code int) boo
 	return code == 403
 }
 
+// Code gets the status code for the identity access management update credential forbidden response
+func (o *IdentityAccessManagementUpdateCredentialForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementUpdateCredentialForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/credentials][%d] identityAccessManagementUpdateCredentialForbidden  %+v", 403, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *IdentityAccessManagementUpdateCredentialNotFound) IsServerError() bool 
 // IsCode returns true when this identity access management update credential not found response a status code equal to that given
 func (o *IdentityAccessManagementUpdateCredentialNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management update credential not found response
+func (o *IdentityAccessManagementUpdateCredentialNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementUpdateCredentialNotFound) Error() string {
@@ -369,6 +389,11 @@ func (o *IdentityAccessManagementUpdateCredentialConflict) IsCode(code int) bool
 	return code == 409
 }
 
+// Code gets the status code for the identity access management update credential conflict response
+func (o *IdentityAccessManagementUpdateCredentialConflict) Code() int {
+	return 409
+}
+
 func (o *IdentityAccessManagementUpdateCredentialConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/credentials][%d] identityAccessManagementUpdateCredentialConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *IdentityAccessManagementUpdateCredentialInternalServerError) IsServerEr
 // IsCode returns true when this identity access management update credential internal server error response a status code equal to that given
 func (o *IdentityAccessManagementUpdateCredentialInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management update credential internal server error response
+func (o *IdentityAccessManagementUpdateCredentialInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementUpdateCredentialInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *IdentityAccessManagementUpdateCredentialGatewayTimeout) IsCode(code int
 	return code == 504
 }
 
+// Code gets the status code for the identity access management update credential gateway timeout response
+func (o *IdentityAccessManagementUpdateCredentialGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementUpdateCredentialGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/credentials][%d] identityAccessManagementUpdateCredentialGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type IdentityAccessManagementUpdateCredentialDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management update credential default response
-func (o *IdentityAccessManagementUpdateCredentialDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management update credential default response has a 2xx status code
 func (o *IdentityAccessManagementUpdateCredentialDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *IdentityAccessManagementUpdateCredentialDefault) IsServerError() bool {
 // IsCode returns true when this identity access management update credential default response a status code equal to that given
 func (o *IdentityAccessManagementUpdateCredentialDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management update credential default response
+func (o *IdentityAccessManagementUpdateCredentialDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementUpdateCredentialDefault) Error() string {

@@ -343,6 +343,11 @@ func (m *DeviceConfigSummary) ContextValidate(ctx context.Context, formats strfm
 func (m *DeviceConfigSummary) contextValidateAdminState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AdminState != nil {
+
+		if swag.IsZero(m.AdminState) { // not required
+			return nil
+		}
+
 		if err := m.AdminState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminState")
@@ -361,6 +366,11 @@ func (m *DeviceConfigSummary) contextValidateBaseImage(ctx context.Context, form
 	for i := 0; i < len(m.BaseImage); i++ {
 
 		if m.BaseImage[i] != nil {
+
+			if swag.IsZero(m.BaseImage[i]) { // not required
+				return nil
+			}
+
 			if err := m.BaseImage[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("baseImage" + "." + strconv.Itoa(i))
@@ -379,6 +389,11 @@ func (m *DeviceConfigSummary) contextValidateBaseImage(ctx context.Context, form
 func (m *DeviceConfigSummary) contextValidateDebugKnob(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DebugKnob != nil {
+
+		if swag.IsZero(m.DebugKnob) { // not required
+			return nil
+		}
+
 		if err := m.DebugKnob.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("debugKnob")
@@ -406,6 +421,11 @@ func (m *DeviceConfigSummary) contextValidateInterfaces(ctx context.Context, for
 	for i := 0; i < len(m.Interfaces); i++ {
 
 		if m.Interfaces[i] != nil {
+
+			if swag.IsZero(m.Interfaces[i]) { // not required
+				return nil
+			}
+
 			if err := m.Interfaces[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
@@ -424,6 +444,11 @@ func (m *DeviceConfigSummary) contextValidateInterfaces(ctx context.Context, for
 func (m *DeviceConfigSummary) contextValidateUtype(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Utype != nil {
+
+		if swag.IsZero(m.Utype) { // not required
+			return nil
+		}
+
 		if err := m.Utype.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("utype")

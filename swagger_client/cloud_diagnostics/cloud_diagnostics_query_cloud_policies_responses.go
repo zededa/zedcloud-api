@@ -93,6 +93,11 @@ func (o *CloudDiagnosticsQueryCloudPoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the cloud diagnostics query cloud policies o k response
+func (o *CloudDiagnosticsQueryCloudPoliciesOK) Code() int {
+	return 200
+}
+
 func (o *CloudDiagnosticsQueryCloudPoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /v1/cloud/policies][%d] cloudDiagnosticsQueryCloudPoliciesOK  %+v", 200, o.Payload)
 }
@@ -154,6 +159,11 @@ func (o *CloudDiagnosticsQueryCloudPoliciesInternalServerError) IsServerError() 
 // IsCode returns true when this cloud diagnostics query cloud policies internal server error response a status code equal to that given
 func (o *CloudDiagnosticsQueryCloudPoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the cloud diagnostics query cloud policies internal server error response
+func (o *CloudDiagnosticsQueryCloudPoliciesInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CloudDiagnosticsQueryCloudPoliciesInternalServerError) Error() string {
@@ -219,6 +229,11 @@ func (o *CloudDiagnosticsQueryCloudPoliciesGatewayTimeout) IsCode(code int) bool
 	return code == 504
 }
 
+// Code gets the status code for the cloud diagnostics query cloud policies gateway timeout response
+func (o *CloudDiagnosticsQueryCloudPoliciesGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *CloudDiagnosticsQueryCloudPoliciesGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/cloud/policies][%d] cloudDiagnosticsQueryCloudPoliciesGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -261,11 +276,6 @@ type CloudDiagnosticsQueryCloudPoliciesDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the cloud diagnostics query cloud policies default response
-func (o *CloudDiagnosticsQueryCloudPoliciesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this cloud diagnostics query cloud policies default response has a 2xx status code
 func (o *CloudDiagnosticsQueryCloudPoliciesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -289,6 +299,11 @@ func (o *CloudDiagnosticsQueryCloudPoliciesDefault) IsServerError() bool {
 // IsCode returns true when this cloud diagnostics query cloud policies default response a status code equal to that given
 func (o *CloudDiagnosticsQueryCloudPoliciesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the cloud diagnostics query cloud policies default response
+func (o *CloudDiagnosticsQueryCloudPoliciesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CloudDiagnosticsQueryCloudPoliciesDefault) Error() string {

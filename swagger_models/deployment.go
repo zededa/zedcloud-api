@@ -296,6 +296,11 @@ func (m *Deployment) contextValidateAppInstPolicies(ctx context.Context, formats
 	for i := 0; i < len(m.AppInstPolicies); i++ {
 
 		if m.AppInstPolicies[i] != nil {
+
+			if swag.IsZero(m.AppInstPolicies[i]) { // not required
+				return nil
+			}
+
 			if err := m.AppInstPolicies[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("appInstPolicies" + "." + strconv.Itoa(i))
@@ -314,6 +319,11 @@ func (m *Deployment) contextValidateAppInstPolicies(ctx context.Context, formats
 func (m *Deployment) contextValidateClusterPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ClusterPolicy != nil {
+
+		if swag.IsZero(m.ClusterPolicy) { // not required
+			return nil
+		}
+
 		if err := m.ClusterPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clusterPolicy")
@@ -332,6 +342,11 @@ func (m *Deployment) contextValidateDevicePolicies(ctx context.Context, formats 
 	for i := 0; i < len(m.DevicePolicies); i++ {
 
 		if m.DevicePolicies[i] != nil {
+
+			if swag.IsZero(m.DevicePolicies[i]) { // not required
+				return nil
+			}
+
 			if err := m.DevicePolicies[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("devicePolicies" + "." + strconv.Itoa(i))
@@ -350,6 +365,11 @@ func (m *Deployment) contextValidateDevicePolicies(ctx context.Context, formats 
 func (m *Deployment) contextValidateIntegrationPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.IntegrationPolicy != nil {
+
+		if swag.IsZero(m.IntegrationPolicy) { // not required
+			return nil
+		}
+
 		if err := m.IntegrationPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("integrationPolicy")
@@ -368,6 +388,11 @@ func (m *Deployment) contextValidateNetworkInstPolicies(ctx context.Context, for
 	for i := 0; i < len(m.NetworkInstPolicies); i++ {
 
 		if m.NetworkInstPolicies[i] != nil {
+
+			if swag.IsZero(m.NetworkInstPolicies[i]) { // not required
+				return nil
+			}
+
 			if err := m.NetworkInstPolicies[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("networkInstPolicies" + "." + strconv.Itoa(i))
@@ -386,6 +411,11 @@ func (m *Deployment) contextValidateNetworkInstPolicies(ctx context.Context, for
 func (m *Deployment) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Revision != nil {
+
+		if swag.IsZero(m.Revision) { // not required
+			return nil
+		}
+
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
@@ -404,6 +434,11 @@ func (m *Deployment) contextValidateVolumeInstPolicies(ctx context.Context, form
 	for i := 0; i < len(m.VolumeInstPolicies); i++ {
 
 		if m.VolumeInstPolicies[i] != nil {
+
+			if swag.IsZero(m.VolumeInstPolicies[i]) { // not required
+				return nil
+			}
+
 			if err := m.VolumeInstPolicies[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("volumeInstPolicies" + "." + strconv.Itoa(i))

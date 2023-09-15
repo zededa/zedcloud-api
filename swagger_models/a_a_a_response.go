@@ -253,6 +253,11 @@ func (m *AAAResponse) ContextValidate(ctx context.Context, formats strfmt.Regist
 func (m *AAAResponse) contextValidateFailure(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Failure != nil {
+
+		if swag.IsZero(m.Failure) { // not required
+			return nil
+		}
+
 		if err := m.Failure.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("failure")
@@ -269,6 +274,11 @@ func (m *AAAResponse) contextValidateFailure(ctx context.Context, formats strfmt
 func (m *AAAResponse) contextValidateMode(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Mode != nil {
+
+		if swag.IsZero(m.Mode) { // not required
+			return nil
+		}
+
 		if err := m.Mode.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mode")
@@ -285,6 +295,11 @@ func (m *AAAResponse) contextValidateMode(ctx context.Context, formats strfmt.Re
 func (m *AAAResponse) contextValidateNotify(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Notify != nil {
+
+		if swag.IsZero(m.Notify) { // not required
+			return nil
+		}
+
 		if err := m.Notify.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("notify")
@@ -301,6 +316,11 @@ func (m *AAAResponse) contextValidateNotify(ctx context.Context, formats strfmt.
 func (m *AAAResponse) contextValidateRedirect(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Redirect != nil {
+
+		if swag.IsZero(m.Redirect) { // not required
+			return nil
+		}
+
 		if err := m.Redirect.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("redirect")
@@ -317,6 +337,11 @@ func (m *AAAResponse) contextValidateRedirect(ctx context.Context, formats strfm
 func (m *AAAResponse) contextValidateResult(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Result != nil {
+
+		if swag.IsZero(m.Result) { // not required
+			return nil
+		}
+
 		if err := m.Result.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result")
@@ -333,6 +358,11 @@ func (m *AAAResponse) contextValidateResult(ctx context.Context, formats strfmt.
 func (m *AAAResponse) contextValidateSuccess(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Success != nil {
+
+		if swag.IsZero(m.Success) { // not required
+			return nil
+		}
+
 		if err := m.Success.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("success")
@@ -349,6 +379,11 @@ func (m *AAAResponse) contextValidateSuccess(ctx context.Context, formats strfmt
 func (m *AAAResponse) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

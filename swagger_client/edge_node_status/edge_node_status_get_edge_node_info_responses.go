@@ -111,6 +111,11 @@ func (o *EdgeNodeStatusGetEdgeNodeInfoOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge node status get edge node info o k response
+func (o *EdgeNodeStatusGetEdgeNodeInfoOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeStatusGetEdgeNodeInfoOK) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/id/{id}/status/info][%d] edgeNodeStatusGetEdgeNodeInfoOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeNodeStatusGetEdgeNodeInfoUnauthorized) IsServerError() bool {
 // IsCode returns true when this edge node status get edge node info unauthorized response a status code equal to that given
 func (o *EdgeNodeStatusGetEdgeNodeInfoUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge node status get edge node info unauthorized response
+func (o *EdgeNodeStatusGetEdgeNodeInfoUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNodeStatusGetEdgeNodeInfoUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeNodeStatusGetEdgeNodeInfoForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the edge node status get edge node info forbidden response
+func (o *EdgeNodeStatusGetEdgeNodeInfoForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNodeStatusGetEdgeNodeInfoForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/id/{id}/status/info][%d] edgeNodeStatusGetEdgeNodeInfoForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeNodeStatusGetEdgeNodeInfoNotFound) IsServerError() bool {
 // IsCode returns true when this edge node status get edge node info not found response a status code equal to that given
 func (o *EdgeNodeStatusGetEdgeNodeInfoNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge node status get edge node info not found response
+func (o *EdgeNodeStatusGetEdgeNodeInfoNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNodeStatusGetEdgeNodeInfoNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeNodeStatusGetEdgeNodeInfoInternalServerError) IsCode(code int) bool
 	return code == 500
 }
 
+// Code gets the status code for the edge node status get edge node info internal server error response
+func (o *EdgeNodeStatusGetEdgeNodeInfoInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeNodeStatusGetEdgeNodeInfoInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/id/{id}/status/info][%d] edgeNodeStatusGetEdgeNodeInfoInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeNodeStatusGetEdgeNodeInfoGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the edge node status get edge node info gateway timeout response
+func (o *EdgeNodeStatusGetEdgeNodeInfoGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeStatusGetEdgeNodeInfoGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/id/{id}/status/info][%d] edgeNodeStatusGetEdgeNodeInfoGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeNodeStatusGetEdgeNodeInfoDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node status get edge node info default response
-func (o *EdgeNodeStatusGetEdgeNodeInfoDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node status get edge node info default response has a 2xx status code
 func (o *EdgeNodeStatusGetEdgeNodeInfoDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeNodeStatusGetEdgeNodeInfoDefault) IsServerError() bool {
 // IsCode returns true when this edge node status get edge node info default response a status code equal to that given
 func (o *EdgeNodeStatusGetEdgeNodeInfoDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node status get edge node info default response
+func (o *EdgeNodeStatusGetEdgeNodeInfoDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeStatusGetEdgeNodeInfoDefault) Error() string {

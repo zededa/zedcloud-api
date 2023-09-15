@@ -99,6 +99,11 @@ func (o *CloudDiagnosticsCheckMicroserviceHealthOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the cloud diagnostics check microservice health o k response
+func (o *CloudDiagnosticsCheckMicroserviceHealthOK) Code() int {
+	return 200
+}
+
 func (o *CloudDiagnosticsCheckMicroserviceHealthOK) Error() string {
 	return fmt.Sprintf("[POST /v1/hello][%d] cloudDiagnosticsCheckMicroserviceHealthOK  %+v", 200, o.Payload)
 }
@@ -160,6 +165,11 @@ func (o *CloudDiagnosticsCheckMicroserviceHealthBadRequest) IsServerError() bool
 // IsCode returns true when this cloud diagnostics check microservice health bad request response a status code equal to that given
 func (o *CloudDiagnosticsCheckMicroserviceHealthBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the cloud diagnostics check microservice health bad request response
+func (o *CloudDiagnosticsCheckMicroserviceHealthBadRequest) Code() int {
+	return 400
 }
 
 func (o *CloudDiagnosticsCheckMicroserviceHealthBadRequest) Error() string {
@@ -225,6 +235,11 @@ func (o *CloudDiagnosticsCheckMicroserviceHealthInternalServerError) IsCode(code
 	return code == 500
 }
 
+// Code gets the status code for the cloud diagnostics check microservice health internal server error response
+func (o *CloudDiagnosticsCheckMicroserviceHealthInternalServerError) Code() int {
+	return 500
+}
+
 func (o *CloudDiagnosticsCheckMicroserviceHealthInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /v1/hello][%d] cloudDiagnosticsCheckMicroserviceHealthInternalServerError  %+v", 500, o.Payload)
 }
@@ -288,6 +303,11 @@ func (o *CloudDiagnosticsCheckMicroserviceHealthGatewayTimeout) IsCode(code int)
 	return code == 504
 }
 
+// Code gets the status code for the cloud diagnostics check microservice health gateway timeout response
+func (o *CloudDiagnosticsCheckMicroserviceHealthGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *CloudDiagnosticsCheckMicroserviceHealthGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/hello][%d] cloudDiagnosticsCheckMicroserviceHealthGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -330,11 +350,6 @@ type CloudDiagnosticsCheckMicroserviceHealthDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the cloud diagnostics check microservice health default response
-func (o *CloudDiagnosticsCheckMicroserviceHealthDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this cloud diagnostics check microservice health default response has a 2xx status code
 func (o *CloudDiagnosticsCheckMicroserviceHealthDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -358,6 +373,11 @@ func (o *CloudDiagnosticsCheckMicroserviceHealthDefault) IsServerError() bool {
 // IsCode returns true when this cloud diagnostics check microservice health default response a status code equal to that given
 func (o *CloudDiagnosticsCheckMicroserviceHealthDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the cloud diagnostics check microservice health default response
+func (o *CloudDiagnosticsCheckMicroserviceHealthDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CloudDiagnosticsCheckMicroserviceHealthDefault) Error() string {

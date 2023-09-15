@@ -161,6 +161,11 @@ func (m *DeviceError) contextValidateEntities(ctx context.Context, formats strfm
 	for i := 0; i < len(m.Entities); i++ {
 
 		if m.Entities[i] != nil {
+
+			if swag.IsZero(m.Entities[i]) { // not required
+				return nil
+			}
+
 			if err := m.Entities[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("entities" + "." + strconv.Itoa(i))
@@ -179,6 +184,7 @@ func (m *DeviceError) contextValidateEntities(ctx context.Context, formats strfm
 func (m *DeviceError) contextValidateSeverity(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Severity != nil {
+
 		if err := m.Severity.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("severity")

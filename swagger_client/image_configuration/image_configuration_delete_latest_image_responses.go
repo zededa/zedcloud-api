@@ -117,6 +117,11 @@ func (o *ImageConfigurationDeleteLatestImageOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the image configuration delete latest image o k response
+func (o *ImageConfigurationDeleteLatestImageOK) Code() int {
+	return 200
+}
+
 func (o *ImageConfigurationDeleteLatestImageOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/apps/images/baseos/latest][%d] imageConfigurationDeleteLatestImageOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *ImageConfigurationDeleteLatestImageUnauthorized) IsServerError() bool {
 // IsCode returns true when this image configuration delete latest image unauthorized response a status code equal to that given
 func (o *ImageConfigurationDeleteLatestImageUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the image configuration delete latest image unauthorized response
+func (o *ImageConfigurationDeleteLatestImageUnauthorized) Code() int {
+	return 401
 }
 
 func (o *ImageConfigurationDeleteLatestImageUnauthorized) Error() string {
@@ -243,6 +253,11 @@ func (o *ImageConfigurationDeleteLatestImageForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the image configuration delete latest image forbidden response
+func (o *ImageConfigurationDeleteLatestImageForbidden) Code() int {
+	return 403
+}
+
 func (o *ImageConfigurationDeleteLatestImageForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/apps/images/baseos/latest][%d] imageConfigurationDeleteLatestImageForbidden  %+v", 403, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *ImageConfigurationDeleteLatestImageNotFound) IsServerError() bool {
 // IsCode returns true when this image configuration delete latest image not found response a status code equal to that given
 func (o *ImageConfigurationDeleteLatestImageNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the image configuration delete latest image not found response
+func (o *ImageConfigurationDeleteLatestImageNotFound) Code() int {
+	return 404
 }
 
 func (o *ImageConfigurationDeleteLatestImageNotFound) Error() string {
@@ -369,6 +389,11 @@ func (o *ImageConfigurationDeleteLatestImageConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the image configuration delete latest image conflict response
+func (o *ImageConfigurationDeleteLatestImageConflict) Code() int {
+	return 409
+}
+
 func (o *ImageConfigurationDeleteLatestImageConflict) Error() string {
 	return fmt.Sprintf("[DELETE /v1/apps/images/baseos/latest][%d] imageConfigurationDeleteLatestImageConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *ImageConfigurationDeleteLatestImageInternalServerError) IsServerError()
 // IsCode returns true when this image configuration delete latest image internal server error response a status code equal to that given
 func (o *ImageConfigurationDeleteLatestImageInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the image configuration delete latest image internal server error response
+func (o *ImageConfigurationDeleteLatestImageInternalServerError) Code() int {
+	return 500
 }
 
 func (o *ImageConfigurationDeleteLatestImageInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *ImageConfigurationDeleteLatestImageGatewayTimeout) IsCode(code int) boo
 	return code == 504
 }
 
+// Code gets the status code for the image configuration delete latest image gateway timeout response
+func (o *ImageConfigurationDeleteLatestImageGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ImageConfigurationDeleteLatestImageGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/apps/images/baseos/latest][%d] imageConfigurationDeleteLatestImageGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type ImageConfigurationDeleteLatestImageDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the image configuration delete latest image default response
-func (o *ImageConfigurationDeleteLatestImageDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this image configuration delete latest image default response has a 2xx status code
 func (o *ImageConfigurationDeleteLatestImageDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *ImageConfigurationDeleteLatestImageDefault) IsServerError() bool {
 // IsCode returns true when this image configuration delete latest image default response a status code equal to that given
 func (o *ImageConfigurationDeleteLatestImageDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the image configuration delete latest image default response
+func (o *ImageConfigurationDeleteLatestImageDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ImageConfigurationDeleteLatestImageDefault) Error() string {

@@ -80,6 +80,11 @@ func (m *ZsrvError) ContextValidate(ctx context.Context, formats strfmt.Registry
 func (m *ZsrvError) contextValidateEc(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Ec != nil {
+
+		if swag.IsZero(m.Ec) { // not required
+			return nil
+		}
+
 		if err := m.Ec.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ec")

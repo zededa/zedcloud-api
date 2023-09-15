@@ -269,6 +269,11 @@ func (m *NetInstStatusSummaryMsg) contextValidateID(ctx context.Context, formats
 func (m *NetInstStatusSummaryMsg) contextValidateKind(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Kind != nil {
+
+		if swag.IsZero(m.Kind) { // not required
+			return nil
+		}
+
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("kind")
@@ -285,6 +290,11 @@ func (m *NetInstStatusSummaryMsg) contextValidateKind(ctx context.Context, forma
 func (m *NetInstStatusSummaryMsg) contextValidateRunState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.RunState != nil {
+
+		if swag.IsZero(m.RunState) { // not required
+			return nil
+		}
+
 		if err := m.RunState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
@@ -301,6 +311,11 @@ func (m *NetInstStatusSummaryMsg) contextValidateRunState(ctx context.Context, f
 func (m *NetInstStatusSummaryMsg) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

@@ -111,6 +111,11 @@ func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameOK) IsCode(code int) bool
 	return code == 200
 }
 
+// Code gets the status code for the edge node status get edge node resource metrics by name o k response
+func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameOK) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{objname}/timeSeries/{mType}][%d] edgeNodeStatusGetEdgeNodeResourceMetricsByNameOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameUnauthorized) IsServerErr
 // IsCode returns true when this edge node status get edge node resource metrics by name unauthorized response a status code equal to that given
 func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge node status get edge node resource metrics by name unauthorized response
+func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameForbidden) IsCode(code in
 	return code == 403
 }
 
+// Code gets the status code for the edge node status get edge node resource metrics by name forbidden response
+func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{objname}/timeSeries/{mType}][%d] edgeNodeStatusGetEdgeNodeResourceMetricsByNameForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameNotFound) IsServerError()
 // IsCode returns true when this edge node status get edge node resource metrics by name not found response a status code equal to that given
 func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge node status get edge node resource metrics by name not found response
+func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameInternalServerError) IsCo
 	return code == 500
 }
 
+// Code gets the status code for the edge node status get edge node resource metrics by name internal server error response
+func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{objname}/timeSeries/{mType}][%d] edgeNodeStatusGetEdgeNodeResourceMetricsByNameInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameGatewayTimeout) IsCode(co
 	return code == 504
 }
 
+// Code gets the status code for the edge node status get edge node resource metrics by name gateway timeout response
+func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{objname}/timeSeries/{mType}][%d] edgeNodeStatusGetEdgeNodeResourceMetricsByNameGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeNodeStatusGetEdgeNodeResourceMetricsByNameDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node status get edge node resource metrics by name default response
-func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node status get edge node resource metrics by name default response has a 2xx status code
 func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameDefault) IsServerError() 
 // IsCode returns true when this edge node status get edge node resource metrics by name default response a status code equal to that given
 func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node status get edge node resource metrics by name default response
+func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeStatusGetEdgeNodeResourceMetricsByNameDefault) Error() string {

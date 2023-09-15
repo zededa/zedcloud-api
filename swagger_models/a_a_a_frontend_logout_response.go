@@ -103,6 +103,11 @@ func (m *AAAFrontendLogoutResponse) ContextValidate(ctx context.Context, formats
 func (m *AAAFrontendLogoutResponse) contextValidateCause(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Cause != nil {
+
+		if swag.IsZero(m.Cause) { // not required
+			return nil
+		}
+
 		if err := m.Cause.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cause")
@@ -119,6 +124,11 @@ func (m *AAAFrontendLogoutResponse) contextValidateCause(ctx context.Context, fo
 func (m *AAAFrontendLogoutResponse) contextValidateToken(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Token != nil {
+
+		if swag.IsZero(m.Token) { // not required
+			return nil
+		}
+
 		if err := m.Token.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("token")

@@ -122,6 +122,11 @@ func (o *IdentityAccessManagementUpdateUser2OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management update user2 o k response
+func (o *IdentityAccessManagementUpdateUser2OK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementUpdateUser2OK) Error() string {
 	return fmt.Sprintf("[PUT /v1/users/id/{id}][%d] identityAccessManagementUpdateUser2OK  %+v", 200, o.Payload)
 }
@@ -183,6 +188,11 @@ func (o *IdentityAccessManagementUpdateUser2Unauthorized) IsServerError() bool {
 // IsCode returns true when this identity access management update user2 unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementUpdateUser2Unauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management update user2 unauthorized response
+func (o *IdentityAccessManagementUpdateUser2Unauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementUpdateUser2Unauthorized) Error() string {
@@ -248,6 +258,11 @@ func (o *IdentityAccessManagementUpdateUser2Forbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the identity access management update user2 forbidden response
+func (o *IdentityAccessManagementUpdateUser2Forbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementUpdateUser2Forbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/users/id/{id}][%d] identityAccessManagementUpdateUser2Forbidden  %+v", 403, o.Payload)
 }
@@ -309,6 +324,11 @@ func (o *IdentityAccessManagementUpdateUser2NotFound) IsServerError() bool {
 // IsCode returns true when this identity access management update user2 not found response a status code equal to that given
 func (o *IdentityAccessManagementUpdateUser2NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management update user2 not found response
+func (o *IdentityAccessManagementUpdateUser2NotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementUpdateUser2NotFound) Error() string {
@@ -374,6 +394,11 @@ func (o *IdentityAccessManagementUpdateUser2Conflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the identity access management update user2 conflict response
+func (o *IdentityAccessManagementUpdateUser2Conflict) Code() int {
+	return 409
+}
+
 func (o *IdentityAccessManagementUpdateUser2Conflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/users/id/{id}][%d] identityAccessManagementUpdateUser2Conflict  %+v", 409, o.Payload)
 }
@@ -435,6 +460,11 @@ func (o *IdentityAccessManagementUpdateUser2InternalServerError) IsServerError()
 // IsCode returns true when this identity access management update user2 internal server error response a status code equal to that given
 func (o *IdentityAccessManagementUpdateUser2InternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management update user2 internal server error response
+func (o *IdentityAccessManagementUpdateUser2InternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementUpdateUser2InternalServerError) Error() string {
@@ -500,6 +530,11 @@ func (o *IdentityAccessManagementUpdateUser2GatewayTimeout) IsCode(code int) boo
 	return code == 504
 }
 
+// Code gets the status code for the identity access management update user2 gateway timeout response
+func (o *IdentityAccessManagementUpdateUser2GatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementUpdateUser2GatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/users/id/{id}][%d] identityAccessManagementUpdateUser2GatewayTimeout  %+v", 504, o.Payload)
 }
@@ -542,11 +577,6 @@ type IdentityAccessManagementUpdateUser2Default struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management update user2 default response
-func (o *IdentityAccessManagementUpdateUser2Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management update user2 default response has a 2xx status code
 func (o *IdentityAccessManagementUpdateUser2Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -570,6 +600,11 @@ func (o *IdentityAccessManagementUpdateUser2Default) IsServerError() bool {
 // IsCode returns true when this identity access management update user2 default response a status code equal to that given
 func (o *IdentityAccessManagementUpdateUser2Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management update user2 default response
+func (o *IdentityAccessManagementUpdateUser2Default) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementUpdateUser2Default) Error() string {
@@ -970,6 +1005,11 @@ func (o *IdentityAccessManagementUpdateUser2Body) contextValidateAllowedEnterpri
 	for i := 0; i < len(o.AllowedEnterprises); i++ {
 
 		if o.AllowedEnterprises[i] != nil {
+
+			if swag.IsZero(o.AllowedEnterprises[i]) { // not required
+				return nil
+			}
+
 			if err := o.AllowedEnterprises[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("body" + "." + "allowedEnterprises" + "." + strconv.Itoa(i))
@@ -988,6 +1028,11 @@ func (o *IdentityAccessManagementUpdateUser2Body) contextValidateAllowedEnterpri
 func (o *IdentityAccessManagementUpdateUser2Body) contextValidateEmailState(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.EmailState != nil {
+
+		if swag.IsZero(o.EmailState) { // not required
+			return nil
+		}
+
 		if err := o.EmailState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "emailState")
@@ -1013,6 +1058,11 @@ func (o *IdentityAccessManagementUpdateUser2Body) contextValidateEnterpriseID(ct
 func (o *IdentityAccessManagementUpdateUser2Body) contextValidatePhoneState(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.PhoneState != nil {
+
+		if swag.IsZero(o.PhoneState) { // not required
+			return nil
+		}
+
 		if err := o.PhoneState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "phoneState")
@@ -1029,6 +1079,11 @@ func (o *IdentityAccessManagementUpdateUser2Body) contextValidatePhoneState(ctx 
 func (o *IdentityAccessManagementUpdateUser2Body) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Revision != nil {
+
+		if swag.IsZero(o.Revision) { // not required
+			return nil
+		}
+
 		if err := o.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "revision")
@@ -1045,6 +1100,11 @@ func (o *IdentityAccessManagementUpdateUser2Body) contextValidateRevision(ctx co
 func (o *IdentityAccessManagementUpdateUser2Body) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.State != nil {
+
+		if swag.IsZero(o.State) { // not required
+			return nil
+		}
+
 		if err := o.State.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "state")
@@ -1061,6 +1121,11 @@ func (o *IdentityAccessManagementUpdateUser2Body) contextValidateState(ctx conte
 func (o *IdentityAccessManagementUpdateUser2Body) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Type != nil {
+
+		if swag.IsZero(o.Type) { // not required
+			return nil
+		}
+
 		if err := o.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "type")

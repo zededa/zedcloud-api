@@ -121,6 +121,11 @@ func (o *ImageConfigurationMarkEveImageLatest2OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the image configuration mark eve image latest2 o k response
+func (o *ImageConfigurationMarkEveImageLatest2OK) Code() int {
+	return 200
+}
+
 func (o *ImageConfigurationMarkEveImageLatest2OK) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/baseos/latest/hwclass/{imageArch}][%d] imageConfigurationMarkEveImageLatest2OK  %+v", 200, o.Payload)
 }
@@ -182,6 +187,11 @@ func (o *ImageConfigurationMarkEveImageLatest2BadRequest) IsServerError() bool {
 // IsCode returns true when this image configuration mark eve image latest2 bad request response a status code equal to that given
 func (o *ImageConfigurationMarkEveImageLatest2BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the image configuration mark eve image latest2 bad request response
+func (o *ImageConfigurationMarkEveImageLatest2BadRequest) Code() int {
+	return 400
 }
 
 func (o *ImageConfigurationMarkEveImageLatest2BadRequest) Error() string {
@@ -247,6 +257,11 @@ func (o *ImageConfigurationMarkEveImageLatest2Unauthorized) IsCode(code int) boo
 	return code == 401
 }
 
+// Code gets the status code for the image configuration mark eve image latest2 unauthorized response
+func (o *ImageConfigurationMarkEveImageLatest2Unauthorized) Code() int {
+	return 401
+}
+
 func (o *ImageConfigurationMarkEveImageLatest2Unauthorized) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/baseos/latest/hwclass/{imageArch}][%d] imageConfigurationMarkEveImageLatest2Unauthorized  %+v", 401, o.Payload)
 }
@@ -308,6 +323,11 @@ func (o *ImageConfigurationMarkEveImageLatest2Forbidden) IsServerError() bool {
 // IsCode returns true when this image configuration mark eve image latest2 forbidden response a status code equal to that given
 func (o *ImageConfigurationMarkEveImageLatest2Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the image configuration mark eve image latest2 forbidden response
+func (o *ImageConfigurationMarkEveImageLatest2Forbidden) Code() int {
+	return 403
 }
 
 func (o *ImageConfigurationMarkEveImageLatest2Forbidden) Error() string {
@@ -373,6 +393,11 @@ func (o *ImageConfigurationMarkEveImageLatest2NotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the image configuration mark eve image latest2 not found response
+func (o *ImageConfigurationMarkEveImageLatest2NotFound) Code() int {
+	return 404
+}
+
 func (o *ImageConfigurationMarkEveImageLatest2NotFound) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/baseos/latest/hwclass/{imageArch}][%d] imageConfigurationMarkEveImageLatest2NotFound  %+v", 404, o.Payload)
 }
@@ -434,6 +459,11 @@ func (o *ImageConfigurationMarkEveImageLatest2InternalServerError) IsServerError
 // IsCode returns true when this image configuration mark eve image latest2 internal server error response a status code equal to that given
 func (o *ImageConfigurationMarkEveImageLatest2InternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the image configuration mark eve image latest2 internal server error response
+func (o *ImageConfigurationMarkEveImageLatest2InternalServerError) Code() int {
+	return 500
 }
 
 func (o *ImageConfigurationMarkEveImageLatest2InternalServerError) Error() string {
@@ -499,6 +529,11 @@ func (o *ImageConfigurationMarkEveImageLatest2GatewayTimeout) IsCode(code int) b
 	return code == 504
 }
 
+// Code gets the status code for the image configuration mark eve image latest2 gateway timeout response
+func (o *ImageConfigurationMarkEveImageLatest2GatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ImageConfigurationMarkEveImageLatest2GatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/baseos/latest/hwclass/{imageArch}][%d] imageConfigurationMarkEveImageLatest2GatewayTimeout  %+v", 504, o.Payload)
 }
@@ -541,11 +576,6 @@ type ImageConfigurationMarkEveImageLatest2Default struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the image configuration mark eve image latest2 default response
-func (o *ImageConfigurationMarkEveImageLatest2Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this image configuration mark eve image latest2 default response has a 2xx status code
 func (o *ImageConfigurationMarkEveImageLatest2Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -569,6 +599,11 @@ func (o *ImageConfigurationMarkEveImageLatest2Default) IsServerError() bool {
 // IsCode returns true when this image configuration mark eve image latest2 default response a status code equal to that given
 func (o *ImageConfigurationMarkEveImageLatest2Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the image configuration mark eve image latest2 default response
+func (o *ImageConfigurationMarkEveImageLatest2Default) Code() int {
+	return o._statusCode
 }
 
 func (o *ImageConfigurationMarkEveImageLatest2Default) Error() string {
@@ -973,6 +1008,7 @@ func (o *ImageConfigurationMarkEveImageLatest2Body) contextValidateImageError(ct
 func (o *ImageConfigurationMarkEveImageLatest2Body) contextValidateImageFormat(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ImageFormat != nil {
+
 		if err := o.ImageFormat.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "imageFormat")
@@ -998,6 +1034,11 @@ func (o *ImageConfigurationMarkEveImageLatest2Body) contextValidateImageLocal(ct
 func (o *ImageConfigurationMarkEveImageLatest2Body) contextValidateImageStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ImageStatus != nil {
+
+		if swag.IsZero(o.ImageStatus) { // not required
+			return nil
+		}
+
 		if err := o.ImageStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "imageStatus")
@@ -1014,6 +1055,7 @@ func (o *ImageConfigurationMarkEveImageLatest2Body) contextValidateImageStatus(c
 func (o *ImageConfigurationMarkEveImageLatest2Body) contextValidateImageType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ImageType != nil {
+
 		if err := o.ImageType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "imageType")
@@ -1030,6 +1072,11 @@ func (o *ImageConfigurationMarkEveImageLatest2Body) contextValidateImageType(ctx
 func (o *ImageConfigurationMarkEveImageLatest2Body) contextValidateOriginType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.OriginType != nil {
+
+		if swag.IsZero(o.OriginType) { // not required
+			return nil
+		}
+
 		if err := o.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "originType")
@@ -1046,6 +1093,11 @@ func (o *ImageConfigurationMarkEveImageLatest2Body) contextValidateOriginType(ct
 func (o *ImageConfigurationMarkEveImageLatest2Body) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Revision != nil {
+
+		if swag.IsZero(o.Revision) { // not required
+			return nil
+		}
+
 		if err := o.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "revision")

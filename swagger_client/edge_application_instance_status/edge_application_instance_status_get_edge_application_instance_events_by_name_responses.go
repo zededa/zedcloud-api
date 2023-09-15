@@ -111,6 +111,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameOK) 
 	return code == 200
 }
 
+// Code gets the status code for the edge application instance status get edge application instance events by name o k response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameOK) Code() int {
+	return 200
+}
+
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameOK) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/name/{objname}/events][%d] edgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameUnau
 // IsCode returns true when this edge application instance status get edge application instance events by name unauthorized response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge application instance status get edge application instance events by name unauthorized response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameForb
 	return code == 403
 }
 
+// Code gets the status code for the edge application instance status get edge application instance events by name forbidden response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/name/{objname}/events][%d] edgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameNotF
 // IsCode returns true when this edge application instance status get edge application instance events by name not found response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge application instance status get edge application instance events by name not found response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameInte
 	return code == 500
 }
 
+// Code gets the status code for the edge application instance status get edge application instance events by name internal server error response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/name/{objname}/events][%d] edgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameGate
 	return code == 504
 }
 
+// Code gets the status code for the edge application instance status get edge application instance events by name gateway timeout response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/name/{objname}/events][%d] edgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameDefault 
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge application instance status get edge application instance events by name default response
-func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge application instance status get edge application instance events by name default response has a 2xx status code
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameDefa
 // IsCode returns true when this edge application instance status get edge application instance events by name default response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge application instance status get edge application instance events by name default response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceEventsByNameDefault) Error() string {

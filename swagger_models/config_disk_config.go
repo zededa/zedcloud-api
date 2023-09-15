@@ -138,6 +138,11 @@ func (m *ConfigDiskConfig) ContextValidate(ctx context.Context, formats strfmt.R
 func (m *ConfigDiskConfig) contextValidateDisk(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Disk != nil {
+
+		if swag.IsZero(m.Disk) { // not required
+			return nil
+		}
+
 		if err := m.Disk.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("disk")
@@ -154,6 +159,11 @@ func (m *ConfigDiskConfig) contextValidateDisk(ctx context.Context, formats strf
 func (m *ConfigDiskConfig) contextValidateDiskConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DiskConfig != nil {
+
+		if swag.IsZero(m.DiskConfig) { // not required
+			return nil
+		}
+
 		if err := m.DiskConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("diskConfig")
@@ -170,6 +180,11 @@ func (m *ConfigDiskConfig) contextValidateDiskConfig(ctx context.Context, format
 func (m *ConfigDiskConfig) contextValidateOldDisk(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.OldDisk != nil {
+
+		if swag.IsZero(m.OldDisk) { // not required
+			return nil
+		}
+
 		if err := m.OldDisk.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("oldDisk")

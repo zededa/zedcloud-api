@@ -209,6 +209,11 @@ func (m *AppFilter) ContextValidate(ctx context.Context, formats strfmt.Registry
 func (m *AppFilter) contextValidateAppCategory(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AppCategory != nil {
+
+		if swag.IsZero(m.AppCategory) { // not required
+			return nil
+		}
+
 		if err := m.AppCategory.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appCategory")
@@ -225,6 +230,11 @@ func (m *AppFilter) contextValidateAppCategory(ctx context.Context, formats strf
 func (m *AppFilter) contextValidateAppType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AppType != nil {
+
+		if swag.IsZero(m.AppType) { // not required
+			return nil
+		}
+
 		if err := m.AppType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
@@ -243,6 +253,11 @@ func (m *AppFilter) contextValidateCategories(ctx context.Context, formats strfm
 	for i := 0; i < len(m.Categories); i++ {
 
 		if m.Categories[i] != nil {
+
+			if swag.IsZero(m.Categories[i]) { // not required
+				return nil
+			}
+
 			if err := m.Categories[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("categories" + "." + strconv.Itoa(i))
@@ -261,6 +276,11 @@ func (m *AppFilter) contextValidateCategories(ctx context.Context, formats strfm
 func (m *AppFilter) contextValidateDeploymentType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DeploymentType != nil {
+
+		if swag.IsZero(m.DeploymentType) { // not required
+			return nil
+		}
+
 		if err := m.DeploymentType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
@@ -277,6 +297,11 @@ func (m *AppFilter) contextValidateDeploymentType(ctx context.Context, formats s
 func (m *AppFilter) contextValidateOriginType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.OriginType != nil {
+
+		if swag.IsZero(m.OriginType) { // not required
+			return nil
+		}
+
 		if err := m.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")

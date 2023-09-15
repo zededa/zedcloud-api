@@ -208,6 +208,11 @@ func (m *VMManifestSummary) ContextValidate(ctx context.Context, formats strfmt.
 func (m *VMManifestSummary) contextValidateAppType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AppType != nil {
+
+		if swag.IsZero(m.AppType) { // not required
+			return nil
+		}
+
 		if err := m.AppType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
@@ -224,6 +229,11 @@ func (m *VMManifestSummary) contextValidateAppType(ctx context.Context, formats 
 func (m *VMManifestSummary) contextValidateDeploymentType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DeploymentType != nil {
+
+		if swag.IsZero(m.DeploymentType) { // not required
+			return nil
+		}
+
 		if err := m.DeploymentType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
@@ -240,6 +250,11 @@ func (m *VMManifestSummary) contextValidateDeploymentType(ctx context.Context, f
 func (m *VMManifestSummary) contextValidateDesc(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Desc != nil {
+
+		if swag.IsZero(m.Desc) { // not required
+			return nil
+		}
+
 		if err := m.Desc.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("desc")
@@ -256,6 +271,11 @@ func (m *VMManifestSummary) contextValidateDesc(ctx context.Context, formats str
 func (m *VMManifestSummary) contextValidateModule(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Module != nil {
+
+		if swag.IsZero(m.Module) { // not required
+			return nil
+		}
+
 		if err := m.Module.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("module")

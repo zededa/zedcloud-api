@@ -111,6 +111,11 @@ func (o *ArtifactManagerQueryArtifactsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the artifact manager query artifacts o k response
+func (o *ArtifactManagerQueryArtifactsOK) Code() int {
+	return 200
+}
+
 func (o *ArtifactManagerQueryArtifactsOK) Error() string {
 	return fmt.Sprintf("[GET /v1/artifacts][%d] artifactManagerQueryArtifactsOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *ArtifactManagerQueryArtifactsBadRequest) IsServerError() bool {
 // IsCode returns true when this artifact manager query artifacts bad request response a status code equal to that given
 func (o *ArtifactManagerQueryArtifactsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the artifact manager query artifacts bad request response
+func (o *ArtifactManagerQueryArtifactsBadRequest) Code() int {
+	return 400
 }
 
 func (o *ArtifactManagerQueryArtifactsBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *ArtifactManagerQueryArtifactsUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the artifact manager query artifacts unauthorized response
+func (o *ArtifactManagerQueryArtifactsUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ArtifactManagerQueryArtifactsUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/artifacts][%d] artifactManagerQueryArtifactsUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *ArtifactManagerQueryArtifactsForbidden) IsServerError() bool {
 // IsCode returns true when this artifact manager query artifacts forbidden response a status code equal to that given
 func (o *ArtifactManagerQueryArtifactsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the artifact manager query artifacts forbidden response
+func (o *ArtifactManagerQueryArtifactsForbidden) Code() int {
+	return 403
 }
 
 func (o *ArtifactManagerQueryArtifactsForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *ArtifactManagerQueryArtifactsInternalServerError) IsCode(code int) bool
 	return code == 500
 }
 
+// Code gets the status code for the artifact manager query artifacts internal server error response
+func (o *ArtifactManagerQueryArtifactsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ArtifactManagerQueryArtifactsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/artifacts][%d] artifactManagerQueryArtifactsInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *ArtifactManagerQueryArtifactsGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the artifact manager query artifacts gateway timeout response
+func (o *ArtifactManagerQueryArtifactsGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ArtifactManagerQueryArtifactsGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/artifacts][%d] artifactManagerQueryArtifactsGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type ArtifactManagerQueryArtifactsDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the artifact manager query artifacts default response
-func (o *ArtifactManagerQueryArtifactsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this artifact manager query artifacts default response has a 2xx status code
 func (o *ArtifactManagerQueryArtifactsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *ArtifactManagerQueryArtifactsDefault) IsServerError() bool {
 // IsCode returns true when this artifact manager query artifacts default response a status code equal to that given
 func (o *ArtifactManagerQueryArtifactsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the artifact manager query artifacts default response
+func (o *ArtifactManagerQueryArtifactsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ArtifactManagerQueryArtifactsDefault) Error() string {

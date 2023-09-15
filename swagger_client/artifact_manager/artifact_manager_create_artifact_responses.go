@@ -111,6 +111,11 @@ func (o *ArtifactManagerCreateArtifactOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the artifact manager create artifact o k response
+func (o *ArtifactManagerCreateArtifactOK) Code() int {
+	return 200
+}
+
 func (o *ArtifactManagerCreateArtifactOK) Error() string {
 	return fmt.Sprintf("[POST /v1/artifacts][%d] artifactManagerCreateArtifactOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *ArtifactManagerCreateArtifactBadRequest) IsServerError() bool {
 // IsCode returns true when this artifact manager create artifact bad request response a status code equal to that given
 func (o *ArtifactManagerCreateArtifactBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the artifact manager create artifact bad request response
+func (o *ArtifactManagerCreateArtifactBadRequest) Code() int {
+	return 400
 }
 
 func (o *ArtifactManagerCreateArtifactBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *ArtifactManagerCreateArtifactUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the artifact manager create artifact unauthorized response
+func (o *ArtifactManagerCreateArtifactUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ArtifactManagerCreateArtifactUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /v1/artifacts][%d] artifactManagerCreateArtifactUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *ArtifactManagerCreateArtifactForbidden) IsServerError() bool {
 // IsCode returns true when this artifact manager create artifact forbidden response a status code equal to that given
 func (o *ArtifactManagerCreateArtifactForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the artifact manager create artifact forbidden response
+func (o *ArtifactManagerCreateArtifactForbidden) Code() int {
+	return 403
 }
 
 func (o *ArtifactManagerCreateArtifactForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *ArtifactManagerCreateArtifactInternalServerError) IsCode(code int) bool
 	return code == 500
 }
 
+// Code gets the status code for the artifact manager create artifact internal server error response
+func (o *ArtifactManagerCreateArtifactInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ArtifactManagerCreateArtifactInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /v1/artifacts][%d] artifactManagerCreateArtifactInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *ArtifactManagerCreateArtifactGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the artifact manager create artifact gateway timeout response
+func (o *ArtifactManagerCreateArtifactGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ArtifactManagerCreateArtifactGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/artifacts][%d] artifactManagerCreateArtifactGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type ArtifactManagerCreateArtifactDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the artifact manager create artifact default response
-func (o *ArtifactManagerCreateArtifactDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this artifact manager create artifact default response has a 2xx status code
 func (o *ArtifactManagerCreateArtifactDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *ArtifactManagerCreateArtifactDefault) IsServerError() bool {
 // IsCode returns true when this artifact manager create artifact default response a status code equal to that given
 func (o *ArtifactManagerCreateArtifactDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the artifact manager create artifact default response
+func (o *ArtifactManagerCreateArtifactDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ArtifactManagerCreateArtifactDefault) Error() string {

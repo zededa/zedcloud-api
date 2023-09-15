@@ -148,6 +148,11 @@ func (m *PCRTemplate) contextValidatePCRValues(ctx context.Context, formats strf
 	for i := 0; i < len(m.PCRValues); i++ {
 
 		if m.PCRValues[i] != nil {
+
+			if swag.IsZero(m.PCRValues[i]) { // not required
+				return nil
+			}
+
 			if err := m.PCRValues[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("PCRValues" + "." + strconv.Itoa(i))

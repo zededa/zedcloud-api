@@ -111,6 +111,11 @@ func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListOK) Is
 	return code == 200
 }
 
+// Code gets the status code for the edge application configuration query edge application bundle project list o k response
+func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListOK) Code() int {
+	return 200
+}
+
 func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListOK) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/id/{id}/projects][%d] edgeApplicationConfigurationQueryEdgeApplicationBundleProjectListOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListBadReq
 // IsCode returns true when this edge application configuration query edge application bundle project list bad request response a status code equal to that given
 func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the edge application configuration query edge application bundle project list bad request response
+func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListBadRequest) Code() int {
+	return 400
 }
 
 func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListUnauth
 	return code == 401
 }
 
+// Code gets the status code for the edge application configuration query edge application bundle project list unauthorized response
+func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListUnauthorized) Code() int {
+	return 401
+}
+
 func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/id/{id}/projects][%d] edgeApplicationConfigurationQueryEdgeApplicationBundleProjectListUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListForbid
 // IsCode returns true when this edge application configuration query edge application bundle project list forbidden response a status code equal to that given
 func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the edge application configuration query edge application bundle project list forbidden response
+func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListForbidden) Code() int {
+	return 403
 }
 
 func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListIntern
 	return code == 500
 }
 
+// Code gets the status code for the edge application configuration query edge application bundle project list internal server error response
+func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/id/{id}/projects][%d] edgeApplicationConfigurationQueryEdgeApplicationBundleProjectListInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListGatewa
 	return code == 504
 }
 
+// Code gets the status code for the edge application configuration query edge application bundle project list gateway timeout response
+func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/id/{id}/projects][%d] edgeApplicationConfigurationQueryEdgeApplicationBundleProjectListGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListDefault st
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge application configuration query edge application bundle project list default response
-func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge application configuration query edge application bundle project list default response has a 2xx status code
 func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListDefaul
 // IsCode returns true when this edge application configuration query edge application bundle project list default response a status code equal to that given
 func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge application configuration query edge application bundle project list default response
+func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeApplicationConfigurationQueryEdgeApplicationBundleProjectListDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *BulkJobOpsQueryJobsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the bulk job ops query jobs o k response
+func (o *BulkJobOpsQueryJobsOK) Code() int {
+	return 200
+}
+
 func (o *BulkJobOpsQueryJobsOK) Error() string {
 	return fmt.Sprintf("[GET /v1/jobs][%d] bulkJobOpsQueryJobsOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *BulkJobOpsQueryJobsBadRequest) IsServerError() bool {
 // IsCode returns true when this bulk job ops query jobs bad request response a status code equal to that given
 func (o *BulkJobOpsQueryJobsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the bulk job ops query jobs bad request response
+func (o *BulkJobOpsQueryJobsBadRequest) Code() int {
+	return 400
 }
 
 func (o *BulkJobOpsQueryJobsBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *BulkJobOpsQueryJobsUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the bulk job ops query jobs unauthorized response
+func (o *BulkJobOpsQueryJobsUnauthorized) Code() int {
+	return 401
+}
+
 func (o *BulkJobOpsQueryJobsUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/jobs][%d] bulkJobOpsQueryJobsUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *BulkJobOpsQueryJobsForbidden) IsServerError() bool {
 // IsCode returns true when this bulk job ops query jobs forbidden response a status code equal to that given
 func (o *BulkJobOpsQueryJobsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the bulk job ops query jobs forbidden response
+func (o *BulkJobOpsQueryJobsForbidden) Code() int {
+	return 403
 }
 
 func (o *BulkJobOpsQueryJobsForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *BulkJobOpsQueryJobsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the bulk job ops query jobs internal server error response
+func (o *BulkJobOpsQueryJobsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *BulkJobOpsQueryJobsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/jobs][%d] bulkJobOpsQueryJobsInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *BulkJobOpsQueryJobsGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the bulk job ops query jobs gateway timeout response
+func (o *BulkJobOpsQueryJobsGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *BulkJobOpsQueryJobsGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/jobs][%d] bulkJobOpsQueryJobsGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type BulkJobOpsQueryJobsDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the bulk job ops query jobs default response
-func (o *BulkJobOpsQueryJobsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this bulk job ops query jobs default response has a 2xx status code
 func (o *BulkJobOpsQueryJobsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *BulkJobOpsQueryJobsDefault) IsServerError() bool {
 // IsCode returns true when this bulk job ops query jobs default response a status code equal to that given
 func (o *BulkJobOpsQueryJobsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the bulk job ops query jobs default response
+func (o *BulkJobOpsQueryJobsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *BulkJobOpsQueryJobsDefault) Error() string {

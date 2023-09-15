@@ -104,6 +104,11 @@ func (m *DatastoreFilter) ContextValidate(ctx context.Context, formats strfmt.Re
 func (m *DatastoreFilter) contextValidateDsType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DsType != nil {
+
+		if swag.IsZero(m.DsType) { // not required
+			return nil
+		}
+
 		if err := m.DsType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dsType")

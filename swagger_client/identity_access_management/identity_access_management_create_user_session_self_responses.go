@@ -105,6 +105,11 @@ func (o *IdentityAccessManagementCreateUserSessionSelfOK) IsCode(code int) bool 
 	return code == 200
 }
 
+// Code gets the status code for the identity access management create user session self o k response
+func (o *IdentityAccessManagementCreateUserSessionSelfOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementCreateUserSessionSelfOK) Error() string {
 	return fmt.Sprintf("[POST /v1/sessions/token/self][%d] identityAccessManagementCreateUserSessionSelfOK  %+v", 200, o.Payload)
 }
@@ -166,6 +171,11 @@ func (o *IdentityAccessManagementCreateUserSessionSelfUnauthorized) IsServerErro
 // IsCode returns true when this identity access management create user session self unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementCreateUserSessionSelfUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management create user session self unauthorized response
+func (o *IdentityAccessManagementCreateUserSessionSelfUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementCreateUserSessionSelfUnauthorized) Error() string {
@@ -231,6 +241,11 @@ func (o *IdentityAccessManagementCreateUserSessionSelfForbidden) IsCode(code int
 	return code == 403
 }
 
+// Code gets the status code for the identity access management create user session self forbidden response
+func (o *IdentityAccessManagementCreateUserSessionSelfForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementCreateUserSessionSelfForbidden) Error() string {
 	return fmt.Sprintf("[POST /v1/sessions/token/self][%d] identityAccessManagementCreateUserSessionSelfForbidden  %+v", 403, o.Payload)
 }
@@ -292,6 +307,11 @@ func (o *IdentityAccessManagementCreateUserSessionSelfInternalServerError) IsSer
 // IsCode returns true when this identity access management create user session self internal server error response a status code equal to that given
 func (o *IdentityAccessManagementCreateUserSessionSelfInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management create user session self internal server error response
+func (o *IdentityAccessManagementCreateUserSessionSelfInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementCreateUserSessionSelfInternalServerError) Error() string {
@@ -357,6 +377,11 @@ func (o *IdentityAccessManagementCreateUserSessionSelfGatewayTimeout) IsCode(cod
 	return code == 504
 }
 
+// Code gets the status code for the identity access management create user session self gateway timeout response
+func (o *IdentityAccessManagementCreateUserSessionSelfGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementCreateUserSessionSelfGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/sessions/token/self][%d] identityAccessManagementCreateUserSessionSelfGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -399,11 +424,6 @@ type IdentityAccessManagementCreateUserSessionSelfDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management create user session self default response
-func (o *IdentityAccessManagementCreateUserSessionSelfDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management create user session self default response has a 2xx status code
 func (o *IdentityAccessManagementCreateUserSessionSelfDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -427,6 +447,11 @@ func (o *IdentityAccessManagementCreateUserSessionSelfDefault) IsServerError() b
 // IsCode returns true when this identity access management create user session self default response a status code equal to that given
 func (o *IdentityAccessManagementCreateUserSessionSelfDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management create user session self default response
+func (o *IdentityAccessManagementCreateUserSessionSelfDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementCreateUserSessionSelfDefault) Error() string {

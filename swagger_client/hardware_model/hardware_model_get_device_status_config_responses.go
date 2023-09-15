@@ -111,6 +111,11 @@ func (o *HardwareModelGetDeviceStatusConfigOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the hardware model get device status config o k response
+func (o *HardwareModelGetDeviceStatusConfigOK) Code() int {
+	return 200
+}
+
 func (o *HardwareModelGetDeviceStatusConfigOK) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/status-config][%d] hardwareModelGetDeviceStatusConfigOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *HardwareModelGetDeviceStatusConfigBadRequest) IsServerError() bool {
 // IsCode returns true when this hardware model get device status config bad request response a status code equal to that given
 func (o *HardwareModelGetDeviceStatusConfigBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the hardware model get device status config bad request response
+func (o *HardwareModelGetDeviceStatusConfigBadRequest) Code() int {
+	return 400
 }
 
 func (o *HardwareModelGetDeviceStatusConfigBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *HardwareModelGetDeviceStatusConfigUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the hardware model get device status config unauthorized response
+func (o *HardwareModelGetDeviceStatusConfigUnauthorized) Code() int {
+	return 401
+}
+
 func (o *HardwareModelGetDeviceStatusConfigUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/status-config][%d] hardwareModelGetDeviceStatusConfigUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *HardwareModelGetDeviceStatusConfigForbidden) IsServerError() bool {
 // IsCode returns true when this hardware model get device status config forbidden response a status code equal to that given
 func (o *HardwareModelGetDeviceStatusConfigForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the hardware model get device status config forbidden response
+func (o *HardwareModelGetDeviceStatusConfigForbidden) Code() int {
+	return 403
 }
 
 func (o *HardwareModelGetDeviceStatusConfigForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *HardwareModelGetDeviceStatusConfigInternalServerError) IsCode(code int)
 	return code == 500
 }
 
+// Code gets the status code for the hardware model get device status config internal server error response
+func (o *HardwareModelGetDeviceStatusConfigInternalServerError) Code() int {
+	return 500
+}
+
 func (o *HardwareModelGetDeviceStatusConfigInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/status-config][%d] hardwareModelGetDeviceStatusConfigInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *HardwareModelGetDeviceStatusConfigGatewayTimeout) IsCode(code int) bool
 	return code == 504
 }
 
+// Code gets the status code for the hardware model get device status config gateway timeout response
+func (o *HardwareModelGetDeviceStatusConfigGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *HardwareModelGetDeviceStatusConfigGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/status-config][%d] hardwareModelGetDeviceStatusConfigGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type HardwareModelGetDeviceStatusConfigDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the hardware model get device status config default response
-func (o *HardwareModelGetDeviceStatusConfigDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this hardware model get device status config default response has a 2xx status code
 func (o *HardwareModelGetDeviceStatusConfigDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *HardwareModelGetDeviceStatusConfigDefault) IsServerError() bool {
 // IsCode returns true when this hardware model get device status config default response a status code equal to that given
 func (o *HardwareModelGetDeviceStatusConfigDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the hardware model get device status config default response
+func (o *HardwareModelGetDeviceStatusConfigDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *HardwareModelGetDeviceStatusConfigDefault) Error() string {

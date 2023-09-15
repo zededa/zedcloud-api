@@ -116,6 +116,7 @@ func (m *PCRValue) ContextValidate(ctx context.Context, formats strfmt.Registry)
 func (m *PCRValue) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

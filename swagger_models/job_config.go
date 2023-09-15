@@ -373,6 +373,7 @@ func (m *JobConfig) contextValidateIndividualOpStatus(ctx context.Context, forma
 func (m *JobConfig) contextValidateObjectType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ObjectType != nil {
+
 		if err := m.ObjectType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("objectType")
@@ -389,6 +390,11 @@ func (m *JobConfig) contextValidateObjectType(ctx context.Context, formats strfm
 func (m *JobConfig) contextValidateOperationType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.OperationType != nil {
+
+		if swag.IsZero(m.OperationType) { // not required
+			return nil
+		}
+
 		if err := m.OperationType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("operationType")
@@ -405,6 +411,11 @@ func (m *JobConfig) contextValidateOperationType(ctx context.Context, formats st
 func (m *JobConfig) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Revision != nil {
+
+		if swag.IsZero(m.Revision) { // not required
+			return nil
+		}
+
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
@@ -421,6 +432,11 @@ func (m *JobConfig) contextValidateRevision(ctx context.Context, formats strfmt.
 func (m *JobConfig) contextValidateSelectionCriteria(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SelectionCriteria != nil {
+
+		if swag.IsZero(m.SelectionCriteria) { // not required
+			return nil
+		}
+
 		if err := m.SelectionCriteria.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("selectionCriteria")
@@ -446,6 +462,11 @@ func (m *JobConfig) contextValidateStartTime(ctx context.Context, formats strfmt
 func (m *JobConfig) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Status != nil {
+
+		if swag.IsZero(m.Status) { // not required
+			return nil
+		}
+
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")

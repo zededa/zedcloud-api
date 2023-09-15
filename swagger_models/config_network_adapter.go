@@ -119,6 +119,11 @@ func (m *ConfigNetworkAdapter) contextValidateAcls(ctx context.Context, formats 
 	for i := 0; i < len(m.Acls); i++ {
 
 		if m.Acls[i] != nil {
+
+			if swag.IsZero(m.Acls[i]) { // not required
+				return nil
+			}
+
 			if err := m.Acls[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("acls" + "." + strconv.Itoa(i))

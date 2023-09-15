@@ -121,6 +121,11 @@ func (o *IdentityAccessManagementUpdateRealmOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management update realm o k response
+func (o *IdentityAccessManagementUpdateRealmOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementUpdateRealmOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/realms/id/{id}][%d] identityAccessManagementUpdateRealmOK  %+v", 200, o.Payload)
 }
@@ -182,6 +187,11 @@ func (o *IdentityAccessManagementUpdateRealmUnauthorized) IsServerError() bool {
 // IsCode returns true when this identity access management update realm unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementUpdateRealmUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management update realm unauthorized response
+func (o *IdentityAccessManagementUpdateRealmUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementUpdateRealmUnauthorized) Error() string {
@@ -247,6 +257,11 @@ func (o *IdentityAccessManagementUpdateRealmForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the identity access management update realm forbidden response
+func (o *IdentityAccessManagementUpdateRealmForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementUpdateRealmForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/realms/id/{id}][%d] identityAccessManagementUpdateRealmForbidden  %+v", 403, o.Payload)
 }
@@ -308,6 +323,11 @@ func (o *IdentityAccessManagementUpdateRealmNotFound) IsServerError() bool {
 // IsCode returns true when this identity access management update realm not found response a status code equal to that given
 func (o *IdentityAccessManagementUpdateRealmNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management update realm not found response
+func (o *IdentityAccessManagementUpdateRealmNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementUpdateRealmNotFound) Error() string {
@@ -373,6 +393,11 @@ func (o *IdentityAccessManagementUpdateRealmConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the identity access management update realm conflict response
+func (o *IdentityAccessManagementUpdateRealmConflict) Code() int {
+	return 409
+}
+
 func (o *IdentityAccessManagementUpdateRealmConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/realms/id/{id}][%d] identityAccessManagementUpdateRealmConflict  %+v", 409, o.Payload)
 }
@@ -434,6 +459,11 @@ func (o *IdentityAccessManagementUpdateRealmInternalServerError) IsServerError()
 // IsCode returns true when this identity access management update realm internal server error response a status code equal to that given
 func (o *IdentityAccessManagementUpdateRealmInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management update realm internal server error response
+func (o *IdentityAccessManagementUpdateRealmInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementUpdateRealmInternalServerError) Error() string {
@@ -499,6 +529,11 @@ func (o *IdentityAccessManagementUpdateRealmGatewayTimeout) IsCode(code int) boo
 	return code == 504
 }
 
+// Code gets the status code for the identity access management update realm gateway timeout response
+func (o *IdentityAccessManagementUpdateRealmGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementUpdateRealmGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/realms/id/{id}][%d] identityAccessManagementUpdateRealmGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -541,11 +576,6 @@ type IdentityAccessManagementUpdateRealmDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management update realm default response
-func (o *IdentityAccessManagementUpdateRealmDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management update realm default response has a 2xx status code
 func (o *IdentityAccessManagementUpdateRealmDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -569,6 +599,11 @@ func (o *IdentityAccessManagementUpdateRealmDefault) IsServerError() bool {
 // IsCode returns true when this identity access management update realm default response a status code equal to that given
 func (o *IdentityAccessManagementUpdateRealmDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management update realm default response
+func (o *IdentityAccessManagementUpdateRealmDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementUpdateRealmDefault) Error() string {
@@ -765,6 +800,11 @@ func (o *IdentityAccessManagementUpdateRealmBody) ContextValidate(ctx context.Co
 func (o *IdentityAccessManagementUpdateRealmBody) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Revision != nil {
+
+		if swag.IsZero(o.Revision) { // not required
+			return nil
+		}
+
 		if err := o.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "revision")

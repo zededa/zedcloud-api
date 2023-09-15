@@ -205,6 +205,11 @@ func (m *SysModels) contextValidateList(ctx context.Context, formats strfmt.Regi
 	for i := 0; i < len(m.List); i++ {
 
 		if m.List[i] != nil {
+
+			if swag.IsZero(m.List[i]) { // not required
+				return nil
+			}
+
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
@@ -223,6 +228,11 @@ func (m *SysModels) contextValidateList(ctx context.Context, formats strfmt.Regi
 func (m *SysModels) contextValidateNext(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Next != nil {
+
+		if swag.IsZero(m.Next) { // not required
+			return nil
+		}
+
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
@@ -239,6 +249,11 @@ func (m *SysModels) contextValidateNext(ctx context.Context, formats strfmt.Regi
 func (m *SysModels) contextValidateSummaryByBrandDistribution(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByBrandDistribution != nil {
+
+		if swag.IsZero(m.SummaryByBrandDistribution) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByBrandDistribution.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByBrandDistribution")
@@ -255,6 +270,11 @@ func (m *SysModels) contextValidateSummaryByBrandDistribution(ctx context.Contex
 func (m *SysModels) contextValidateSummaryByDeviceDistribution(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByDeviceDistribution != nil {
+
+		if swag.IsZero(m.SummaryByDeviceDistribution) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByDeviceDistribution.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByDeviceDistribution")
@@ -271,6 +291,11 @@ func (m *SysModels) contextValidateSummaryByDeviceDistribution(ctx context.Conte
 func (m *SysModels) contextValidateTerse(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Terse != nil {
+
+		if swag.IsZero(m.Terse) { // not required
+			return nil
+		}
+
 		if err := m.Terse.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("terse")

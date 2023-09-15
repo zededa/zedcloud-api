@@ -107,6 +107,11 @@ func (m *ConfigNetworkInstanceOpaqueConfig) ContextValidate(ctx context.Context,
 func (m *ConfigNetworkInstanceOpaqueConfig) contextValidateLispConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.LispConfig != nil {
+
+		if swag.IsZero(m.LispConfig) { // not required
+			return nil
+		}
+
 		if err := m.LispConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lispConfig")
@@ -123,6 +128,11 @@ func (m *ConfigNetworkInstanceOpaqueConfig) contextValidateLispConfig(ctx contex
 func (m *ConfigNetworkInstanceOpaqueConfig) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

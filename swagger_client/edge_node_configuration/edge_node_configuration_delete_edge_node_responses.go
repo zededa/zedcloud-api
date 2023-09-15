@@ -111,6 +111,11 @@ func (o *EdgeNodeConfigurationDeleteEdgeNodeOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge node configuration delete edge node o k response
+func (o *EdgeNodeConfigurationDeleteEdgeNodeOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeConfigurationDeleteEdgeNodeOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/devices/id/{id}][%d] edgeNodeConfigurationDeleteEdgeNodeOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeNodeConfigurationDeleteEdgeNodeUnauthorized) IsServerError() bool {
 // IsCode returns true when this edge node configuration delete edge node unauthorized response a status code equal to that given
 func (o *EdgeNodeConfigurationDeleteEdgeNodeUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge node configuration delete edge node unauthorized response
+func (o *EdgeNodeConfigurationDeleteEdgeNodeUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNodeConfigurationDeleteEdgeNodeUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeNodeConfigurationDeleteEdgeNodeForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the edge node configuration delete edge node forbidden response
+func (o *EdgeNodeConfigurationDeleteEdgeNodeForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNodeConfigurationDeleteEdgeNodeForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/devices/id/{id}][%d] edgeNodeConfigurationDeleteEdgeNodeForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeNodeConfigurationDeleteEdgeNodeNotFound) IsServerError() bool {
 // IsCode returns true when this edge node configuration delete edge node not found response a status code equal to that given
 func (o *EdgeNodeConfigurationDeleteEdgeNodeNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge node configuration delete edge node not found response
+func (o *EdgeNodeConfigurationDeleteEdgeNodeNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNodeConfigurationDeleteEdgeNodeNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeNodeConfigurationDeleteEdgeNodeInternalServerError) IsCode(code int
 	return code == 500
 }
 
+// Code gets the status code for the edge node configuration delete edge node internal server error response
+func (o *EdgeNodeConfigurationDeleteEdgeNodeInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeNodeConfigurationDeleteEdgeNodeInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /v1/devices/id/{id}][%d] edgeNodeConfigurationDeleteEdgeNodeInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeNodeConfigurationDeleteEdgeNodeGatewayTimeout) IsCode(code int) boo
 	return code == 504
 }
 
+// Code gets the status code for the edge node configuration delete edge node gateway timeout response
+func (o *EdgeNodeConfigurationDeleteEdgeNodeGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeConfigurationDeleteEdgeNodeGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/devices/id/{id}][%d] edgeNodeConfigurationDeleteEdgeNodeGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeNodeConfigurationDeleteEdgeNodeDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node configuration delete edge node default response
-func (o *EdgeNodeConfigurationDeleteEdgeNodeDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node configuration delete edge node default response has a 2xx status code
 func (o *EdgeNodeConfigurationDeleteEdgeNodeDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeNodeConfigurationDeleteEdgeNodeDefault) IsServerError() bool {
 // IsCode returns true when this edge node configuration delete edge node default response a status code equal to that given
 func (o *EdgeNodeConfigurationDeleteEdgeNodeDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node configuration delete edge node default response
+func (o *EdgeNodeConfigurationDeleteEdgeNodeDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeConfigurationDeleteEdgeNodeDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusOK) IsCode(code in
 	return code == 200
 }
 
+// Code gets the status code for the edge network instance status get edge network instance status o k response
+func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusOK) Error() string {
 	return fmt.Sprintf("[GET /v1/netinsts/id/{id}/status][%d] edgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusUnauthorized) IsSe
 // IsCode returns true when this edge network instance status get edge network instance status unauthorized response a status code equal to that given
 func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge network instance status get edge network instance status unauthorized response
+func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusForbidden) IsCode(
 	return code == 403
 }
 
+// Code gets the status code for the edge network instance status get edge network instance status forbidden response
+func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/netinsts/id/{id}/status][%d] edgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusNotFound) IsServer
 // IsCode returns true when this edge network instance status get edge network instance status not found response a status code equal to that given
 func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge network instance status get edge network instance status not found response
+func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusInternalServerErro
 	return code == 500
 }
 
+// Code gets the status code for the edge network instance status get edge network instance status internal server error response
+func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/netinsts/id/{id}/status][%d] edgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusGatewayTimeout) Is
 	return code == 504
 }
 
+// Code gets the status code for the edge network instance status get edge network instance status gateway timeout response
+func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/netinsts/id/{id}/status][%d] edgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge network instance status get edge network instance status default response
-func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge network instance status get edge network instance status default response has a 2xx status code
 func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusDefault) IsServerE
 // IsCode returns true when this edge network instance status get edge network instance status default response a status code equal to that given
 func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge network instance status get edge network instance status default response
+func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNetworkInstanceStatusGetEdgeNetworkInstanceStatusDefault) Error() string {

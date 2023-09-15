@@ -88,6 +88,11 @@ func (m *AzureDevStatusDetail) ContextValidate(ctx context.Context, formats strf
 func (m *AzureDevStatusDetail) contextValidateTwin(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Twin != nil {
+
+		if swag.IsZero(m.Twin) { // not required
+			return nil
+		}
+
 		if err := m.Twin.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("twin")

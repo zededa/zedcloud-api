@@ -111,6 +111,11 @@ func (o *IdentityAccessManagementQueryAuthProfilesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management query auth profiles o k response
+func (o *IdentityAccessManagementQueryAuthProfilesOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementQueryAuthProfilesOK) Error() string {
 	return fmt.Sprintf("[GET /v1/authorization/profiles][%d] identityAccessManagementQueryAuthProfilesOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *IdentityAccessManagementQueryAuthProfilesBadRequest) IsServerError() bo
 // IsCode returns true when this identity access management query auth profiles bad request response a status code equal to that given
 func (o *IdentityAccessManagementQueryAuthProfilesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the identity access management query auth profiles bad request response
+func (o *IdentityAccessManagementQueryAuthProfilesBadRequest) Code() int {
+	return 400
 }
 
 func (o *IdentityAccessManagementQueryAuthProfilesBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *IdentityAccessManagementQueryAuthProfilesUnauthorized) IsCode(code int)
 	return code == 401
 }
 
+// Code gets the status code for the identity access management query auth profiles unauthorized response
+func (o *IdentityAccessManagementQueryAuthProfilesUnauthorized) Code() int {
+	return 401
+}
+
 func (o *IdentityAccessManagementQueryAuthProfilesUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/authorization/profiles][%d] identityAccessManagementQueryAuthProfilesUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *IdentityAccessManagementQueryAuthProfilesForbidden) IsServerError() boo
 // IsCode returns true when this identity access management query auth profiles forbidden response a status code equal to that given
 func (o *IdentityAccessManagementQueryAuthProfilesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the identity access management query auth profiles forbidden response
+func (o *IdentityAccessManagementQueryAuthProfilesForbidden) Code() int {
+	return 403
 }
 
 func (o *IdentityAccessManagementQueryAuthProfilesForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *IdentityAccessManagementQueryAuthProfilesInternalServerError) IsCode(co
 	return code == 500
 }
 
+// Code gets the status code for the identity access management query auth profiles internal server error response
+func (o *IdentityAccessManagementQueryAuthProfilesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *IdentityAccessManagementQueryAuthProfilesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/authorization/profiles][%d] identityAccessManagementQueryAuthProfilesInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *IdentityAccessManagementQueryAuthProfilesGatewayTimeout) IsCode(code in
 	return code == 504
 }
 
+// Code gets the status code for the identity access management query auth profiles gateway timeout response
+func (o *IdentityAccessManagementQueryAuthProfilesGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementQueryAuthProfilesGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/authorization/profiles][%d] identityAccessManagementQueryAuthProfilesGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type IdentityAccessManagementQueryAuthProfilesDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management query auth profiles default response
-func (o *IdentityAccessManagementQueryAuthProfilesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management query auth profiles default response has a 2xx status code
 func (o *IdentityAccessManagementQueryAuthProfilesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *IdentityAccessManagementQueryAuthProfilesDefault) IsServerError() bool 
 // IsCode returns true when this identity access management query auth profiles default response a status code equal to that given
 func (o *IdentityAccessManagementQueryAuthProfilesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management query auth profiles default response
+func (o *IdentityAccessManagementQueryAuthProfilesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementQueryAuthProfilesDefault) Error() string {

@@ -486,6 +486,11 @@ func (m *PolicyConfig) ContextValidate(ctx context.Context, formats strfmt.Regis
 func (m *PolicyConfig) contextValidateAppPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AppPolicy != nil {
+
+		if swag.IsZero(m.AppPolicy) { // not required
+			return nil
+		}
+
 		if err := m.AppPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appPolicy")
@@ -502,6 +507,11 @@ func (m *PolicyConfig) contextValidateAppPolicy(ctx context.Context, formats str
 func (m *PolicyConfig) contextValidateAttestationPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AttestationPolicy != nil {
+
+		if swag.IsZero(m.AttestationPolicy) { // not required
+			return nil
+		}
+
 		if err := m.AttestationPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("attestationPolicy")
@@ -518,6 +528,11 @@ func (m *PolicyConfig) contextValidateAttestationPolicy(ctx context.Context, for
 func (m *PolicyConfig) contextValidateAzurePolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AzurePolicy != nil {
+
+		if swag.IsZero(m.AzurePolicy) { // not required
+			return nil
+		}
+
 		if err := m.AzurePolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("azurePolicy")
@@ -534,6 +549,11 @@ func (m *PolicyConfig) contextValidateAzurePolicy(ctx context.Context, formats s
 func (m *PolicyConfig) contextValidateClusterPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ClusterPolicy != nil {
+
+		if swag.IsZero(m.ClusterPolicy) { // not required
+			return nil
+		}
+
 		if err := m.ClusterPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clusterPolicy")
@@ -550,6 +570,11 @@ func (m *PolicyConfig) contextValidateClusterPolicy(ctx context.Context, formats
 func (m *PolicyConfig) contextValidateEdgeviewPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.EdgeviewPolicy != nil {
+
+		if swag.IsZero(m.EdgeviewPolicy) { // not required
+			return nil
+		}
+
 		if err := m.EdgeviewPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("edgeviewPolicy")
@@ -575,6 +600,11 @@ func (m *PolicyConfig) contextValidateID(ctx context.Context, formats strfmt.Reg
 func (m *PolicyConfig) contextValidateModulePolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ModulePolicy != nil {
+
+		if swag.IsZero(m.ModulePolicy) { // not required
+			return nil
+		}
+
 		if err := m.ModulePolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modulePolicy")
@@ -591,6 +621,11 @@ func (m *PolicyConfig) contextValidateModulePolicy(ctx context.Context, formats 
 func (m *PolicyConfig) contextValidateNetworkPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.NetworkPolicy != nil {
+
+		if swag.IsZero(m.NetworkPolicy) { // not required
+			return nil
+		}
+
 		if err := m.NetworkPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("networkPolicy")
@@ -607,6 +642,11 @@ func (m *PolicyConfig) contextValidateNetworkPolicy(ctx context.Context, formats
 func (m *PolicyConfig) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Revision != nil {
+
+		if swag.IsZero(m.Revision) { // not required
+			return nil
+		}
+
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
@@ -623,6 +663,11 @@ func (m *PolicyConfig) contextValidateRevision(ctx context.Context, formats strf
 func (m *PolicyConfig) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Status != nil {
+
+		if swag.IsZero(m.Status) { // not required
+			return nil
+		}
+
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
@@ -639,6 +684,7 @@ func (m *PolicyConfig) contextValidateStatus(ctx context.Context, formats strfmt
 func (m *PolicyConfig) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

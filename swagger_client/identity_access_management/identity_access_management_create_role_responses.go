@@ -117,6 +117,11 @@ func (o *IdentityAccessManagementCreateRoleOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management create role o k response
+func (o *IdentityAccessManagementCreateRoleOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementCreateRoleOK) Error() string {
 	return fmt.Sprintf("[POST /v1/roles][%d] identityAccessManagementCreateRoleOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *IdentityAccessManagementCreateRoleBadRequest) IsServerError() bool {
 // IsCode returns true when this identity access management create role bad request response a status code equal to that given
 func (o *IdentityAccessManagementCreateRoleBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the identity access management create role bad request response
+func (o *IdentityAccessManagementCreateRoleBadRequest) Code() int {
+	return 400
 }
 
 func (o *IdentityAccessManagementCreateRoleBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *IdentityAccessManagementCreateRoleUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the identity access management create role unauthorized response
+func (o *IdentityAccessManagementCreateRoleUnauthorized) Code() int {
+	return 401
+}
+
 func (o *IdentityAccessManagementCreateRoleUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /v1/roles][%d] identityAccessManagementCreateRoleUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *IdentityAccessManagementCreateRoleForbidden) IsServerError() bool {
 // IsCode returns true when this identity access management create role forbidden response a status code equal to that given
 func (o *IdentityAccessManagementCreateRoleForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the identity access management create role forbidden response
+func (o *IdentityAccessManagementCreateRoleForbidden) Code() int {
+	return 403
 }
 
 func (o *IdentityAccessManagementCreateRoleForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *IdentityAccessManagementCreateRoleConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the identity access management create role conflict response
+func (o *IdentityAccessManagementCreateRoleConflict) Code() int {
+	return 409
+}
+
 func (o *IdentityAccessManagementCreateRoleConflict) Error() string {
 	return fmt.Sprintf("[POST /v1/roles][%d] identityAccessManagementCreateRoleConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *IdentityAccessManagementCreateRoleInternalServerError) IsServerError() 
 // IsCode returns true when this identity access management create role internal server error response a status code equal to that given
 func (o *IdentityAccessManagementCreateRoleInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management create role internal server error response
+func (o *IdentityAccessManagementCreateRoleInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementCreateRoleInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *IdentityAccessManagementCreateRoleGatewayTimeout) IsCode(code int) bool
 	return code == 504
 }
 
+// Code gets the status code for the identity access management create role gateway timeout response
+func (o *IdentityAccessManagementCreateRoleGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementCreateRoleGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/roles][%d] identityAccessManagementCreateRoleGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type IdentityAccessManagementCreateRoleDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management create role default response
-func (o *IdentityAccessManagementCreateRoleDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management create role default response has a 2xx status code
 func (o *IdentityAccessManagementCreateRoleDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *IdentityAccessManagementCreateRoleDefault) IsServerError() bool {
 // IsCode returns true when this identity access management create role default response a status code equal to that given
 func (o *IdentityAccessManagementCreateRoleDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management create role default response
+func (o *IdentityAccessManagementCreateRoleDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementCreateRoleDefault) Error() string {

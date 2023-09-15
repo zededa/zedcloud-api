@@ -76,6 +76,11 @@ func (m *DeviceSummaryReport) ContextValidate(ctx context.Context, formats strfm
 func (m *DeviceSummaryReport) contextValidateSummaryByState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByState != nil {
+
+		if swag.IsZero(m.SummaryByState) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByState")

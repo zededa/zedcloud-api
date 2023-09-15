@@ -83,6 +83,11 @@ func (m *ConfigCellularConfig) ContextValidate(ctx context.Context, formats strf
 func (m *ConfigCellularConfig) contextValidateProbe(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Probe != nil {
+
+		if swag.IsZero(m.Probe) { // not required
+			return nil
+		}
+
 		if err := m.Probe.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("probe")

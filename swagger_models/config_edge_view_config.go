@@ -143,6 +143,11 @@ func (m *ConfigEdgeViewConfig) ContextValidate(ctx context.Context, formats strf
 func (m *ConfigEdgeViewConfig) contextValidateAppPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AppPolicy != nil {
+
+		if swag.IsZero(m.AppPolicy) { // not required
+			return nil
+		}
+
 		if err := m.AppPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appPolicy")
@@ -159,6 +164,11 @@ func (m *ConfigEdgeViewConfig) contextValidateAppPolicy(ctx context.Context, for
 func (m *ConfigEdgeViewConfig) contextValidateDevPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DevPolicy != nil {
+
+		if swag.IsZero(m.DevPolicy) { // not required
+			return nil
+		}
+
 		if err := m.DevPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("devPolicy")
@@ -175,6 +185,11 @@ func (m *ConfigEdgeViewConfig) contextValidateDevPolicy(ctx context.Context, for
 func (m *ConfigEdgeViewConfig) contextValidateExtPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ExtPolicy != nil {
+
+		if swag.IsZero(m.ExtPolicy) { // not required
+			return nil
+		}
+
 		if err := m.ExtPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("extPolicy")

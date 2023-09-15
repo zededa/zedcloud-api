@@ -133,6 +133,11 @@ func (m *AAANotifyResponse) ContextValidate(ctx context.Context, formats strfmt.
 func (m *AAANotifyResponse) contextValidateLogin(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Login != nil {
+
+		if swag.IsZero(m.Login) { // not required
+			return nil
+		}
+
 		if err := m.Login.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("login")
@@ -149,6 +154,11 @@ func (m *AAANotifyResponse) contextValidateLogin(ctx context.Context, formats st
 func (m *AAANotifyResponse) contextValidateLogout(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Logout != nil {
+
+		if swag.IsZero(m.Logout) { // not required
+			return nil
+		}
+
 		if err := m.Logout.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("logout")
@@ -165,6 +175,11 @@ func (m *AAANotifyResponse) contextValidateLogout(ctx context.Context, formats s
 func (m *AAANotifyResponse) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

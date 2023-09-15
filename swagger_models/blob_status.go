@@ -82,6 +82,11 @@ func (m *BlobStatus) ContextValidate(ctx context.Context, formats strfmt.Registr
 func (m *BlobStatus) contextValidateSwState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SwState != nil {
+
+		if swag.IsZero(m.SwState) { // not required
+			return nil
+		}
+
 		if err := m.SwState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swState")

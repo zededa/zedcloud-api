@@ -111,6 +111,11 @@ func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge node configuration get device interface tags o k response
+func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsOK) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/interfaces/tags][%d] edgeNodeConfigurationGetDeviceInterfaceTagsOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsBadRequest) IsServerError() 
 // IsCode returns true when this edge node configuration get device interface tags bad request response a status code equal to that given
 func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the edge node configuration get device interface tags bad request response
+func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsBadRequest) Code() int {
+	return 400
 }
 
 func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsUnauthorized) IsCode(code in
 	return code == 401
 }
 
+// Code gets the status code for the edge node configuration get device interface tags unauthorized response
+func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsUnauthorized) Code() int {
+	return 401
+}
+
 func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/interfaces/tags][%d] edgeNodeConfigurationGetDeviceInterfaceTagsUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsForbidden) IsServerError() b
 // IsCode returns true when this edge node configuration get device interface tags forbidden response a status code equal to that given
 func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the edge node configuration get device interface tags forbidden response
+func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsForbidden) Code() int {
+	return 403
 }
 
 func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsInternalServerError) IsCode(
 	return code == 500
 }
 
+// Code gets the status code for the edge node configuration get device interface tags internal server error response
+func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/interfaces/tags][%d] edgeNodeConfigurationGetDeviceInterfaceTagsInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsGatewayTimeout) IsCode(code 
 	return code == 504
 }
 
+// Code gets the status code for the edge node configuration get device interface tags gateway timeout response
+func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/interfaces/tags][%d] edgeNodeConfigurationGetDeviceInterfaceTagsGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeNodeConfigurationGetDeviceInterfaceTagsDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node configuration get device interface tags default response
-func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node configuration get device interface tags default response has a 2xx status code
 func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsDefault) IsServerError() boo
 // IsCode returns true when this edge node configuration get device interface tags default response a status code equal to that given
 func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node configuration get device interface tags default response
+func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeConfigurationGetDeviceInterfaceTagsDefault) Error() string {

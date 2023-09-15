@@ -111,6 +111,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge node configuration get edge node onboarding o k response
+func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingOK) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/id/{id}/onboarding][%d] edgeNodeConfigurationGetEdgeNodeOnboardingOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingUnauthorized) IsServerError()
 // IsCode returns true when this edge node configuration get edge node onboarding unauthorized response a status code equal to that given
 func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge node configuration get edge node onboarding unauthorized response
+func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingForbidden) IsCode(code int) b
 	return code == 403
 }
 
+// Code gets the status code for the edge node configuration get edge node onboarding forbidden response
+func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/id/{id}/onboarding][%d] edgeNodeConfigurationGetEdgeNodeOnboardingForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingNotFound) IsServerError() boo
 // IsCode returns true when this edge node configuration get edge node onboarding not found response a status code equal to that given
 func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge node configuration get edge node onboarding not found response
+func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingInternalServerError) IsCode(c
 	return code == 500
 }
 
+// Code gets the status code for the edge node configuration get edge node onboarding internal server error response
+func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/id/{id}/onboarding][%d] edgeNodeConfigurationGetEdgeNodeOnboardingInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingGatewayTimeout) IsCode(code i
 	return code == 504
 }
 
+// Code gets the status code for the edge node configuration get edge node onboarding gateway timeout response
+func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/id/{id}/onboarding][%d] edgeNodeConfigurationGetEdgeNodeOnboardingGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeNodeConfigurationGetEdgeNodeOnboardingDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node configuration get edge node onboarding default response
-func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node configuration get edge node onboarding default response has a 2xx status code
 func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingDefault) IsServerError() bool
 // IsCode returns true when this edge node configuration get edge node onboarding default response a status code equal to that given
 func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node configuration get edge node onboarding default response
+func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeConfigurationGetEdgeNodeOnboardingDefault) Error() string {

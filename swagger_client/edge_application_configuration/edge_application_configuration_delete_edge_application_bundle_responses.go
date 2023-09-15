@@ -117,6 +117,11 @@ func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleOK) IsCode(code 
 	return code == 200
 }
 
+// Code gets the status code for the edge application configuration delete edge application bundle o k response
+func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleOK) Code() int {
+	return 200
+}
+
 func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/apps/id/{id}][%d] edgeApplicationConfigurationDeleteEdgeApplicationBundleOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleUnauthorized) Is
 // IsCode returns true when this edge application configuration delete edge application bundle unauthorized response a status code equal to that given
 func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge application configuration delete edge application bundle unauthorized response
+func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleUnauthorized) Error() string {
@@ -243,6 +253,11 @@ func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleForbidden) IsCod
 	return code == 403
 }
 
+// Code gets the status code for the edge application configuration delete edge application bundle forbidden response
+func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/apps/id/{id}][%d] edgeApplicationConfigurationDeleteEdgeApplicationBundleForbidden  %+v", 403, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleNotFound) IsServ
 // IsCode returns true when this edge application configuration delete edge application bundle not found response a status code equal to that given
 func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge application configuration delete edge application bundle not found response
+func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleNotFound) Error() string {
@@ -369,6 +389,11 @@ func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleConflict) IsCode
 	return code == 409
 }
 
+// Code gets the status code for the edge application configuration delete edge application bundle conflict response
+func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleConflict) Code() int {
+	return 409
+}
+
 func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleConflict) Error() string {
 	return fmt.Sprintf("[DELETE /v1/apps/id/{id}][%d] edgeApplicationConfigurationDeleteEdgeApplicationBundleConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleInternalServerEr
 // IsCode returns true when this edge application configuration delete edge application bundle internal server error response a status code equal to that given
 func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the edge application configuration delete edge application bundle internal server error response
+func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleGatewayTimeout) 
 	return code == 504
 }
 
+// Code gets the status code for the edge application configuration delete edge application bundle gateway timeout response
+func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/apps/id/{id}][%d] edgeApplicationConfigurationDeleteEdgeApplicationBundleGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type EdgeApplicationConfigurationDeleteEdgeApplicationBundleDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge application configuration delete edge application bundle default response
-func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge application configuration delete edge application bundle default response has a 2xx status code
 func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleDefault) IsServe
 // IsCode returns true when this edge application configuration delete edge application bundle default response a status code equal to that given
 func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge application configuration delete edge application bundle default response
+func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeApplicationConfigurationDeleteEdgeApplicationBundleDefault) Error() string {

@@ -122,6 +122,11 @@ func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceOK) IsCode(cod
 	return code == 200
 }
 
+// Code gets the status code for the edge network instance configuration update edge network instance o k response
+func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/netinsts/id/{id}][%d] edgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceOK  %+v", 200, o.Payload)
 }
@@ -183,6 +188,11 @@ func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceUnauthorized) 
 // IsCode returns true when this edge network instance configuration update edge network instance unauthorized response a status code equal to that given
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge network instance configuration update edge network instance unauthorized response
+func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceUnauthorized) Error() string {
@@ -248,6 +258,11 @@ func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceForbidden) IsC
 	return code == 403
 }
 
+// Code gets the status code for the edge network instance configuration update edge network instance forbidden response
+func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/netinsts/id/{id}][%d] edgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceForbidden  %+v", 403, o.Payload)
 }
@@ -309,6 +324,11 @@ func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceNotFound) IsSe
 // IsCode returns true when this edge network instance configuration update edge network instance not found response a status code equal to that given
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge network instance configuration update edge network instance not found response
+func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceNotFound) Error() string {
@@ -374,6 +394,11 @@ func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceConflict) IsCo
 	return code == 409
 }
 
+// Code gets the status code for the edge network instance configuration update edge network instance conflict response
+func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceConflict) Code() int {
+	return 409
+}
+
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/netinsts/id/{id}][%d] edgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceConflict  %+v", 409, o.Payload)
 }
@@ -435,6 +460,11 @@ func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceInternalServer
 // IsCode returns true when this edge network instance configuration update edge network instance internal server error response a status code equal to that given
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the edge network instance configuration update edge network instance internal server error response
+func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceInternalServerError) Error() string {
@@ -500,6 +530,11 @@ func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceGatewayTimeout
 	return code == 504
 }
 
+// Code gets the status code for the edge network instance configuration update edge network instance gateway timeout response
+func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/netinsts/id/{id}][%d] edgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -542,11 +577,6 @@ type EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge network instance configuration update edge network instance default response
-func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge network instance configuration update edge network instance default response has a 2xx status code
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -570,6 +600,11 @@ func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceDefault) IsSer
 // IsCode returns true when this edge network instance configuration update edge network instance default response a status code equal to that given
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge network instance configuration update edge network instance default response
+func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceDefault) Error() string {
@@ -1031,6 +1066,11 @@ func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceBody) contextV
 	for i := 0; i < len(o.DNSList); i++ {
 
 		if o.DNSList[i] != nil {
+
+			if swag.IsZero(o.DNSList[i]) { // not required
+				return nil
+			}
+
 			if err := o.DNSList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("body" + "." + "dnsList" + "." + strconv.Itoa(i))
@@ -1049,6 +1089,11 @@ func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceBody) contextV
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceBody) contextValidateIP(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.IP != nil {
+
+		if swag.IsZero(o.IP) { // not required
+			return nil
+		}
+
 		if err := o.IP.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "ip")
@@ -1065,6 +1110,7 @@ func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceBody) contextV
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceBody) contextValidateKind(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Kind != nil {
+
 		if err := o.Kind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "kind")
@@ -1081,6 +1127,11 @@ func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceBody) contextV
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceBody) contextValidateLisp(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Lisp != nil {
+
+		if swag.IsZero(o.Lisp) { // not required
+			return nil
+		}
+
 		if err := o.Lisp.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "lisp")
@@ -1097,6 +1148,11 @@ func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceBody) contextV
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceBody) contextValidateOpaque(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Opaque != nil {
+
+		if swag.IsZero(o.Opaque) { // not required
+			return nil
+		}
+
 		if err := o.Opaque.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "opaque")
@@ -1113,6 +1169,11 @@ func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceBody) contextV
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceBody) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Revision != nil {
+
+		if swag.IsZero(o.Revision) { // not required
+			return nil
+		}
+
 		if err := o.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "revision")
@@ -1129,6 +1190,11 @@ func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceBody) contextV
 func (o *EdgeNetworkInstanceConfigurationUpdateEdgeNetworkInstanceBody) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Type != nil {
+
+		if swag.IsZero(o.Type) { // not required
+			return nil
+		}
+
 		if err := o.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "type")

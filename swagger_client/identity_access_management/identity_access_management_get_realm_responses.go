@@ -111,6 +111,11 @@ func (o *IdentityAccessManagementGetRealmOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management get realm o k response
+func (o *IdentityAccessManagementGetRealmOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementGetRealmOK) Error() string {
 	return fmt.Sprintf("[GET /v1/realms/id/{id}][%d] identityAccessManagementGetRealmOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *IdentityAccessManagementGetRealmUnauthorized) IsServerError() bool {
 // IsCode returns true when this identity access management get realm unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementGetRealmUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management get realm unauthorized response
+func (o *IdentityAccessManagementGetRealmUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementGetRealmUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *IdentityAccessManagementGetRealmForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the identity access management get realm forbidden response
+func (o *IdentityAccessManagementGetRealmForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementGetRealmForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/realms/id/{id}][%d] identityAccessManagementGetRealmForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *IdentityAccessManagementGetRealmNotFound) IsServerError() bool {
 // IsCode returns true when this identity access management get realm not found response a status code equal to that given
 func (o *IdentityAccessManagementGetRealmNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management get realm not found response
+func (o *IdentityAccessManagementGetRealmNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementGetRealmNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *IdentityAccessManagementGetRealmInternalServerError) IsCode(code int) b
 	return code == 500
 }
 
+// Code gets the status code for the identity access management get realm internal server error response
+func (o *IdentityAccessManagementGetRealmInternalServerError) Code() int {
+	return 500
+}
+
 func (o *IdentityAccessManagementGetRealmInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/realms/id/{id}][%d] identityAccessManagementGetRealmInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *IdentityAccessManagementGetRealmGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the identity access management get realm gateway timeout response
+func (o *IdentityAccessManagementGetRealmGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementGetRealmGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/realms/id/{id}][%d] identityAccessManagementGetRealmGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type IdentityAccessManagementGetRealmDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management get realm default response
-func (o *IdentityAccessManagementGetRealmDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management get realm default response has a 2xx status code
 func (o *IdentityAccessManagementGetRealmDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *IdentityAccessManagementGetRealmDefault) IsServerError() bool {
 // IsCode returns true when this identity access management get realm default response a status code equal to that given
 func (o *IdentityAccessManagementGetRealmDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management get realm default response
+func (o *IdentityAccessManagementGetRealmDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementGetRealmDefault) Error() string {

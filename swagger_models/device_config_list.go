@@ -182,6 +182,11 @@ func (m *DeviceConfigList) contextValidateList(ctx context.Context, formats strf
 	for i := 0; i < len(m.List); i++ {
 
 		if m.List[i] != nil {
+
+			if swag.IsZero(m.List[i]) { // not required
+				return nil
+			}
+
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
@@ -200,6 +205,7 @@ func (m *DeviceConfigList) contextValidateList(ctx context.Context, formats strf
 func (m *DeviceConfigList) contextValidateNext(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Next != nil {
+
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
@@ -216,6 +222,7 @@ func (m *DeviceConfigList) contextValidateNext(ctx context.Context, formats strf
 func (m *DeviceConfigList) contextValidateSummaryByState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByState != nil {
+
 		if err := m.SummaryByState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByState")
@@ -232,6 +239,11 @@ func (m *DeviceConfigList) contextValidateSummaryByState(ctx context.Context, fo
 func (m *DeviceConfigList) contextValidateSummaryByTagDistribution(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByTagDistribution != nil {
+
+		if swag.IsZero(m.SummaryByTagDistribution) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByTagDistribution.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByTagDistribution")

@@ -93,6 +93,11 @@ func (m *LTEAdapter) ContextValidate(ctx context.Context, formats strfmt.Registr
 func (m *LTEAdapter) contextValidateSimcardState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SimcardState != nil {
+
+		if swag.IsZero(m.SimcardState) { // not required
+			return nil
+		}
+
 		if err := m.SimcardState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("simcardState")

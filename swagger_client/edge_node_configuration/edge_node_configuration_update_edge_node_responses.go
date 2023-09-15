@@ -122,6 +122,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge node configuration update edge node o k response
+func (o *EdgeNodeConfigurationUpdateEdgeNodeOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeConfigurationUpdateEdgeNodeOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}][%d] edgeNodeConfigurationUpdateEdgeNodeOK  %+v", 200, o.Payload)
 }
@@ -183,6 +188,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeUnauthorized) IsServerError() bool {
 // IsCode returns true when this edge node configuration update edge node unauthorized response a status code equal to that given
 func (o *EdgeNodeConfigurationUpdateEdgeNodeUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge node configuration update edge node unauthorized response
+func (o *EdgeNodeConfigurationUpdateEdgeNodeUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNodeConfigurationUpdateEdgeNodeUnauthorized) Error() string {
@@ -248,6 +258,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the edge node configuration update edge node forbidden response
+func (o *EdgeNodeConfigurationUpdateEdgeNodeForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNodeConfigurationUpdateEdgeNodeForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}][%d] edgeNodeConfigurationUpdateEdgeNodeForbidden  %+v", 403, o.Payload)
 }
@@ -309,6 +324,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeNotFound) IsServerError() bool {
 // IsCode returns true when this edge node configuration update edge node not found response a status code equal to that given
 func (o *EdgeNodeConfigurationUpdateEdgeNodeNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge node configuration update edge node not found response
+func (o *EdgeNodeConfigurationUpdateEdgeNodeNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNodeConfigurationUpdateEdgeNodeNotFound) Error() string {
@@ -374,6 +394,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the edge node configuration update edge node conflict response
+func (o *EdgeNodeConfigurationUpdateEdgeNodeConflict) Code() int {
+	return 409
+}
+
 func (o *EdgeNodeConfigurationUpdateEdgeNodeConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}][%d] edgeNodeConfigurationUpdateEdgeNodeConflict  %+v", 409, o.Payload)
 }
@@ -435,6 +460,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeInternalServerError) IsServerError()
 // IsCode returns true when this edge node configuration update edge node internal server error response a status code equal to that given
 func (o *EdgeNodeConfigurationUpdateEdgeNodeInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the edge node configuration update edge node internal server error response
+func (o *EdgeNodeConfigurationUpdateEdgeNodeInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EdgeNodeConfigurationUpdateEdgeNodeInternalServerError) Error() string {
@@ -500,6 +530,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeGatewayTimeout) IsCode(code int) boo
 	return code == 504
 }
 
+// Code gets the status code for the edge node configuration update edge node gateway timeout response
+func (o *EdgeNodeConfigurationUpdateEdgeNodeGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeConfigurationUpdateEdgeNodeGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}][%d] edgeNodeConfigurationUpdateEdgeNodeGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -542,11 +577,6 @@ type EdgeNodeConfigurationUpdateEdgeNodeDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node configuration update edge node default response
-func (o *EdgeNodeConfigurationUpdateEdgeNodeDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node configuration update edge node default response has a 2xx status code
 func (o *EdgeNodeConfigurationUpdateEdgeNodeDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -570,6 +600,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeDefault) IsServerError() bool {
 // IsCode returns true when this edge node configuration update edge node default response a status code equal to that given
 func (o *EdgeNodeConfigurationUpdateEdgeNodeDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node configuration update edge node default response
+func (o *EdgeNodeConfigurationUpdateEdgeNodeDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeConfigurationUpdateEdgeNodeDefault) Error() string {
@@ -1174,6 +1209,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) ContextValidate(ctx context.Co
 func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateAdminState(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.AdminState != nil {
+
+		if swag.IsZero(o.AdminState) { // not required
+			return nil
+		}
+
 		if err := o.AdminState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "adminState")
@@ -1192,6 +1232,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateBaseImage(ctx c
 	for i := 0; i < len(o.BaseImage); i++ {
 
 		if o.BaseImage[i] != nil {
+
+			if swag.IsZero(o.BaseImage[i]) { // not required
+				return nil
+			}
+
 			if err := o.BaseImage[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("body" + "." + "baseImage" + "." + strconv.Itoa(i))
@@ -1212,6 +1257,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateConfigItem(ctx 
 	for i := 0; i < len(o.ConfigItem); i++ {
 
 		if o.ConfigItem[i] != nil {
+
+			if swag.IsZero(o.ConfigItem[i]) { // not required
+				return nil
+			}
+
 			if err := o.ConfigItem[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("body" + "." + "configItem" + "." + strconv.Itoa(i))
@@ -1230,6 +1280,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateConfigItem(ctx 
 func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateDebugKnob(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.DebugKnob != nil {
+
+		if swag.IsZero(o.DebugKnob) { // not required
+			return nil
+		}
+
 		if err := o.DebugKnob.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "debugKnob")
@@ -1246,6 +1301,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateDebugKnob(ctx c
 func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateDefaultNetInst(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.DefaultNetInst != nil {
+
+		if swag.IsZero(o.DefaultNetInst) { // not required
+			return nil
+		}
+
 		if err := o.DefaultNetInst.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "defaultNetInst")
@@ -1262,6 +1322,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateDefaultNetInst(
 func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateDevLocation(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.DevLocation != nil {
+
+		if swag.IsZero(o.DevLocation) { // not required
+			return nil
+		}
+
 		if err := o.DevLocation.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "devLocation")
@@ -1278,6 +1343,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateDevLocation(ctx
 func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateDlisp(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Dlisp != nil {
+
+		if swag.IsZero(o.Dlisp) { // not required
+			return nil
+		}
+
 		if err := o.Dlisp.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "dlisp")
@@ -1294,6 +1364,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateDlisp(ctx conte
 func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateEdgeviewconfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Edgeviewconfig != nil {
+
+		if swag.IsZero(o.Edgeviewconfig) { // not required
+			return nil
+		}
+
 		if err := o.Edgeviewconfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "edgeviewconfig")
@@ -1312,6 +1387,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateInterfaces(ctx 
 	for i := 0; i < len(o.Interfaces); i++ {
 
 		if o.Interfaces[i] != nil {
+
+			if swag.IsZero(o.Interfaces[i]) { // not required
+				return nil
+			}
+
 			if err := o.Interfaces[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("body" + "." + "interfaces" + "." + strconv.Itoa(i))
@@ -1330,6 +1410,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateInterfaces(ctx 
 func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateOnboarding(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Onboarding != nil {
+
+		if swag.IsZero(o.Onboarding) { // not required
+			return nil
+		}
+
 		if err := o.Onboarding.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "onboarding")
@@ -1346,6 +1431,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateOnboarding(ctx 
 func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Revision != nil {
+
+		if swag.IsZero(o.Revision) { // not required
+			return nil
+		}
+
 		if err := o.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "revision")
@@ -1362,6 +1452,11 @@ func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateRevision(ctx co
 func (o *EdgeNodeConfigurationUpdateEdgeNodeBody) contextValidateUtype(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Utype != nil {
+
+		if swag.IsZero(o.Utype) { // not required
+			return nil
+		}
+
 		if err := o.Utype.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "utype")

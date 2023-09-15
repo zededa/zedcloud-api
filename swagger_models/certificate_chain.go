@@ -83,6 +83,11 @@ func (m *CertificateChain) contextValidateCertificates(ctx context.Context, form
 	for i := 0; i < len(m.Certificates); i++ {
 
 		if m.Certificates[i] != nil {
+
+			if swag.IsZero(m.Certificates[i]) { // not required
+				return nil
+			}
+
 			if err := m.Certificates[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("certificates" + "." + strconv.Itoa(i))

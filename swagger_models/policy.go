@@ -115,6 +115,11 @@ func (m *Policy) ContextValidate(ctx context.Context, formats strfmt.Registry) e
 func (m *Policy) contextValidateAccess(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Access != nil {
+
+		if swag.IsZero(m.Access) { // not required
+			return nil
+		}
+
 		if err := m.Access.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("access")
@@ -131,6 +136,11 @@ func (m *Policy) contextValidateAccess(ctx context.Context, formats strfmt.Regis
 func (m *Policy) contextValidateScope(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Scope != nil {
+
+		if swag.IsZero(m.Scope) { // not required
+			return nil
+		}
+
 		if err := m.Scope.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("scope")

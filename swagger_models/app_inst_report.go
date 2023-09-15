@@ -99,6 +99,11 @@ func (m *AppInstReport) ContextValidate(ctx context.Context, formats strfmt.Regi
 func (m *AppInstReport) contextValidateAppInstSummaryReport(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AppInstSummaryReport != nil {
+
+		if swag.IsZero(m.AppInstSummaryReport) { // not required
+			return nil
+		}
+
 		if err := m.AppInstSummaryReport.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appInstSummaryReport")

@@ -117,6 +117,11 @@ func (o *ResourceGroupCreateResourceGroupOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the resource group create resource group o k response
+func (o *ResourceGroupCreateResourceGroupOK) Code() int {
+	return 200
+}
+
 func (o *ResourceGroupCreateResourceGroupOK) Error() string {
 	return fmt.Sprintf("[POST /v1/projects][%d] resourceGroupCreateResourceGroupOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *ResourceGroupCreateResourceGroupBadRequest) IsServerError() bool {
 // IsCode returns true when this resource group create resource group bad request response a status code equal to that given
 func (o *ResourceGroupCreateResourceGroupBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the resource group create resource group bad request response
+func (o *ResourceGroupCreateResourceGroupBadRequest) Code() int {
+	return 400
 }
 
 func (o *ResourceGroupCreateResourceGroupBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *ResourceGroupCreateResourceGroupUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the resource group create resource group unauthorized response
+func (o *ResourceGroupCreateResourceGroupUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ResourceGroupCreateResourceGroupUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /v1/projects][%d] resourceGroupCreateResourceGroupUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *ResourceGroupCreateResourceGroupForbidden) IsServerError() bool {
 // IsCode returns true when this resource group create resource group forbidden response a status code equal to that given
 func (o *ResourceGroupCreateResourceGroupForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the resource group create resource group forbidden response
+func (o *ResourceGroupCreateResourceGroupForbidden) Code() int {
+	return 403
 }
 
 func (o *ResourceGroupCreateResourceGroupForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *ResourceGroupCreateResourceGroupConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the resource group create resource group conflict response
+func (o *ResourceGroupCreateResourceGroupConflict) Code() int {
+	return 409
+}
+
 func (o *ResourceGroupCreateResourceGroupConflict) Error() string {
 	return fmt.Sprintf("[POST /v1/projects][%d] resourceGroupCreateResourceGroupConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *ResourceGroupCreateResourceGroupInternalServerError) IsServerError() bo
 // IsCode returns true when this resource group create resource group internal server error response a status code equal to that given
 func (o *ResourceGroupCreateResourceGroupInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the resource group create resource group internal server error response
+func (o *ResourceGroupCreateResourceGroupInternalServerError) Code() int {
+	return 500
 }
 
 func (o *ResourceGroupCreateResourceGroupInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *ResourceGroupCreateResourceGroupGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the resource group create resource group gateway timeout response
+func (o *ResourceGroupCreateResourceGroupGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ResourceGroupCreateResourceGroupGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/projects][%d] resourceGroupCreateResourceGroupGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type ResourceGroupCreateResourceGroupDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the resource group create resource group default response
-func (o *ResourceGroupCreateResourceGroupDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this resource group create resource group default response has a 2xx status code
 func (o *ResourceGroupCreateResourceGroupDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *ResourceGroupCreateResourceGroupDefault) IsServerError() bool {
 // IsCode returns true when this resource group create resource group default response a status code equal to that given
 func (o *ResourceGroupCreateResourceGroupDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the resource group create resource group default response
+func (o *ResourceGroupCreateResourceGroupDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ResourceGroupCreateResourceGroupDefault) Error() string {

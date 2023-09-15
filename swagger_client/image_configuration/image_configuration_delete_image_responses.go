@@ -117,6 +117,11 @@ func (o *ImageConfigurationDeleteImageOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the image configuration delete image o k response
+func (o *ImageConfigurationDeleteImageOK) Code() int {
+	return 200
+}
+
 func (o *ImageConfigurationDeleteImageOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/apps/images/id/{id}][%d] imageConfigurationDeleteImageOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *ImageConfigurationDeleteImageUnauthorized) IsServerError() bool {
 // IsCode returns true when this image configuration delete image unauthorized response a status code equal to that given
 func (o *ImageConfigurationDeleteImageUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the image configuration delete image unauthorized response
+func (o *ImageConfigurationDeleteImageUnauthorized) Code() int {
+	return 401
 }
 
 func (o *ImageConfigurationDeleteImageUnauthorized) Error() string {
@@ -243,6 +253,11 @@ func (o *ImageConfigurationDeleteImageForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the image configuration delete image forbidden response
+func (o *ImageConfigurationDeleteImageForbidden) Code() int {
+	return 403
+}
+
 func (o *ImageConfigurationDeleteImageForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/apps/images/id/{id}][%d] imageConfigurationDeleteImageForbidden  %+v", 403, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *ImageConfigurationDeleteImageNotFound) IsServerError() bool {
 // IsCode returns true when this image configuration delete image not found response a status code equal to that given
 func (o *ImageConfigurationDeleteImageNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the image configuration delete image not found response
+func (o *ImageConfigurationDeleteImageNotFound) Code() int {
+	return 404
 }
 
 func (o *ImageConfigurationDeleteImageNotFound) Error() string {
@@ -369,6 +389,11 @@ func (o *ImageConfigurationDeleteImageConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the image configuration delete image conflict response
+func (o *ImageConfigurationDeleteImageConflict) Code() int {
+	return 409
+}
+
 func (o *ImageConfigurationDeleteImageConflict) Error() string {
 	return fmt.Sprintf("[DELETE /v1/apps/images/id/{id}][%d] imageConfigurationDeleteImageConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *ImageConfigurationDeleteImageInternalServerError) IsServerError() bool 
 // IsCode returns true when this image configuration delete image internal server error response a status code equal to that given
 func (o *ImageConfigurationDeleteImageInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the image configuration delete image internal server error response
+func (o *ImageConfigurationDeleteImageInternalServerError) Code() int {
+	return 500
 }
 
 func (o *ImageConfigurationDeleteImageInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *ImageConfigurationDeleteImageGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the image configuration delete image gateway timeout response
+func (o *ImageConfigurationDeleteImageGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ImageConfigurationDeleteImageGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/apps/images/id/{id}][%d] imageConfigurationDeleteImageGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type ImageConfigurationDeleteImageDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the image configuration delete image default response
-func (o *ImageConfigurationDeleteImageDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this image configuration delete image default response has a 2xx status code
 func (o *ImageConfigurationDeleteImageDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *ImageConfigurationDeleteImageDefault) IsServerError() bool {
 // IsCode returns true when this image configuration delete image default response a status code equal to that given
 func (o *ImageConfigurationDeleteImageDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the image configuration delete image default response
+func (o *ImageConfigurationDeleteImageDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ImageConfigurationDeleteImageDefault) Error() string {

@@ -319,6 +319,11 @@ func (m *BulkConfig) ContextValidate(ctx context.Context, formats strfmt.Registr
 func (m *BulkConfig) contextValidateBaseosUpdate(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.BaseosUpdate != nil {
+
+		if swag.IsZero(m.BaseosUpdate) { // not required
+			return nil
+		}
+
 		if err := m.BaseosUpdate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("baseosUpdate")
@@ -335,6 +340,11 @@ func (m *BulkConfig) contextValidateBaseosUpdate(ctx context.Context, formats st
 func (m *BulkConfig) contextValidateBundleImport(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.BundleImport != nil {
+
+		if swag.IsZero(m.BundleImport) { // not required
+			return nil
+		}
+
 		if err := m.BundleImport.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("bundleImport")
@@ -351,6 +361,11 @@ func (m *BulkConfig) contextValidateBundleImport(ctx context.Context, formats st
 func (m *BulkConfig) contextValidateDeploymentTagUpdate(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DeploymentTagUpdate != nil {
+
+		if swag.IsZero(m.DeploymentTagUpdate) { // not required
+			return nil
+		}
+
 		if err := m.DeploymentTagUpdate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentTagUpdate")
@@ -367,6 +382,11 @@ func (m *BulkConfig) contextValidateDeploymentTagUpdate(ctx context.Context, for
 func (m *BulkConfig) contextValidateDeviceProjectAndTargetUpdate(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DeviceProjectAndTargetUpdate != nil {
+
+		if swag.IsZero(m.DeviceProjectAndTargetUpdate) { // not required
+			return nil
+		}
+
 		if err := m.DeviceProjectAndTargetUpdate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deviceProjectAndTargetUpdate")
@@ -383,6 +403,11 @@ func (m *BulkConfig) contextValidateDeviceProjectAndTargetUpdate(ctx context.Con
 func (m *BulkConfig) contextValidateInstanceDeploy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.InstanceDeploy != nil {
+
+		if swag.IsZero(m.InstanceDeploy) { // not required
+			return nil
+		}
+
 		if err := m.InstanceDeploy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("instanceDeploy")
@@ -399,6 +424,11 @@ func (m *BulkConfig) contextValidateInstanceDeploy(ctx context.Context, formats 
 func (m *BulkConfig) contextValidateInstanceRefreshAndPurge(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.InstanceRefreshAndPurge != nil {
+
+		if swag.IsZero(m.InstanceRefreshAndPurge) { // not required
+			return nil
+		}
+
 		if err := m.InstanceRefreshAndPurge.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("instanceRefreshAndPurge")
@@ -415,6 +445,11 @@ func (m *BulkConfig) contextValidateInstanceRefreshAndPurge(ctx context.Context,
 func (m *BulkConfig) contextValidateModelImport(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ModelImport != nil {
+
+		if swag.IsZero(m.ModelImport) { // not required
+			return nil
+		}
+
 		if err := m.ModelImport.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modelImport")
@@ -431,6 +466,11 @@ func (m *BulkConfig) contextValidateModelImport(ctx context.Context, formats str
 func (m *BulkConfig) contextValidateSelectionCriteria(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SelectionCriteria != nil {
+
+		if swag.IsZero(m.SelectionCriteria) { // not required
+			return nil
+		}
+
 		if err := m.SelectionCriteria.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("selectionCriteria")
@@ -447,6 +487,11 @@ func (m *BulkConfig) contextValidateSelectionCriteria(ctx context.Context, forma
 func (m *BulkConfig) contextValidateTagUpdate(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.TagUpdate != nil {
+
+		if swag.IsZero(m.TagUpdate) { // not required
+			return nil
+		}
+
 		if err := m.TagUpdate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tagUpdate")

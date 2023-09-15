@@ -79,6 +79,11 @@ func (m *SysModelDetail) ContextValidate(ctx context.Context, formats strfmt.Reg
 func (m *SysModelDetail) contextValidateCustomModelFields(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CustomModelFields != nil {
+
+		if swag.IsZero(m.CustomModelFields) { // not required
+			return nil
+		}
+
 		if err := m.CustomModelFields.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customModelFields")

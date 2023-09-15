@@ -119,6 +119,11 @@ func (o *EdgeNodeConfigurationStartDebugEdgeNodeOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge node configuration start debug edge node o k response
+func (o *EdgeNodeConfigurationStartDebugEdgeNodeOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeConfigurationStartDebugEdgeNodeOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/debug/enable][%d] edgeNodeConfigurationStartDebugEdgeNodeOK  %+v", 200, o.Payload)
 }
@@ -180,6 +185,11 @@ func (o *EdgeNodeConfigurationStartDebugEdgeNodeUnauthorized) IsServerError() bo
 // IsCode returns true when this edge node configuration start debug edge node unauthorized response a status code equal to that given
 func (o *EdgeNodeConfigurationStartDebugEdgeNodeUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge node configuration start debug edge node unauthorized response
+func (o *EdgeNodeConfigurationStartDebugEdgeNodeUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNodeConfigurationStartDebugEdgeNodeUnauthorized) Error() string {
@@ -245,6 +255,11 @@ func (o *EdgeNodeConfigurationStartDebugEdgeNodeForbidden) IsCode(code int) bool
 	return code == 403
 }
 
+// Code gets the status code for the edge node configuration start debug edge node forbidden response
+func (o *EdgeNodeConfigurationStartDebugEdgeNodeForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNodeConfigurationStartDebugEdgeNodeForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/debug/enable][%d] edgeNodeConfigurationStartDebugEdgeNodeForbidden  %+v", 403, o.Payload)
 }
@@ -306,6 +321,11 @@ func (o *EdgeNodeConfigurationStartDebugEdgeNodeNotFound) IsServerError() bool {
 // IsCode returns true when this edge node configuration start debug edge node not found response a status code equal to that given
 func (o *EdgeNodeConfigurationStartDebugEdgeNodeNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge node configuration start debug edge node not found response
+func (o *EdgeNodeConfigurationStartDebugEdgeNodeNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNodeConfigurationStartDebugEdgeNodeNotFound) Error() string {
@@ -371,6 +391,11 @@ func (o *EdgeNodeConfigurationStartDebugEdgeNodeConflict) IsCode(code int) bool 
 	return code == 409
 }
 
+// Code gets the status code for the edge node configuration start debug edge node conflict response
+func (o *EdgeNodeConfigurationStartDebugEdgeNodeConflict) Code() int {
+	return 409
+}
+
 func (o *EdgeNodeConfigurationStartDebugEdgeNodeConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/debug/enable][%d] edgeNodeConfigurationStartDebugEdgeNodeConflict  %+v", 409, o.Payload)
 }
@@ -432,6 +457,11 @@ func (o *EdgeNodeConfigurationStartDebugEdgeNodeInternalServerError) IsServerErr
 // IsCode returns true when this edge node configuration start debug edge node internal server error response a status code equal to that given
 func (o *EdgeNodeConfigurationStartDebugEdgeNodeInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the edge node configuration start debug edge node internal server error response
+func (o *EdgeNodeConfigurationStartDebugEdgeNodeInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EdgeNodeConfigurationStartDebugEdgeNodeInternalServerError) Error() string {
@@ -497,6 +527,11 @@ func (o *EdgeNodeConfigurationStartDebugEdgeNodeGatewayTimeout) IsCode(code int)
 	return code == 504
 }
 
+// Code gets the status code for the edge node configuration start debug edge node gateway timeout response
+func (o *EdgeNodeConfigurationStartDebugEdgeNodeGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeConfigurationStartDebugEdgeNodeGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/debug/enable][%d] edgeNodeConfigurationStartDebugEdgeNodeGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -539,11 +574,6 @@ type EdgeNodeConfigurationStartDebugEdgeNodeDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node configuration start debug edge node default response
-func (o *EdgeNodeConfigurationStartDebugEdgeNodeDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node configuration start debug edge node default response has a 2xx status code
 func (o *EdgeNodeConfigurationStartDebugEdgeNodeDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -567,6 +597,11 @@ func (o *EdgeNodeConfigurationStartDebugEdgeNodeDefault) IsServerError() bool {
 // IsCode returns true when this edge node configuration start debug edge node default response a status code equal to that given
 func (o *EdgeNodeConfigurationStartDebugEdgeNodeDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node configuration start debug edge node default response
+func (o *EdgeNodeConfigurationStartDebugEdgeNodeDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeConfigurationStartDebugEdgeNodeDefault) Error() string {

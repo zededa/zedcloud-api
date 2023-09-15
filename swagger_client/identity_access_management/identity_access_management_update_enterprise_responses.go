@@ -117,6 +117,11 @@ func (o *IdentityAccessManagementUpdateEnterpriseOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management update enterprise o k response
+func (o *IdentityAccessManagementUpdateEnterpriseOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementUpdateEnterpriseOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/enterprises/self][%d] identityAccessManagementUpdateEnterpriseOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *IdentityAccessManagementUpdateEnterpriseUnauthorized) IsServerError() b
 // IsCode returns true when this identity access management update enterprise unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementUpdateEnterpriseUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management update enterprise unauthorized response
+func (o *IdentityAccessManagementUpdateEnterpriseUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementUpdateEnterpriseUnauthorized) Error() string {
@@ -243,6 +253,11 @@ func (o *IdentityAccessManagementUpdateEnterpriseForbidden) IsCode(code int) boo
 	return code == 403
 }
 
+// Code gets the status code for the identity access management update enterprise forbidden response
+func (o *IdentityAccessManagementUpdateEnterpriseForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementUpdateEnterpriseForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/enterprises/self][%d] identityAccessManagementUpdateEnterpriseForbidden  %+v", 403, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *IdentityAccessManagementUpdateEnterpriseNotFound) IsServerError() bool 
 // IsCode returns true when this identity access management update enterprise not found response a status code equal to that given
 func (o *IdentityAccessManagementUpdateEnterpriseNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management update enterprise not found response
+func (o *IdentityAccessManagementUpdateEnterpriseNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementUpdateEnterpriseNotFound) Error() string {
@@ -369,6 +389,11 @@ func (o *IdentityAccessManagementUpdateEnterpriseConflict) IsCode(code int) bool
 	return code == 409
 }
 
+// Code gets the status code for the identity access management update enterprise conflict response
+func (o *IdentityAccessManagementUpdateEnterpriseConflict) Code() int {
+	return 409
+}
+
 func (o *IdentityAccessManagementUpdateEnterpriseConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/enterprises/self][%d] identityAccessManagementUpdateEnterpriseConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *IdentityAccessManagementUpdateEnterpriseInternalServerError) IsServerEr
 // IsCode returns true when this identity access management update enterprise internal server error response a status code equal to that given
 func (o *IdentityAccessManagementUpdateEnterpriseInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management update enterprise internal server error response
+func (o *IdentityAccessManagementUpdateEnterpriseInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementUpdateEnterpriseInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *IdentityAccessManagementUpdateEnterpriseGatewayTimeout) IsCode(code int
 	return code == 504
 }
 
+// Code gets the status code for the identity access management update enterprise gateway timeout response
+func (o *IdentityAccessManagementUpdateEnterpriseGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementUpdateEnterpriseGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/enterprises/self][%d] identityAccessManagementUpdateEnterpriseGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type IdentityAccessManagementUpdateEnterpriseDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management update enterprise default response
-func (o *IdentityAccessManagementUpdateEnterpriseDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management update enterprise default response has a 2xx status code
 func (o *IdentityAccessManagementUpdateEnterpriseDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *IdentityAccessManagementUpdateEnterpriseDefault) IsServerError() bool {
 // IsCode returns true when this identity access management update enterprise default response a status code equal to that given
 func (o *IdentityAccessManagementUpdateEnterpriseDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management update enterprise default response
+func (o *IdentityAccessManagementUpdateEnterpriseDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementUpdateEnterpriseDefault) Error() string {

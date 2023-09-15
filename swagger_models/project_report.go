@@ -129,6 +129,11 @@ func (m *ProjectReport) ContextValidate(ctx context.Context, formats strfmt.Regi
 func (m *ProjectReport) contextValidateNext(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Next != nil {
+
+		if swag.IsZero(m.Next) { // not required
+			return nil
+		}
+
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
@@ -145,6 +150,11 @@ func (m *ProjectReport) contextValidateNext(ctx context.Context, formats strfmt.
 func (m *ProjectReport) contextValidateProjectSummaryReport(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ProjectSummaryReport != nil {
+
+		if swag.IsZero(m.ProjectSummaryReport) { // not required
+			return nil
+		}
+
 		if err := m.ProjectSummaryReport.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("projectSummaryReport")

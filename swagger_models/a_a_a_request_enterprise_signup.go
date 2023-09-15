@@ -139,6 +139,11 @@ func (m *AAARequestEnterpriseSignup) ContextValidate(ctx context.Context, format
 func (m *AAARequestEnterpriseSignup) contextValidateAdminUser(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AdminUser != nil {
+
+		if swag.IsZero(m.AdminUser) { // not required
+			return nil
+		}
+
 		if err := m.AdminUser.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminUser")
@@ -155,6 +160,11 @@ func (m *AAARequestEnterpriseSignup) contextValidateAdminUser(ctx context.Contex
 func (m *AAARequestEnterpriseSignup) contextValidateEnterprise(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Enterprise != nil {
+
+		if swag.IsZero(m.Enterprise) { // not required
+			return nil
+		}
+
 		if err := m.Enterprise.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enterprise")
@@ -171,6 +181,11 @@ func (m *AAARequestEnterpriseSignup) contextValidateEnterprise(ctx context.Conte
 func (m *AAARequestEnterpriseSignup) contextValidateProfileType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ProfileType != nil {
+
+		if swag.IsZero(m.ProfileType) { // not required
+			return nil
+		}
+
 		if err := m.ProfileType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("profileType")

@@ -213,6 +213,11 @@ func (m *NetworkStatus) ContextValidate(ctx context.Context, formats strfmt.Regi
 func (m *NetworkStatus) contextValidateDNS(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DNS != nil {
+
+		if swag.IsZero(m.DNS) { // not required
+			return nil
+		}
+
 		if err := m.DNS.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dns")
@@ -229,6 +234,11 @@ func (m *NetworkStatus) contextValidateDNS(ctx context.Context, formats strfmt.R
 func (m *NetworkStatus) contextValidateErrInfo(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ErrInfo != nil {
+
+		if swag.IsZero(m.ErrInfo) { // not required
+			return nil
+		}
+
 		if err := m.ErrInfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errInfo")
@@ -245,6 +255,11 @@ func (m *NetworkStatus) contextValidateErrInfo(ctx context.Context, formats strf
 func (m *NetworkStatus) contextValidateGpsLocation(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.GpsLocation != nil {
+
+		if swag.IsZero(m.GpsLocation) { // not required
+			return nil
+		}
+
 		if err := m.GpsLocation.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("gpsLocation")
@@ -261,6 +276,11 @@ func (m *NetworkStatus) contextValidateGpsLocation(ctx context.Context, formats 
 func (m *NetworkStatus) contextValidateLocation(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Location != nil {
+
+		if swag.IsZero(m.Location) { // not required
+			return nil
+		}
+
 		if err := m.Location.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("location")
@@ -277,6 +297,11 @@ func (m *NetworkStatus) contextValidateLocation(ctx context.Context, formats str
 func (m *NetworkStatus) contextValidateProxy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Proxy != nil {
+
+		if swag.IsZero(m.Proxy) { // not required
+			return nil
+		}
+
 		if err := m.Proxy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("proxy")

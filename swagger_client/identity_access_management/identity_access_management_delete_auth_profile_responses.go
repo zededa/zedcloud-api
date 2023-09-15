@@ -111,6 +111,11 @@ func (o *IdentityAccessManagementDeleteAuthProfileOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management delete auth profile o k response
+func (o *IdentityAccessManagementDeleteAuthProfileOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementDeleteAuthProfileOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/authorization/profiles/id/{id}][%d] identityAccessManagementDeleteAuthProfileOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *IdentityAccessManagementDeleteAuthProfileUnauthorized) IsServerError() 
 // IsCode returns true when this identity access management delete auth profile unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementDeleteAuthProfileUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management delete auth profile unauthorized response
+func (o *IdentityAccessManagementDeleteAuthProfileUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementDeleteAuthProfileUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *IdentityAccessManagementDeleteAuthProfileForbidden) IsCode(code int) bo
 	return code == 403
 }
 
+// Code gets the status code for the identity access management delete auth profile forbidden response
+func (o *IdentityAccessManagementDeleteAuthProfileForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementDeleteAuthProfileForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/authorization/profiles/id/{id}][%d] identityAccessManagementDeleteAuthProfileForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *IdentityAccessManagementDeleteAuthProfileNotFound) IsServerError() bool
 // IsCode returns true when this identity access management delete auth profile not found response a status code equal to that given
 func (o *IdentityAccessManagementDeleteAuthProfileNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management delete auth profile not found response
+func (o *IdentityAccessManagementDeleteAuthProfileNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementDeleteAuthProfileNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *IdentityAccessManagementDeleteAuthProfileInternalServerError) IsCode(co
 	return code == 500
 }
 
+// Code gets the status code for the identity access management delete auth profile internal server error response
+func (o *IdentityAccessManagementDeleteAuthProfileInternalServerError) Code() int {
+	return 500
+}
+
 func (o *IdentityAccessManagementDeleteAuthProfileInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /v1/authorization/profiles/id/{id}][%d] identityAccessManagementDeleteAuthProfileInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *IdentityAccessManagementDeleteAuthProfileGatewayTimeout) IsCode(code in
 	return code == 504
 }
 
+// Code gets the status code for the identity access management delete auth profile gateway timeout response
+func (o *IdentityAccessManagementDeleteAuthProfileGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementDeleteAuthProfileGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/authorization/profiles/id/{id}][%d] identityAccessManagementDeleteAuthProfileGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type IdentityAccessManagementDeleteAuthProfileDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management delete auth profile default response
-func (o *IdentityAccessManagementDeleteAuthProfileDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management delete auth profile default response has a 2xx status code
 func (o *IdentityAccessManagementDeleteAuthProfileDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *IdentityAccessManagementDeleteAuthProfileDefault) IsServerError() bool 
 // IsCode returns true when this identity access management delete auth profile default response a status code equal to that given
 func (o *IdentityAccessManagementDeleteAuthProfileDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management delete auth profile default response
+func (o *IdentityAccessManagementDeleteAuthProfileDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementDeleteAuthProfileDefault) Error() string {

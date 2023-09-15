@@ -652,6 +652,11 @@ func (m *AppInstStatusSummaryMsg) ContextValidate(ctx context.Context, formats s
 func (m *AppInstStatusSummaryMsg) contextValidateCPU(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CPU != nil {
+
+		if swag.IsZero(m.CPU) { // not required
+			return nil
+		}
+
 		if err := m.CPU.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Cpu")
@@ -668,6 +673,11 @@ func (m *AppInstStatusSummaryMsg) contextValidateCPU(ctx context.Context, format
 func (m *AppInstStatusSummaryMsg) contextValidateMemory(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Memory != nil {
+
+		if swag.IsZero(m.Memory) { // not required
+			return nil
+		}
+
 		if err := m.Memory.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Memory")
@@ -684,6 +694,11 @@ func (m *AppInstStatusSummaryMsg) contextValidateMemory(ctx context.Context, for
 func (m *AppInstStatusSummaryMsg) contextValidateStorage(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Storage != nil {
+
+		if swag.IsZero(m.Storage) { // not required
+			return nil
+		}
+
 		if err := m.Storage.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("Storage")
@@ -700,6 +715,11 @@ func (m *AppInstStatusSummaryMsg) contextValidateStorage(ctx context.Context, fo
 func (m *AppInstStatusSummaryMsg) contextValidateAdminState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AdminState != nil {
+
+		if swag.IsZero(m.AdminState) { // not required
+			return nil
+		}
+
 		if err := m.AdminState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminState")
@@ -716,6 +736,11 @@ func (m *AppInstStatusSummaryMsg) contextValidateAdminState(ctx context.Context,
 func (m *AppInstStatusSummaryMsg) contextValidateAppType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AppType != nil {
+
+		if swag.IsZero(m.AppType) { // not required
+			return nil
+		}
+
 		if err := m.AppType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
@@ -732,6 +757,11 @@ func (m *AppInstStatusSummaryMsg) contextValidateAppType(ctx context.Context, fo
 func (m *AppInstStatusSummaryMsg) contextValidateDeploymentType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DeploymentType != nil {
+
+		if swag.IsZero(m.DeploymentType) { // not required
+			return nil
+		}
+
 		if err := m.DeploymentType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
@@ -757,6 +787,11 @@ func (m *AppInstStatusSummaryMsg) contextValidateID(ctx context.Context, formats
 func (m *AppInstStatusSummaryMsg) contextValidateMemorySummary(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.MemorySummary != nil {
+
+		if swag.IsZero(m.MemorySummary) { // not required
+			return nil
+		}
+
 		if err := m.MemorySummary.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("memorySummary")
@@ -773,6 +808,11 @@ func (m *AppInstStatusSummaryMsg) contextValidateMemorySummary(ctx context.Conte
 func (m *AppInstStatusSummaryMsg) contextValidateRunState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.RunState != nil {
+
+		if swag.IsZero(m.RunState) { // not required
+			return nil
+		}
+
 		if err := m.RunState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
@@ -791,6 +831,11 @@ func (m *AppInstStatusSummaryMsg) contextValidateSwInfo(ctx context.Context, for
 	for i := 0; i < len(m.SwInfo); i++ {
 
 		if m.SwInfo[i] != nil {
+
+			if swag.IsZero(m.SwInfo[i]) { // not required
+				return nil
+			}
+
 			if err := m.SwInfo[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("swInfo" + "." + strconv.Itoa(i))
@@ -809,6 +854,11 @@ func (m *AppInstStatusSummaryMsg) contextValidateSwInfo(ctx context.Context, for
 func (m *AppInstStatusSummaryMsg) contextValidateSwState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SwState != nil {
+
+		if swag.IsZero(m.SwState) { // not required
+			return nil
+		}
+
 		if err := m.SwState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swState")

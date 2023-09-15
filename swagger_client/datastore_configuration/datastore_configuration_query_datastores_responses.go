@@ -111,6 +111,11 @@ func (o *DatastoreConfigurationQueryDatastoresOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the datastore configuration query datastores o k response
+func (o *DatastoreConfigurationQueryDatastoresOK) Code() int {
+	return 200
+}
+
 func (o *DatastoreConfigurationQueryDatastoresOK) Error() string {
 	return fmt.Sprintf("[GET /v1/datastores][%d] datastoreConfigurationQueryDatastoresOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *DatastoreConfigurationQueryDatastoresBadRequest) IsServerError() bool {
 // IsCode returns true when this datastore configuration query datastores bad request response a status code equal to that given
 func (o *DatastoreConfigurationQueryDatastoresBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the datastore configuration query datastores bad request response
+func (o *DatastoreConfigurationQueryDatastoresBadRequest) Code() int {
+	return 400
 }
 
 func (o *DatastoreConfigurationQueryDatastoresBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *DatastoreConfigurationQueryDatastoresUnauthorized) IsCode(code int) boo
 	return code == 401
 }
 
+// Code gets the status code for the datastore configuration query datastores unauthorized response
+func (o *DatastoreConfigurationQueryDatastoresUnauthorized) Code() int {
+	return 401
+}
+
 func (o *DatastoreConfigurationQueryDatastoresUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/datastores][%d] datastoreConfigurationQueryDatastoresUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *DatastoreConfigurationQueryDatastoresForbidden) IsServerError() bool {
 // IsCode returns true when this datastore configuration query datastores forbidden response a status code equal to that given
 func (o *DatastoreConfigurationQueryDatastoresForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the datastore configuration query datastores forbidden response
+func (o *DatastoreConfigurationQueryDatastoresForbidden) Code() int {
+	return 403
 }
 
 func (o *DatastoreConfigurationQueryDatastoresForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *DatastoreConfigurationQueryDatastoresInternalServerError) IsCode(code i
 	return code == 500
 }
 
+// Code gets the status code for the datastore configuration query datastores internal server error response
+func (o *DatastoreConfigurationQueryDatastoresInternalServerError) Code() int {
+	return 500
+}
+
 func (o *DatastoreConfigurationQueryDatastoresInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/datastores][%d] datastoreConfigurationQueryDatastoresInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *DatastoreConfigurationQueryDatastoresGatewayTimeout) IsCode(code int) b
 	return code == 504
 }
 
+// Code gets the status code for the datastore configuration query datastores gateway timeout response
+func (o *DatastoreConfigurationQueryDatastoresGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *DatastoreConfigurationQueryDatastoresGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/datastores][%d] datastoreConfigurationQueryDatastoresGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type DatastoreConfigurationQueryDatastoresDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the datastore configuration query datastores default response
-func (o *DatastoreConfigurationQueryDatastoresDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this datastore configuration query datastores default response has a 2xx status code
 func (o *DatastoreConfigurationQueryDatastoresDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *DatastoreConfigurationQueryDatastoresDefault) IsServerError() bool {
 // IsCode returns true when this datastore configuration query datastores default response a status code equal to that given
 func (o *DatastoreConfigurationQueryDatastoresDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the datastore configuration query datastores default response
+func (o *DatastoreConfigurationQueryDatastoresDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DatastoreConfigurationQueryDatastoresDefault) Error() string {

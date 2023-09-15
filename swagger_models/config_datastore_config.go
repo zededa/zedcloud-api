@@ -125,6 +125,11 @@ func (m *ConfigDatastoreConfig) ContextValidate(ctx context.Context, formats str
 func (m *ConfigDatastoreConfig) contextValidateCipherData(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CipherData != nil {
+
+		if swag.IsZero(m.CipherData) { // not required
+			return nil
+		}
+
 		if err := m.CipherData.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cipherData")
@@ -141,6 +146,11 @@ func (m *ConfigDatastoreConfig) contextValidateCipherData(ctx context.Context, f
 func (m *ConfigDatastoreConfig) contextValidateDType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DType != nil {
+
+		if swag.IsZero(m.DType) { // not required
+			return nil
+		}
+
 		if err := m.DType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dType")

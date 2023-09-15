@@ -349,6 +349,11 @@ func (m *CrudContentProtobuf) ContextValidate(ctx context.Context, formats strfm
 func (m *CrudContentProtobuf) contextValidateCredential(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Credential != nil {
+
+		if swag.IsZero(m.Credential) { // not required
+			return nil
+		}
+
 		if err := m.Credential.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("credential")
@@ -365,6 +370,11 @@ func (m *CrudContentProtobuf) contextValidateCredential(ctx context.Context, for
 func (m *CrudContentProtobuf) contextValidateDetailedUser(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DetailedUser != nil {
+
+		if swag.IsZero(m.DetailedUser) { // not required
+			return nil
+		}
+
 		if err := m.DetailedUser.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("detailedUser")
@@ -381,6 +391,11 @@ func (m *CrudContentProtobuf) contextValidateDetailedUser(ctx context.Context, f
 func (m *CrudContentProtobuf) contextValidateDocPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DocPolicy != nil {
+
+		if swag.IsZero(m.DocPolicy) { // not required
+			return nil
+		}
+
 		if err := m.DocPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("docPolicy")
@@ -397,6 +412,11 @@ func (m *CrudContentProtobuf) contextValidateDocPolicy(ctx context.Context, form
 func (m *CrudContentProtobuf) contextValidateEnterprise(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Enterprise != nil {
+
+		if swag.IsZero(m.Enterprise) { // not required
+			return nil
+		}
+
 		if err := m.Enterprise.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enterprise")
@@ -413,6 +433,11 @@ func (m *CrudContentProtobuf) contextValidateEnterprise(ctx context.Context, for
 func (m *CrudContentProtobuf) contextValidatePolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Policy != nil {
+
+		if swag.IsZero(m.Policy) { // not required
+			return nil
+		}
+
 		if err := m.Policy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("policy")
@@ -429,6 +454,11 @@ func (m *CrudContentProtobuf) contextValidatePolicy(ctx context.Context, formats
 func (m *CrudContentProtobuf) contextValidateProfile(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Profile != nil {
+
+		if swag.IsZero(m.Profile) { // not required
+			return nil
+		}
+
 		if err := m.Profile.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("profile")
@@ -445,6 +475,11 @@ func (m *CrudContentProtobuf) contextValidateProfile(ctx context.Context, format
 func (m *CrudContentProtobuf) contextValidateRealm(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Realm != nil {
+
+		if swag.IsZero(m.Realm) { // not required
+			return nil
+		}
+
 		if err := m.Realm.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("realm")
@@ -461,6 +496,11 @@ func (m *CrudContentProtobuf) contextValidateRealm(ctx context.Context, formats 
 func (m *CrudContentProtobuf) contextValidateRole(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Role != nil {
+
+		if swag.IsZero(m.Role) { // not required
+			return nil
+		}
+
 		if err := m.Role.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("role")
@@ -477,6 +517,11 @@ func (m *CrudContentProtobuf) contextValidateRole(ctx context.Context, formats s
 func (m *CrudContentProtobuf) contextValidateSimpleUser(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SimpleUser != nil {
+
+		if swag.IsZero(m.SimpleUser) { // not required
+			return nil
+		}
+
 		if err := m.SimpleUser.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("simpleUser")
@@ -493,6 +538,11 @@ func (m *CrudContentProtobuf) contextValidateSimpleUser(ctx context.Context, for
 func (m *CrudContentProtobuf) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.User != nil {
+
+		if swag.IsZero(m.User) { // not required
+			return nil
+		}
+
 		if err := m.User.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")

@@ -73,6 +73,11 @@ func (m *AAASuccessTokenRefresh) ContextValidate(ctx context.Context, formats st
 func (m *AAASuccessTokenRefresh) contextValidateToken(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Token != nil {
+
+		if swag.IsZero(m.Token) { // not required
+			return nil
+		}
+
 		if err := m.Token.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("token")

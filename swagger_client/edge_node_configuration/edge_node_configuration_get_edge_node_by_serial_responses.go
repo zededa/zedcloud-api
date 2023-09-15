@@ -111,6 +111,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeBySerialOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge node configuration get edge node by serial o k response
+func (o *EdgeNodeConfigurationGetEdgeNodeBySerialOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeConfigurationGetEdgeNodeBySerialOK) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/serial/{serialno}][%d] edgeNodeConfigurationGetEdgeNodeBySerialOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeBySerialUnauthorized) IsServerError() b
 // IsCode returns true when this edge node configuration get edge node by serial unauthorized response a status code equal to that given
 func (o *EdgeNodeConfigurationGetEdgeNodeBySerialUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge node configuration get edge node by serial unauthorized response
+func (o *EdgeNodeConfigurationGetEdgeNodeBySerialUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNodeConfigurationGetEdgeNodeBySerialUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeBySerialForbidden) IsCode(code int) boo
 	return code == 403
 }
 
+// Code gets the status code for the edge node configuration get edge node by serial forbidden response
+func (o *EdgeNodeConfigurationGetEdgeNodeBySerialForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNodeConfigurationGetEdgeNodeBySerialForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/serial/{serialno}][%d] edgeNodeConfigurationGetEdgeNodeBySerialForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeBySerialNotFound) IsServerError() bool 
 // IsCode returns true when this edge node configuration get edge node by serial not found response a status code equal to that given
 func (o *EdgeNodeConfigurationGetEdgeNodeBySerialNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge node configuration get edge node by serial not found response
+func (o *EdgeNodeConfigurationGetEdgeNodeBySerialNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNodeConfigurationGetEdgeNodeBySerialNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeBySerialInternalServerError) IsCode(cod
 	return code == 500
 }
 
+// Code gets the status code for the edge node configuration get edge node by serial internal server error response
+func (o *EdgeNodeConfigurationGetEdgeNodeBySerialInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeNodeConfigurationGetEdgeNodeBySerialInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/serial/{serialno}][%d] edgeNodeConfigurationGetEdgeNodeBySerialInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeBySerialGatewayTimeout) IsCode(code int
 	return code == 504
 }
 
+// Code gets the status code for the edge node configuration get edge node by serial gateway timeout response
+func (o *EdgeNodeConfigurationGetEdgeNodeBySerialGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeConfigurationGetEdgeNodeBySerialGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/serial/{serialno}][%d] edgeNodeConfigurationGetEdgeNodeBySerialGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeNodeConfigurationGetEdgeNodeBySerialDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node configuration get edge node by serial default response
-func (o *EdgeNodeConfigurationGetEdgeNodeBySerialDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node configuration get edge node by serial default response has a 2xx status code
 func (o *EdgeNodeConfigurationGetEdgeNodeBySerialDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeBySerialDefault) IsServerError() bool {
 // IsCode returns true when this edge node configuration get edge node by serial default response a status code equal to that given
 func (o *EdgeNodeConfigurationGetEdgeNodeBySerialDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node configuration get edge node by serial default response
+func (o *EdgeNodeConfigurationGetEdgeNodeBySerialDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeConfigurationGetEdgeNodeBySerialDefault) Error() string {

@@ -113,6 +113,11 @@ func (m *DeviceFilter) ContextValidate(ctx context.Context, formats strfmt.Regis
 func (m *DeviceFilter) contextValidateAdminState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AdminState != nil {
+
+		if swag.IsZero(m.AdminState) { // not required
+			return nil
+		}
+
 		if err := m.AdminState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminState")

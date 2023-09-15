@@ -178,6 +178,11 @@ func (m *AppInstConfigStatusList) contextValidateList(ctx context.Context, forma
 	for i := 0; i < len(m.List); i++ {
 
 		if m.List[i] != nil {
+
+			if swag.IsZero(m.List[i]) { // not required
+				return nil
+			}
+
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
@@ -196,6 +201,11 @@ func (m *AppInstConfigStatusList) contextValidateList(ctx context.Context, forma
 func (m *AppInstConfigStatusList) contextValidateNext(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Next != nil {
+
+		if swag.IsZero(m.Next) { // not required
+			return nil
+		}
+
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
@@ -212,6 +222,11 @@ func (m *AppInstConfigStatusList) contextValidateNext(ctx context.Context, forma
 func (m *AppInstConfigStatusList) contextValidateSummaryByAppType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByAppType != nil {
+
+		if swag.IsZero(m.SummaryByAppType) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByAppType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByAppType")
@@ -228,6 +243,11 @@ func (m *AppInstConfigStatusList) contextValidateSummaryByAppType(ctx context.Co
 func (m *AppInstConfigStatusList) contextValidateSummaryByState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByState != nil {
+
+		if swag.IsZero(m.SummaryByState) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByState")

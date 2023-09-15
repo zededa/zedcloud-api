@@ -133,6 +133,11 @@ func (m *SymmetricKeyEnrollmentDetail) ContextValidate(ctx context.Context, form
 func (m *SymmetricKeyEnrollmentDetail) contextValidateGroupSymmetricKeyEnrollment(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.GroupSymmetricKeyEnrollment != nil {
+
+		if swag.IsZero(m.GroupSymmetricKeyEnrollment) { // not required
+			return nil
+		}
+
 		if err := m.GroupSymmetricKeyEnrollment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("groupSymmetricKeyEnrollment")
@@ -149,6 +154,11 @@ func (m *SymmetricKeyEnrollmentDetail) contextValidateGroupSymmetricKeyEnrollmen
 func (m *SymmetricKeyEnrollmentDetail) contextValidateIndividualSymmetricKeyEnrollment(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.IndividualSymmetricKeyEnrollment != nil {
+
+		if swag.IsZero(m.IndividualSymmetricKeyEnrollment) { // not required
+			return nil
+		}
+
 		if err := m.IndividualSymmetricKeyEnrollment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("individualSymmetricKeyEnrollment")
@@ -165,6 +175,11 @@ func (m *SymmetricKeyEnrollmentDetail) contextValidateIndividualSymmetricKeyEnro
 func (m *SymmetricKeyEnrollmentDetail) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

@@ -111,6 +111,11 @@ func (o *ResourceGroupDeleteResourceGroupOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the resource group delete resource group o k response
+func (o *ResourceGroupDeleteResourceGroupOK) Code() int {
+	return 200
+}
+
 func (o *ResourceGroupDeleteResourceGroupOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/projects/id/{id}][%d] resourceGroupDeleteResourceGroupOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *ResourceGroupDeleteResourceGroupUnauthorized) IsServerError() bool {
 // IsCode returns true when this resource group delete resource group unauthorized response a status code equal to that given
 func (o *ResourceGroupDeleteResourceGroupUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the resource group delete resource group unauthorized response
+func (o *ResourceGroupDeleteResourceGroupUnauthorized) Code() int {
+	return 401
 }
 
 func (o *ResourceGroupDeleteResourceGroupUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *ResourceGroupDeleteResourceGroupForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the resource group delete resource group forbidden response
+func (o *ResourceGroupDeleteResourceGroupForbidden) Code() int {
+	return 403
+}
+
 func (o *ResourceGroupDeleteResourceGroupForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/projects/id/{id}][%d] resourceGroupDeleteResourceGroupForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *ResourceGroupDeleteResourceGroupNotFound) IsServerError() bool {
 // IsCode returns true when this resource group delete resource group not found response a status code equal to that given
 func (o *ResourceGroupDeleteResourceGroupNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the resource group delete resource group not found response
+func (o *ResourceGroupDeleteResourceGroupNotFound) Code() int {
+	return 404
 }
 
 func (o *ResourceGroupDeleteResourceGroupNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *ResourceGroupDeleteResourceGroupInternalServerError) IsCode(code int) b
 	return code == 500
 }
 
+// Code gets the status code for the resource group delete resource group internal server error response
+func (o *ResourceGroupDeleteResourceGroupInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ResourceGroupDeleteResourceGroupInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /v1/projects/id/{id}][%d] resourceGroupDeleteResourceGroupInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *ResourceGroupDeleteResourceGroupGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the resource group delete resource group gateway timeout response
+func (o *ResourceGroupDeleteResourceGroupGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ResourceGroupDeleteResourceGroupGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/projects/id/{id}][%d] resourceGroupDeleteResourceGroupGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type ResourceGroupDeleteResourceGroupDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the resource group delete resource group default response
-func (o *ResourceGroupDeleteResourceGroupDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this resource group delete resource group default response has a 2xx status code
 func (o *ResourceGroupDeleteResourceGroupDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *ResourceGroupDeleteResourceGroupDefault) IsServerError() bool {
 // IsCode returns true when this resource group delete resource group default response a status code equal to that given
 func (o *ResourceGroupDeleteResourceGroupDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the resource group delete resource group default response
+func (o *ResourceGroupDeleteResourceGroupDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ResourceGroupDeleteResourceGroupDefault) Error() string {

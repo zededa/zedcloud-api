@@ -117,6 +117,11 @@ func (o *IdentityAccessManagementDeleteRoleOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management delete role o k response
+func (o *IdentityAccessManagementDeleteRoleOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementDeleteRoleOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/roles/id/{id}][%d] identityAccessManagementDeleteRoleOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *IdentityAccessManagementDeleteRoleUnauthorized) IsServerError() bool {
 // IsCode returns true when this identity access management delete role unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementDeleteRoleUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management delete role unauthorized response
+func (o *IdentityAccessManagementDeleteRoleUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementDeleteRoleUnauthorized) Error() string {
@@ -243,6 +253,11 @@ func (o *IdentityAccessManagementDeleteRoleForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the identity access management delete role forbidden response
+func (o *IdentityAccessManagementDeleteRoleForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementDeleteRoleForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/roles/id/{id}][%d] identityAccessManagementDeleteRoleForbidden  %+v", 403, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *IdentityAccessManagementDeleteRoleNotFound) IsServerError() bool {
 // IsCode returns true when this identity access management delete role not found response a status code equal to that given
 func (o *IdentityAccessManagementDeleteRoleNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management delete role not found response
+func (o *IdentityAccessManagementDeleteRoleNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementDeleteRoleNotFound) Error() string {
@@ -369,6 +389,11 @@ func (o *IdentityAccessManagementDeleteRoleConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the identity access management delete role conflict response
+func (o *IdentityAccessManagementDeleteRoleConflict) Code() int {
+	return 409
+}
+
 func (o *IdentityAccessManagementDeleteRoleConflict) Error() string {
 	return fmt.Sprintf("[DELETE /v1/roles/id/{id}][%d] identityAccessManagementDeleteRoleConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *IdentityAccessManagementDeleteRoleInternalServerError) IsServerError() 
 // IsCode returns true when this identity access management delete role internal server error response a status code equal to that given
 func (o *IdentityAccessManagementDeleteRoleInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management delete role internal server error response
+func (o *IdentityAccessManagementDeleteRoleInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementDeleteRoleInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *IdentityAccessManagementDeleteRoleGatewayTimeout) IsCode(code int) bool
 	return code == 504
 }
 
+// Code gets the status code for the identity access management delete role gateway timeout response
+func (o *IdentityAccessManagementDeleteRoleGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementDeleteRoleGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/roles/id/{id}][%d] identityAccessManagementDeleteRoleGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type IdentityAccessManagementDeleteRoleDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management delete role default response
-func (o *IdentityAccessManagementDeleteRoleDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management delete role default response has a 2xx status code
 func (o *IdentityAccessManagementDeleteRoleDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *IdentityAccessManagementDeleteRoleDefault) IsServerError() bool {
 // IsCode returns true when this identity access management delete role default response a status code equal to that given
 func (o *IdentityAccessManagementDeleteRoleDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management delete role default response
+func (o *IdentityAccessManagementDeleteRoleDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementDeleteRoleDefault) Error() string {

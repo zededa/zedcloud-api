@@ -391,6 +391,11 @@ func (m *Enterprise) contextValidateChildEnterprises(ctx context.Context, format
 	for i := 0; i < len(m.ChildEnterprises); i++ {
 
 		if m.ChildEnterprises[i] != nil {
+
+			if swag.IsZero(m.ChildEnterprises[i]) { // not required
+				return nil
+			}
+
 			if err := m.ChildEnterprises[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("childEnterprises" + "." + strconv.Itoa(i))
@@ -418,6 +423,11 @@ func (m *Enterprise) contextValidateID(ctx context.Context, formats strfmt.Regis
 func (m *Enterprise) contextValidatePolicyList(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.PolicyList != nil {
+
+		if swag.IsZero(m.PolicyList) { // not required
+			return nil
+		}
+
 		if err := m.PolicyList.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("policyList")
@@ -434,6 +444,11 @@ func (m *Enterprise) contextValidatePolicyList(ctx context.Context, formats strf
 func (m *Enterprise) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Revision != nil {
+
+		if swag.IsZero(m.Revision) { // not required
+			return nil
+		}
+
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
@@ -450,6 +465,11 @@ func (m *Enterprise) contextValidateRevision(ctx context.Context, formats strfmt
 func (m *Enterprise) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.State != nil {
+
+		if swag.IsZero(m.State) { // not required
+			return nil
+		}
+
 		if err := m.State.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("state")
@@ -466,6 +486,11 @@ func (m *Enterprise) contextValidateState(ctx context.Context, formats strfmt.Re
 func (m *Enterprise) contextValidateStreamEvents(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.StreamEvents != nil {
+
+		if swag.IsZero(m.StreamEvents) { // not required
+			return nil
+		}
+
 		if err := m.StreamEvents.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("streamEvents")
@@ -482,6 +507,11 @@ func (m *Enterprise) contextValidateStreamEvents(ctx context.Context, formats st
 func (m *Enterprise) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

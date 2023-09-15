@@ -186,6 +186,11 @@ func (m *Entitlement) contextValidateDevices(ctx context.Context, formats strfmt
 	for i := 0; i < len(m.Devices); i++ {
 
 		if m.Devices[i] != nil {
+
+			if swag.IsZero(m.Devices[i]) { // not required
+				return nil
+			}
+
 			if err := m.Devices[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("devices" + "." + strconv.Itoa(i))
@@ -204,6 +209,11 @@ func (m *Entitlement) contextValidateDevices(ctx context.Context, formats strfmt
 func (m *Entitlement) contextValidatePlugins(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Plugins != nil {
+
+		if swag.IsZero(m.Plugins) { // not required
+			return nil
+		}
+
 		if err := m.Plugins.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("plugins")
@@ -220,6 +230,11 @@ func (m *Entitlement) contextValidatePlugins(ctx context.Context, formats strfmt
 func (m *Entitlement) contextValidateUserCount(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.UserCount != nil {
+
+		if swag.IsZero(m.UserCount) { // not required
+			return nil
+		}
+
 		if err := m.UserCount.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("userCount")

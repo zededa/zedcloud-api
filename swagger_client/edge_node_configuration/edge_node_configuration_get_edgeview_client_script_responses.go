@@ -111,6 +111,11 @@ func (o *EdgeNodeConfigurationGetEdgeviewClientScriptOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge node configuration get edgeview client script o k response
+func (o *EdgeNodeConfigurationGetEdgeviewClientScriptOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeConfigurationGetEdgeviewClientScriptOK) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/id/{id}/edgeview/clientscript][%d] edgeNodeConfigurationGetEdgeviewClientScriptOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeNodeConfigurationGetEdgeviewClientScriptUnauthorized) IsServerError
 // IsCode returns true when this edge node configuration get edgeview client script unauthorized response a status code equal to that given
 func (o *EdgeNodeConfigurationGetEdgeviewClientScriptUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge node configuration get edgeview client script unauthorized response
+func (o *EdgeNodeConfigurationGetEdgeviewClientScriptUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNodeConfigurationGetEdgeviewClientScriptUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeNodeConfigurationGetEdgeviewClientScriptForbidden) IsCode(code int)
 	return code == 403
 }
 
+// Code gets the status code for the edge node configuration get edgeview client script forbidden response
+func (o *EdgeNodeConfigurationGetEdgeviewClientScriptForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNodeConfigurationGetEdgeviewClientScriptForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/id/{id}/edgeview/clientscript][%d] edgeNodeConfigurationGetEdgeviewClientScriptForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeNodeConfigurationGetEdgeviewClientScriptNotFound) IsServerError() b
 // IsCode returns true when this edge node configuration get edgeview client script not found response a status code equal to that given
 func (o *EdgeNodeConfigurationGetEdgeviewClientScriptNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge node configuration get edgeview client script not found response
+func (o *EdgeNodeConfigurationGetEdgeviewClientScriptNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNodeConfigurationGetEdgeviewClientScriptNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeNodeConfigurationGetEdgeviewClientScriptInternalServerError) IsCode
 	return code == 500
 }
 
+// Code gets the status code for the edge node configuration get edgeview client script internal server error response
+func (o *EdgeNodeConfigurationGetEdgeviewClientScriptInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeNodeConfigurationGetEdgeviewClientScriptInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/id/{id}/edgeview/clientscript][%d] edgeNodeConfigurationGetEdgeviewClientScriptInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeNodeConfigurationGetEdgeviewClientScriptGatewayTimeout) IsCode(code
 	return code == 504
 }
 
+// Code gets the status code for the edge node configuration get edgeview client script gateway timeout response
+func (o *EdgeNodeConfigurationGetEdgeviewClientScriptGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeConfigurationGetEdgeviewClientScriptGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/id/{id}/edgeview/clientscript][%d] edgeNodeConfigurationGetEdgeviewClientScriptGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeNodeConfigurationGetEdgeviewClientScriptDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node configuration get edgeview client script default response
-func (o *EdgeNodeConfigurationGetEdgeviewClientScriptDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node configuration get edgeview client script default response has a 2xx status code
 func (o *EdgeNodeConfigurationGetEdgeviewClientScriptDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeNodeConfigurationGetEdgeviewClientScriptDefault) IsServerError() bo
 // IsCode returns true when this edge node configuration get edgeview client script default response a status code equal to that given
 func (o *EdgeNodeConfigurationGetEdgeviewClientScriptDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node configuration get edgeview client script default response
+func (o *EdgeNodeConfigurationGetEdgeviewClientScriptDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeConfigurationGetEdgeviewClientScriptDefault) Error() string {

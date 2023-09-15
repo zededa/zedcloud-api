@@ -85,6 +85,11 @@ func (m *Description) ContextValidate(ctx context.Context, formats strfmt.Regist
 func (m *Description) contextValidateDescCode(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DescCode != nil {
+
+		if swag.IsZero(m.DescCode) { // not required
+			return nil
+		}
+
 		if err := m.DescCode.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("descCode")

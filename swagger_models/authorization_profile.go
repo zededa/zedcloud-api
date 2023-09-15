@@ -367,6 +367,11 @@ func (m *AuthorizationProfile) contextValidateID(ctx context.Context, formats st
 func (m *AuthorizationProfile) contextValidateOauthProfile(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.OauthProfile != nil {
+
+		if swag.IsZero(m.OauthProfile) { // not required
+			return nil
+		}
+
 		if err := m.OauthProfile.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("oauthProfile")
@@ -383,6 +388,11 @@ func (m *AuthorizationProfile) contextValidateOauthProfile(ctx context.Context, 
 func (m *AuthorizationProfile) contextValidatePasswordProfile(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.PasswordProfile != nil {
+
+		if swag.IsZero(m.PasswordProfile) { // not required
+			return nil
+		}
+
 		if err := m.PasswordProfile.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("passwordProfile")
@@ -399,6 +409,11 @@ func (m *AuthorizationProfile) contextValidatePasswordProfile(ctx context.Contex
 func (m *AuthorizationProfile) contextValidateProfileType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ProfileType != nil {
+
+		if swag.IsZero(m.ProfileType) { // not required
+			return nil
+		}
+
 		if err := m.ProfileType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("profileType")
@@ -415,6 +430,11 @@ func (m *AuthorizationProfile) contextValidateProfileType(ctx context.Context, f
 func (m *AuthorizationProfile) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Revision != nil {
+
+		if swag.IsZero(m.Revision) { // not required
+			return nil
+		}
+
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
@@ -431,6 +451,11 @@ func (m *AuthorizationProfile) contextValidateRevision(ctx context.Context, form
 func (m *AuthorizationProfile) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

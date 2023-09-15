@@ -419,6 +419,7 @@ func (m *ImageConfig) contextValidateID(ctx context.Context, formats strfmt.Regi
 func (m *ImageConfig) contextValidateImageArch(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ImageArch != nil {
+
 		if err := m.ImageArch.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageArch")
@@ -444,6 +445,7 @@ func (m *ImageConfig) contextValidateImageError(ctx context.Context, formats str
 func (m *ImageConfig) contextValidateImageFormat(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ImageFormat != nil {
+
 		if err := m.ImageFormat.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageFormat")
@@ -469,6 +471,11 @@ func (m *ImageConfig) contextValidateImageLocal(ctx context.Context, formats str
 func (m *ImageConfig) contextValidateImageStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ImageStatus != nil {
+
+		if swag.IsZero(m.ImageStatus) { // not required
+			return nil
+		}
+
 		if err := m.ImageStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageStatus")
@@ -485,6 +492,7 @@ func (m *ImageConfig) contextValidateImageStatus(ctx context.Context, formats st
 func (m *ImageConfig) contextValidateImageType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ImageType != nil {
+
 		if err := m.ImageType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageType")
@@ -501,6 +509,11 @@ func (m *ImageConfig) contextValidateImageType(ctx context.Context, formats strf
 func (m *ImageConfig) contextValidateOriginType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.OriginType != nil {
+
+		if swag.IsZero(m.OriginType) { // not required
+			return nil
+		}
+
 		if err := m.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
@@ -517,6 +530,11 @@ func (m *ImageConfig) contextValidateOriginType(ctx context.Context, formats str
 func (m *ImageConfig) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Revision != nil {
+
+		if swag.IsZero(m.Revision) { // not required
+			return nil
+		}
+
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")

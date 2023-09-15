@@ -111,6 +111,11 @@ func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsOK) IsCode(code
 	return code == 200
 }
 
+// Code gets the status code for the edge application instance status get application interface tags o k response
+func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsOK) Code() int {
+	return 200
+}
+
 func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsOK) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/tags][%d] edgeApplicationInstanceStatusGetApplicationInterfaceTagsOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsBadRequest) IsS
 // IsCode returns true when this edge application instance status get application interface tags bad request response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the edge application instance status get application interface tags bad request response
+func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsBadRequest) Code() int {
+	return 400
 }
 
 func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsUnauthorized) I
 	return code == 401
 }
 
+// Code gets the status code for the edge application instance status get application interface tags unauthorized response
+func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsUnauthorized) Code() int {
+	return 401
+}
+
 func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/tags][%d] edgeApplicationInstanceStatusGetApplicationInterfaceTagsUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsForbidden) IsSe
 // IsCode returns true when this edge application instance status get application interface tags forbidden response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the edge application instance status get application interface tags forbidden response
+func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsForbidden) Code() int {
+	return 403
 }
 
 func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsInternalServerE
 	return code == 500
 }
 
+// Code gets the status code for the edge application instance status get application interface tags internal server error response
+func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/tags][%d] edgeApplicationInstanceStatusGetApplicationInterfaceTagsInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsGatewayTimeout)
 	return code == 504
 }
 
+// Code gets the status code for the edge application instance status get application interface tags gateway timeout response
+func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/tags][%d] edgeApplicationInstanceStatusGetApplicationInterfaceTagsGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeApplicationInstanceStatusGetApplicationInterfaceTagsDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge application instance status get application interface tags default response
-func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge application instance status get application interface tags default response has a 2xx status code
 func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsDefault) IsServ
 // IsCode returns true when this edge application instance status get application interface tags default response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge application instance status get application interface tags default response
+func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeApplicationInstanceStatusGetApplicationInterfaceTagsDefault) Error() string {

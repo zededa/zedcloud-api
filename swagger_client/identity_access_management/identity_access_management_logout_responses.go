@@ -105,6 +105,11 @@ func (o *IdentityAccessManagementLogoutOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management logout o k response
+func (o *IdentityAccessManagementLogoutOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementLogoutOK) Error() string {
 	return fmt.Sprintf("[POST /v1/logout][%d] identityAccessManagementLogoutOK  %+v", 200, o.Payload)
 }
@@ -166,6 +171,11 @@ func (o *IdentityAccessManagementLogoutUnauthorized) IsServerError() bool {
 // IsCode returns true when this identity access management logout unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementLogoutUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management logout unauthorized response
+func (o *IdentityAccessManagementLogoutUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementLogoutUnauthorized) Error() string {
@@ -231,6 +241,11 @@ func (o *IdentityAccessManagementLogoutForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the identity access management logout forbidden response
+func (o *IdentityAccessManagementLogoutForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementLogoutForbidden) Error() string {
 	return fmt.Sprintf("[POST /v1/logout][%d] identityAccessManagementLogoutForbidden  %+v", 403, o.Payload)
 }
@@ -292,6 +307,11 @@ func (o *IdentityAccessManagementLogoutInternalServerError) IsServerError() bool
 // IsCode returns true when this identity access management logout internal server error response a status code equal to that given
 func (o *IdentityAccessManagementLogoutInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management logout internal server error response
+func (o *IdentityAccessManagementLogoutInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementLogoutInternalServerError) Error() string {
@@ -357,6 +377,11 @@ func (o *IdentityAccessManagementLogoutGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the identity access management logout gateway timeout response
+func (o *IdentityAccessManagementLogoutGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementLogoutGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/logout][%d] identityAccessManagementLogoutGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -399,11 +424,6 @@ type IdentityAccessManagementLogoutDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management logout default response
-func (o *IdentityAccessManagementLogoutDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management logout default response has a 2xx status code
 func (o *IdentityAccessManagementLogoutDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -427,6 +447,11 @@ func (o *IdentityAccessManagementLogoutDefault) IsServerError() bool {
 // IsCode returns true when this identity access management logout default response a status code equal to that given
 func (o *IdentityAccessManagementLogoutDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management logout default response
+func (o *IdentityAccessManagementLogoutDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementLogoutDefault) Error() string {

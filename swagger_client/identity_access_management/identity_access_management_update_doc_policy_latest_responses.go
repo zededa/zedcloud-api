@@ -117,6 +117,11 @@ func (o *IdentityAccessManagementUpdateDocPolicyLatestOK) IsCode(code int) bool 
 	return code == 200
 }
 
+// Code gets the status code for the identity access management update doc policy latest o k response
+func (o *IdentityAccessManagementUpdateDocPolicyLatestOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementUpdateDocPolicyLatestOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/cloud/policies/latest][%d] identityAccessManagementUpdateDocPolicyLatestOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *IdentityAccessManagementUpdateDocPolicyLatestUnauthorized) IsServerErro
 // IsCode returns true when this identity access management update doc policy latest unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementUpdateDocPolicyLatestUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management update doc policy latest unauthorized response
+func (o *IdentityAccessManagementUpdateDocPolicyLatestUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementUpdateDocPolicyLatestUnauthorized) Error() string {
@@ -243,6 +253,11 @@ func (o *IdentityAccessManagementUpdateDocPolicyLatestForbidden) IsCode(code int
 	return code == 403
 }
 
+// Code gets the status code for the identity access management update doc policy latest forbidden response
+func (o *IdentityAccessManagementUpdateDocPolicyLatestForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementUpdateDocPolicyLatestForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/cloud/policies/latest][%d] identityAccessManagementUpdateDocPolicyLatestForbidden  %+v", 403, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *IdentityAccessManagementUpdateDocPolicyLatestNotFound) IsServerError() 
 // IsCode returns true when this identity access management update doc policy latest not found response a status code equal to that given
 func (o *IdentityAccessManagementUpdateDocPolicyLatestNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management update doc policy latest not found response
+func (o *IdentityAccessManagementUpdateDocPolicyLatestNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementUpdateDocPolicyLatestNotFound) Error() string {
@@ -369,6 +389,11 @@ func (o *IdentityAccessManagementUpdateDocPolicyLatestConflict) IsCode(code int)
 	return code == 409
 }
 
+// Code gets the status code for the identity access management update doc policy latest conflict response
+func (o *IdentityAccessManagementUpdateDocPolicyLatestConflict) Code() int {
+	return 409
+}
+
 func (o *IdentityAccessManagementUpdateDocPolicyLatestConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/cloud/policies/latest][%d] identityAccessManagementUpdateDocPolicyLatestConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *IdentityAccessManagementUpdateDocPolicyLatestInternalServerError) IsSer
 // IsCode returns true when this identity access management update doc policy latest internal server error response a status code equal to that given
 func (o *IdentityAccessManagementUpdateDocPolicyLatestInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management update doc policy latest internal server error response
+func (o *IdentityAccessManagementUpdateDocPolicyLatestInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementUpdateDocPolicyLatestInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *IdentityAccessManagementUpdateDocPolicyLatestGatewayTimeout) IsCode(cod
 	return code == 504
 }
 
+// Code gets the status code for the identity access management update doc policy latest gateway timeout response
+func (o *IdentityAccessManagementUpdateDocPolicyLatestGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementUpdateDocPolicyLatestGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/cloud/policies/latest][%d] identityAccessManagementUpdateDocPolicyLatestGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type IdentityAccessManagementUpdateDocPolicyLatestDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management update doc policy latest default response
-func (o *IdentityAccessManagementUpdateDocPolicyLatestDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management update doc policy latest default response has a 2xx status code
 func (o *IdentityAccessManagementUpdateDocPolicyLatestDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *IdentityAccessManagementUpdateDocPolicyLatestDefault) IsServerError() b
 // IsCode returns true when this identity access management update doc policy latest default response a status code equal to that given
 func (o *IdentityAccessManagementUpdateDocPolicyLatestDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management update doc policy latest default response
+func (o *IdentityAccessManagementUpdateDocPolicyLatestDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementUpdateDocPolicyLatestDefault) Error() string {

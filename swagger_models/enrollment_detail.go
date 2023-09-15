@@ -175,6 +175,11 @@ func (m *EnrollmentDetail) ContextValidate(ctx context.Context, formats strfmt.R
 func (m *EnrollmentDetail) contextValidateAllocationPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AllocationPolicy != nil {
+
+		if swag.IsZero(m.AllocationPolicy) { // not required
+			return nil
+		}
+
 		if err := m.AllocationPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("allocationPolicy")
@@ -191,6 +196,11 @@ func (m *EnrollmentDetail) contextValidateAllocationPolicy(ctx context.Context, 
 func (m *EnrollmentDetail) contextValidateMechanism(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Mechanism != nil {
+
+		if swag.IsZero(m.Mechanism) { // not required
+			return nil
+		}
+
 		if err := m.Mechanism.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mechanism")
@@ -207,6 +217,11 @@ func (m *EnrollmentDetail) contextValidateMechanism(ctx context.Context, formats
 func (m *EnrollmentDetail) contextValidateSymmetricKeyEnrollment(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SymmetricKeyEnrollment != nil {
+
+		if swag.IsZero(m.SymmetricKeyEnrollment) { // not required
+			return nil
+		}
+
 		if err := m.SymmetricKeyEnrollment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("symmetricKeyEnrollment")
@@ -223,6 +238,11 @@ func (m *EnrollmentDetail) contextValidateSymmetricKeyEnrollment(ctx context.Con
 func (m *EnrollmentDetail) contextValidateTpmEnrollment(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.TpmEnrollment != nil {
+
+		if swag.IsZero(m.TpmEnrollment) { // not required
+			return nil
+		}
+
 		if err := m.TpmEnrollment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tpmEnrollment")

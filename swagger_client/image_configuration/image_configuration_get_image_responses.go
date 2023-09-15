@@ -111,6 +111,11 @@ func (o *ImageConfigurationGetImageOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the image configuration get image o k response
+func (o *ImageConfigurationGetImageOK) Code() int {
+	return 200
+}
+
 func (o *ImageConfigurationGetImageOK) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images/id/{id}][%d] imageConfigurationGetImageOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *ImageConfigurationGetImageUnauthorized) IsServerError() bool {
 // IsCode returns true when this image configuration get image unauthorized response a status code equal to that given
 func (o *ImageConfigurationGetImageUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the image configuration get image unauthorized response
+func (o *ImageConfigurationGetImageUnauthorized) Code() int {
+	return 401
 }
 
 func (o *ImageConfigurationGetImageUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *ImageConfigurationGetImageForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the image configuration get image forbidden response
+func (o *ImageConfigurationGetImageForbidden) Code() int {
+	return 403
+}
+
 func (o *ImageConfigurationGetImageForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images/id/{id}][%d] imageConfigurationGetImageForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *ImageConfigurationGetImageNotFound) IsServerError() bool {
 // IsCode returns true when this image configuration get image not found response a status code equal to that given
 func (o *ImageConfigurationGetImageNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the image configuration get image not found response
+func (o *ImageConfigurationGetImageNotFound) Code() int {
+	return 404
 }
 
 func (o *ImageConfigurationGetImageNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *ImageConfigurationGetImageInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the image configuration get image internal server error response
+func (o *ImageConfigurationGetImageInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ImageConfigurationGetImageInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images/id/{id}][%d] imageConfigurationGetImageInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *ImageConfigurationGetImageGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the image configuration get image gateway timeout response
+func (o *ImageConfigurationGetImageGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ImageConfigurationGetImageGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images/id/{id}][%d] imageConfigurationGetImageGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type ImageConfigurationGetImageDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the image configuration get image default response
-func (o *ImageConfigurationGetImageDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this image configuration get image default response has a 2xx status code
 func (o *ImageConfigurationGetImageDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *ImageConfigurationGetImageDefault) IsServerError() bool {
 // IsCode returns true when this image configuration get image default response a status code equal to that given
 func (o *ImageConfigurationGetImageDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the image configuration get image default response
+func (o *ImageConfigurationGetImageDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ImageConfigurationGetImageDefault) Error() string {

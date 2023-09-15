@@ -117,6 +117,11 @@ func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataOK) IsCode(c
 	return code == 200
 }
 
+// Code gets the status code for the enterprise entitlements report create enterprise entitlement data o k response
+func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataOK) Code() int {
+	return 200
+}
+
 func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/entitlements][%d] enterpriseEntitlementsReportCreateEnterpriseEntitlementDataOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataBadRequest) 
 // IsCode returns true when this enterprise entitlements report create enterprise entitlement data bad request response a status code equal to that given
 func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the enterprise entitlements report create enterprise entitlement data bad request response
+func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataBadRequest) Code() int {
+	return 400
 }
 
 func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataUnauthorized
 	return code == 401
 }
 
+// Code gets the status code for the enterprise entitlements report create enterprise entitlement data unauthorized response
+func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataUnauthorized) Code() int {
+	return 401
+}
+
 func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataUnauthorized) Error() string {
 	return fmt.Sprintf("[PUT /v1/entitlements][%d] enterpriseEntitlementsReportCreateEnterpriseEntitlementDataUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataForbidden) I
 // IsCode returns true when this enterprise entitlements report create enterprise entitlement data forbidden response a status code equal to that given
 func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the enterprise entitlements report create enterprise entitlement data forbidden response
+func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataForbidden) Code() int {
+	return 403
 }
 
 func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataConflict) Is
 	return code == 409
 }
 
+// Code gets the status code for the enterprise entitlements report create enterprise entitlement data conflict response
+func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataConflict) Code() int {
+	return 409
+}
+
 func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/entitlements][%d] enterpriseEntitlementsReportCreateEnterpriseEntitlementDataConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataInternalServ
 // IsCode returns true when this enterprise entitlements report create enterprise entitlement data internal server error response a status code equal to that given
 func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the enterprise entitlements report create enterprise entitlement data internal server error response
+func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataGatewayTimeo
 	return code == 504
 }
 
+// Code gets the status code for the enterprise entitlements report create enterprise entitlement data gateway timeout response
+func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/entitlements][%d] enterpriseEntitlementsReportCreateEnterpriseEntitlementDataGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the enterprise entitlements report create enterprise entitlement data default response
-func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this enterprise entitlements report create enterprise entitlement data default response has a 2xx status code
 func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataDefault) IsS
 // IsCode returns true when this enterprise entitlements report create enterprise entitlement data default response a status code equal to that given
 func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the enterprise entitlements report create enterprise entitlement data default response
+func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EnterpriseEntitlementsReportCreateEnterpriseEntitlementDataDefault) Error() string {

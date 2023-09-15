@@ -185,6 +185,11 @@ func (m *ConfigBondAdapter) ContextValidate(ctx context.Context, formats strfmt.
 func (m *ConfigBondAdapter) contextValidateArp(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Arp != nil {
+
+		if swag.IsZero(m.Arp) { // not required
+			return nil
+		}
+
 		if err := m.Arp.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("arp")
@@ -201,6 +206,11 @@ func (m *ConfigBondAdapter) contextValidateArp(ctx context.Context, formats strf
 func (m *ConfigBondAdapter) contextValidateBondMode(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.BondMode != nil {
+
+		if swag.IsZero(m.BondMode) { // not required
+			return nil
+		}
+
 		if err := m.BondMode.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("bondMode")
@@ -217,6 +227,11 @@ func (m *ConfigBondAdapter) contextValidateBondMode(ctx context.Context, formats
 func (m *ConfigBondAdapter) contextValidateLacpRate(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.LacpRate != nil {
+
+		if swag.IsZero(m.LacpRate) { // not required
+			return nil
+		}
+
 		if err := m.LacpRate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lacpRate")
@@ -233,6 +248,11 @@ func (m *ConfigBondAdapter) contextValidateLacpRate(ctx context.Context, formats
 func (m *ConfigBondAdapter) contextValidateMii(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Mii != nil {
+
+		if swag.IsZero(m.Mii) { // not required
+			return nil
+		}
+
 		if err := m.Mii.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mii")

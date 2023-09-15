@@ -108,6 +108,11 @@ func (m *NetProxyConfig) contextValidateProxies(ctx context.Context, formats str
 	for i := 0; i < len(m.Proxies); i++ {
 
 		if m.Proxies[i] != nil {
+
+			if swag.IsZero(m.Proxies[i]) { // not required
+				return nil
+			}
+
 			if err := m.Proxies[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("proxies" + "." + strconv.Itoa(i))

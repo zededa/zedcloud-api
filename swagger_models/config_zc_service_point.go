@@ -80,6 +80,11 @@ func (m *ConfigZcServicePoint) ContextValidate(ctx context.Context, formats strf
 func (m *ConfigZcServicePoint) contextValidateZsType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ZsType != nil {
+
+		if swag.IsZero(m.ZsType) { // not required
+			return nil
+		}
+
 		if err := m.ZsType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("zsType")

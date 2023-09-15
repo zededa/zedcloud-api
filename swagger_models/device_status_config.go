@@ -256,6 +256,11 @@ func (m *DeviceStatusConfig) ContextValidate(ctx context.Context, formats strfmt
 func (m *DeviceStatusConfig) contextValidateAdminState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AdminState != nil {
+
+		if swag.IsZero(m.AdminState) { // not required
+			return nil
+		}
+
 		if err := m.AdminState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminState")
@@ -272,6 +277,11 @@ func (m *DeviceStatusConfig) contextValidateAdminState(ctx context.Context, form
 func (m *DeviceStatusConfig) contextValidateDinfo(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Dinfo != nil {
+
+		if swag.IsZero(m.Dinfo) { // not required
+			return nil
+		}
+
 		if err := m.Dinfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dinfo")
@@ -297,6 +307,11 @@ func (m *DeviceStatusConfig) contextValidateID(ctx context.Context, formats strf
 func (m *DeviceStatusConfig) contextValidateRunState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.RunState != nil {
+
+		if swag.IsZero(m.RunState) { // not required
+			return nil
+		}
+
 		if err := m.RunState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
@@ -315,6 +330,11 @@ func (m *DeviceStatusConfig) contextValidateSwInfo(ctx context.Context, formats 
 	for i := 0; i < len(m.SwInfo); i++ {
 
 		if m.SwInfo[i] != nil {
+
+			if swag.IsZero(m.SwInfo[i]) { // not required
+				return nil
+			}
+
 			if err := m.SwInfo[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("swInfo" + "." + strconv.Itoa(i))

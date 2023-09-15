@@ -117,6 +117,11 @@ func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleOK) IsCode(code 
 	return code == 200
 }
 
+// Code gets the status code for the edge application configuration create edge application bundle o k response
+func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleOK) Code() int {
+	return 200
+}
+
 func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleOK) Error() string {
 	return fmt.Sprintf("[POST /v1/apps][%d] edgeApplicationConfigurationCreateEdgeApplicationBundleOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleBadRequest) IsSe
 // IsCode returns true when this edge application configuration create edge application bundle bad request response a status code equal to that given
 func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the edge application configuration create edge application bundle bad request response
+func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleBadRequest) Code() int {
+	return 400
 }
 
 func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleUnauthorized) Is
 	return code == 401
 }
 
+// Code gets the status code for the edge application configuration create edge application bundle unauthorized response
+func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleUnauthorized) Code() int {
+	return 401
+}
+
 func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /v1/apps][%d] edgeApplicationConfigurationCreateEdgeApplicationBundleUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleForbidden) IsSer
 // IsCode returns true when this edge application configuration create edge application bundle forbidden response a status code equal to that given
 func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the edge application configuration create edge application bundle forbidden response
+func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleForbidden) Code() int {
+	return 403
 }
 
 func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleConflict) IsCode
 	return code == 409
 }
 
+// Code gets the status code for the edge application configuration create edge application bundle conflict response
+func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleConflict) Code() int {
+	return 409
+}
+
 func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleConflict) Error() string {
 	return fmt.Sprintf("[POST /v1/apps][%d] edgeApplicationConfigurationCreateEdgeApplicationBundleConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleInternalServerEr
 // IsCode returns true when this edge application configuration create edge application bundle internal server error response a status code equal to that given
 func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the edge application configuration create edge application bundle internal server error response
+func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleGatewayTimeout) 
 	return code == 504
 }
 
+// Code gets the status code for the edge application configuration create edge application bundle gateway timeout response
+func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/apps][%d] edgeApplicationConfigurationCreateEdgeApplicationBundleGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type EdgeApplicationConfigurationCreateEdgeApplicationBundleDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge application configuration create edge application bundle default response
-func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge application configuration create edge application bundle default response has a 2xx status code
 func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleDefault) IsServe
 // IsCode returns true when this edge application configuration create edge application bundle default response a status code equal to that given
 func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge application configuration create edge application bundle default response
+func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeApplicationConfigurationCreateEdgeApplicationBundleDefault) Error() string {

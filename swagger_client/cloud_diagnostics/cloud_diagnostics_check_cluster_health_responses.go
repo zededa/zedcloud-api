@@ -93,6 +93,11 @@ func (o *CloudDiagnosticsCheckClusterHealthOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the cloud diagnostics check cluster health o k response
+func (o *CloudDiagnosticsCheckClusterHealthOK) Code() int {
+	return 200
+}
+
 func (o *CloudDiagnosticsCheckClusterHealthOK) Error() string {
 	return fmt.Sprintf("[GET /v1/cloud/ping][%d] cloudDiagnosticsCheckClusterHealthOK  %+v", 200, o.Payload)
 }
@@ -154,6 +159,11 @@ func (o *CloudDiagnosticsCheckClusterHealthInternalServerError) IsServerError() 
 // IsCode returns true when this cloud diagnostics check cluster health internal server error response a status code equal to that given
 func (o *CloudDiagnosticsCheckClusterHealthInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the cloud diagnostics check cluster health internal server error response
+func (o *CloudDiagnosticsCheckClusterHealthInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CloudDiagnosticsCheckClusterHealthInternalServerError) Error() string {
@@ -219,6 +229,11 @@ func (o *CloudDiagnosticsCheckClusterHealthGatewayTimeout) IsCode(code int) bool
 	return code == 504
 }
 
+// Code gets the status code for the cloud diagnostics check cluster health gateway timeout response
+func (o *CloudDiagnosticsCheckClusterHealthGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *CloudDiagnosticsCheckClusterHealthGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/cloud/ping][%d] cloudDiagnosticsCheckClusterHealthGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -261,11 +276,6 @@ type CloudDiagnosticsCheckClusterHealthDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the cloud diagnostics check cluster health default response
-func (o *CloudDiagnosticsCheckClusterHealthDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this cloud diagnostics check cluster health default response has a 2xx status code
 func (o *CloudDiagnosticsCheckClusterHealthDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -289,6 +299,11 @@ func (o *CloudDiagnosticsCheckClusterHealthDefault) IsServerError() bool {
 // IsCode returns true when this cloud diagnostics check cluster health default response a status code equal to that given
 func (o *CloudDiagnosticsCheckClusterHealthDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the cloud diagnostics check cluster health default response
+func (o *CloudDiagnosticsCheckClusterHealthDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CloudDiagnosticsCheckClusterHealthDefault) Error() string {

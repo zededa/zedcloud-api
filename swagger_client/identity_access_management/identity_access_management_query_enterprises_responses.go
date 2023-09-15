@@ -111,6 +111,11 @@ func (o *IdentityAccessManagementQueryEnterprisesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management query enterprises o k response
+func (o *IdentityAccessManagementQueryEnterprisesOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementQueryEnterprisesOK) Error() string {
 	return fmt.Sprintf("[GET /v1/enterprises][%d] identityAccessManagementQueryEnterprisesOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *IdentityAccessManagementQueryEnterprisesBadRequest) IsServerError() boo
 // IsCode returns true when this identity access management query enterprises bad request response a status code equal to that given
 func (o *IdentityAccessManagementQueryEnterprisesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the identity access management query enterprises bad request response
+func (o *IdentityAccessManagementQueryEnterprisesBadRequest) Code() int {
+	return 400
 }
 
 func (o *IdentityAccessManagementQueryEnterprisesBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *IdentityAccessManagementQueryEnterprisesUnauthorized) IsCode(code int) 
 	return code == 401
 }
 
+// Code gets the status code for the identity access management query enterprises unauthorized response
+func (o *IdentityAccessManagementQueryEnterprisesUnauthorized) Code() int {
+	return 401
+}
+
 func (o *IdentityAccessManagementQueryEnterprisesUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/enterprises][%d] identityAccessManagementQueryEnterprisesUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *IdentityAccessManagementQueryEnterprisesForbidden) IsServerError() bool
 // IsCode returns true when this identity access management query enterprises forbidden response a status code equal to that given
 func (o *IdentityAccessManagementQueryEnterprisesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the identity access management query enterprises forbidden response
+func (o *IdentityAccessManagementQueryEnterprisesForbidden) Code() int {
+	return 403
 }
 
 func (o *IdentityAccessManagementQueryEnterprisesForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *IdentityAccessManagementQueryEnterprisesInternalServerError) IsCode(cod
 	return code == 500
 }
 
+// Code gets the status code for the identity access management query enterprises internal server error response
+func (o *IdentityAccessManagementQueryEnterprisesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *IdentityAccessManagementQueryEnterprisesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/enterprises][%d] identityAccessManagementQueryEnterprisesInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *IdentityAccessManagementQueryEnterprisesGatewayTimeout) IsCode(code int
 	return code == 504
 }
 
+// Code gets the status code for the identity access management query enterprises gateway timeout response
+func (o *IdentityAccessManagementQueryEnterprisesGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementQueryEnterprisesGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/enterprises][%d] identityAccessManagementQueryEnterprisesGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type IdentityAccessManagementQueryEnterprisesDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management query enterprises default response
-func (o *IdentityAccessManagementQueryEnterprisesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management query enterprises default response has a 2xx status code
 func (o *IdentityAccessManagementQueryEnterprisesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *IdentityAccessManagementQueryEnterprisesDefault) IsServerError() bool {
 // IsCode returns true when this identity access management query enterprises default response a status code equal to that given
 func (o *IdentityAccessManagementQueryEnterprisesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management query enterprises default response
+func (o *IdentityAccessManagementQueryEnterprisesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementQueryEnterprisesDefault) Error() string {

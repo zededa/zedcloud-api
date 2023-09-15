@@ -99,6 +99,11 @@ func (m *DeviceReport) ContextValidate(ctx context.Context, formats strfmt.Regis
 func (m *DeviceReport) contextValidateDeviceSummaryReport(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DeviceSummaryReport != nil {
+
+		if swag.IsZero(m.DeviceSummaryReport) { // not required
+			return nil
+		}
+
 		if err := m.DeviceSummaryReport.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deviceSummaryReport")

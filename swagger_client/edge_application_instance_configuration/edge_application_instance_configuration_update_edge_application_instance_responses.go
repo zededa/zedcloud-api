@@ -122,6 +122,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceOK) Is
 	return code == 200
 }
 
+// Code gets the status code for the edge application instance configuration update edge application instance o k response
+func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceOK) Code() int {
+	return 200
+}
+
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/instances/id/{id}][%d] edgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceOK  %+v", 200, o.Payload)
 }
@@ -183,6 +188,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceUnauth
 // IsCode returns true when this edge application instance configuration update edge application instance unauthorized response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge application instance configuration update edge application instance unauthorized response
+func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceUnauthorized) Error() string {
@@ -248,6 +258,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceForbid
 	return code == 403
 }
 
+// Code gets the status code for the edge application instance configuration update edge application instance forbidden response
+func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/instances/id/{id}][%d] edgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceForbidden  %+v", 403, o.Payload)
 }
@@ -309,6 +324,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceNotFou
 // IsCode returns true when this edge application instance configuration update edge application instance not found response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge application instance configuration update edge application instance not found response
+func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceNotFound) Error() string {
@@ -374,6 +394,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceConfli
 	return code == 409
 }
 
+// Code gets the status code for the edge application instance configuration update edge application instance conflict response
+func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceConflict) Code() int {
+	return 409
+}
+
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/instances/id/{id}][%d] edgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceConflict  %+v", 409, o.Payload)
 }
@@ -435,6 +460,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceIntern
 // IsCode returns true when this edge application instance configuration update edge application instance internal server error response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the edge application instance configuration update edge application instance internal server error response
+func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceInternalServerError) Error() string {
@@ -500,6 +530,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceGatewa
 	return code == 504
 }
 
+// Code gets the status code for the edge application instance configuration update edge application instance gateway timeout response
+func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/instances/id/{id}][%d] edgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -542,11 +577,6 @@ type EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceDefault st
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge application instance configuration update edge application instance default response
-func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge application instance configuration update edge application instance default response has a 2xx status code
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -570,6 +600,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceDefaul
 // IsCode returns true when this edge application instance configuration update edge application instance default response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge application instance configuration update edge application instance default response
+func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceDefault) Error() string {
@@ -1251,6 +1286,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) 
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) contextValidateAppType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.AppType != nil {
+
+		if swag.IsZero(o.AppType) { // not required
+			return nil
+		}
+
 		if err := o.AppType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "appType")
@@ -1267,6 +1307,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) 
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) contextValidateCustomConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.CustomConfig != nil {
+
+		if swag.IsZero(o.CustomConfig) { // not required
+			return nil
+		}
+
 		if err := o.CustomConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "customConfig")
@@ -1283,6 +1328,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) 
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) contextValidateDeploymentType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.DeploymentType != nil {
+
+		if swag.IsZero(o.DeploymentType) { // not required
+			return nil
+		}
+
 		if err := o.DeploymentType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "deploymentType")
@@ -1301,6 +1351,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) 
 	for i := 0; i < len(o.Drives); i++ {
 
 		if o.Drives[i] != nil {
+
+			if swag.IsZero(o.Drives[i]) { // not required
+				return nil
+			}
+
 			if err := o.Drives[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("body" + "." + "drives" + "." + strconv.Itoa(i))
@@ -1321,6 +1376,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) 
 	for i := 0; i < len(o.Interfaces); i++ {
 
 		if o.Interfaces[i] != nil {
+
+			if swag.IsZero(o.Interfaces[i]) { // not required
+				return nil
+			}
+
 			if err := o.Interfaces[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("body" + "." + "interfaces" + "." + strconv.Itoa(i))
@@ -1339,6 +1399,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) 
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) contextValidateLogs(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Logs != nil {
+
+		if swag.IsZero(o.Logs) { // not required
+			return nil
+		}
+
 		if err := o.Logs.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "logs")
@@ -1355,6 +1420,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) 
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) contextValidateManifestInfo(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ManifestInfo != nil {
+
+		if swag.IsZero(o.ManifestInfo) { // not required
+			return nil
+		}
+
 		if err := o.ManifestInfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "manifestInfo")
@@ -1371,6 +1441,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) 
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) contextValidatePurge(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Purge != nil {
+
+		if swag.IsZero(o.Purge) { // not required
+			return nil
+		}
+
 		if err := o.Purge.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "purge")
@@ -1387,6 +1462,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) 
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) contextValidateRefresh(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Refresh != nil {
+
+		if swag.IsZero(o.Refresh) { // not required
+			return nil
+		}
+
 		if err := o.Refresh.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "refresh")
@@ -1403,6 +1483,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) 
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) contextValidateRestart(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Restart != nil {
+
+		if swag.IsZero(o.Restart) { // not required
+			return nil
+		}
+
 		if err := o.Restart.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "restart")
@@ -1419,6 +1504,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) 
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Revision != nil {
+
+		if swag.IsZero(o.Revision) { // not required
+			return nil
+		}
+
 		if err := o.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "revision")
@@ -1435,6 +1525,11 @@ func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) 
 func (o *EdgeApplicationInstanceConfigurationUpdateEdgeApplicationInstanceBody) contextValidateVminfo(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Vminfo != nil {
+
+		if swag.IsZero(o.Vminfo) { // not required
+			return nil
+		}
+
 		if err := o.Vminfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "vminfo")

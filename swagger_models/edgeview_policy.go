@@ -102,6 +102,11 @@ func (m *EdgeviewPolicy) ContextValidate(ctx context.Context, formats strfmt.Reg
 func (m *EdgeviewPolicy) contextValidateEdgeviewcfg(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Edgeviewcfg != nil {
+
+		if swag.IsZero(m.Edgeviewcfg) { // not required
+			return nil
+		}
+
 		if err := m.Edgeviewcfg.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("edgeviewcfg")

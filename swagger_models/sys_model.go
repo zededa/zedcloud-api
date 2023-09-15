@@ -453,6 +453,11 @@ func (m *SysModel) contextValidatePCRTemplates(ctx context.Context, formats strf
 	for i := 0; i < len(m.PCRTemplates); i++ {
 
 		if m.PCRTemplates[i] != nil {
+
+			if swag.IsZero(m.PCRTemplates[i]) { // not required
+				return nil
+			}
+
 			if err := m.PCRTemplates[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("PCRTemplates" + "." + strconv.Itoa(i))
@@ -482,6 +487,11 @@ func (m *SysModel) contextValidateIoMemberList(ctx context.Context, formats strf
 	for i := 0; i < len(m.IoMemberList); i++ {
 
 		if m.IoMemberList[i] != nil {
+
+			if swag.IsZero(m.IoMemberList[i]) { // not required
+				return nil
+			}
+
 			if err := m.IoMemberList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ioMemberList" + "." + strconv.Itoa(i))
@@ -500,6 +510,7 @@ func (m *SysModel) contextValidateIoMemberList(ctx context.Context, formats strf
 func (m *SysModel) contextValidateOriginType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.OriginType != nil {
+
 		if err := m.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
@@ -516,6 +527,11 @@ func (m *SysModel) contextValidateOriginType(ctx context.Context, formats strfmt
 func (m *SysModel) contextValidateParentDetail(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ParentDetail != nil {
+
+		if swag.IsZero(m.ParentDetail) { // not required
+			return nil
+		}
+
 		if err := m.ParentDetail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parentDetail")
@@ -532,6 +548,11 @@ func (m *SysModel) contextValidateParentDetail(ctx context.Context, formats strf
 func (m *SysModel) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Revision != nil {
+
+		if swag.IsZero(m.Revision) { // not required
+			return nil
+		}
+
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
@@ -548,6 +569,7 @@ func (m *SysModel) contextValidateRevision(ctx context.Context, formats strfmt.R
 func (m *SysModel) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.State != nil {
+
 		if err := m.State.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("state")
@@ -564,6 +586,7 @@ func (m *SysModel) contextValidateState(ctx context.Context, formats strfmt.Regi
 func (m *SysModel) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

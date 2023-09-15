@@ -129,6 +129,11 @@ func (o *ImageConfigurationUploadImageFileOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the image configuration upload image file o k response
+func (o *ImageConfigurationUploadImageFileOK) Code() int {
+	return 200
+}
+
 func (o *ImageConfigurationUploadImageFileOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/name/{name}/upload/file][%d] imageConfigurationUploadImageFileOK  %+v", 200, o.Payload)
 }
@@ -190,6 +195,11 @@ func (o *ImageConfigurationUploadImageFileAccepted) IsServerError() bool {
 // IsCode returns true when this image configuration upload image file accepted response a status code equal to that given
 func (o *ImageConfigurationUploadImageFileAccepted) IsCode(code int) bool {
 	return code == 202
+}
+
+// Code gets the status code for the image configuration upload image file accepted response
+func (o *ImageConfigurationUploadImageFileAccepted) Code() int {
+	return 202
 }
 
 func (o *ImageConfigurationUploadImageFileAccepted) Error() string {
@@ -255,6 +265,11 @@ func (o *ImageConfigurationUploadImageFileBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the image configuration upload image file bad request response
+func (o *ImageConfigurationUploadImageFileBadRequest) Code() int {
+	return 400
+}
+
 func (o *ImageConfigurationUploadImageFileBadRequest) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/name/{name}/upload/file][%d] imageConfigurationUploadImageFileBadRequest  %+v", 400, o.Payload)
 }
@@ -316,6 +331,11 @@ func (o *ImageConfigurationUploadImageFileUnauthorized) IsServerError() bool {
 // IsCode returns true when this image configuration upload image file unauthorized response a status code equal to that given
 func (o *ImageConfigurationUploadImageFileUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the image configuration upload image file unauthorized response
+func (o *ImageConfigurationUploadImageFileUnauthorized) Code() int {
+	return 401
 }
 
 func (o *ImageConfigurationUploadImageFileUnauthorized) Error() string {
@@ -381,6 +401,11 @@ func (o *ImageConfigurationUploadImageFileForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the image configuration upload image file forbidden response
+func (o *ImageConfigurationUploadImageFileForbidden) Code() int {
+	return 403
+}
+
 func (o *ImageConfigurationUploadImageFileForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/name/{name}/upload/file][%d] imageConfigurationUploadImageFileForbidden  %+v", 403, o.Payload)
 }
@@ -442,6 +467,11 @@ func (o *ImageConfigurationUploadImageFileNotFound) IsServerError() bool {
 // IsCode returns true when this image configuration upload image file not found response a status code equal to that given
 func (o *ImageConfigurationUploadImageFileNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the image configuration upload image file not found response
+func (o *ImageConfigurationUploadImageFileNotFound) Code() int {
+	return 404
 }
 
 func (o *ImageConfigurationUploadImageFileNotFound) Error() string {
@@ -509,6 +539,11 @@ func (o *ImageConfigurationUploadImageFileConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the image configuration upload image file conflict response
+func (o *ImageConfigurationUploadImageFileConflict) Code() int {
+	return 409
+}
+
 func (o *ImageConfigurationUploadImageFileConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/name/{name}/upload/file][%d] imageConfigurationUploadImageFileConflict  %+v", 409, o.Payload)
 }
@@ -570,6 +605,11 @@ func (o *ImageConfigurationUploadImageFileInternalServerError) IsServerError() b
 // IsCode returns true when this image configuration upload image file internal server error response a status code equal to that given
 func (o *ImageConfigurationUploadImageFileInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the image configuration upload image file internal server error response
+func (o *ImageConfigurationUploadImageFileInternalServerError) Code() int {
+	return 500
 }
 
 func (o *ImageConfigurationUploadImageFileInternalServerError) Error() string {
@@ -635,6 +675,11 @@ func (o *ImageConfigurationUploadImageFileGatewayTimeout) IsCode(code int) bool 
 	return code == 504
 }
 
+// Code gets the status code for the image configuration upload image file gateway timeout response
+func (o *ImageConfigurationUploadImageFileGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ImageConfigurationUploadImageFileGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/name/{name}/upload/file][%d] imageConfigurationUploadImageFileGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -677,11 +722,6 @@ type ImageConfigurationUploadImageFileDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the image configuration upload image file default response
-func (o *ImageConfigurationUploadImageFileDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this image configuration upload image file default response has a 2xx status code
 func (o *ImageConfigurationUploadImageFileDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -705,6 +745,11 @@ func (o *ImageConfigurationUploadImageFileDefault) IsServerError() bool {
 // IsCode returns true when this image configuration upload image file default response a status code equal to that given
 func (o *ImageConfigurationUploadImageFileDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the image configuration upload image file default response
+func (o *ImageConfigurationUploadImageFileDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ImageConfigurationUploadImageFileDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *ImageConfigurationQueryImageProjectListOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the image configuration query image project list o k response
+func (o *ImageConfigurationQueryImageProjectListOK) Code() int {
+	return 200
+}
+
 func (o *ImageConfigurationQueryImageProjectListOK) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images/projects][%d] imageConfigurationQueryImageProjectListOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *ImageConfigurationQueryImageProjectListBadRequest) IsServerError() bool
 // IsCode returns true when this image configuration query image project list bad request response a status code equal to that given
 func (o *ImageConfigurationQueryImageProjectListBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the image configuration query image project list bad request response
+func (o *ImageConfigurationQueryImageProjectListBadRequest) Code() int {
+	return 400
 }
 
 func (o *ImageConfigurationQueryImageProjectListBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *ImageConfigurationQueryImageProjectListUnauthorized) IsCode(code int) b
 	return code == 401
 }
 
+// Code gets the status code for the image configuration query image project list unauthorized response
+func (o *ImageConfigurationQueryImageProjectListUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ImageConfigurationQueryImageProjectListUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images/projects][%d] imageConfigurationQueryImageProjectListUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *ImageConfigurationQueryImageProjectListForbidden) IsServerError() bool 
 // IsCode returns true when this image configuration query image project list forbidden response a status code equal to that given
 func (o *ImageConfigurationQueryImageProjectListForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the image configuration query image project list forbidden response
+func (o *ImageConfigurationQueryImageProjectListForbidden) Code() int {
+	return 403
 }
 
 func (o *ImageConfigurationQueryImageProjectListForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *ImageConfigurationQueryImageProjectListInternalServerError) IsCode(code
 	return code == 500
 }
 
+// Code gets the status code for the image configuration query image project list internal server error response
+func (o *ImageConfigurationQueryImageProjectListInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ImageConfigurationQueryImageProjectListInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images/projects][%d] imageConfigurationQueryImageProjectListInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *ImageConfigurationQueryImageProjectListGatewayTimeout) IsCode(code int)
 	return code == 504
 }
 
+// Code gets the status code for the image configuration query image project list gateway timeout response
+func (o *ImageConfigurationQueryImageProjectListGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ImageConfigurationQueryImageProjectListGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images/projects][%d] imageConfigurationQueryImageProjectListGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type ImageConfigurationQueryImageProjectListDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the image configuration query image project list default response
-func (o *ImageConfigurationQueryImageProjectListDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this image configuration query image project list default response has a 2xx status code
 func (o *ImageConfigurationQueryImageProjectListDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *ImageConfigurationQueryImageProjectListDefault) IsServerError() bool {
 // IsCode returns true when this image configuration query image project list default response a status code equal to that given
 func (o *ImageConfigurationQueryImageProjectListDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the image configuration query image project list default response
+func (o *ImageConfigurationQueryImageProjectListDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ImageConfigurationQueryImageProjectListDefault) Error() string {

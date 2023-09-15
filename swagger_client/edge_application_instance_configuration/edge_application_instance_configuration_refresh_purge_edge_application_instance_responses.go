@@ -117,6 +117,11 @@ func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstance
 	return code == 200
 }
 
+// Code gets the status code for the edge application instance configuration refresh purge edge application instance o k response
+func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceOK) Code() int {
+	return 200
+}
+
 func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/instances/id/{id}/refresh/purge][%d] edgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstance
 // IsCode returns true when this edge application instance configuration refresh purge edge application instance unauthorized response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge application instance configuration refresh purge edge application instance unauthorized response
+func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceUnauthorized) Error() string {
@@ -243,6 +253,11 @@ func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstance
 	return code == 403
 }
 
+// Code gets the status code for the edge application instance configuration refresh purge edge application instance forbidden response
+func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/instances/id/{id}/refresh/purge][%d] edgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceForbidden  %+v", 403, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstance
 // IsCode returns true when this edge application instance configuration refresh purge edge application instance not found response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge application instance configuration refresh purge edge application instance not found response
+func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceNotFound) Error() string {
@@ -369,6 +389,11 @@ func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstance
 	return code == 409
 }
 
+// Code gets the status code for the edge application instance configuration refresh purge edge application instance conflict response
+func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceConflict) Code() int {
+	return 409
+}
+
 func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/instances/id/{id}/refresh/purge][%d] edgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstance
 // IsCode returns true when this edge application instance configuration refresh purge edge application instance internal server error response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the edge application instance configuration refresh purge edge application instance internal server error response
+func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstance
 	return code == 504
 }
 
+// Code gets the status code for the edge application instance configuration refresh purge edge application instance gateway timeout response
+func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/instances/id/{id}/refresh/purge][%d] edgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceDefa
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge application instance configuration refresh purge edge application instance default response
-func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge application instance configuration refresh purge edge application instance default response has a 2xx status code
 func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstance
 // IsCode returns true when this edge application instance configuration refresh purge edge application instance default response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge application instance configuration refresh purge edge application instance default response
+func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeApplicationInstanceConfigurationRefreshPurgeEdgeApplicationInstanceDefault) Error() string {

@@ -117,6 +117,11 @@ func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeOK) IsCode(code int) boo
 	return code == 200
 }
 
+// Code gets the status code for the edge node configuration base os upgrade retry edge node o k response
+func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/baseos/upgrade/retry][%d] edgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeUnauthorized) IsServerEr
 // IsCode returns true when this edge node configuration base os upgrade retry edge node unauthorized response a status code equal to that given
 func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge node configuration base os upgrade retry edge node unauthorized response
+func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeUnauthorized) Error() string {
@@ -243,6 +253,11 @@ func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeForbidden) IsCode(code i
 	return code == 403
 }
 
+// Code gets the status code for the edge node configuration base os upgrade retry edge node forbidden response
+func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/baseos/upgrade/retry][%d] edgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeForbidden  %+v", 403, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeNotFound) IsServerError(
 // IsCode returns true when this edge node configuration base os upgrade retry edge node not found response a status code equal to that given
 func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge node configuration base os upgrade retry edge node not found response
+func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeNotFound) Error() string {
@@ -369,6 +389,11 @@ func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeConflict) IsCode(code in
 	return code == 409
 }
 
+// Code gets the status code for the edge node configuration base os upgrade retry edge node conflict response
+func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeConflict) Code() int {
+	return 409
+}
+
 func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/baseos/upgrade/retry][%d] edgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeInternalServerError) IsS
 // IsCode returns true when this edge node configuration base os upgrade retry edge node internal server error response a status code equal to that given
 func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the edge node configuration base os upgrade retry edge node internal server error response
+func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeGatewayTimeout) IsCode(c
 	return code == 504
 }
 
+// Code gets the status code for the edge node configuration base os upgrade retry edge node gateway timeout response
+func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/baseos/upgrade/retry][%d] edgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node configuration base os upgrade retry edge node default response
-func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node configuration base os upgrade retry edge node default response has a 2xx status code
 func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeDefault) IsServerError()
 // IsCode returns true when this edge node configuration base os upgrade retry edge node default response a status code equal to that given
 func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node configuration base os upgrade retry edge node default response
+func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeConfigurationBaseOsUpgradeRetryEdgeNodeDefault) Error() string {

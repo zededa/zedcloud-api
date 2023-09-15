@@ -111,6 +111,11 @@ func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceOK) Is
 	return code == 200
 }
 
+// Code gets the status code for the edge application instance configuration delete edge application instance o k response
+func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceOK) Code() int {
+	return 200
+}
+
 func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/apps/instances/id/{id}][%d] edgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceUnauth
 // IsCode returns true when this edge application instance configuration delete edge application instance unauthorized response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge application instance configuration delete edge application instance unauthorized response
+func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceForbid
 	return code == 403
 }
 
+// Code gets the status code for the edge application instance configuration delete edge application instance forbidden response
+func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/apps/instances/id/{id}][%d] edgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceNotFou
 // IsCode returns true when this edge application instance configuration delete edge application instance not found response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge application instance configuration delete edge application instance not found response
+func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceIntern
 	return code == 500
 }
 
+// Code gets the status code for the edge application instance configuration delete edge application instance internal server error response
+func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /v1/apps/instances/id/{id}][%d] edgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceGatewa
 	return code == 504
 }
 
+// Code gets the status code for the edge application instance configuration delete edge application instance gateway timeout response
+func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/apps/instances/id/{id}][%d] edgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceDefault st
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge application instance configuration delete edge application instance default response
-func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge application instance configuration delete edge application instance default response has a 2xx status code
 func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceDefaul
 // IsCode returns true when this edge application instance configuration delete edge application instance default response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge application instance configuration delete edge application instance default response
+func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeApplicationInstanceConfigurationDeleteEdgeApplicationInstanceDefault) Error() string {

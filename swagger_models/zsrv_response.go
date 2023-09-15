@@ -209,6 +209,11 @@ func (m *ZsrvResponse) contextValidateError(ctx context.Context, formats strfmt.
 	for i := 0; i < len(m.Error); i++ {
 
 		if m.Error[i] != nil {
+
+			if swag.IsZero(m.Error[i]) { // not required
+				return nil
+			}
+
 			if err := m.Error[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("error" + "." + strconv.Itoa(i))
@@ -227,6 +232,11 @@ func (m *ZsrvResponse) contextValidateError(ctx context.Context, formats strfmt.
 func (m *ZsrvResponse) contextValidateObjectType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ObjectType != nil {
+
+		if swag.IsZero(m.ObjectType) { // not required
+			return nil
+		}
+
 		if err := m.ObjectType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("objectType")
@@ -243,6 +253,11 @@ func (m *ZsrvResponse) contextValidateObjectType(ctx context.Context, formats st
 func (m *ZsrvResponse) contextValidateOperationStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.OperationStatus != nil {
+
+		if swag.IsZero(m.OperationStatus) { // not required
+			return nil
+		}
+
 		if err := m.OperationStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("operationStatus")
@@ -259,6 +274,11 @@ func (m *ZsrvResponse) contextValidateOperationStatus(ctx context.Context, forma
 func (m *ZsrvResponse) contextValidateOperationType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.OperationType != nil {
+
+		if swag.IsZero(m.OperationType) { // not required
+			return nil
+		}
+
 		if err := m.OperationType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("operationType")

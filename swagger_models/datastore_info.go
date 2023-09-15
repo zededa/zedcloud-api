@@ -417,6 +417,11 @@ func (m *DatastoreInfo) ContextValidate(ctx context.Context, formats strfmt.Regi
 func (m *DatastoreInfo) contextValidateCertificateChain(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CertificateChain != nil {
+
+		if swag.IsZero(m.CertificateChain) { // not required
+			return nil
+		}
+
 		if err := m.CertificateChain.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("certificateChain")
@@ -451,6 +456,11 @@ func (m *DatastoreInfo) contextValidateDsErr(ctx context.Context, formats strfmt
 func (m *DatastoreInfo) contextValidateDsStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DsStatus != nil {
+
+		if swag.IsZero(m.DsStatus) { // not required
+			return nil
+		}
+
 		if err := m.DsStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dsStatus")
@@ -467,6 +477,7 @@ func (m *DatastoreInfo) contextValidateDsStatus(ctx context.Context, formats str
 func (m *DatastoreInfo) contextValidateDsType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DsType != nil {
+
 		if err := m.DsType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dsType")
@@ -497,6 +508,11 @@ func (m *DatastoreInfo) contextValidateID(ctx context.Context, formats strfmt.Re
 func (m *DatastoreInfo) contextValidateOriginType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.OriginType != nil {
+
+		if swag.IsZero(m.OriginType) { // not required
+			return nil
+		}
+
 		if err := m.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
@@ -513,6 +529,11 @@ func (m *DatastoreInfo) contextValidateOriginType(ctx context.Context, formats s
 func (m *DatastoreInfo) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Revision != nil {
+
+		if swag.IsZero(m.Revision) { // not required
+			return nil
+		}
+
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
@@ -529,6 +550,11 @@ func (m *DatastoreInfo) contextValidateRevision(ctx context.Context, formats str
 func (m *DatastoreInfo) contextValidateSecret(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Secret != nil {
+
+		if swag.IsZero(m.Secret) { // not required
+			return nil
+		}
+
 		if err := m.Secret.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("secret")

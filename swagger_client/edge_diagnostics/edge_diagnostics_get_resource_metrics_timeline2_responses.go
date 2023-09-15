@@ -111,6 +111,11 @@ func (o *EdgeDiagnosticsGetResourceMetricsTimeline2OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge diagnostics get resource metrics timeline2 o k response
+func (o *EdgeDiagnosticsGetResourceMetricsTimeline2OK) Code() int {
+	return 200
+}
+
 func (o *EdgeDiagnosticsGetResourceMetricsTimeline2OK) Error() string {
 	return fmt.Sprintf("[GET /v1/timeSeries/{mType}][%d] edgeDiagnosticsGetResourceMetricsTimeline2OK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeDiagnosticsGetResourceMetricsTimeline2BadRequest) IsServerError() b
 // IsCode returns true when this edge diagnostics get resource metrics timeline2 bad request response a status code equal to that given
 func (o *EdgeDiagnosticsGetResourceMetricsTimeline2BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the edge diagnostics get resource metrics timeline2 bad request response
+func (o *EdgeDiagnosticsGetResourceMetricsTimeline2BadRequest) Code() int {
+	return 400
 }
 
 func (o *EdgeDiagnosticsGetResourceMetricsTimeline2BadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeDiagnosticsGetResourceMetricsTimeline2Unauthorized) IsCode(code int
 	return code == 401
 }
 
+// Code gets the status code for the edge diagnostics get resource metrics timeline2 unauthorized response
+func (o *EdgeDiagnosticsGetResourceMetricsTimeline2Unauthorized) Code() int {
+	return 401
+}
+
 func (o *EdgeDiagnosticsGetResourceMetricsTimeline2Unauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/timeSeries/{mType}][%d] edgeDiagnosticsGetResourceMetricsTimeline2Unauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeDiagnosticsGetResourceMetricsTimeline2Forbidden) IsServerError() bo
 // IsCode returns true when this edge diagnostics get resource metrics timeline2 forbidden response a status code equal to that given
 func (o *EdgeDiagnosticsGetResourceMetricsTimeline2Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the edge diagnostics get resource metrics timeline2 forbidden response
+func (o *EdgeDiagnosticsGetResourceMetricsTimeline2Forbidden) Code() int {
+	return 403
 }
 
 func (o *EdgeDiagnosticsGetResourceMetricsTimeline2Forbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeDiagnosticsGetResourceMetricsTimeline2InternalServerError) IsCode(c
 	return code == 500
 }
 
+// Code gets the status code for the edge diagnostics get resource metrics timeline2 internal server error response
+func (o *EdgeDiagnosticsGetResourceMetricsTimeline2InternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeDiagnosticsGetResourceMetricsTimeline2InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/timeSeries/{mType}][%d] edgeDiagnosticsGetResourceMetricsTimeline2InternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeDiagnosticsGetResourceMetricsTimeline2GatewayTimeout) IsCode(code i
 	return code == 504
 }
 
+// Code gets the status code for the edge diagnostics get resource metrics timeline2 gateway timeout response
+func (o *EdgeDiagnosticsGetResourceMetricsTimeline2GatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeDiagnosticsGetResourceMetricsTimeline2GatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/timeSeries/{mType}][%d] edgeDiagnosticsGetResourceMetricsTimeline2GatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeDiagnosticsGetResourceMetricsTimeline2Default struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge diagnostics get resource metrics timeline2 default response
-func (o *EdgeDiagnosticsGetResourceMetricsTimeline2Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge diagnostics get resource metrics timeline2 default response has a 2xx status code
 func (o *EdgeDiagnosticsGetResourceMetricsTimeline2Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeDiagnosticsGetResourceMetricsTimeline2Default) IsServerError() bool
 // IsCode returns true when this edge diagnostics get resource metrics timeline2 default response a status code equal to that given
 func (o *EdgeDiagnosticsGetResourceMetricsTimeline2Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge diagnostics get resource metrics timeline2 default response
+func (o *EdgeDiagnosticsGetResourceMetricsTimeline2Default) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeDiagnosticsGetResourceMetricsTimeline2Default) Error() string {

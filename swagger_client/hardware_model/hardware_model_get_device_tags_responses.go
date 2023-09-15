@@ -111,6 +111,11 @@ func (o *HardwareModelGetDeviceTagsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the hardware model get device tags o k response
+func (o *HardwareModelGetDeviceTagsOK) Code() int {
+	return 200
+}
+
 func (o *HardwareModelGetDeviceTagsOK) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/tags][%d] hardwareModelGetDeviceTagsOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *HardwareModelGetDeviceTagsBadRequest) IsServerError() bool {
 // IsCode returns true when this hardware model get device tags bad request response a status code equal to that given
 func (o *HardwareModelGetDeviceTagsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the hardware model get device tags bad request response
+func (o *HardwareModelGetDeviceTagsBadRequest) Code() int {
+	return 400
 }
 
 func (o *HardwareModelGetDeviceTagsBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *HardwareModelGetDeviceTagsUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the hardware model get device tags unauthorized response
+func (o *HardwareModelGetDeviceTagsUnauthorized) Code() int {
+	return 401
+}
+
 func (o *HardwareModelGetDeviceTagsUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/tags][%d] hardwareModelGetDeviceTagsUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *HardwareModelGetDeviceTagsForbidden) IsServerError() bool {
 // IsCode returns true when this hardware model get device tags forbidden response a status code equal to that given
 func (o *HardwareModelGetDeviceTagsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the hardware model get device tags forbidden response
+func (o *HardwareModelGetDeviceTagsForbidden) Code() int {
+	return 403
 }
 
 func (o *HardwareModelGetDeviceTagsForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *HardwareModelGetDeviceTagsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the hardware model get device tags internal server error response
+func (o *HardwareModelGetDeviceTagsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *HardwareModelGetDeviceTagsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/tags][%d] hardwareModelGetDeviceTagsInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *HardwareModelGetDeviceTagsGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the hardware model get device tags gateway timeout response
+func (o *HardwareModelGetDeviceTagsGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *HardwareModelGetDeviceTagsGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/tags][%d] hardwareModelGetDeviceTagsGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type HardwareModelGetDeviceTagsDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the hardware model get device tags default response
-func (o *HardwareModelGetDeviceTagsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this hardware model get device tags default response has a 2xx status code
 func (o *HardwareModelGetDeviceTagsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *HardwareModelGetDeviceTagsDefault) IsServerError() bool {
 // IsCode returns true when this hardware model get device tags default response a status code equal to that given
 func (o *HardwareModelGetDeviceTagsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the hardware model get device tags default response
+func (o *HardwareModelGetDeviceTagsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *HardwareModelGetDeviceTagsDefault) Error() string {

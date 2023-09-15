@@ -286,6 +286,11 @@ func (m *Certificate) ContextValidate(ctx context.Context, formats strfmt.Regist
 func (m *Certificate) contextValidateEcdsaEncryption(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.EcdsaEncryption != nil {
+
+		if swag.IsZero(m.EcdsaEncryption) { // not required
+			return nil
+		}
+
 		if err := m.EcdsaEncryption.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ecdsaEncryption")
@@ -302,6 +307,11 @@ func (m *Certificate) contextValidateEcdsaEncryption(ctx context.Context, format
 func (m *Certificate) contextValidateIssuer(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Issuer != nil {
+
+		if swag.IsZero(m.Issuer) { // not required
+			return nil
+		}
+
 		if err := m.Issuer.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("issuer")
@@ -318,6 +328,11 @@ func (m *Certificate) contextValidateIssuer(ctx context.Context, formats strfmt.
 func (m *Certificate) contextValidateRsaEcryption(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.RsaEcryption != nil {
+
+		if swag.IsZero(m.RsaEcryption) { // not required
+			return nil
+		}
+
 		if err := m.RsaEcryption.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("rsaEcryption")
@@ -334,6 +349,11 @@ func (m *Certificate) contextValidateRsaEcryption(ctx context.Context, formats s
 func (m *Certificate) contextValidateSanValues(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SanValues != nil {
+
+		if swag.IsZero(m.SanValues) { // not required
+			return nil
+		}
+
 		if err := m.SanValues.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sanValues")
@@ -350,6 +370,11 @@ func (m *Certificate) contextValidateSanValues(ctx context.Context, formats strf
 func (m *Certificate) contextValidateSubject(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Subject != nil {
+
+		if swag.IsZero(m.Subject) { // not required
+			return nil
+		}
+
 		if err := m.Subject.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("subject")

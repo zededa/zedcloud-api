@@ -114,6 +114,11 @@ func (m *ManifestInfo) ContextValidate(ctx context.Context, formats strfmt.Regis
 func (m *ManifestInfo) contextValidateDetails(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Details != nil {
+
+		if swag.IsZero(m.Details) { // not required
+			return nil
+		}
+
 		if err := m.Details.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("details")
@@ -130,6 +135,11 @@ func (m *ManifestInfo) contextValidateDetails(ctx context.Context, formats strfm
 func (m *ManifestInfo) contextValidateTransitionAction(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.TransitionAction != nil {
+
+		if swag.IsZero(m.TransitionAction) { // not required
+			return nil
+		}
+
 		if err := m.TransitionAction.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("transitionAction")

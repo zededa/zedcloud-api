@@ -111,6 +111,11 @@ func (o *DatastoreConfigurationQueryDatastoreProjectListOK) IsCode(code int) boo
 	return code == 200
 }
 
+// Code gets the status code for the datastore configuration query datastore project list o k response
+func (o *DatastoreConfigurationQueryDatastoreProjectListOK) Code() int {
+	return 200
+}
+
 func (o *DatastoreConfigurationQueryDatastoreProjectListOK) Error() string {
 	return fmt.Sprintf("[GET /v1/datastores/id/{id}/projects][%d] datastoreConfigurationQueryDatastoreProjectListOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *DatastoreConfigurationQueryDatastoreProjectListBadRequest) IsServerErro
 // IsCode returns true when this datastore configuration query datastore project list bad request response a status code equal to that given
 func (o *DatastoreConfigurationQueryDatastoreProjectListBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the datastore configuration query datastore project list bad request response
+func (o *DatastoreConfigurationQueryDatastoreProjectListBadRequest) Code() int {
+	return 400
 }
 
 func (o *DatastoreConfigurationQueryDatastoreProjectListBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *DatastoreConfigurationQueryDatastoreProjectListUnauthorized) IsCode(cod
 	return code == 401
 }
 
+// Code gets the status code for the datastore configuration query datastore project list unauthorized response
+func (o *DatastoreConfigurationQueryDatastoreProjectListUnauthorized) Code() int {
+	return 401
+}
+
 func (o *DatastoreConfigurationQueryDatastoreProjectListUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/datastores/id/{id}/projects][%d] datastoreConfigurationQueryDatastoreProjectListUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *DatastoreConfigurationQueryDatastoreProjectListForbidden) IsServerError
 // IsCode returns true when this datastore configuration query datastore project list forbidden response a status code equal to that given
 func (o *DatastoreConfigurationQueryDatastoreProjectListForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the datastore configuration query datastore project list forbidden response
+func (o *DatastoreConfigurationQueryDatastoreProjectListForbidden) Code() int {
+	return 403
 }
 
 func (o *DatastoreConfigurationQueryDatastoreProjectListForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *DatastoreConfigurationQueryDatastoreProjectListInternalServerError) IsC
 	return code == 500
 }
 
+// Code gets the status code for the datastore configuration query datastore project list internal server error response
+func (o *DatastoreConfigurationQueryDatastoreProjectListInternalServerError) Code() int {
+	return 500
+}
+
 func (o *DatastoreConfigurationQueryDatastoreProjectListInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/datastores/id/{id}/projects][%d] datastoreConfigurationQueryDatastoreProjectListInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *DatastoreConfigurationQueryDatastoreProjectListGatewayTimeout) IsCode(c
 	return code == 504
 }
 
+// Code gets the status code for the datastore configuration query datastore project list gateway timeout response
+func (o *DatastoreConfigurationQueryDatastoreProjectListGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *DatastoreConfigurationQueryDatastoreProjectListGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/datastores/id/{id}/projects][%d] datastoreConfigurationQueryDatastoreProjectListGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type DatastoreConfigurationQueryDatastoreProjectListDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the datastore configuration query datastore project list default response
-func (o *DatastoreConfigurationQueryDatastoreProjectListDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this datastore configuration query datastore project list default response has a 2xx status code
 func (o *DatastoreConfigurationQueryDatastoreProjectListDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *DatastoreConfigurationQueryDatastoreProjectListDefault) IsServerError()
 // IsCode returns true when this datastore configuration query datastore project list default response a status code equal to that given
 func (o *DatastoreConfigurationQueryDatastoreProjectListDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the datastore configuration query datastore project list default response
+func (o *DatastoreConfigurationQueryDatastoreProjectListDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DatastoreConfigurationQueryDatastoreProjectListDefault) Error() string {

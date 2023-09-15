@@ -111,6 +111,11 @@ func (o *ArtifactManagerDeleteArtifactOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the artifact manager delete artifact o k response
+func (o *ArtifactManagerDeleteArtifactOK) Code() int {
+	return 200
+}
+
 func (o *ArtifactManagerDeleteArtifactOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/artifacts/id/{id}][%d] artifactManagerDeleteArtifactOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *ArtifactManagerDeleteArtifactUnauthorized) IsServerError() bool {
 // IsCode returns true when this artifact manager delete artifact unauthorized response a status code equal to that given
 func (o *ArtifactManagerDeleteArtifactUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the artifact manager delete artifact unauthorized response
+func (o *ArtifactManagerDeleteArtifactUnauthorized) Code() int {
+	return 401
 }
 
 func (o *ArtifactManagerDeleteArtifactUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *ArtifactManagerDeleteArtifactForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the artifact manager delete artifact forbidden response
+func (o *ArtifactManagerDeleteArtifactForbidden) Code() int {
+	return 403
+}
+
 func (o *ArtifactManagerDeleteArtifactForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/artifacts/id/{id}][%d] artifactManagerDeleteArtifactForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *ArtifactManagerDeleteArtifactNotFound) IsServerError() bool {
 // IsCode returns true when this artifact manager delete artifact not found response a status code equal to that given
 func (o *ArtifactManagerDeleteArtifactNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the artifact manager delete artifact not found response
+func (o *ArtifactManagerDeleteArtifactNotFound) Code() int {
+	return 404
 }
 
 func (o *ArtifactManagerDeleteArtifactNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *ArtifactManagerDeleteArtifactInternalServerError) IsCode(code int) bool
 	return code == 500
 }
 
+// Code gets the status code for the artifact manager delete artifact internal server error response
+func (o *ArtifactManagerDeleteArtifactInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ArtifactManagerDeleteArtifactInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /v1/artifacts/id/{id}][%d] artifactManagerDeleteArtifactInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *ArtifactManagerDeleteArtifactGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the artifact manager delete artifact gateway timeout response
+func (o *ArtifactManagerDeleteArtifactGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ArtifactManagerDeleteArtifactGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/artifacts/id/{id}][%d] artifactManagerDeleteArtifactGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type ArtifactManagerDeleteArtifactDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the artifact manager delete artifact default response
-func (o *ArtifactManagerDeleteArtifactDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this artifact manager delete artifact default response has a 2xx status code
 func (o *ArtifactManagerDeleteArtifactDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *ArtifactManagerDeleteArtifactDefault) IsServerError() bool {
 // IsCode returns true when this artifact manager delete artifact default response a status code equal to that given
 func (o *ArtifactManagerDeleteArtifactDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the artifact manager delete artifact default response
+func (o *ArtifactManagerDeleteArtifactDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ArtifactManagerDeleteArtifactDefault) Error() string {

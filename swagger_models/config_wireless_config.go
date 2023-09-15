@@ -150,6 +150,11 @@ func (m *ConfigWirelessConfig) contextValidateCellularCfg(ctx context.Context, f
 	for i := 0; i < len(m.CellularCfg); i++ {
 
 		if m.CellularCfg[i] != nil {
+
+			if swag.IsZero(m.CellularCfg[i]) { // not required
+				return nil
+			}
+
 			if err := m.CellularCfg[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("cellularCfg" + "." + strconv.Itoa(i))
@@ -168,6 +173,11 @@ func (m *ConfigWirelessConfig) contextValidateCellularCfg(ctx context.Context, f
 func (m *ConfigWirelessConfig) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
@@ -186,6 +196,11 @@ func (m *ConfigWirelessConfig) contextValidateWifiCfg(ctx context.Context, forma
 	for i := 0; i < len(m.WifiCfg); i++ {
 
 		if m.WifiCfg[i] != nil {
+
+			if swag.IsZero(m.WifiCfg[i]) { // not required
+				return nil
+			}
+
 			if err := m.WifiCfg[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("wifiCfg" + "." + strconv.Itoa(i))

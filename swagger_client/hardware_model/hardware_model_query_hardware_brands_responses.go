@@ -111,6 +111,11 @@ func (o *HardwareModelQueryHardwareBrandsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the hardware model query hardware brands o k response
+func (o *HardwareModelQueryHardwareBrandsOK) Code() int {
+	return 200
+}
+
 func (o *HardwareModelQueryHardwareBrandsOK) Error() string {
 	return fmt.Sprintf("[GET /v1/brands][%d] hardwareModelQueryHardwareBrandsOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *HardwareModelQueryHardwareBrandsBadRequest) IsServerError() bool {
 // IsCode returns true when this hardware model query hardware brands bad request response a status code equal to that given
 func (o *HardwareModelQueryHardwareBrandsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the hardware model query hardware brands bad request response
+func (o *HardwareModelQueryHardwareBrandsBadRequest) Code() int {
+	return 400
 }
 
 func (o *HardwareModelQueryHardwareBrandsBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *HardwareModelQueryHardwareBrandsUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the hardware model query hardware brands unauthorized response
+func (o *HardwareModelQueryHardwareBrandsUnauthorized) Code() int {
+	return 401
+}
+
 func (o *HardwareModelQueryHardwareBrandsUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/brands][%d] hardwareModelQueryHardwareBrandsUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *HardwareModelQueryHardwareBrandsForbidden) IsServerError() bool {
 // IsCode returns true when this hardware model query hardware brands forbidden response a status code equal to that given
 func (o *HardwareModelQueryHardwareBrandsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the hardware model query hardware brands forbidden response
+func (o *HardwareModelQueryHardwareBrandsForbidden) Code() int {
+	return 403
 }
 
 func (o *HardwareModelQueryHardwareBrandsForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *HardwareModelQueryHardwareBrandsInternalServerError) IsCode(code int) b
 	return code == 500
 }
 
+// Code gets the status code for the hardware model query hardware brands internal server error response
+func (o *HardwareModelQueryHardwareBrandsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *HardwareModelQueryHardwareBrandsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/brands][%d] hardwareModelQueryHardwareBrandsInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *HardwareModelQueryHardwareBrandsGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the hardware model query hardware brands gateway timeout response
+func (o *HardwareModelQueryHardwareBrandsGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *HardwareModelQueryHardwareBrandsGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/brands][%d] hardwareModelQueryHardwareBrandsGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type HardwareModelQueryHardwareBrandsDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the hardware model query hardware brands default response
-func (o *HardwareModelQueryHardwareBrandsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this hardware model query hardware brands default response has a 2xx status code
 func (o *HardwareModelQueryHardwareBrandsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *HardwareModelQueryHardwareBrandsDefault) IsServerError() bool {
 // IsCode returns true when this hardware model query hardware brands default response a status code equal to that given
 func (o *HardwareModelQueryHardwareBrandsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the hardware model query hardware brands default response
+func (o *HardwareModelQueryHardwareBrandsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *HardwareModelQueryHardwareBrandsDefault) Error() string {

@@ -117,6 +117,11 @@ func (o *IdentityAccessManagementCreateAuthProfileOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management create auth profile o k response
+func (o *IdentityAccessManagementCreateAuthProfileOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementCreateAuthProfileOK) Error() string {
 	return fmt.Sprintf("[POST /v1/authorization/profiles][%d] identityAccessManagementCreateAuthProfileOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *IdentityAccessManagementCreateAuthProfileBadRequest) IsServerError() bo
 // IsCode returns true when this identity access management create auth profile bad request response a status code equal to that given
 func (o *IdentityAccessManagementCreateAuthProfileBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the identity access management create auth profile bad request response
+func (o *IdentityAccessManagementCreateAuthProfileBadRequest) Code() int {
+	return 400
 }
 
 func (o *IdentityAccessManagementCreateAuthProfileBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *IdentityAccessManagementCreateAuthProfileUnauthorized) IsCode(code int)
 	return code == 401
 }
 
+// Code gets the status code for the identity access management create auth profile unauthorized response
+func (o *IdentityAccessManagementCreateAuthProfileUnauthorized) Code() int {
+	return 401
+}
+
 func (o *IdentityAccessManagementCreateAuthProfileUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /v1/authorization/profiles][%d] identityAccessManagementCreateAuthProfileUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *IdentityAccessManagementCreateAuthProfileForbidden) IsServerError() boo
 // IsCode returns true when this identity access management create auth profile forbidden response a status code equal to that given
 func (o *IdentityAccessManagementCreateAuthProfileForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the identity access management create auth profile forbidden response
+func (o *IdentityAccessManagementCreateAuthProfileForbidden) Code() int {
+	return 403
 }
 
 func (o *IdentityAccessManagementCreateAuthProfileForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *IdentityAccessManagementCreateAuthProfileConflict) IsCode(code int) boo
 	return code == 409
 }
 
+// Code gets the status code for the identity access management create auth profile conflict response
+func (o *IdentityAccessManagementCreateAuthProfileConflict) Code() int {
+	return 409
+}
+
 func (o *IdentityAccessManagementCreateAuthProfileConflict) Error() string {
 	return fmt.Sprintf("[POST /v1/authorization/profiles][%d] identityAccessManagementCreateAuthProfileConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *IdentityAccessManagementCreateAuthProfileInternalServerError) IsServerE
 // IsCode returns true when this identity access management create auth profile internal server error response a status code equal to that given
 func (o *IdentityAccessManagementCreateAuthProfileInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management create auth profile internal server error response
+func (o *IdentityAccessManagementCreateAuthProfileInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementCreateAuthProfileInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *IdentityAccessManagementCreateAuthProfileGatewayTimeout) IsCode(code in
 	return code == 504
 }
 
+// Code gets the status code for the identity access management create auth profile gateway timeout response
+func (o *IdentityAccessManagementCreateAuthProfileGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementCreateAuthProfileGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/authorization/profiles][%d] identityAccessManagementCreateAuthProfileGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type IdentityAccessManagementCreateAuthProfileDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management create auth profile default response
-func (o *IdentityAccessManagementCreateAuthProfileDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management create auth profile default response has a 2xx status code
 func (o *IdentityAccessManagementCreateAuthProfileDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *IdentityAccessManagementCreateAuthProfileDefault) IsServerError() bool 
 // IsCode returns true when this identity access management create auth profile default response a status code equal to that given
 func (o *IdentityAccessManagementCreateAuthProfileDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management create auth profile default response
+func (o *IdentityAccessManagementCreateAuthProfileDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementCreateAuthProfileDefault) Error() string {

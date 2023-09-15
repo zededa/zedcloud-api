@@ -143,6 +143,11 @@ func (m *HealthServiceResp) contextValidateHealthDesc(ctx context.Context, forma
 	for i := 0; i < len(m.HealthDesc); i++ {
 
 		if m.HealthDesc[i] != nil {
+
+			if swag.IsZero(m.HealthDesc[i]) { // not required
+				return nil
+			}
+
 			if err := m.HealthDesc[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("healthDesc" + "." + strconv.Itoa(i))
@@ -161,6 +166,11 @@ func (m *HealthServiceResp) contextValidateHealthDesc(ctx context.Context, forma
 func (m *HealthServiceResp) contextValidateHealthService(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.HealthService != nil {
+
+		if swag.IsZero(m.HealthService) { // not required
+			return nil
+		}
+
 		if err := m.HealthService.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("healthService")
@@ -177,6 +187,11 @@ func (m *HealthServiceResp) contextValidateHealthService(ctx context.Context, fo
 func (m *HealthServiceResp) contextValidateHresult(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Hresult != nil {
+
+		if swag.IsZero(m.Hresult) { // not required
+			return nil
+		}
+
 		if err := m.Hresult.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("hresult")

@@ -111,6 +111,11 @@ func (o *VolumeInstanceStatusGetVolumeInstanceEventsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the volume instance status get volume instance events o k response
+func (o *VolumeInstanceStatusGetVolumeInstanceEventsOK) Code() int {
+	return 200
+}
+
 func (o *VolumeInstanceStatusGetVolumeInstanceEventsOK) Error() string {
 	return fmt.Sprintf("[GET /v1/volumes/instances/id/{objid}/events][%d] volumeInstanceStatusGetVolumeInstanceEventsOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *VolumeInstanceStatusGetVolumeInstanceEventsUnauthorized) IsServerError(
 // IsCode returns true when this volume instance status get volume instance events unauthorized response a status code equal to that given
 func (o *VolumeInstanceStatusGetVolumeInstanceEventsUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the volume instance status get volume instance events unauthorized response
+func (o *VolumeInstanceStatusGetVolumeInstanceEventsUnauthorized) Code() int {
+	return 401
 }
 
 func (o *VolumeInstanceStatusGetVolumeInstanceEventsUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *VolumeInstanceStatusGetVolumeInstanceEventsForbidden) IsCode(code int) 
 	return code == 403
 }
 
+// Code gets the status code for the volume instance status get volume instance events forbidden response
+func (o *VolumeInstanceStatusGetVolumeInstanceEventsForbidden) Code() int {
+	return 403
+}
+
 func (o *VolumeInstanceStatusGetVolumeInstanceEventsForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/volumes/instances/id/{objid}/events][%d] volumeInstanceStatusGetVolumeInstanceEventsForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *VolumeInstanceStatusGetVolumeInstanceEventsNotFound) IsServerError() bo
 // IsCode returns true when this volume instance status get volume instance events not found response a status code equal to that given
 func (o *VolumeInstanceStatusGetVolumeInstanceEventsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the volume instance status get volume instance events not found response
+func (o *VolumeInstanceStatusGetVolumeInstanceEventsNotFound) Code() int {
+	return 404
 }
 
 func (o *VolumeInstanceStatusGetVolumeInstanceEventsNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *VolumeInstanceStatusGetVolumeInstanceEventsInternalServerError) IsCode(
 	return code == 500
 }
 
+// Code gets the status code for the volume instance status get volume instance events internal server error response
+func (o *VolumeInstanceStatusGetVolumeInstanceEventsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *VolumeInstanceStatusGetVolumeInstanceEventsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/volumes/instances/id/{objid}/events][%d] volumeInstanceStatusGetVolumeInstanceEventsInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *VolumeInstanceStatusGetVolumeInstanceEventsGatewayTimeout) IsCode(code 
 	return code == 504
 }
 
+// Code gets the status code for the volume instance status get volume instance events gateway timeout response
+func (o *VolumeInstanceStatusGetVolumeInstanceEventsGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *VolumeInstanceStatusGetVolumeInstanceEventsGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/volumes/instances/id/{objid}/events][%d] volumeInstanceStatusGetVolumeInstanceEventsGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type VolumeInstanceStatusGetVolumeInstanceEventsDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the volume instance status get volume instance events default response
-func (o *VolumeInstanceStatusGetVolumeInstanceEventsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this volume instance status get volume instance events default response has a 2xx status code
 func (o *VolumeInstanceStatusGetVolumeInstanceEventsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *VolumeInstanceStatusGetVolumeInstanceEventsDefault) IsServerError() boo
 // IsCode returns true when this volume instance status get volume instance events default response a status code equal to that given
 func (o *VolumeInstanceStatusGetVolumeInstanceEventsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the volume instance status get volume instance events default response
+func (o *VolumeInstanceStatusGetVolumeInstanceEventsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *VolumeInstanceStatusGetVolumeInstanceEventsDefault) Error() string {

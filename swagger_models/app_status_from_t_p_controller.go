@@ -145,6 +145,11 @@ func (m *AppStatusFromTPController) ContextValidate(ctx context.Context, formats
 func (m *AppStatusFromTPController) contextValidateAzureStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AzureStatus != nil {
+
+		if swag.IsZero(m.AzureStatus) { // not required
+			return nil
+		}
+
 		if err := m.AzureStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("azureStatus")
@@ -161,6 +166,11 @@ func (m *AppStatusFromTPController) contextValidateAzureStatus(ctx context.Conte
 func (m *AppStatusFromTPController) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
@@ -177,6 +187,11 @@ func (m *AppStatusFromTPController) contextValidateType(ctx context.Context, for
 func (m *AppStatusFromTPController) contextValidateVceStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.VceStatus != nil {
+
+		if swag.IsZero(m.VceStatus) { // not required
+			return nil
+		}
+
 		if err := m.VceStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("vceStatus")

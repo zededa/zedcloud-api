@@ -111,6 +111,11 @@ func (o *ImageConfigurationQueryImagesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the image configuration query images o k response
+func (o *ImageConfigurationQueryImagesOK) Code() int {
+	return 200
+}
+
 func (o *ImageConfigurationQueryImagesOK) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images][%d] imageConfigurationQueryImagesOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *ImageConfigurationQueryImagesBadRequest) IsServerError() bool {
 // IsCode returns true when this image configuration query images bad request response a status code equal to that given
 func (o *ImageConfigurationQueryImagesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the image configuration query images bad request response
+func (o *ImageConfigurationQueryImagesBadRequest) Code() int {
+	return 400
 }
 
 func (o *ImageConfigurationQueryImagesBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *ImageConfigurationQueryImagesUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the image configuration query images unauthorized response
+func (o *ImageConfigurationQueryImagesUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ImageConfigurationQueryImagesUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images][%d] imageConfigurationQueryImagesUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *ImageConfigurationQueryImagesForbidden) IsServerError() bool {
 // IsCode returns true when this image configuration query images forbidden response a status code equal to that given
 func (o *ImageConfigurationQueryImagesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the image configuration query images forbidden response
+func (o *ImageConfigurationQueryImagesForbidden) Code() int {
+	return 403
 }
 
 func (o *ImageConfigurationQueryImagesForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *ImageConfigurationQueryImagesInternalServerError) IsCode(code int) bool
 	return code == 500
 }
 
+// Code gets the status code for the image configuration query images internal server error response
+func (o *ImageConfigurationQueryImagesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ImageConfigurationQueryImagesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images][%d] imageConfigurationQueryImagesInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *ImageConfigurationQueryImagesGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the image configuration query images gateway timeout response
+func (o *ImageConfigurationQueryImagesGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ImageConfigurationQueryImagesGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images][%d] imageConfigurationQueryImagesGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type ImageConfigurationQueryImagesDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the image configuration query images default response
-func (o *ImageConfigurationQueryImagesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this image configuration query images default response has a 2xx status code
 func (o *ImageConfigurationQueryImagesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *ImageConfigurationQueryImagesDefault) IsServerError() bool {
 // IsCode returns true when this image configuration query images default response a status code equal to that given
 func (o *ImageConfigurationQueryImagesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the image configuration query images default response
+func (o *ImageConfigurationQueryImagesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ImageConfigurationQueryImagesDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *ResourceGroupGetResourceGroupOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the resource group get resource group o k response
+func (o *ResourceGroupGetResourceGroupOK) Code() int {
+	return 200
+}
+
 func (o *ResourceGroupGetResourceGroupOK) Error() string {
 	return fmt.Sprintf("[GET /v1/projects/id/{id}][%d] resourceGroupGetResourceGroupOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *ResourceGroupGetResourceGroupUnauthorized) IsServerError() bool {
 // IsCode returns true when this resource group get resource group unauthorized response a status code equal to that given
 func (o *ResourceGroupGetResourceGroupUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the resource group get resource group unauthorized response
+func (o *ResourceGroupGetResourceGroupUnauthorized) Code() int {
+	return 401
 }
 
 func (o *ResourceGroupGetResourceGroupUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *ResourceGroupGetResourceGroupForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the resource group get resource group forbidden response
+func (o *ResourceGroupGetResourceGroupForbidden) Code() int {
+	return 403
+}
+
 func (o *ResourceGroupGetResourceGroupForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/projects/id/{id}][%d] resourceGroupGetResourceGroupForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *ResourceGroupGetResourceGroupNotFound) IsServerError() bool {
 // IsCode returns true when this resource group get resource group not found response a status code equal to that given
 func (o *ResourceGroupGetResourceGroupNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the resource group get resource group not found response
+func (o *ResourceGroupGetResourceGroupNotFound) Code() int {
+	return 404
 }
 
 func (o *ResourceGroupGetResourceGroupNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *ResourceGroupGetResourceGroupInternalServerError) IsCode(code int) bool
 	return code == 500
 }
 
+// Code gets the status code for the resource group get resource group internal server error response
+func (o *ResourceGroupGetResourceGroupInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ResourceGroupGetResourceGroupInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/projects/id/{id}][%d] resourceGroupGetResourceGroupInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *ResourceGroupGetResourceGroupGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the resource group get resource group gateway timeout response
+func (o *ResourceGroupGetResourceGroupGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ResourceGroupGetResourceGroupGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/projects/id/{id}][%d] resourceGroupGetResourceGroupGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type ResourceGroupGetResourceGroupDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the resource group get resource group default response
-func (o *ResourceGroupGetResourceGroupDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this resource group get resource group default response has a 2xx status code
 func (o *ResourceGroupGetResourceGroupDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *ResourceGroupGetResourceGroupDefault) IsServerError() bool {
 // IsCode returns true when this resource group get resource group default response a status code equal to that given
 func (o *ResourceGroupGetResourceGroupDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the resource group get resource group default response
+func (o *ResourceGroupGetResourceGroupDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ResourceGroupGetResourceGroupDefault) Error() string {

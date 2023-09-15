@@ -193,6 +193,11 @@ func (m *CrudContent) ContextValidate(ctx context.Context, formats strfmt.Regist
 func (m *CrudContent) contextValidateClazz(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Clazz != nil {
+
+		if swag.IsZero(m.Clazz) { // not required
+			return nil
+		}
+
 		if err := m.Clazz.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clazz")
@@ -209,6 +214,11 @@ func (m *CrudContent) contextValidateClazz(ctx context.Context, formats strfmt.R
 func (m *CrudContent) contextValidateEncoding(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Encoding != nil {
+
+		if swag.IsZero(m.Encoding) { // not required
+			return nil
+		}
+
 		if err := m.Encoding.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("encoding")
@@ -225,6 +235,11 @@ func (m *CrudContent) contextValidateEncoding(ctx context.Context, formats strfm
 func (m *CrudContent) contextValidateJSON(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.JSON != nil {
+
+		if swag.IsZero(m.JSON) { // not required
+			return nil
+		}
+
 		if err := m.JSON.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("json")
@@ -241,6 +256,11 @@ func (m *CrudContent) contextValidateJSON(ctx context.Context, formats strfmt.Re
 func (m *CrudContent) contextValidateOid(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Oid != nil {
+
+		if swag.IsZero(m.Oid) { // not required
+			return nil
+		}
+
 		if err := m.Oid.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("oid")
@@ -257,6 +277,11 @@ func (m *CrudContent) contextValidateOid(ctx context.Context, formats strfmt.Reg
 func (m *CrudContent) contextValidateProtobuf(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Protobuf != nil {
+
+		if swag.IsZero(m.Protobuf) { // not required
+			return nil
+		}
+
 		if err := m.Protobuf.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("protobuf")

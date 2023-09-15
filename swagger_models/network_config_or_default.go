@@ -76,6 +76,11 @@ func (m *NetworkConfigOrDefault) ContextValidate(ctx context.Context, formats st
 func (m *NetworkConfigOrDefault) contextValidateNetInstanceConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.NetInstanceConfig != nil {
+
+		if swag.IsZero(m.NetInstanceConfig) { // not required
+			return nil
+		}
+
 		if err := m.NetInstanceConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("netInstanceConfig")

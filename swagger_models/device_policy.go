@@ -133,6 +133,11 @@ func (m *DevicePolicy) ContextValidate(ctx context.Context, formats strfmt.Regis
 func (m *DevicePolicy) contextValidateAttestationPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AttestationPolicy != nil {
+
+		if swag.IsZero(m.AttestationPolicy) { // not required
+			return nil
+		}
+
 		if err := m.AttestationPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("attestationPolicy")
@@ -149,6 +154,11 @@ func (m *DevicePolicy) contextValidateAttestationPolicy(ctx context.Context, for
 func (m *DevicePolicy) contextValidateMetaData(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.MetaData != nil {
+
+		if swag.IsZero(m.MetaData) { // not required
+			return nil
+		}
+
 		if err := m.MetaData.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metaData")
@@ -165,6 +175,11 @@ func (m *DevicePolicy) contextValidateMetaData(ctx context.Context, formats strf
 func (m *DevicePolicy) contextValidatePolicySubType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.PolicySubType != nil {
+
+		if swag.IsZero(m.PolicySubType) { // not required
+			return nil
+		}
+
 		if err := m.PolicySubType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("policySubType")

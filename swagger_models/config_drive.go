@@ -144,6 +144,11 @@ func (m *ConfigDrive) ContextValidate(ctx context.Context, formats strfmt.Regist
 func (m *ConfigDrive) contextValidateDrvtype(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Drvtype != nil {
+
+		if swag.IsZero(m.Drvtype) { // not required
+			return nil
+		}
+
 		if err := m.Drvtype.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("drvtype")
@@ -160,6 +165,11 @@ func (m *ConfigDrive) contextValidateDrvtype(ctx context.Context, formats strfmt
 func (m *ConfigDrive) contextValidateImage(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Image != nil {
+
+		if swag.IsZero(m.Image) { // not required
+			return nil
+		}
+
 		if err := m.Image.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("image")
@@ -176,6 +186,11 @@ func (m *ConfigDrive) contextValidateImage(ctx context.Context, formats strfmt.R
 func (m *ConfigDrive) contextValidateTarget(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Target != nil {
+
+		if swag.IsZero(m.Target) { // not required
+			return nil
+		}
+
 		if err := m.Target.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("target")

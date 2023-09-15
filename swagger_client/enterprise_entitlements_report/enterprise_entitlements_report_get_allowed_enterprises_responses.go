@@ -111,6 +111,11 @@ func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesOK) IsCode(code int) b
 	return code == 200
 }
 
+// Code gets the status code for the enterprise entitlements report get allowed enterprises o k response
+func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesOK) Code() int {
+	return 200
+}
+
 func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesOK) Error() string {
 	return fmt.Sprintf("[GET /v1/reports/allowedenterprises][%d] enterpriseEntitlementsReportGetAllowedEnterprisesOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesUnauthorized) IsServer
 // IsCode returns true when this enterprise entitlements report get allowed enterprises unauthorized response a status code equal to that given
 func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the enterprise entitlements report get allowed enterprises unauthorized response
+func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesForbidden) IsCode(code
 	return code == 403
 }
 
+// Code gets the status code for the enterprise entitlements report get allowed enterprises forbidden response
+func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesForbidden) Code() int {
+	return 403
+}
+
 func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/reports/allowedenterprises][%d] enterpriseEntitlementsReportGetAllowedEnterprisesForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesNotFound) IsServerErro
 // IsCode returns true when this enterprise entitlements report get allowed enterprises not found response a status code equal to that given
 func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the enterprise entitlements report get allowed enterprises not found response
+func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesNotFound) Code() int {
+	return 404
 }
 
 func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesInternalServerError) I
 	return code == 500
 }
 
+// Code gets the status code for the enterprise entitlements report get allowed enterprises internal server error response
+func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/reports/allowedenterprises][%d] enterpriseEntitlementsReportGetAllowedEnterprisesInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesGatewayTimeout) IsCode
 	return code == 504
 }
 
+// Code gets the status code for the enterprise entitlements report get allowed enterprises gateway timeout response
+func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/reports/allowedenterprises][%d] enterpriseEntitlementsReportGetAllowedEnterprisesGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EnterpriseEntitlementsReportGetAllowedEnterprisesDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the enterprise entitlements report get allowed enterprises default response
-func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this enterprise entitlements report get allowed enterprises default response has a 2xx status code
 func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesDefault) IsServerError
 // IsCode returns true when this enterprise entitlements report get allowed enterprises default response a status code equal to that given
 func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the enterprise entitlements report get allowed enterprises default response
+func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EnterpriseEntitlementsReportGetAllowedEnterprisesDefault) Error() string {

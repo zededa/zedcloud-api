@@ -88,6 +88,11 @@ func (m *AzureResourceAndServiceDetail) ContextValidate(ctx context.Context, for
 func (m *AzureResourceAndServiceDetail) contextValidateSKU(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SKU != nil {
+
+		if swag.IsZero(m.SKU) { // not required
+			return nil
+		}
+
 		if err := m.SKU.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("SKU")

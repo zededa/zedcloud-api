@@ -438,6 +438,11 @@ func (m *AAASuccessResponseLogin) ContextValidate(ctx context.Context, formats s
 func (m *AAASuccessResponseLogin) contextValidateAPIToken(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.APIToken != nil {
+
+		if swag.IsZero(m.APIToken) { // not required
+			return nil
+		}
+
 		if err := m.APIToken.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("apiToken")
@@ -454,6 +459,11 @@ func (m *AAASuccessResponseLogin) contextValidateAPIToken(ctx context.Context, f
 func (m *AAASuccessResponseLogin) contextValidateDetailedUser(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DetailedUser != nil {
+
+		if swag.IsZero(m.DetailedUser) { // not required
+			return nil
+		}
+
 		if err := m.DetailedUser.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("detailedUser")
@@ -470,6 +480,11 @@ func (m *AAASuccessResponseLogin) contextValidateDetailedUser(ctx context.Contex
 func (m *AAASuccessResponseLogin) contextValidateEnterprise(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Enterprise != nil {
+
+		if swag.IsZero(m.Enterprise) { // not required
+			return nil
+		}
+
 		if err := m.Enterprise.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enterprise")
@@ -486,6 +501,11 @@ func (m *AAASuccessResponseLogin) contextValidateEnterprise(ctx context.Context,
 func (m *AAASuccessResponseLogin) contextValidateEnterpriseID(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.EnterpriseID != nil {
+
+		if swag.IsZero(m.EnterpriseID) { // not required
+			return nil
+		}
+
 		if err := m.EnterpriseID.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enterpriseId")
@@ -502,6 +522,11 @@ func (m *AAASuccessResponseLogin) contextValidateEnterpriseID(ctx context.Contex
 func (m *AAASuccessResponseLogin) contextValidateLoginToken(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.LoginToken != nil {
+
+		if swag.IsZero(m.LoginToken) { // not required
+			return nil
+		}
+
 		if err := m.LoginToken.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("loginToken")
@@ -520,6 +545,11 @@ func (m *AAASuccessResponseLogin) contextValidatePolicies(ctx context.Context, f
 	for i := 0; i < len(m.Policies); i++ {
 
 		if m.Policies[i] != nil {
+
+			if swag.IsZero(m.Policies[i]) { // not required
+				return nil
+			}
+
 			if err := m.Policies[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("policies" + "." + strconv.Itoa(i))
@@ -538,6 +568,11 @@ func (m *AAASuccessResponseLogin) contextValidatePolicies(ctx context.Context, f
 func (m *AAASuccessResponseLogin) contextValidateRealm(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Realm != nil {
+
+		if swag.IsZero(m.Realm) { // not required
+			return nil
+		}
+
 		if err := m.Realm.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("realm")
@@ -554,6 +589,11 @@ func (m *AAASuccessResponseLogin) contextValidateRealm(ctx context.Context, form
 func (m *AAASuccessResponseLogin) contextValidateRealmID(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.RealmID != nil {
+
+		if swag.IsZero(m.RealmID) { // not required
+			return nil
+		}
+
 		if err := m.RealmID.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("realmId")
@@ -570,6 +610,11 @@ func (m *AAASuccessResponseLogin) contextValidateRealmID(ctx context.Context, fo
 func (m *AAASuccessResponseLogin) contextValidateRole(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Role != nil {
+
+		if swag.IsZero(m.Role) { // not required
+			return nil
+		}
+
 		if err := m.Role.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("role")
@@ -586,6 +631,11 @@ func (m *AAASuccessResponseLogin) contextValidateRole(ctx context.Context, forma
 func (m *AAASuccessResponseLogin) contextValidateSimpleUser(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SimpleUser != nil {
+
+		if swag.IsZero(m.SimpleUser) { // not required
+			return nil
+		}
+
 		if err := m.SimpleUser.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("simpleUser")
@@ -602,6 +652,11 @@ func (m *AAASuccessResponseLogin) contextValidateSimpleUser(ctx context.Context,
 func (m *AAASuccessResponseLogin) contextValidateToken(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Token != nil {
+
+		if swag.IsZero(m.Token) { // not required
+			return nil
+		}
+
 		if err := m.Token.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("token")
@@ -618,6 +673,11 @@ func (m *AAASuccessResponseLogin) contextValidateToken(ctx context.Context, form
 func (m *AAASuccessResponseLogin) contextValidateUserID(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.UserID != nil {
+
+		if swag.IsZero(m.UserID) { // not required
+			return nil
+		}
+
 		if err := m.UserID.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("userId")

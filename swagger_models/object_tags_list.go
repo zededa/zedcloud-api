@@ -113,6 +113,11 @@ func (m *ObjectTagsList) ContextValidate(ctx context.Context, formats strfmt.Reg
 func (m *ObjectTagsList) contextValidateNext(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Next != nil {
+
+		if swag.IsZero(m.Next) { // not required
+			return nil
+		}
+
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
@@ -131,6 +136,11 @@ func (m *ObjectTagsList) contextValidateObjectTags(ctx context.Context, formats 
 	for i := 0; i < len(m.ObjectTags); i++ {
 
 		if m.ObjectTags[i] != nil {
+
+			if swag.IsZero(m.ObjectTags[i]) { // not required
+				return nil
+			}
+
 			if err := m.ObjectTags[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("objectTags" + "." + strconv.Itoa(i))

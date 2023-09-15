@@ -111,6 +111,11 @@ func (o *EnterpriseEntitlementsReportGetPluginReportOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the enterprise entitlements report get plugin report o k response
+func (o *EnterpriseEntitlementsReportGetPluginReportOK) Code() int {
+	return 200
+}
+
 func (o *EnterpriseEntitlementsReportGetPluginReportOK) Error() string {
 	return fmt.Sprintf("[GET /v1/reports/plugin][%d] enterpriseEntitlementsReportGetPluginReportOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EnterpriseEntitlementsReportGetPluginReportUnauthorized) IsServerError(
 // IsCode returns true when this enterprise entitlements report get plugin report unauthorized response a status code equal to that given
 func (o *EnterpriseEntitlementsReportGetPluginReportUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the enterprise entitlements report get plugin report unauthorized response
+func (o *EnterpriseEntitlementsReportGetPluginReportUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EnterpriseEntitlementsReportGetPluginReportUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EnterpriseEntitlementsReportGetPluginReportForbidden) IsCode(code int) 
 	return code == 403
 }
 
+// Code gets the status code for the enterprise entitlements report get plugin report forbidden response
+func (o *EnterpriseEntitlementsReportGetPluginReportForbidden) Code() int {
+	return 403
+}
+
 func (o *EnterpriseEntitlementsReportGetPluginReportForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/reports/plugin][%d] enterpriseEntitlementsReportGetPluginReportForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EnterpriseEntitlementsReportGetPluginReportNotFound) IsServerError() bo
 // IsCode returns true when this enterprise entitlements report get plugin report not found response a status code equal to that given
 func (o *EnterpriseEntitlementsReportGetPluginReportNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the enterprise entitlements report get plugin report not found response
+func (o *EnterpriseEntitlementsReportGetPluginReportNotFound) Code() int {
+	return 404
 }
 
 func (o *EnterpriseEntitlementsReportGetPluginReportNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EnterpriseEntitlementsReportGetPluginReportInternalServerError) IsCode(
 	return code == 500
 }
 
+// Code gets the status code for the enterprise entitlements report get plugin report internal server error response
+func (o *EnterpriseEntitlementsReportGetPluginReportInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EnterpriseEntitlementsReportGetPluginReportInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/reports/plugin][%d] enterpriseEntitlementsReportGetPluginReportInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EnterpriseEntitlementsReportGetPluginReportGatewayTimeout) IsCode(code 
 	return code == 504
 }
 
+// Code gets the status code for the enterprise entitlements report get plugin report gateway timeout response
+func (o *EnterpriseEntitlementsReportGetPluginReportGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EnterpriseEntitlementsReportGetPluginReportGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/reports/plugin][%d] enterpriseEntitlementsReportGetPluginReportGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EnterpriseEntitlementsReportGetPluginReportDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the enterprise entitlements report get plugin report default response
-func (o *EnterpriseEntitlementsReportGetPluginReportDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this enterprise entitlements report get plugin report default response has a 2xx status code
 func (o *EnterpriseEntitlementsReportGetPluginReportDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EnterpriseEntitlementsReportGetPluginReportDefault) IsServerError() boo
 // IsCode returns true when this enterprise entitlements report get plugin report default response a status code equal to that given
 func (o *EnterpriseEntitlementsReportGetPluginReportDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the enterprise entitlements report get plugin report default response
+func (o *EnterpriseEntitlementsReportGetPluginReportDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EnterpriseEntitlementsReportGetPluginReportDefault) Error() string {

@@ -158,6 +158,11 @@ func (m *AllowedEnterpriseList) contextValidateEnterpriseEntitlements(ctx contex
 	for i := 0; i < len(m.EnterpriseEntitlements); i++ {
 
 		if m.EnterpriseEntitlements[i] != nil {
+
+			if swag.IsZero(m.EnterpriseEntitlements[i]) { // not required
+				return nil
+			}
+
 			if err := m.EnterpriseEntitlements[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("enterpriseEntitlements" + "." + strconv.Itoa(i))
@@ -178,6 +183,11 @@ func (m *AllowedEnterpriseList) contextValidateEnterprises(ctx context.Context, 
 	for i := 0; i < len(m.Enterprises); i++ {
 
 		if m.Enterprises[i] != nil {
+
+			if swag.IsZero(m.Enterprises[i]) { // not required
+				return nil
+			}
+
 			if err := m.Enterprises[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("enterprises" + "." + strconv.Itoa(i))
@@ -196,6 +206,11 @@ func (m *AllowedEnterpriseList) contextValidateEnterprises(ctx context.Context, 
 func (m *AllowedEnterpriseList) contextValidateNext(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Next != nil {
+
+		if swag.IsZero(m.Next) { // not required
+			return nil
+		}
+
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")

@@ -217,6 +217,11 @@ func (m *VariableGroupVariable) ContextValidate(ctx context.Context, formats str
 func (m *VariableGroupVariable) contextValidateEncode(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Encode != nil {
+
+		if swag.IsZero(m.Encode) { // not required
+			return nil
+		}
+
 		if err := m.Encode.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("encode")
@@ -233,6 +238,7 @@ func (m *VariableGroupVariable) contextValidateEncode(ctx context.Context, forma
 func (m *VariableGroupVariable) contextValidateFormat(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Format != nil {
+
 		if err := m.Format.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("format")
@@ -251,6 +257,11 @@ func (m *VariableGroupVariable) contextValidateOptions(ctx context.Context, form
 	for i := 0; i < len(m.Options); i++ {
 
 		if m.Options[i] != nil {
+
+			if swag.IsZero(m.Options[i]) { // not required
+				return nil
+			}
+
 			if err := m.Options[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("options" + "." + strconv.Itoa(i))

@@ -108,6 +108,11 @@ func (m *ConfigAdapter) ContextValidate(ctx context.Context, formats strfmt.Regi
 func (m *ConfigAdapter) contextValidateEthVf(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.EthVf != nil {
+
+		if swag.IsZero(m.EthVf) { // not required
+			return nil
+		}
+
 		if err := m.EthVf.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ethVf")
@@ -124,6 +129,11 @@ func (m *ConfigAdapter) contextValidateEthVf(ctx context.Context, formats strfmt
 func (m *ConfigAdapter) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

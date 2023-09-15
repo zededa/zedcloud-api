@@ -123,6 +123,11 @@ func (o *BulkJobOpsBulkImportEdgeApplicationsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the bulk job ops bulk import edge applications o k response
+func (o *BulkJobOpsBulkImportEdgeApplicationsOK) Code() int {
+	return 200
+}
+
 func (o *BulkJobOpsBulkImportEdgeApplicationsOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/apps/bundles/import][%d] bulkJobOpsBulkImportEdgeApplicationsOK  %+v", 200, o.Payload)
 }
@@ -184,6 +189,11 @@ func (o *BulkJobOpsBulkImportEdgeApplicationsBadRequest) IsServerError() bool {
 // IsCode returns true when this bulk job ops bulk import edge applications bad request response a status code equal to that given
 func (o *BulkJobOpsBulkImportEdgeApplicationsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the bulk job ops bulk import edge applications bad request response
+func (o *BulkJobOpsBulkImportEdgeApplicationsBadRequest) Code() int {
+	return 400
 }
 
 func (o *BulkJobOpsBulkImportEdgeApplicationsBadRequest) Error() string {
@@ -249,6 +259,11 @@ func (o *BulkJobOpsBulkImportEdgeApplicationsUnauthorized) IsCode(code int) bool
 	return code == 401
 }
 
+// Code gets the status code for the bulk job ops bulk import edge applications unauthorized response
+func (o *BulkJobOpsBulkImportEdgeApplicationsUnauthorized) Code() int {
+	return 401
+}
+
 func (o *BulkJobOpsBulkImportEdgeApplicationsUnauthorized) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/apps/bundles/import][%d] bulkJobOpsBulkImportEdgeApplicationsUnauthorized  %+v", 401, o.Payload)
 }
@@ -310,6 +325,11 @@ func (o *BulkJobOpsBulkImportEdgeApplicationsForbidden) IsServerError() bool {
 // IsCode returns true when this bulk job ops bulk import edge applications forbidden response a status code equal to that given
 func (o *BulkJobOpsBulkImportEdgeApplicationsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the bulk job ops bulk import edge applications forbidden response
+func (o *BulkJobOpsBulkImportEdgeApplicationsForbidden) Code() int {
+	return 403
 }
 
 func (o *BulkJobOpsBulkImportEdgeApplicationsForbidden) Error() string {
@@ -375,6 +395,11 @@ func (o *BulkJobOpsBulkImportEdgeApplicationsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the bulk job ops bulk import edge applications not found response
+func (o *BulkJobOpsBulkImportEdgeApplicationsNotFound) Code() int {
+	return 404
+}
+
 func (o *BulkJobOpsBulkImportEdgeApplicationsNotFound) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/apps/bundles/import][%d] bulkJobOpsBulkImportEdgeApplicationsNotFound  %+v", 404, o.Payload)
 }
@@ -436,6 +461,11 @@ func (o *BulkJobOpsBulkImportEdgeApplicationsConflict) IsServerError() bool {
 // IsCode returns true when this bulk job ops bulk import edge applications conflict response a status code equal to that given
 func (o *BulkJobOpsBulkImportEdgeApplicationsConflict) IsCode(code int) bool {
 	return code == 409
+}
+
+// Code gets the status code for the bulk job ops bulk import edge applications conflict response
+func (o *BulkJobOpsBulkImportEdgeApplicationsConflict) Code() int {
+	return 409
 }
 
 func (o *BulkJobOpsBulkImportEdgeApplicationsConflict) Error() string {
@@ -501,6 +531,11 @@ func (o *BulkJobOpsBulkImportEdgeApplicationsInternalServerError) IsCode(code in
 	return code == 500
 }
 
+// Code gets the status code for the bulk job ops bulk import edge applications internal server error response
+func (o *BulkJobOpsBulkImportEdgeApplicationsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *BulkJobOpsBulkImportEdgeApplicationsInternalServerError) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/apps/bundles/import][%d] bulkJobOpsBulkImportEdgeApplicationsInternalServerError  %+v", 500, o.Payload)
 }
@@ -564,6 +599,11 @@ func (o *BulkJobOpsBulkImportEdgeApplicationsGatewayTimeout) IsCode(code int) bo
 	return code == 504
 }
 
+// Code gets the status code for the bulk job ops bulk import edge applications gateway timeout response
+func (o *BulkJobOpsBulkImportEdgeApplicationsGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *BulkJobOpsBulkImportEdgeApplicationsGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/apps/bundles/import][%d] bulkJobOpsBulkImportEdgeApplicationsGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -606,11 +646,6 @@ type BulkJobOpsBulkImportEdgeApplicationsDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the bulk job ops bulk import edge applications default response
-func (o *BulkJobOpsBulkImportEdgeApplicationsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this bulk job ops bulk import edge applications default response has a 2xx status code
 func (o *BulkJobOpsBulkImportEdgeApplicationsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -634,6 +669,11 @@ func (o *BulkJobOpsBulkImportEdgeApplicationsDefault) IsServerError() bool {
 // IsCode returns true when this bulk job ops bulk import edge applications default response a status code equal to that given
 func (o *BulkJobOpsBulkImportEdgeApplicationsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the bulk job ops bulk import edge applications default response
+func (o *BulkJobOpsBulkImportEdgeApplicationsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *BulkJobOpsBulkImportEdgeApplicationsDefault) Error() string {

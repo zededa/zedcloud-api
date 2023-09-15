@@ -111,6 +111,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsB
 	return code == 200
 }
 
+// Code gets the status code for the edge application instance status get edge application instance resource metrics by name o k response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameOK) Code() int {
+	return 200
+}
+
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameOK) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/name/{objname}/timeSeries/{mType}][%d] edgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsB
 // IsCode returns true when this edge application instance status get edge application instance resource metrics by name unauthorized response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge application instance status get edge application instance resource metrics by name unauthorized response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsB
 	return code == 403
 }
 
+// Code gets the status code for the edge application instance status get edge application instance resource metrics by name forbidden response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/name/{objname}/timeSeries/{mType}][%d] edgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsB
 // IsCode returns true when this edge application instance status get edge application instance resource metrics by name not found response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge application instance status get edge application instance resource metrics by name not found response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsB
 	return code == 500
 }
 
+// Code gets the status code for the edge application instance status get edge application instance resource metrics by name internal server error response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/name/{objname}/timeSeries/{mType}][%d] edgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsB
 	return code == 504
 }
 
+// Code gets the status code for the edge application instance status get edge application instance resource metrics by name gateway timeout response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/name/{objname}/timeSeries/{mType}][%d] edgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNam
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge application instance status get edge application instance resource metrics by name default response
-func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge application instance status get edge application instance resource metrics by name default response has a 2xx status code
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsB
 // IsCode returns true when this edge application instance status get edge application instance resource metrics by name default response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge application instance status get edge application instance resource metrics by name default response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceResourceMetricsByNameDefault) Error() string {

@@ -146,6 +146,11 @@ func (m *EveconfigImage) ContextValidate(ctx context.Context, formats strfmt.Reg
 func (m *EveconfigImage) contextValidateIformat(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Iformat != nil {
+
+		if swag.IsZero(m.Iformat) { // not required
+			return nil
+		}
+
 		if err := m.Iformat.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("iformat")
@@ -162,6 +167,11 @@ func (m *EveconfigImage) contextValidateIformat(ctx context.Context, formats str
 func (m *EveconfigImage) contextValidateSiginfo(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Siginfo != nil {
+
+		if swag.IsZero(m.Siginfo) { // not required
+			return nil
+		}
+
 		if err := m.Siginfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("siginfo")
@@ -178,6 +188,11 @@ func (m *EveconfigImage) contextValidateSiginfo(ctx context.Context, formats str
 func (m *EveconfigImage) contextValidateUuidandversion(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Uuidandversion != nil {
+
+		if swag.IsZero(m.Uuidandversion) { // not required
+			return nil
+		}
+
 		if err := m.Uuidandversion.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("uuidandversion")

@@ -295,6 +295,11 @@ func (m *AppSummary) contextValidateID(ctx context.Context, formats strfmt.Regis
 func (m *AppSummary) contextValidateManifestJSON(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ManifestJSON != nil {
+
+		if swag.IsZero(m.ManifestJSON) { // not required
+			return nil
+		}
+
 		if err := m.ManifestJSON.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("manifestJSON")
@@ -311,6 +316,7 @@ func (m *AppSummary) contextValidateManifestJSON(ctx context.Context, formats st
 func (m *AppSummary) contextValidateOriginType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.OriginType != nil {
+
 		if err := m.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
@@ -327,6 +333,11 @@ func (m *AppSummary) contextValidateOriginType(ctx context.Context, formats strf
 func (m *AppSummary) contextValidateParentDetail(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ParentDetail != nil {
+
+		if swag.IsZero(m.ParentDetail) { // not required
+			return nil
+		}
+
 		if err := m.ParentDetail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parentDetail")

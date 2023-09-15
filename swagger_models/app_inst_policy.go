@@ -103,6 +103,11 @@ func (m *AppInstPolicy) ContextValidate(ctx context.Context, formats strfmt.Regi
 func (m *AppInstPolicy) contextValidateAppInstConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AppInstConfig != nil {
+
+		if swag.IsZero(m.AppInstConfig) { // not required
+			return nil
+		}
+
 		if err := m.AppInstConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appInstConfig")
@@ -119,6 +124,11 @@ func (m *AppInstPolicy) contextValidateAppInstConfig(ctx context.Context, format
 func (m *AppInstPolicy) contextValidateMetaData(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.MetaData != nil {
+
+		if swag.IsZero(m.MetaData) { // not required
+			return nil
+		}
+
 		if err := m.MetaData.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metaData")

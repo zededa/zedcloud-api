@@ -618,6 +618,11 @@ func (m *DeviceConfig) ContextValidate(ctx context.Context, formats strfmt.Regis
 func (m *DeviceConfig) contextValidateAdminState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AdminState != nil {
+
+		if swag.IsZero(m.AdminState) { // not required
+			return nil
+		}
+
 		if err := m.AdminState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adminState")
@@ -636,6 +641,11 @@ func (m *DeviceConfig) contextValidateBaseImage(ctx context.Context, formats str
 	for i := 0; i < len(m.BaseImage); i++ {
 
 		if m.BaseImage[i] != nil {
+
+			if swag.IsZero(m.BaseImage[i]) { // not required
+				return nil
+			}
+
 			if err := m.BaseImage[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("baseImage" + "." + strconv.Itoa(i))
@@ -656,6 +666,11 @@ func (m *DeviceConfig) contextValidateConfigItem(ctx context.Context, formats st
 	for i := 0; i < len(m.ConfigItem); i++ {
 
 		if m.ConfigItem[i] != nil {
+
+			if swag.IsZero(m.ConfigItem[i]) { // not required
+				return nil
+			}
+
 			if err := m.ConfigItem[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("configItem" + "." + strconv.Itoa(i))
@@ -674,6 +689,11 @@ func (m *DeviceConfig) contextValidateConfigItem(ctx context.Context, formats st
 func (m *DeviceConfig) contextValidateDebugKnob(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DebugKnob != nil {
+
+		if swag.IsZero(m.DebugKnob) { // not required
+			return nil
+		}
+
 		if err := m.DebugKnob.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("debugKnob")
@@ -690,6 +710,11 @@ func (m *DeviceConfig) contextValidateDebugKnob(ctx context.Context, formats str
 func (m *DeviceConfig) contextValidateDefaultNetInst(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DefaultNetInst != nil {
+
+		if swag.IsZero(m.DefaultNetInst) { // not required
+			return nil
+		}
+
 		if err := m.DefaultNetInst.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("defaultNetInst")
@@ -706,6 +731,11 @@ func (m *DeviceConfig) contextValidateDefaultNetInst(ctx context.Context, format
 func (m *DeviceConfig) contextValidateDevLocation(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DevLocation != nil {
+
+		if swag.IsZero(m.DevLocation) { // not required
+			return nil
+		}
+
 		if err := m.DevLocation.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("devLocation")
@@ -722,6 +752,11 @@ func (m *DeviceConfig) contextValidateDevLocation(ctx context.Context, formats s
 func (m *DeviceConfig) contextValidateDlisp(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Dlisp != nil {
+
+		if swag.IsZero(m.Dlisp) { // not required
+			return nil
+		}
+
 		if err := m.Dlisp.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dlisp")
@@ -738,6 +773,11 @@ func (m *DeviceConfig) contextValidateDlisp(ctx context.Context, formats strfmt.
 func (m *DeviceConfig) contextValidateEdgeviewconfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Edgeviewconfig != nil {
+
+		if swag.IsZero(m.Edgeviewconfig) { // not required
+			return nil
+		}
+
 		if err := m.Edgeviewconfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("edgeviewconfig")
@@ -765,6 +805,11 @@ func (m *DeviceConfig) contextValidateInterfaces(ctx context.Context, formats st
 	for i := 0; i < len(m.Interfaces); i++ {
 
 		if m.Interfaces[i] != nil {
+
+			if swag.IsZero(m.Interfaces[i]) { // not required
+				return nil
+			}
+
 			if err := m.Interfaces[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
@@ -783,6 +828,11 @@ func (m *DeviceConfig) contextValidateInterfaces(ctx context.Context, formats st
 func (m *DeviceConfig) contextValidateOnboarding(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Onboarding != nil {
+
+		if swag.IsZero(m.Onboarding) { // not required
+			return nil
+		}
+
 		if err := m.Onboarding.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("onboarding")
@@ -799,6 +849,11 @@ func (m *DeviceConfig) contextValidateOnboarding(ctx context.Context, formats st
 func (m *DeviceConfig) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Revision != nil {
+
+		if swag.IsZero(m.Revision) { // not required
+			return nil
+		}
+
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
@@ -815,6 +870,11 @@ func (m *DeviceConfig) contextValidateRevision(ctx context.Context, formats strf
 func (m *DeviceConfig) contextValidateUtype(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Utype != nil {
+
+		if swag.IsZero(m.Utype) { // not required
+			return nil
+		}
+
 		if err := m.Utype.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("utype")

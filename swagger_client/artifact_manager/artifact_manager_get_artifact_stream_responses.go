@@ -126,6 +126,11 @@ func (o *ArtifactManagerGetArtifactStreamOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the artifact manager get artifact stream o k response
+func (o *ArtifactManagerGetArtifactStreamOK) Code() int {
+	return 200
+}
+
 func (o *ArtifactManagerGetArtifactStreamOK) Error() string {
 	return fmt.Sprintf("[GET /v1/artifacts/id/{id}][%d] artifactManagerGetArtifactStreamOK  %+v", 200, o.Payload)
 }
@@ -187,6 +192,11 @@ func (o *ArtifactManagerGetArtifactStreamPartialContent) IsServerError() bool {
 // IsCode returns true when this artifact manager get artifact stream partial content response a status code equal to that given
 func (o *ArtifactManagerGetArtifactStreamPartialContent) IsCode(code int) bool {
 	return code == 206
+}
+
+// Code gets the status code for the artifact manager get artifact stream partial content response
+func (o *ArtifactManagerGetArtifactStreamPartialContent) Code() int {
+	return 206
 }
 
 func (o *ArtifactManagerGetArtifactStreamPartialContent) Error() string {
@@ -252,6 +262,11 @@ func (o *ArtifactManagerGetArtifactStreamTemporaryRedirect) IsCode(code int) boo
 	return code == 307
 }
 
+// Code gets the status code for the artifact manager get artifact stream temporary redirect response
+func (o *ArtifactManagerGetArtifactStreamTemporaryRedirect) Code() int {
+	return 307
+}
+
 func (o *ArtifactManagerGetArtifactStreamTemporaryRedirect) Error() string {
 	return fmt.Sprintf("[GET /v1/artifacts/id/{id}][%d] artifactManagerGetArtifactStreamTemporaryRedirect  %+v", 307, o.Payload)
 }
@@ -313,6 +328,11 @@ func (o *ArtifactManagerGetArtifactStreamBadRequest) IsServerError() bool {
 // IsCode returns true when this artifact manager get artifact stream bad request response a status code equal to that given
 func (o *ArtifactManagerGetArtifactStreamBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the artifact manager get artifact stream bad request response
+func (o *ArtifactManagerGetArtifactStreamBadRequest) Code() int {
+	return 400
 }
 
 func (o *ArtifactManagerGetArtifactStreamBadRequest) Error() string {
@@ -378,6 +398,11 @@ func (o *ArtifactManagerGetArtifactStreamUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the artifact manager get artifact stream unauthorized response
+func (o *ArtifactManagerGetArtifactStreamUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ArtifactManagerGetArtifactStreamUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/artifacts/id/{id}][%d] artifactManagerGetArtifactStreamUnauthorized  %+v", 401, o.Payload)
 }
@@ -439,6 +464,11 @@ func (o *ArtifactManagerGetArtifactStreamForbidden) IsServerError() bool {
 // IsCode returns true when this artifact manager get artifact stream forbidden response a status code equal to that given
 func (o *ArtifactManagerGetArtifactStreamForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the artifact manager get artifact stream forbidden response
+func (o *ArtifactManagerGetArtifactStreamForbidden) Code() int {
+	return 403
 }
 
 func (o *ArtifactManagerGetArtifactStreamForbidden) Error() string {
@@ -504,6 +534,11 @@ func (o *ArtifactManagerGetArtifactStreamInternalServerError) IsCode(code int) b
 	return code == 500
 }
 
+// Code gets the status code for the artifact manager get artifact stream internal server error response
+func (o *ArtifactManagerGetArtifactStreamInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ArtifactManagerGetArtifactStreamInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/artifacts/id/{id}][%d] artifactManagerGetArtifactStreamInternalServerError  %+v", 500, o.Payload)
 }
@@ -567,6 +602,11 @@ func (o *ArtifactManagerGetArtifactStreamGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the artifact manager get artifact stream gateway timeout response
+func (o *ArtifactManagerGetArtifactStreamGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ArtifactManagerGetArtifactStreamGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/artifacts/id/{id}][%d] artifactManagerGetArtifactStreamGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -609,11 +649,6 @@ type ArtifactManagerGetArtifactStreamDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the artifact manager get artifact stream default response
-func (o *ArtifactManagerGetArtifactStreamDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this artifact manager get artifact stream default response has a 2xx status code
 func (o *ArtifactManagerGetArtifactStreamDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -637,6 +672,11 @@ func (o *ArtifactManagerGetArtifactStreamDefault) IsServerError() bool {
 // IsCode returns true when this artifact manager get artifact stream default response a status code equal to that given
 func (o *ArtifactManagerGetArtifactStreamDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the artifact manager get artifact stream default response
+func (o *ArtifactManagerGetArtifactStreamDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ArtifactManagerGetArtifactStreamDefault) Error() string {
@@ -728,6 +768,11 @@ func (o *ArtifactManagerGetArtifactStreamOKBody) ContextValidate(ctx context.Con
 func (o *ArtifactManagerGetArtifactStreamOKBody) contextValidateError(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Error != nil {
+
+		if swag.IsZero(o.Error) { // not required
+			return nil
+		}
+
 		if err := o.Error.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("artifactManagerGetArtifactStreamOK" + "." + "error")

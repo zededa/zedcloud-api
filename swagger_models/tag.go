@@ -460,6 +460,11 @@ func (m *Tag) ContextValidate(ctx context.Context, formats strfmt.Registry) erro
 func (m *Tag) contextValidateAppPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AppPolicy != nil {
+
+		if swag.IsZero(m.AppPolicy) { // not required
+			return nil
+		}
+
 		if err := m.AppPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appPolicy")
@@ -476,6 +481,11 @@ func (m *Tag) contextValidateAppPolicy(ctx context.Context, formats strfmt.Regis
 func (m *Tag) contextValidateAttestationPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AttestationPolicy != nil {
+
+		if swag.IsZero(m.AttestationPolicy) { // not required
+			return nil
+		}
+
 		if err := m.AttestationPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("attestationPolicy")
@@ -497,6 +507,11 @@ func (m *Tag) contextValidateAttr(ctx context.Context, formats strfmt.Registry) 
 func (m *Tag) contextValidateCloudPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CloudPolicy != nil {
+
+		if swag.IsZero(m.CloudPolicy) { // not required
+			return nil
+		}
+
 		if err := m.CloudPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cloudPolicy")
@@ -513,6 +528,11 @@ func (m *Tag) contextValidateCloudPolicy(ctx context.Context, formats strfmt.Reg
 func (m *Tag) contextValidateDeployment(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Deployment != nil {
+
+		if swag.IsZero(m.Deployment) { // not required
+			return nil
+		}
+
 		if err := m.Deployment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deployment")
@@ -529,6 +549,11 @@ func (m *Tag) contextValidateDeployment(ctx context.Context, formats strfmt.Regi
 func (m *Tag) contextValidateEdgeviewPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.EdgeviewPolicy != nil {
+
+		if swag.IsZero(m.EdgeviewPolicy) { // not required
+			return nil
+		}
+
 		if err := m.EdgeviewPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("edgeviewPolicy")
@@ -560,6 +585,11 @@ func (m *Tag) contextValidateModulePolicy(ctx context.Context, formats strfmt.Re
 	for i := 0; i < len(m.ModulePolicy); i++ {
 
 		if m.ModulePolicy[i] != nil {
+
+			if swag.IsZero(m.ModulePolicy[i]) { // not required
+				return nil
+			}
+
 			if err := m.ModulePolicy[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("modulePolicy" + "." + strconv.Itoa(i))
@@ -578,6 +608,11 @@ func (m *Tag) contextValidateModulePolicy(ctx context.Context, formats strfmt.Re
 func (m *Tag) contextValidateNetworkPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.NetworkPolicy != nil {
+
+		if swag.IsZero(m.NetworkPolicy) { // not required
+			return nil
+		}
+
 		if err := m.NetworkPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("networkPolicy")
@@ -603,6 +638,11 @@ func (m *Tag) contextValidateNumdevices(ctx context.Context, formats strfmt.Regi
 func (m *Tag) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Revision != nil {
+
+		if swag.IsZero(m.Revision) { // not required
+			return nil
+		}
+
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
@@ -619,6 +659,7 @@ func (m *Tag) contextValidateRevision(ctx context.Context, formats strfmt.Regist
 func (m *Tag) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

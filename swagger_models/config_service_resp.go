@@ -197,6 +197,11 @@ func (m *ConfigServiceResp) ContextValidate(ctx context.Context, formats strfmt.
 func (m *ConfigServiceResp) contextValidateConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Config != nil {
+
+		if swag.IsZero(m.Config) { // not required
+			return nil
+		}
+
 		if err := m.Config.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("config")
@@ -213,6 +218,11 @@ func (m *ConfigServiceResp) contextValidateConfig(ctx context.Context, formats s
 func (m *ConfigServiceResp) contextValidateLastKnownStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.LastKnownStatus != nil {
+
+		if swag.IsZero(m.LastKnownStatus) { // not required
+			return nil
+		}
+
 		if err := m.LastKnownStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastKnownStatus")
@@ -229,6 +239,11 @@ func (m *ConfigServiceResp) contextValidateLastKnownStatus(ctx context.Context, 
 func (m *ConfigServiceResp) contextValidateResult(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Result != nil {
+
+		if swag.IsZero(m.Result) { // not required
+			return nil
+		}
+
 		if err := m.Result.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result")

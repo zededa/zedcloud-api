@@ -73,6 +73,11 @@ func (m *UserDataTemplate) ContextValidate(ctx context.Context, formats strfmt.R
 func (m *UserDataTemplate) contextValidateCustomConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CustomConfig != nil {
+
+		if swag.IsZero(m.CustomConfig) { // not required
+			return nil
+		}
+
 		if err := m.CustomConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customConfig")

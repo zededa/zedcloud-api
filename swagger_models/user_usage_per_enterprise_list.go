@@ -83,6 +83,11 @@ func (m *UserUsagePerEnterpriseList) contextValidateUserUsagePerEntp(ctx context
 	for i := 0; i < len(m.UserUsagePerEntp); i++ {
 
 		if m.UserUsagePerEntp[i] != nil {
+
+			if swag.IsZero(m.UserUsagePerEntp[i]) { // not required
+				return nil
+			}
+
 			if err := m.UserUsagePerEntp[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("userUsagePerEntp" + "." + strconv.Itoa(i))

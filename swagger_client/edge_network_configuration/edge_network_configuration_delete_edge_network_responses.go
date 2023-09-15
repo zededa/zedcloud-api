@@ -111,6 +111,11 @@ func (o *EdgeNetworkConfigurationDeleteEdgeNetworkOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge network configuration delete edge network o k response
+func (o *EdgeNetworkConfigurationDeleteEdgeNetworkOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNetworkConfigurationDeleteEdgeNetworkOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/networks/id/{id}][%d] edgeNetworkConfigurationDeleteEdgeNetworkOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeNetworkConfigurationDeleteEdgeNetworkUnauthorized) IsServerError() 
 // IsCode returns true when this edge network configuration delete edge network unauthorized response a status code equal to that given
 func (o *EdgeNetworkConfigurationDeleteEdgeNetworkUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge network configuration delete edge network unauthorized response
+func (o *EdgeNetworkConfigurationDeleteEdgeNetworkUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNetworkConfigurationDeleteEdgeNetworkUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeNetworkConfigurationDeleteEdgeNetworkForbidden) IsCode(code int) bo
 	return code == 403
 }
 
+// Code gets the status code for the edge network configuration delete edge network forbidden response
+func (o *EdgeNetworkConfigurationDeleteEdgeNetworkForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNetworkConfigurationDeleteEdgeNetworkForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/networks/id/{id}][%d] edgeNetworkConfigurationDeleteEdgeNetworkForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeNetworkConfigurationDeleteEdgeNetworkNotFound) IsServerError() bool
 // IsCode returns true when this edge network configuration delete edge network not found response a status code equal to that given
 func (o *EdgeNetworkConfigurationDeleteEdgeNetworkNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge network configuration delete edge network not found response
+func (o *EdgeNetworkConfigurationDeleteEdgeNetworkNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNetworkConfigurationDeleteEdgeNetworkNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeNetworkConfigurationDeleteEdgeNetworkInternalServerError) IsCode(co
 	return code == 500
 }
 
+// Code gets the status code for the edge network configuration delete edge network internal server error response
+func (o *EdgeNetworkConfigurationDeleteEdgeNetworkInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeNetworkConfigurationDeleteEdgeNetworkInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /v1/networks/id/{id}][%d] edgeNetworkConfigurationDeleteEdgeNetworkInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeNetworkConfigurationDeleteEdgeNetworkGatewayTimeout) IsCode(code in
 	return code == 504
 }
 
+// Code gets the status code for the edge network configuration delete edge network gateway timeout response
+func (o *EdgeNetworkConfigurationDeleteEdgeNetworkGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNetworkConfigurationDeleteEdgeNetworkGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/networks/id/{id}][%d] edgeNetworkConfigurationDeleteEdgeNetworkGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeNetworkConfigurationDeleteEdgeNetworkDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge network configuration delete edge network default response
-func (o *EdgeNetworkConfigurationDeleteEdgeNetworkDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge network configuration delete edge network default response has a 2xx status code
 func (o *EdgeNetworkConfigurationDeleteEdgeNetworkDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeNetworkConfigurationDeleteEdgeNetworkDefault) IsServerError() bool 
 // IsCode returns true when this edge network configuration delete edge network default response a status code equal to that given
 func (o *EdgeNetworkConfigurationDeleteEdgeNetworkDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge network configuration delete edge network default response
+func (o *EdgeNetworkConfigurationDeleteEdgeNetworkDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNetworkConfigurationDeleteEdgeNetworkDefault) Error() string {

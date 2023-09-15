@@ -189,6 +189,11 @@ func (m *PhysicalStorage) ContextValidate(ctx context.Context, formats strfmt.Re
 func (m *PhysicalStorage) contextValidateCurrentRaid(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CurrentRaid != nil {
+
+		if swag.IsZero(m.CurrentRaid) { // not required
+			return nil
+		}
+
 		if err := m.CurrentRaid.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("currentRaid")
@@ -207,6 +212,11 @@ func (m *PhysicalStorage) contextValidateDisks(ctx context.Context, formats strf
 	for i := 0; i < len(m.Disks); i++ {
 
 		if m.Disks[i] != nil {
+
+			if swag.IsZero(m.Disks[i]) { // not required
+				return nil
+			}
+
 			if err := m.Disks[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("disks" + "." + strconv.Itoa(i))
@@ -225,6 +235,11 @@ func (m *PhysicalStorage) contextValidateDisks(ctx context.Context, formats strf
 func (m *PhysicalStorage) contextValidateStorageState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.StorageState != nil {
+
+		if swag.IsZero(m.StorageState) { // not required
+			return nil
+		}
+
 		if err := m.StorageState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("storageState")
@@ -241,6 +256,11 @@ func (m *PhysicalStorage) contextValidateStorageState(ctx context.Context, forma
 func (m *PhysicalStorage) contextValidateStorageType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.StorageType != nil {
+
+		if swag.IsZero(m.StorageType) { // not required
+			return nil
+		}
+
 		if err := m.StorageType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("storageType")

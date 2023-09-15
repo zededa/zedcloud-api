@@ -117,6 +117,11 @@ func (o *IdentityAccessManagementCreateEnterpriseOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management create enterprise o k response
+func (o *IdentityAccessManagementCreateEnterpriseOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementCreateEnterpriseOK) Error() string {
 	return fmt.Sprintf("[POST /v1/enterprises][%d] identityAccessManagementCreateEnterpriseOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *IdentityAccessManagementCreateEnterpriseBadRequest) IsServerError() boo
 // IsCode returns true when this identity access management create enterprise bad request response a status code equal to that given
 func (o *IdentityAccessManagementCreateEnterpriseBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the identity access management create enterprise bad request response
+func (o *IdentityAccessManagementCreateEnterpriseBadRequest) Code() int {
+	return 400
 }
 
 func (o *IdentityAccessManagementCreateEnterpriseBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *IdentityAccessManagementCreateEnterpriseUnauthorized) IsCode(code int) 
 	return code == 401
 }
 
+// Code gets the status code for the identity access management create enterprise unauthorized response
+func (o *IdentityAccessManagementCreateEnterpriseUnauthorized) Code() int {
+	return 401
+}
+
 func (o *IdentityAccessManagementCreateEnterpriseUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /v1/enterprises][%d] identityAccessManagementCreateEnterpriseUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *IdentityAccessManagementCreateEnterpriseForbidden) IsServerError() bool
 // IsCode returns true when this identity access management create enterprise forbidden response a status code equal to that given
 func (o *IdentityAccessManagementCreateEnterpriseForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the identity access management create enterprise forbidden response
+func (o *IdentityAccessManagementCreateEnterpriseForbidden) Code() int {
+	return 403
 }
 
 func (o *IdentityAccessManagementCreateEnterpriseForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *IdentityAccessManagementCreateEnterpriseConflict) IsCode(code int) bool
 	return code == 409
 }
 
+// Code gets the status code for the identity access management create enterprise conflict response
+func (o *IdentityAccessManagementCreateEnterpriseConflict) Code() int {
+	return 409
+}
+
 func (o *IdentityAccessManagementCreateEnterpriseConflict) Error() string {
 	return fmt.Sprintf("[POST /v1/enterprises][%d] identityAccessManagementCreateEnterpriseConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *IdentityAccessManagementCreateEnterpriseInternalServerError) IsServerEr
 // IsCode returns true when this identity access management create enterprise internal server error response a status code equal to that given
 func (o *IdentityAccessManagementCreateEnterpriseInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management create enterprise internal server error response
+func (o *IdentityAccessManagementCreateEnterpriseInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementCreateEnterpriseInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *IdentityAccessManagementCreateEnterpriseGatewayTimeout) IsCode(code int
 	return code == 504
 }
 
+// Code gets the status code for the identity access management create enterprise gateway timeout response
+func (o *IdentityAccessManagementCreateEnterpriseGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementCreateEnterpriseGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/enterprises][%d] identityAccessManagementCreateEnterpriseGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type IdentityAccessManagementCreateEnterpriseDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management create enterprise default response
-func (o *IdentityAccessManagementCreateEnterpriseDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management create enterprise default response has a 2xx status code
 func (o *IdentityAccessManagementCreateEnterpriseDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *IdentityAccessManagementCreateEnterpriseDefault) IsServerError() bool {
 // IsCode returns true when this identity access management create enterprise default response a status code equal to that given
 func (o *IdentityAccessManagementCreateEnterpriseDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management create enterprise default response
+func (o *IdentityAccessManagementCreateEnterpriseDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementCreateEnterpriseDefault) Error() string {

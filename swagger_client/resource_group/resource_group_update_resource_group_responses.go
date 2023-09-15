@@ -122,6 +122,11 @@ func (o *ResourceGroupUpdateResourceGroupOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the resource group update resource group o k response
+func (o *ResourceGroupUpdateResourceGroupOK) Code() int {
+	return 200
+}
+
 func (o *ResourceGroupUpdateResourceGroupOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/projects/id/{id}][%d] resourceGroupUpdateResourceGroupOK  %+v", 200, o.Payload)
 }
@@ -183,6 +188,11 @@ func (o *ResourceGroupUpdateResourceGroupUnauthorized) IsServerError() bool {
 // IsCode returns true when this resource group update resource group unauthorized response a status code equal to that given
 func (o *ResourceGroupUpdateResourceGroupUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the resource group update resource group unauthorized response
+func (o *ResourceGroupUpdateResourceGroupUnauthorized) Code() int {
+	return 401
 }
 
 func (o *ResourceGroupUpdateResourceGroupUnauthorized) Error() string {
@@ -248,6 +258,11 @@ func (o *ResourceGroupUpdateResourceGroupForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the resource group update resource group forbidden response
+func (o *ResourceGroupUpdateResourceGroupForbidden) Code() int {
+	return 403
+}
+
 func (o *ResourceGroupUpdateResourceGroupForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/projects/id/{id}][%d] resourceGroupUpdateResourceGroupForbidden  %+v", 403, o.Payload)
 }
@@ -309,6 +324,11 @@ func (o *ResourceGroupUpdateResourceGroupNotFound) IsServerError() bool {
 // IsCode returns true when this resource group update resource group not found response a status code equal to that given
 func (o *ResourceGroupUpdateResourceGroupNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the resource group update resource group not found response
+func (o *ResourceGroupUpdateResourceGroupNotFound) Code() int {
+	return 404
 }
 
 func (o *ResourceGroupUpdateResourceGroupNotFound) Error() string {
@@ -374,6 +394,11 @@ func (o *ResourceGroupUpdateResourceGroupConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the resource group update resource group conflict response
+func (o *ResourceGroupUpdateResourceGroupConflict) Code() int {
+	return 409
+}
+
 func (o *ResourceGroupUpdateResourceGroupConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/projects/id/{id}][%d] resourceGroupUpdateResourceGroupConflict  %+v", 409, o.Payload)
 }
@@ -435,6 +460,11 @@ func (o *ResourceGroupUpdateResourceGroupInternalServerError) IsServerError() bo
 // IsCode returns true when this resource group update resource group internal server error response a status code equal to that given
 func (o *ResourceGroupUpdateResourceGroupInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the resource group update resource group internal server error response
+func (o *ResourceGroupUpdateResourceGroupInternalServerError) Code() int {
+	return 500
 }
 
 func (o *ResourceGroupUpdateResourceGroupInternalServerError) Error() string {
@@ -500,6 +530,11 @@ func (o *ResourceGroupUpdateResourceGroupGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the resource group update resource group gateway timeout response
+func (o *ResourceGroupUpdateResourceGroupGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ResourceGroupUpdateResourceGroupGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/projects/id/{id}][%d] resourceGroupUpdateResourceGroupGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -542,11 +577,6 @@ type ResourceGroupUpdateResourceGroupDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the resource group update resource group default response
-func (o *ResourceGroupUpdateResourceGroupDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this resource group update resource group default response has a 2xx status code
 func (o *ResourceGroupUpdateResourceGroupDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -570,6 +600,11 @@ func (o *ResourceGroupUpdateResourceGroupDefault) IsServerError() bool {
 // IsCode returns true when this resource group update resource group default response a status code equal to that given
 func (o *ResourceGroupUpdateResourceGroupDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the resource group update resource group default response
+func (o *ResourceGroupUpdateResourceGroupDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ResourceGroupUpdateResourceGroupDefault) Error() string {
@@ -1016,6 +1051,11 @@ func (o *ResourceGroupUpdateResourceGroupBody) ContextValidate(ctx context.Conte
 func (o *ResourceGroupUpdateResourceGroupBody) contextValidateAppPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.AppPolicy != nil {
+
+		if swag.IsZero(o.AppPolicy) { // not required
+			return nil
+		}
+
 		if err := o.AppPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "appPolicy")
@@ -1032,6 +1072,11 @@ func (o *ResourceGroupUpdateResourceGroupBody) contextValidateAppPolicy(ctx cont
 func (o *ResourceGroupUpdateResourceGroupBody) contextValidateAttestationPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.AttestationPolicy != nil {
+
+		if swag.IsZero(o.AttestationPolicy) { // not required
+			return nil
+		}
+
 		if err := o.AttestationPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "attestationPolicy")
@@ -1053,6 +1098,11 @@ func (o *ResourceGroupUpdateResourceGroupBody) contextValidateAttr(ctx context.C
 func (o *ResourceGroupUpdateResourceGroupBody) contextValidateCloudPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.CloudPolicy != nil {
+
+		if swag.IsZero(o.CloudPolicy) { // not required
+			return nil
+		}
+
 		if err := o.CloudPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "cloudPolicy")
@@ -1069,6 +1119,11 @@ func (o *ResourceGroupUpdateResourceGroupBody) contextValidateCloudPolicy(ctx co
 func (o *ResourceGroupUpdateResourceGroupBody) contextValidateDeployment(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Deployment != nil {
+
+		if swag.IsZero(o.Deployment) { // not required
+			return nil
+		}
+
 		if err := o.Deployment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "deployment")
@@ -1085,6 +1140,11 @@ func (o *ResourceGroupUpdateResourceGroupBody) contextValidateDeployment(ctx con
 func (o *ResourceGroupUpdateResourceGroupBody) contextValidateEdgeviewPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.EdgeviewPolicy != nil {
+
+		if swag.IsZero(o.EdgeviewPolicy) { // not required
+			return nil
+		}
+
 		if err := o.EdgeviewPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "edgeviewPolicy")
@@ -1107,6 +1167,11 @@ func (o *ResourceGroupUpdateResourceGroupBody) contextValidateModulePolicy(ctx c
 	for i := 0; i < len(o.ModulePolicy); i++ {
 
 		if o.ModulePolicy[i] != nil {
+
+			if swag.IsZero(o.ModulePolicy[i]) { // not required
+				return nil
+			}
+
 			if err := o.ModulePolicy[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("body" + "." + "modulePolicy" + "." + strconv.Itoa(i))
@@ -1125,6 +1190,11 @@ func (o *ResourceGroupUpdateResourceGroupBody) contextValidateModulePolicy(ctx c
 func (o *ResourceGroupUpdateResourceGroupBody) contextValidateNetworkPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.NetworkPolicy != nil {
+
+		if swag.IsZero(o.NetworkPolicy) { // not required
+			return nil
+		}
+
 		if err := o.NetworkPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "networkPolicy")
@@ -1150,6 +1220,11 @@ func (o *ResourceGroupUpdateResourceGroupBody) contextValidateNumdevices(ctx con
 func (o *ResourceGroupUpdateResourceGroupBody) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Revision != nil {
+
+		if swag.IsZero(o.Revision) { // not required
+			return nil
+		}
+
 		if err := o.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "revision")
@@ -1166,6 +1241,7 @@ func (o *ResourceGroupUpdateResourceGroupBody) contextValidateRevision(ctx conte
 func (o *ResourceGroupUpdateResourceGroupBody) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Type != nil {
+
 		if err := o.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "type")

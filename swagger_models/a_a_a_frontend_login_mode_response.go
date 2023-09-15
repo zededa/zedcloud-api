@@ -76,6 +76,11 @@ func (m *AAAFrontendLoginModeResponse) ContextValidate(ctx context.Context, form
 func (m *AAAFrontendLoginModeResponse) contextValidateMode(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Mode != nil {
+
+		if swag.IsZero(m.Mode) { // not required
+			return nil
+		}
+
 		if err := m.Mode.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mode")

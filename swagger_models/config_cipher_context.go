@@ -144,6 +144,11 @@ func (m *ConfigCipherContext) ContextValidate(ctx context.Context, formats strfm
 func (m *ConfigCipherContext) contextValidateEncryptionScheme(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.EncryptionScheme != nil {
+
+		if swag.IsZero(m.EncryptionScheme) { // not required
+			return nil
+		}
+
 		if err := m.EncryptionScheme.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("encryptionScheme")
@@ -160,6 +165,11 @@ func (m *ConfigCipherContext) contextValidateEncryptionScheme(ctx context.Contex
 func (m *ConfigCipherContext) contextValidateHashScheme(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.HashScheme != nil {
+
+		if swag.IsZero(m.HashScheme) { // not required
+			return nil
+		}
+
 		if err := m.HashScheme.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("hashScheme")
@@ -176,6 +186,11 @@ func (m *ConfigCipherContext) contextValidateHashScheme(ctx context.Context, for
 func (m *ConfigCipherContext) contextValidateKeyExchangeScheme(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.KeyExchangeScheme != nil {
+
+		if swag.IsZero(m.KeyExchangeScheme) { // not required
+			return nil
+		}
+
 		if err := m.KeyExchangeScheme.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("keyExchangeScheme")

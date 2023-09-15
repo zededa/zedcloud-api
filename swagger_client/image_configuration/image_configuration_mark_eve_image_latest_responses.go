@@ -117,6 +117,11 @@ func (o *ImageConfigurationMarkEveImageLatestOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the image configuration mark eve image latest o k response
+func (o *ImageConfigurationMarkEveImageLatestOK) Code() int {
+	return 200
+}
+
 func (o *ImageConfigurationMarkEveImageLatestOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/baseos/latest][%d] imageConfigurationMarkEveImageLatestOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *ImageConfigurationMarkEveImageLatestBadRequest) IsServerError() bool {
 // IsCode returns true when this image configuration mark eve image latest bad request response a status code equal to that given
 func (o *ImageConfigurationMarkEveImageLatestBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the image configuration mark eve image latest bad request response
+func (o *ImageConfigurationMarkEveImageLatestBadRequest) Code() int {
+	return 400
 }
 
 func (o *ImageConfigurationMarkEveImageLatestBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *ImageConfigurationMarkEveImageLatestUnauthorized) IsCode(code int) bool
 	return code == 401
 }
 
+// Code gets the status code for the image configuration mark eve image latest unauthorized response
+func (o *ImageConfigurationMarkEveImageLatestUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ImageConfigurationMarkEveImageLatestUnauthorized) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/baseos/latest][%d] imageConfigurationMarkEveImageLatestUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *ImageConfigurationMarkEveImageLatestForbidden) IsServerError() bool {
 // IsCode returns true when this image configuration mark eve image latest forbidden response a status code equal to that given
 func (o *ImageConfigurationMarkEveImageLatestForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the image configuration mark eve image latest forbidden response
+func (o *ImageConfigurationMarkEveImageLatestForbidden) Code() int {
+	return 403
 }
 
 func (o *ImageConfigurationMarkEveImageLatestForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *ImageConfigurationMarkEveImageLatestNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the image configuration mark eve image latest not found response
+func (o *ImageConfigurationMarkEveImageLatestNotFound) Code() int {
+	return 404
+}
+
 func (o *ImageConfigurationMarkEveImageLatestNotFound) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/baseos/latest][%d] imageConfigurationMarkEveImageLatestNotFound  %+v", 404, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *ImageConfigurationMarkEveImageLatestInternalServerError) IsServerError(
 // IsCode returns true when this image configuration mark eve image latest internal server error response a status code equal to that given
 func (o *ImageConfigurationMarkEveImageLatestInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the image configuration mark eve image latest internal server error response
+func (o *ImageConfigurationMarkEveImageLatestInternalServerError) Code() int {
+	return 500
 }
 
 func (o *ImageConfigurationMarkEveImageLatestInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *ImageConfigurationMarkEveImageLatestGatewayTimeout) IsCode(code int) bo
 	return code == 504
 }
 
+// Code gets the status code for the image configuration mark eve image latest gateway timeout response
+func (o *ImageConfigurationMarkEveImageLatestGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ImageConfigurationMarkEveImageLatestGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/baseos/latest][%d] imageConfigurationMarkEveImageLatestGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type ImageConfigurationMarkEveImageLatestDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the image configuration mark eve image latest default response
-func (o *ImageConfigurationMarkEveImageLatestDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this image configuration mark eve image latest default response has a 2xx status code
 func (o *ImageConfigurationMarkEveImageLatestDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *ImageConfigurationMarkEveImageLatestDefault) IsServerError() bool {
 // IsCode returns true when this image configuration mark eve image latest default response a status code equal to that given
 func (o *ImageConfigurationMarkEveImageLatestDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the image configuration mark eve image latest default response
+func (o *ImageConfigurationMarkEveImageLatestDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ImageConfigurationMarkEveImageLatestDefault) Error() string {

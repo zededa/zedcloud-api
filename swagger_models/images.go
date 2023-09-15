@@ -263,6 +263,11 @@ func (m *Images) contextValidateList(ctx context.Context, formats strfmt.Registr
 	for i := 0; i < len(m.List); i++ {
 
 		if m.List[i] != nil {
+
+			if swag.IsZero(m.List[i]) { // not required
+				return nil
+			}
+
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
@@ -281,6 +286,11 @@ func (m *Images) contextValidateList(ctx context.Context, formats strfmt.Registr
 func (m *Images) contextValidateNext(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Next != nil {
+
+		if swag.IsZero(m.Next) { // not required
+			return nil
+		}
+
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
@@ -297,6 +307,11 @@ func (m *Images) contextValidateNext(ctx context.Context, formats strfmt.Registr
 func (m *Images) contextValidateSummaryByImageArch(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByImageArch != nil {
+
+		if swag.IsZero(m.SummaryByImageArch) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByImageArch.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByImageArch")
@@ -313,6 +328,11 @@ func (m *Images) contextValidateSummaryByImageArch(ctx context.Context, formats 
 func (m *Images) contextValidateSummaryByImageFormat(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByImageFormat != nil {
+
+		if swag.IsZero(m.SummaryByImageFormat) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByImageFormat.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByImageFormat")
@@ -329,6 +349,11 @@ func (m *Images) contextValidateSummaryByImageFormat(ctx context.Context, format
 func (m *Images) contextValidateSummaryByImageStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByImageStatus != nil {
+
+		if swag.IsZero(m.SummaryByImageStatus) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByImageStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByImageStatus")
@@ -345,6 +370,11 @@ func (m *Images) contextValidateSummaryByImageStatus(ctx context.Context, format
 func (m *Images) contextValidateSummaryByImageType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByImageType != nil {
+
+		if swag.IsZero(m.SummaryByImageType) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByImageType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByImageType")
@@ -361,6 +391,11 @@ func (m *Images) contextValidateSummaryByImageType(ctx context.Context, formats 
 func (m *Images) contextValidateTerse(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Terse != nil {
+
+		if swag.IsZero(m.Terse) { // not required
+			return nil
+		}
+
 		if err := m.Terse.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("terse")
