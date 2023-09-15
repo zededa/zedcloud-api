@@ -129,6 +129,11 @@ func (o *ImageConfigurationUploadImageChunkedOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the image configuration upload image chunked o k response
+func (o *ImageConfigurationUploadImageChunkedOK) Code() int {
+	return 200
+}
+
 func (o *ImageConfigurationUploadImageChunkedOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/name/{name}/upload/chunked][%d] imageConfigurationUploadImageChunkedOK  %+v", 200, o.Payload)
 }
@@ -190,6 +195,11 @@ func (o *ImageConfigurationUploadImageChunkedAccepted) IsServerError() bool {
 // IsCode returns true when this image configuration upload image chunked accepted response a status code equal to that given
 func (o *ImageConfigurationUploadImageChunkedAccepted) IsCode(code int) bool {
 	return code == 202
+}
+
+// Code gets the status code for the image configuration upload image chunked accepted response
+func (o *ImageConfigurationUploadImageChunkedAccepted) Code() int {
+	return 202
 }
 
 func (o *ImageConfigurationUploadImageChunkedAccepted) Error() string {
@@ -255,6 +265,11 @@ func (o *ImageConfigurationUploadImageChunkedBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the image configuration upload image chunked bad request response
+func (o *ImageConfigurationUploadImageChunkedBadRequest) Code() int {
+	return 400
+}
+
 func (o *ImageConfigurationUploadImageChunkedBadRequest) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/name/{name}/upload/chunked][%d] imageConfigurationUploadImageChunkedBadRequest  %+v", 400, o.Payload)
 }
@@ -316,6 +331,11 @@ func (o *ImageConfigurationUploadImageChunkedUnauthorized) IsServerError() bool 
 // IsCode returns true when this image configuration upload image chunked unauthorized response a status code equal to that given
 func (o *ImageConfigurationUploadImageChunkedUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the image configuration upload image chunked unauthorized response
+func (o *ImageConfigurationUploadImageChunkedUnauthorized) Code() int {
+	return 401
 }
 
 func (o *ImageConfigurationUploadImageChunkedUnauthorized) Error() string {
@@ -381,6 +401,11 @@ func (o *ImageConfigurationUploadImageChunkedForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the image configuration upload image chunked forbidden response
+func (o *ImageConfigurationUploadImageChunkedForbidden) Code() int {
+	return 403
+}
+
 func (o *ImageConfigurationUploadImageChunkedForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/name/{name}/upload/chunked][%d] imageConfigurationUploadImageChunkedForbidden  %+v", 403, o.Payload)
 }
@@ -442,6 +467,11 @@ func (o *ImageConfigurationUploadImageChunkedNotFound) IsServerError() bool {
 // IsCode returns true when this image configuration upload image chunked not found response a status code equal to that given
 func (o *ImageConfigurationUploadImageChunkedNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the image configuration upload image chunked not found response
+func (o *ImageConfigurationUploadImageChunkedNotFound) Code() int {
+	return 404
 }
 
 func (o *ImageConfigurationUploadImageChunkedNotFound) Error() string {
@@ -509,6 +539,11 @@ func (o *ImageConfigurationUploadImageChunkedConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the image configuration upload image chunked conflict response
+func (o *ImageConfigurationUploadImageChunkedConflict) Code() int {
+	return 409
+}
+
 func (o *ImageConfigurationUploadImageChunkedConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/name/{name}/upload/chunked][%d] imageConfigurationUploadImageChunkedConflict  %+v", 409, o.Payload)
 }
@@ -570,6 +605,11 @@ func (o *ImageConfigurationUploadImageChunkedInternalServerError) IsServerError(
 // IsCode returns true when this image configuration upload image chunked internal server error response a status code equal to that given
 func (o *ImageConfigurationUploadImageChunkedInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the image configuration upload image chunked internal server error response
+func (o *ImageConfigurationUploadImageChunkedInternalServerError) Code() int {
+	return 500
 }
 
 func (o *ImageConfigurationUploadImageChunkedInternalServerError) Error() string {
@@ -635,6 +675,11 @@ func (o *ImageConfigurationUploadImageChunkedGatewayTimeout) IsCode(code int) bo
 	return code == 504
 }
 
+// Code gets the status code for the image configuration upload image chunked gateway timeout response
+func (o *ImageConfigurationUploadImageChunkedGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ImageConfigurationUploadImageChunkedGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/name/{name}/upload/chunked][%d] imageConfigurationUploadImageChunkedGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -677,11 +722,6 @@ type ImageConfigurationUploadImageChunkedDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the image configuration upload image chunked default response
-func (o *ImageConfigurationUploadImageChunkedDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this image configuration upload image chunked default response has a 2xx status code
 func (o *ImageConfigurationUploadImageChunkedDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -705,6 +745,11 @@ func (o *ImageConfigurationUploadImageChunkedDefault) IsServerError() bool {
 // IsCode returns true when this image configuration upload image chunked default response a status code equal to that given
 func (o *ImageConfigurationUploadImageChunkedDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the image configuration upload image chunked default response
+func (o *ImageConfigurationUploadImageChunkedDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ImageConfigurationUploadImageChunkedDefault) Error() string {

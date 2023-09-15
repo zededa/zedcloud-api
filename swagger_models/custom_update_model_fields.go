@@ -73,6 +73,11 @@ func (m *CustomUpdateModelFields) ContextValidate(ctx context.Context, formats s
 func (m *CustomUpdateModelFields) contextValidateCustomModelAttributes(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CustomModelAttributes != nil {
+
+		if swag.IsZero(m.CustomModelAttributes) { // not required
+			return nil
+		}
+
 		if err := m.CustomModelAttributes.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customModelAttributes")

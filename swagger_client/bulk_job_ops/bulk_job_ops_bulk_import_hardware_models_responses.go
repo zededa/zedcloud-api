@@ -123,6 +123,11 @@ func (o *BulkJobOpsBulkImportHardwareModelsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the bulk job ops bulk import hardware models o k response
+func (o *BulkJobOpsBulkImportHardwareModelsOK) Code() int {
+	return 200
+}
+
 func (o *BulkJobOpsBulkImportHardwareModelsOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/models/import][%d] bulkJobOpsBulkImportHardwareModelsOK  %+v", 200, o.Payload)
 }
@@ -184,6 +189,11 @@ func (o *BulkJobOpsBulkImportHardwareModelsBadRequest) IsServerError() bool {
 // IsCode returns true when this bulk job ops bulk import hardware models bad request response a status code equal to that given
 func (o *BulkJobOpsBulkImportHardwareModelsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the bulk job ops bulk import hardware models bad request response
+func (o *BulkJobOpsBulkImportHardwareModelsBadRequest) Code() int {
+	return 400
 }
 
 func (o *BulkJobOpsBulkImportHardwareModelsBadRequest) Error() string {
@@ -249,6 +259,11 @@ func (o *BulkJobOpsBulkImportHardwareModelsUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the bulk job ops bulk import hardware models unauthorized response
+func (o *BulkJobOpsBulkImportHardwareModelsUnauthorized) Code() int {
+	return 401
+}
+
 func (o *BulkJobOpsBulkImportHardwareModelsUnauthorized) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/models/import][%d] bulkJobOpsBulkImportHardwareModelsUnauthorized  %+v", 401, o.Payload)
 }
@@ -310,6 +325,11 @@ func (o *BulkJobOpsBulkImportHardwareModelsForbidden) IsServerError() bool {
 // IsCode returns true when this bulk job ops bulk import hardware models forbidden response a status code equal to that given
 func (o *BulkJobOpsBulkImportHardwareModelsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the bulk job ops bulk import hardware models forbidden response
+func (o *BulkJobOpsBulkImportHardwareModelsForbidden) Code() int {
+	return 403
 }
 
 func (o *BulkJobOpsBulkImportHardwareModelsForbidden) Error() string {
@@ -375,6 +395,11 @@ func (o *BulkJobOpsBulkImportHardwareModelsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the bulk job ops bulk import hardware models not found response
+func (o *BulkJobOpsBulkImportHardwareModelsNotFound) Code() int {
+	return 404
+}
+
 func (o *BulkJobOpsBulkImportHardwareModelsNotFound) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/models/import][%d] bulkJobOpsBulkImportHardwareModelsNotFound  %+v", 404, o.Payload)
 }
@@ -436,6 +461,11 @@ func (o *BulkJobOpsBulkImportHardwareModelsConflict) IsServerError() bool {
 // IsCode returns true when this bulk job ops bulk import hardware models conflict response a status code equal to that given
 func (o *BulkJobOpsBulkImportHardwareModelsConflict) IsCode(code int) bool {
 	return code == 409
+}
+
+// Code gets the status code for the bulk job ops bulk import hardware models conflict response
+func (o *BulkJobOpsBulkImportHardwareModelsConflict) Code() int {
+	return 409
 }
 
 func (o *BulkJobOpsBulkImportHardwareModelsConflict) Error() string {
@@ -501,6 +531,11 @@ func (o *BulkJobOpsBulkImportHardwareModelsInternalServerError) IsCode(code int)
 	return code == 500
 }
 
+// Code gets the status code for the bulk job ops bulk import hardware models internal server error response
+func (o *BulkJobOpsBulkImportHardwareModelsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *BulkJobOpsBulkImportHardwareModelsInternalServerError) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/models/import][%d] bulkJobOpsBulkImportHardwareModelsInternalServerError  %+v", 500, o.Payload)
 }
@@ -564,6 +599,11 @@ func (o *BulkJobOpsBulkImportHardwareModelsGatewayTimeout) IsCode(code int) bool
 	return code == 504
 }
 
+// Code gets the status code for the bulk job ops bulk import hardware models gateway timeout response
+func (o *BulkJobOpsBulkImportHardwareModelsGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *BulkJobOpsBulkImportHardwareModelsGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/models/import][%d] bulkJobOpsBulkImportHardwareModelsGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -606,11 +646,6 @@ type BulkJobOpsBulkImportHardwareModelsDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the bulk job ops bulk import hardware models default response
-func (o *BulkJobOpsBulkImportHardwareModelsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this bulk job ops bulk import hardware models default response has a 2xx status code
 func (o *BulkJobOpsBulkImportHardwareModelsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -634,6 +669,11 @@ func (o *BulkJobOpsBulkImportHardwareModelsDefault) IsServerError() bool {
 // IsCode returns true when this bulk job ops bulk import hardware models default response a status code equal to that given
 func (o *BulkJobOpsBulkImportHardwareModelsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the bulk job ops bulk import hardware models default response
+func (o *BulkJobOpsBulkImportHardwareModelsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *BulkJobOpsBulkImportHardwareModelsDefault) Error() string {

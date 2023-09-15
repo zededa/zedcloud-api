@@ -291,6 +291,11 @@ func (m *VolInstStatusMsg) contextValidateBlobs(ctx context.Context, formats str
 	for i := 0; i < len(m.Blobs); i++ {
 
 		if m.Blobs[i] != nil {
+
+			if swag.IsZero(m.Blobs[i]) { // not required
+				return nil
+			}
+
 			if err := m.Blobs[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("blobs" + "." + strconv.Itoa(i))
@@ -309,6 +314,11 @@ func (m *VolInstStatusMsg) contextValidateBlobs(ctx context.Context, formats str
 func (m *VolInstStatusMsg) contextValidateDeviceState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DeviceState != nil {
+
+		if swag.IsZero(m.DeviceState) { // not required
+			return nil
+		}
+
 		if err := m.DeviceState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deviceState")
@@ -327,6 +337,11 @@ func (m *VolInstStatusMsg) contextValidateErrInfo(ctx context.Context, formats s
 	for i := 0; i < len(m.ErrInfo); i++ {
 
 		if m.ErrInfo[i] != nil {
+
+			if swag.IsZero(m.ErrInfo[i]) { // not required
+				return nil
+			}
+
 			if err := m.ErrInfo[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errInfo" + "." + strconv.Itoa(i))
@@ -345,6 +360,11 @@ func (m *VolInstStatusMsg) contextValidateErrInfo(ctx context.Context, formats s
 func (m *VolInstStatusMsg) contextValidateResource(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Resource != nil {
+
+		if swag.IsZero(m.Resource) { // not required
+			return nil
+		}
+
 		if err := m.Resource.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("resource")
@@ -361,6 +381,11 @@ func (m *VolInstStatusMsg) contextValidateResource(ctx context.Context, formats 
 func (m *VolInstStatusMsg) contextValidateRunState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.RunState != nil {
+
+		if swag.IsZero(m.RunState) { // not required
+			return nil
+		}
+
 		if err := m.RunState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
@@ -377,6 +402,11 @@ func (m *VolInstStatusMsg) contextValidateRunState(ctx context.Context, formats 
 func (m *VolInstStatusMsg) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
@@ -393,6 +423,11 @@ func (m *VolInstStatusMsg) contextValidateType(ctx context.Context, formats strf
 func (m *VolInstStatusMsg) contextValidateUsage(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Usage != nil {
+
+		if swag.IsZero(m.Usage) { // not required
+			return nil
+		}
+
 		if err := m.Usage.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("usage")

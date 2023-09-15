@@ -99,6 +99,11 @@ func (o *CloudDiagnosticsGetCloudPolicyOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the cloud diagnostics get cloud policy o k response
+func (o *CloudDiagnosticsGetCloudPolicyOK) Code() int {
+	return 200
+}
+
 func (o *CloudDiagnosticsGetCloudPolicyOK) Error() string {
 	return fmt.Sprintf("[GET /v1/cloud/policies/name/{policy}][%d] cloudDiagnosticsGetCloudPolicyOK  %+v", 200, o.Payload)
 }
@@ -160,6 +165,11 @@ func (o *CloudDiagnosticsGetCloudPolicyNotFound) IsServerError() bool {
 // IsCode returns true when this cloud diagnostics get cloud policy not found response a status code equal to that given
 func (o *CloudDiagnosticsGetCloudPolicyNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the cloud diagnostics get cloud policy not found response
+func (o *CloudDiagnosticsGetCloudPolicyNotFound) Code() int {
+	return 404
 }
 
 func (o *CloudDiagnosticsGetCloudPolicyNotFound) Error() string {
@@ -225,6 +235,11 @@ func (o *CloudDiagnosticsGetCloudPolicyInternalServerError) IsCode(code int) boo
 	return code == 500
 }
 
+// Code gets the status code for the cloud diagnostics get cloud policy internal server error response
+func (o *CloudDiagnosticsGetCloudPolicyInternalServerError) Code() int {
+	return 500
+}
+
 func (o *CloudDiagnosticsGetCloudPolicyInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/cloud/policies/name/{policy}][%d] cloudDiagnosticsGetCloudPolicyInternalServerError  %+v", 500, o.Payload)
 }
@@ -288,6 +303,11 @@ func (o *CloudDiagnosticsGetCloudPolicyGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the cloud diagnostics get cloud policy gateway timeout response
+func (o *CloudDiagnosticsGetCloudPolicyGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *CloudDiagnosticsGetCloudPolicyGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/cloud/policies/name/{policy}][%d] cloudDiagnosticsGetCloudPolicyGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -330,11 +350,6 @@ type CloudDiagnosticsGetCloudPolicyDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the cloud diagnostics get cloud policy default response
-func (o *CloudDiagnosticsGetCloudPolicyDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this cloud diagnostics get cloud policy default response has a 2xx status code
 func (o *CloudDiagnosticsGetCloudPolicyDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -358,6 +373,11 @@ func (o *CloudDiagnosticsGetCloudPolicyDefault) IsServerError() bool {
 // IsCode returns true when this cloud diagnostics get cloud policy default response a status code equal to that given
 func (o *CloudDiagnosticsGetCloudPolicyDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the cloud diagnostics get cloud policy default response
+func (o *CloudDiagnosticsGetCloudPolicyDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CloudDiagnosticsGetCloudPolicyDefault) Error() string {

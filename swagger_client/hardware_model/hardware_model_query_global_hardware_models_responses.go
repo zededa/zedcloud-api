@@ -111,6 +111,11 @@ func (o *HardwareModelQueryGlobalHardwareModelsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the hardware model query global hardware models o k response
+func (o *HardwareModelQueryGlobalHardwareModelsOK) Code() int {
+	return 200
+}
+
 func (o *HardwareModelQueryGlobalHardwareModelsOK) Error() string {
 	return fmt.Sprintf("[GET /v1/sysmodels/global][%d] hardwareModelQueryGlobalHardwareModelsOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *HardwareModelQueryGlobalHardwareModelsBadRequest) IsServerError() bool 
 // IsCode returns true when this hardware model query global hardware models bad request response a status code equal to that given
 func (o *HardwareModelQueryGlobalHardwareModelsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the hardware model query global hardware models bad request response
+func (o *HardwareModelQueryGlobalHardwareModelsBadRequest) Code() int {
+	return 400
 }
 
 func (o *HardwareModelQueryGlobalHardwareModelsBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *HardwareModelQueryGlobalHardwareModelsUnauthorized) IsCode(code int) bo
 	return code == 401
 }
 
+// Code gets the status code for the hardware model query global hardware models unauthorized response
+func (o *HardwareModelQueryGlobalHardwareModelsUnauthorized) Code() int {
+	return 401
+}
+
 func (o *HardwareModelQueryGlobalHardwareModelsUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/sysmodels/global][%d] hardwareModelQueryGlobalHardwareModelsUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *HardwareModelQueryGlobalHardwareModelsForbidden) IsServerError() bool {
 // IsCode returns true when this hardware model query global hardware models forbidden response a status code equal to that given
 func (o *HardwareModelQueryGlobalHardwareModelsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the hardware model query global hardware models forbidden response
+func (o *HardwareModelQueryGlobalHardwareModelsForbidden) Code() int {
+	return 403
 }
 
 func (o *HardwareModelQueryGlobalHardwareModelsForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *HardwareModelQueryGlobalHardwareModelsInternalServerError) IsCode(code 
 	return code == 500
 }
 
+// Code gets the status code for the hardware model query global hardware models internal server error response
+func (o *HardwareModelQueryGlobalHardwareModelsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *HardwareModelQueryGlobalHardwareModelsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/sysmodels/global][%d] hardwareModelQueryGlobalHardwareModelsInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *HardwareModelQueryGlobalHardwareModelsGatewayTimeout) IsCode(code int) 
 	return code == 504
 }
 
+// Code gets the status code for the hardware model query global hardware models gateway timeout response
+func (o *HardwareModelQueryGlobalHardwareModelsGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *HardwareModelQueryGlobalHardwareModelsGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/sysmodels/global][%d] hardwareModelQueryGlobalHardwareModelsGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type HardwareModelQueryGlobalHardwareModelsDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the hardware model query global hardware models default response
-func (o *HardwareModelQueryGlobalHardwareModelsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this hardware model query global hardware models default response has a 2xx status code
 func (o *HardwareModelQueryGlobalHardwareModelsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *HardwareModelQueryGlobalHardwareModelsDefault) IsServerError() bool {
 // IsCode returns true when this hardware model query global hardware models default response a status code equal to that given
 func (o *HardwareModelQueryGlobalHardwareModelsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the hardware model query global hardware models default response
+func (o *HardwareModelQueryGlobalHardwareModelsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *HardwareModelQueryGlobalHardwareModelsDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *IdentityAccessManagementDeleteCredentialOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management delete credential o k response
+func (o *IdentityAccessManagementDeleteCredentialOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementDeleteCredentialOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/credentials/id/{id}][%d] identityAccessManagementDeleteCredentialOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *IdentityAccessManagementDeleteCredentialUnauthorized) IsServerError() b
 // IsCode returns true when this identity access management delete credential unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementDeleteCredentialUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management delete credential unauthorized response
+func (o *IdentityAccessManagementDeleteCredentialUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementDeleteCredentialUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *IdentityAccessManagementDeleteCredentialForbidden) IsCode(code int) boo
 	return code == 403
 }
 
+// Code gets the status code for the identity access management delete credential forbidden response
+func (o *IdentityAccessManagementDeleteCredentialForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementDeleteCredentialForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/credentials/id/{id}][%d] identityAccessManagementDeleteCredentialForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *IdentityAccessManagementDeleteCredentialNotFound) IsServerError() bool 
 // IsCode returns true when this identity access management delete credential not found response a status code equal to that given
 func (o *IdentityAccessManagementDeleteCredentialNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management delete credential not found response
+func (o *IdentityAccessManagementDeleteCredentialNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementDeleteCredentialNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *IdentityAccessManagementDeleteCredentialInternalServerError) IsCode(cod
 	return code == 500
 }
 
+// Code gets the status code for the identity access management delete credential internal server error response
+func (o *IdentityAccessManagementDeleteCredentialInternalServerError) Code() int {
+	return 500
+}
+
 func (o *IdentityAccessManagementDeleteCredentialInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /v1/credentials/id/{id}][%d] identityAccessManagementDeleteCredentialInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *IdentityAccessManagementDeleteCredentialGatewayTimeout) IsCode(code int
 	return code == 504
 }
 
+// Code gets the status code for the identity access management delete credential gateway timeout response
+func (o *IdentityAccessManagementDeleteCredentialGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementDeleteCredentialGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/credentials/id/{id}][%d] identityAccessManagementDeleteCredentialGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type IdentityAccessManagementDeleteCredentialDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management delete credential default response
-func (o *IdentityAccessManagementDeleteCredentialDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management delete credential default response has a 2xx status code
 func (o *IdentityAccessManagementDeleteCredentialDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *IdentityAccessManagementDeleteCredentialDefault) IsServerError() bool {
 // IsCode returns true when this identity access management delete credential default response a status code equal to that given
 func (o *IdentityAccessManagementDeleteCredentialDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management delete credential default response
+func (o *IdentityAccessManagementDeleteCredentialDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementDeleteCredentialDefault) Error() string {

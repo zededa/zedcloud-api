@@ -108,6 +108,11 @@ func (m *NetInstOpaqueConfig) ContextValidate(ctx context.Context, formats strfm
 func (m *NetInstOpaqueConfig) contextValidateLisp(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Lisp != nil {
+
+		if swag.IsZero(m.Lisp) { // not required
+			return nil
+		}
+
 		if err := m.Lisp.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lisp")
@@ -124,6 +129,11 @@ func (m *NetInstOpaqueConfig) contextValidateLisp(ctx context.Context, formats s
 func (m *NetInstOpaqueConfig) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

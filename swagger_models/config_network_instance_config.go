@@ -276,6 +276,11 @@ func (m *ConfigNetworkInstanceConfig) ContextValidate(ctx context.Context, forma
 func (m *ConfigNetworkInstanceConfig) contextValidateCfg(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Cfg != nil {
+
+		if swag.IsZero(m.Cfg) { // not required
+			return nil
+		}
+
 		if err := m.Cfg.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cfg")
@@ -294,6 +299,11 @@ func (m *ConfigNetworkInstanceConfig) contextValidateDNS(ctx context.Context, fo
 	for i := 0; i < len(m.DNS); i++ {
 
 		if m.DNS[i] != nil {
+
+			if swag.IsZero(m.DNS[i]) { // not required
+				return nil
+			}
+
 			if err := m.DNS[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dns" + "." + strconv.Itoa(i))
@@ -312,6 +322,11 @@ func (m *ConfigNetworkInstanceConfig) contextValidateDNS(ctx context.Context, fo
 func (m *ConfigNetworkInstanceConfig) contextValidateInstType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.InstType != nil {
+
+		if swag.IsZero(m.InstType) { // not required
+			return nil
+		}
+
 		if err := m.InstType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("instType")
@@ -328,6 +343,11 @@ func (m *ConfigNetworkInstanceConfig) contextValidateInstType(ctx context.Contex
 func (m *ConfigNetworkInstanceConfig) contextValidateIP(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.IP != nil {
+
+		if swag.IsZero(m.IP) { // not required
+			return nil
+		}
+
 		if err := m.IP.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ip")
@@ -344,6 +364,11 @@ func (m *ConfigNetworkInstanceConfig) contextValidateIP(ctx context.Context, for
 func (m *ConfigNetworkInstanceConfig) contextValidateIPType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.IPType != nil {
+
+		if swag.IsZero(m.IPType) { // not required
+			return nil
+		}
+
 		if err := m.IPType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ipType")
@@ -360,6 +385,11 @@ func (m *ConfigNetworkInstanceConfig) contextValidateIPType(ctx context.Context,
 func (m *ConfigNetworkInstanceConfig) contextValidatePort(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Port != nil {
+
+		if swag.IsZero(m.Port) { // not required
+			return nil
+		}
+
 		if err := m.Port.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("port")
@@ -376,6 +406,11 @@ func (m *ConfigNetworkInstanceConfig) contextValidatePort(ctx context.Context, f
 func (m *ConfigNetworkInstanceConfig) contextValidateUuidandversion(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Uuidandversion != nil {
+
+		if swag.IsZero(m.Uuidandversion) { // not required
+			return nil
+		}
+
 		if err := m.Uuidandversion.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("uuidandversion")

@@ -111,6 +111,11 @@ func (m *AAASuccessResponseQueryAllSessionDetails) ContextValidate(ctx context.C
 func (m *AAASuccessResponseQueryAllSessionDetails) contextValidateCause(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Cause != nil {
+
+		if swag.IsZero(m.Cause) { // not required
+			return nil
+		}
+
 		if err := m.Cause.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cause")
@@ -129,6 +134,11 @@ func (m *AAASuccessResponseQueryAllSessionDetails) contextValidateSessionDetails
 	for i := 0; i < len(m.SessionDetails); i++ {
 
 		if m.SessionDetails[i] != nil {
+
+			if swag.IsZero(m.SessionDetails[i]) { // not required
+				return nil
+			}
+
 			if err := m.SessionDetails[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sessionDetails" + "." + strconv.Itoa(i))

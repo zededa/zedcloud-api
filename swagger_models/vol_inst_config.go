@@ -300,6 +300,11 @@ func (m *VolInstConfig) ContextValidate(ctx context.Context, formats strfmt.Regi
 func (m *VolInstConfig) contextValidateAccessmode(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Accessmode != nil {
+
+		if swag.IsZero(m.Accessmode) { // not required
+			return nil
+		}
+
 		if err := m.Accessmode.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("accessmode")
@@ -325,6 +330,11 @@ func (m *VolInstConfig) contextValidateID(ctx context.Context, formats strfmt.Re
 func (m *VolInstConfig) contextValidatePurge(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Purge != nil {
+
+		if swag.IsZero(m.Purge) { // not required
+			return nil
+		}
+
 		if err := m.Purge.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("purge")
@@ -341,6 +351,11 @@ func (m *VolInstConfig) contextValidatePurge(ctx context.Context, formats strfmt
 func (m *VolInstConfig) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Revision != nil {
+
+		if swag.IsZero(m.Revision) { // not required
+			return nil
+		}
+
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
@@ -357,6 +372,11 @@ func (m *VolInstConfig) contextValidateRevision(ctx context.Context, formats str
 func (m *VolInstConfig) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

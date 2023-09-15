@@ -133,6 +133,11 @@ func (o *ImageConfigurationUplinkImageOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the image configuration uplink image o k response
+func (o *ImageConfigurationUplinkImageOK) Code() int {
+	return 200
+}
+
 func (o *ImageConfigurationUplinkImageOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/name/{name}/uplink][%d] imageConfigurationUplinkImageOK  %+v", 200, o.Payload)
 }
@@ -194,6 +199,11 @@ func (o *ImageConfigurationUplinkImageAccepted) IsServerError() bool {
 // IsCode returns true when this image configuration uplink image accepted response a status code equal to that given
 func (o *ImageConfigurationUplinkImageAccepted) IsCode(code int) bool {
 	return code == 202
+}
+
+// Code gets the status code for the image configuration uplink image accepted response
+func (o *ImageConfigurationUplinkImageAccepted) Code() int {
+	return 202
 }
 
 func (o *ImageConfigurationUplinkImageAccepted) Error() string {
@@ -259,6 +269,11 @@ func (o *ImageConfigurationUplinkImageBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the image configuration uplink image bad request response
+func (o *ImageConfigurationUplinkImageBadRequest) Code() int {
+	return 400
+}
+
 func (o *ImageConfigurationUplinkImageBadRequest) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/name/{name}/uplink][%d] imageConfigurationUplinkImageBadRequest  %+v", 400, o.Payload)
 }
@@ -320,6 +335,11 @@ func (o *ImageConfigurationUplinkImageUnauthorized) IsServerError() bool {
 // IsCode returns true when this image configuration uplink image unauthorized response a status code equal to that given
 func (o *ImageConfigurationUplinkImageUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the image configuration uplink image unauthorized response
+func (o *ImageConfigurationUplinkImageUnauthorized) Code() int {
+	return 401
 }
 
 func (o *ImageConfigurationUplinkImageUnauthorized) Error() string {
@@ -385,6 +405,11 @@ func (o *ImageConfigurationUplinkImageForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the image configuration uplink image forbidden response
+func (o *ImageConfigurationUplinkImageForbidden) Code() int {
+	return 403
+}
+
 func (o *ImageConfigurationUplinkImageForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/name/{name}/uplink][%d] imageConfigurationUplinkImageForbidden  %+v", 403, o.Payload)
 }
@@ -446,6 +471,11 @@ func (o *ImageConfigurationUplinkImageNotFound) IsServerError() bool {
 // IsCode returns true when this image configuration uplink image not found response a status code equal to that given
 func (o *ImageConfigurationUplinkImageNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the image configuration uplink image not found response
+func (o *ImageConfigurationUplinkImageNotFound) Code() int {
+	return 404
 }
 
 func (o *ImageConfigurationUplinkImageNotFound) Error() string {
@@ -511,6 +541,11 @@ func (o *ImageConfigurationUplinkImageConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the image configuration uplink image conflict response
+func (o *ImageConfigurationUplinkImageConflict) Code() int {
+	return 409
+}
+
 func (o *ImageConfigurationUplinkImageConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/name/{name}/uplink][%d] imageConfigurationUplinkImageConflict  %+v", 409, o.Payload)
 }
@@ -572,6 +607,11 @@ func (o *ImageConfigurationUplinkImageInternalServerError) IsServerError() bool 
 // IsCode returns true when this image configuration uplink image internal server error response a status code equal to that given
 func (o *ImageConfigurationUplinkImageInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the image configuration uplink image internal server error response
+func (o *ImageConfigurationUplinkImageInternalServerError) Code() int {
+	return 500
 }
 
 func (o *ImageConfigurationUplinkImageInternalServerError) Error() string {
@@ -637,6 +677,11 @@ func (o *ImageConfigurationUplinkImageGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the image configuration uplink image gateway timeout response
+func (o *ImageConfigurationUplinkImageGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ImageConfigurationUplinkImageGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/name/{name}/uplink][%d] imageConfigurationUplinkImageGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -679,11 +724,6 @@ type ImageConfigurationUplinkImageDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the image configuration uplink image default response
-func (o *ImageConfigurationUplinkImageDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this image configuration uplink image default response has a 2xx status code
 func (o *ImageConfigurationUplinkImageDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -707,6 +747,11 @@ func (o *ImageConfigurationUplinkImageDefault) IsServerError() bool {
 // IsCode returns true when this image configuration uplink image default response a status code equal to that given
 func (o *ImageConfigurationUplinkImageDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the image configuration uplink image default response
+func (o *ImageConfigurationUplinkImageDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ImageConfigurationUplinkImageDefault) Error() string {
@@ -1106,6 +1151,7 @@ func (o *ImageConfigurationUplinkImageBody) contextValidateID(ctx context.Contex
 func (o *ImageConfigurationUplinkImageBody) contextValidateImageArch(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ImageArch != nil {
+
 		if err := o.ImageArch.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "imageArch")
@@ -1131,6 +1177,7 @@ func (o *ImageConfigurationUplinkImageBody) contextValidateImageError(ctx contex
 func (o *ImageConfigurationUplinkImageBody) contextValidateImageFormat(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ImageFormat != nil {
+
 		if err := o.ImageFormat.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "imageFormat")
@@ -1156,6 +1203,11 @@ func (o *ImageConfigurationUplinkImageBody) contextValidateImageLocal(ctx contex
 func (o *ImageConfigurationUplinkImageBody) contextValidateImageStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ImageStatus != nil {
+
+		if swag.IsZero(o.ImageStatus) { // not required
+			return nil
+		}
+
 		if err := o.ImageStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "imageStatus")
@@ -1172,6 +1224,7 @@ func (o *ImageConfigurationUplinkImageBody) contextValidateImageStatus(ctx conte
 func (o *ImageConfigurationUplinkImageBody) contextValidateImageType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ImageType != nil {
+
 		if err := o.ImageType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "imageType")
@@ -1188,6 +1241,11 @@ func (o *ImageConfigurationUplinkImageBody) contextValidateImageType(ctx context
 func (o *ImageConfigurationUplinkImageBody) contextValidateOriginType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.OriginType != nil {
+
+		if swag.IsZero(o.OriginType) { // not required
+			return nil
+		}
+
 		if err := o.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "originType")
@@ -1204,6 +1262,11 @@ func (o *ImageConfigurationUplinkImageBody) contextValidateOriginType(ctx contex
 func (o *ImageConfigurationUplinkImageBody) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Revision != nil {
+
+		if swag.IsZero(o.Revision) { // not required
+			return nil
+		}
+
 		if err := o.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "revision")

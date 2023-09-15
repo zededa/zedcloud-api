@@ -121,6 +121,11 @@ func (o *VolumeInstanceConfigurationUpdateVolumeInstanceOK) IsCode(code int) boo
 	return code == 200
 }
 
+// Code gets the status code for the volume instance configuration update volume instance o k response
+func (o *VolumeInstanceConfigurationUpdateVolumeInstanceOK) Code() int {
+	return 200
+}
+
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/volumes/instances/id/{id}][%d] volumeInstanceConfigurationUpdateVolumeInstanceOK  %+v", 200, o.Payload)
 }
@@ -182,6 +187,11 @@ func (o *VolumeInstanceConfigurationUpdateVolumeInstanceUnauthorized) IsServerEr
 // IsCode returns true when this volume instance configuration update volume instance unauthorized response a status code equal to that given
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the volume instance configuration update volume instance unauthorized response
+func (o *VolumeInstanceConfigurationUpdateVolumeInstanceUnauthorized) Code() int {
+	return 401
 }
 
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceUnauthorized) Error() string {
@@ -247,6 +257,11 @@ func (o *VolumeInstanceConfigurationUpdateVolumeInstanceForbidden) IsCode(code i
 	return code == 403
 }
 
+// Code gets the status code for the volume instance configuration update volume instance forbidden response
+func (o *VolumeInstanceConfigurationUpdateVolumeInstanceForbidden) Code() int {
+	return 403
+}
+
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/volumes/instances/id/{id}][%d] volumeInstanceConfigurationUpdateVolumeInstanceForbidden  %+v", 403, o.Payload)
 }
@@ -308,6 +323,11 @@ func (o *VolumeInstanceConfigurationUpdateVolumeInstanceNotFound) IsServerError(
 // IsCode returns true when this volume instance configuration update volume instance not found response a status code equal to that given
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the volume instance configuration update volume instance not found response
+func (o *VolumeInstanceConfigurationUpdateVolumeInstanceNotFound) Code() int {
+	return 404
 }
 
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceNotFound) Error() string {
@@ -373,6 +393,11 @@ func (o *VolumeInstanceConfigurationUpdateVolumeInstanceConflict) IsCode(code in
 	return code == 409
 }
 
+// Code gets the status code for the volume instance configuration update volume instance conflict response
+func (o *VolumeInstanceConfigurationUpdateVolumeInstanceConflict) Code() int {
+	return 409
+}
+
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/volumes/instances/id/{id}][%d] volumeInstanceConfigurationUpdateVolumeInstanceConflict  %+v", 409, o.Payload)
 }
@@ -434,6 +459,11 @@ func (o *VolumeInstanceConfigurationUpdateVolumeInstanceInternalServerError) IsS
 // IsCode returns true when this volume instance configuration update volume instance internal server error response a status code equal to that given
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the volume instance configuration update volume instance internal server error response
+func (o *VolumeInstanceConfigurationUpdateVolumeInstanceInternalServerError) Code() int {
+	return 500
 }
 
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceInternalServerError) Error() string {
@@ -499,6 +529,11 @@ func (o *VolumeInstanceConfigurationUpdateVolumeInstanceGatewayTimeout) IsCode(c
 	return code == 504
 }
 
+// Code gets the status code for the volume instance configuration update volume instance gateway timeout response
+func (o *VolumeInstanceConfigurationUpdateVolumeInstanceGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/volumes/instances/id/{id}][%d] volumeInstanceConfigurationUpdateVolumeInstanceGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -541,11 +576,6 @@ type VolumeInstanceConfigurationUpdateVolumeInstanceDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the volume instance configuration update volume instance default response
-func (o *VolumeInstanceConfigurationUpdateVolumeInstanceDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this volume instance configuration update volume instance default response has a 2xx status code
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -569,6 +599,11 @@ func (o *VolumeInstanceConfigurationUpdateVolumeInstanceDefault) IsServerError()
 // IsCode returns true when this volume instance configuration update volume instance default response a status code equal to that given
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the volume instance configuration update volume instance default response
+func (o *VolumeInstanceConfigurationUpdateVolumeInstanceDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceDefault) Error() string {
@@ -856,6 +891,11 @@ func (o *VolumeInstanceConfigurationUpdateVolumeInstanceBody) ContextValidate(ct
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceBody) contextValidateAccessmode(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Accessmode != nil {
+
+		if swag.IsZero(o.Accessmode) { // not required
+			return nil
+		}
+
 		if err := o.Accessmode.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "accessmode")
@@ -872,6 +912,11 @@ func (o *VolumeInstanceConfigurationUpdateVolumeInstanceBody) contextValidateAcc
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceBody) contextValidatePurge(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Purge != nil {
+
+		if swag.IsZero(o.Purge) { // not required
+			return nil
+		}
+
 		if err := o.Purge.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "purge")
@@ -888,6 +933,11 @@ func (o *VolumeInstanceConfigurationUpdateVolumeInstanceBody) contextValidatePur
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceBody) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Revision != nil {
+
+		if swag.IsZero(o.Revision) { // not required
+			return nil
+		}
+
 		if err := o.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "revision")
@@ -904,6 +954,11 @@ func (o *VolumeInstanceConfigurationUpdateVolumeInstanceBody) contextValidateRev
 func (o *VolumeInstanceConfigurationUpdateVolumeInstanceBody) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Type != nil {
+
+		if swag.IsZero(o.Type) { // not required
+			return nil
+		}
+
 		if err := o.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "type")

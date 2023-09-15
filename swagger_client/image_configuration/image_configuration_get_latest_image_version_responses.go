@@ -111,6 +111,11 @@ func (o *ImageConfigurationGetLatestImageVersionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the image configuration get latest image version o k response
+func (o *ImageConfigurationGetLatestImageVersionOK) Code() int {
+	return 200
+}
+
 func (o *ImageConfigurationGetLatestImageVersionOK) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images/baseos/latest/hwclass/{imageArch}][%d] imageConfigurationGetLatestImageVersionOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *ImageConfigurationGetLatestImageVersionUnauthorized) IsServerError() bo
 // IsCode returns true when this image configuration get latest image version unauthorized response a status code equal to that given
 func (o *ImageConfigurationGetLatestImageVersionUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the image configuration get latest image version unauthorized response
+func (o *ImageConfigurationGetLatestImageVersionUnauthorized) Code() int {
+	return 401
 }
 
 func (o *ImageConfigurationGetLatestImageVersionUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *ImageConfigurationGetLatestImageVersionForbidden) IsCode(code int) bool
 	return code == 403
 }
 
+// Code gets the status code for the image configuration get latest image version forbidden response
+func (o *ImageConfigurationGetLatestImageVersionForbidden) Code() int {
+	return 403
+}
+
 func (o *ImageConfigurationGetLatestImageVersionForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images/baseos/latest/hwclass/{imageArch}][%d] imageConfigurationGetLatestImageVersionForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *ImageConfigurationGetLatestImageVersionNotFound) IsServerError() bool {
 // IsCode returns true when this image configuration get latest image version not found response a status code equal to that given
 func (o *ImageConfigurationGetLatestImageVersionNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the image configuration get latest image version not found response
+func (o *ImageConfigurationGetLatestImageVersionNotFound) Code() int {
+	return 404
 }
 
 func (o *ImageConfigurationGetLatestImageVersionNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *ImageConfigurationGetLatestImageVersionInternalServerError) IsCode(code
 	return code == 500
 }
 
+// Code gets the status code for the image configuration get latest image version internal server error response
+func (o *ImageConfigurationGetLatestImageVersionInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ImageConfigurationGetLatestImageVersionInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images/baseos/latest/hwclass/{imageArch}][%d] imageConfigurationGetLatestImageVersionInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *ImageConfigurationGetLatestImageVersionGatewayTimeout) IsCode(code int)
 	return code == 504
 }
 
+// Code gets the status code for the image configuration get latest image version gateway timeout response
+func (o *ImageConfigurationGetLatestImageVersionGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ImageConfigurationGetLatestImageVersionGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images/baseos/latest/hwclass/{imageArch}][%d] imageConfigurationGetLatestImageVersionGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type ImageConfigurationGetLatestImageVersionDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the image configuration get latest image version default response
-func (o *ImageConfigurationGetLatestImageVersionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this image configuration get latest image version default response has a 2xx status code
 func (o *ImageConfigurationGetLatestImageVersionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *ImageConfigurationGetLatestImageVersionDefault) IsServerError() bool {
 // IsCode returns true when this image configuration get latest image version default response a status code equal to that given
 func (o *ImageConfigurationGetLatestImageVersionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the image configuration get latest image version default response
+func (o *ImageConfigurationGetLatestImageVersionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ImageConfigurationGetLatestImageVersionDefault) Error() string {

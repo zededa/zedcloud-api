@@ -145,6 +145,11 @@ func (m *ConfigWifiConfig) ContextValidate(ctx context.Context, formats strfmt.R
 func (m *ConfigWifiConfig) contextValidateCipherData(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CipherData != nil {
+
+		if swag.IsZero(m.CipherData) { // not required
+			return nil
+		}
+
 		if err := m.CipherData.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cipherData")
@@ -161,6 +166,11 @@ func (m *ConfigWifiConfig) contextValidateCipherData(ctx context.Context, format
 func (m *ConfigWifiConfig) contextValidateCrypto(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Crypto != nil {
+
+		if swag.IsZero(m.Crypto) { // not required
+			return nil
+		}
+
 		if err := m.Crypto.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("crypto")
@@ -177,6 +187,11 @@ func (m *ConfigWifiConfig) contextValidateCrypto(ctx context.Context, formats st
 func (m *ConfigWifiConfig) contextValidateKeyScheme(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.KeyScheme != nil {
+
+		if swag.IsZero(m.KeyScheme) { // not required
+			return nil
+		}
+
 		if err := m.KeyScheme.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("keyScheme")

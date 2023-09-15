@@ -111,6 +111,11 @@ func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameOK) IsCode(code int) 
 	return code == 200
 }
 
+// Code gets the status code for the volume instance configuration get volume instance by name o k response
+func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameOK) Code() int {
+	return 200
+}
+
 func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameOK) Error() string {
 	return fmt.Sprintf("[GET /v1/volumes/instances/name/{name}][%d] volumeInstanceConfigurationGetVolumeInstanceByNameOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameUnauthorized) IsServe
 // IsCode returns true when this volume instance configuration get volume instance by name unauthorized response a status code equal to that given
 func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the volume instance configuration get volume instance by name unauthorized response
+func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameUnauthorized) Code() int {
+	return 401
 }
 
 func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameForbidden) IsCode(cod
 	return code == 403
 }
 
+// Code gets the status code for the volume instance configuration get volume instance by name forbidden response
+func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameForbidden) Code() int {
+	return 403
+}
+
 func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/volumes/instances/name/{name}][%d] volumeInstanceConfigurationGetVolumeInstanceByNameForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameNotFound) IsServerErr
 // IsCode returns true when this volume instance configuration get volume instance by name not found response a status code equal to that given
 func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the volume instance configuration get volume instance by name not found response
+func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameNotFound) Code() int {
+	return 404
 }
 
 func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameInternalServerError) 
 	return code == 500
 }
 
+// Code gets the status code for the volume instance configuration get volume instance by name internal server error response
+func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameInternalServerError) Code() int {
+	return 500
+}
+
 func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/volumes/instances/name/{name}][%d] volumeInstanceConfigurationGetVolumeInstanceByNameInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameGatewayTimeout) IsCod
 	return code == 504
 }
 
+// Code gets the status code for the volume instance configuration get volume instance by name gateway timeout response
+func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/volumes/instances/name/{name}][%d] volumeInstanceConfigurationGetVolumeInstanceByNameGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type VolumeInstanceConfigurationGetVolumeInstanceByNameDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the volume instance configuration get volume instance by name default response
-func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this volume instance configuration get volume instance by name default response has a 2xx status code
 func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameDefault) IsServerErro
 // IsCode returns true when this volume instance configuration get volume instance by name default response a status code equal to that given
 func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the volume instance configuration get volume instance by name default response
+func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *VolumeInstanceConfigurationGetVolumeInstanceByNameDefault) Error() string {

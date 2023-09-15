@@ -103,6 +103,11 @@ func (m *VolumeInstPolicy) ContextValidate(ctx context.Context, formats strfmt.R
 func (m *VolumeInstPolicy) contextValidateMetaData(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.MetaData != nil {
+
+		if swag.IsZero(m.MetaData) { // not required
+			return nil
+		}
+
 		if err := m.MetaData.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metaData")
@@ -119,6 +124,11 @@ func (m *VolumeInstPolicy) contextValidateMetaData(ctx context.Context, formats 
 func (m *VolumeInstPolicy) contextValidateVolInstConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.VolInstConfig != nil {
+
+		if swag.IsZero(m.VolInstConfig) { // not required
+			return nil
+		}
+
 		if err := m.VolInstConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("volInstConfig")

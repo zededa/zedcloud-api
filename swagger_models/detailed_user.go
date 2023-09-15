@@ -414,6 +414,11 @@ func (m *DetailedUser) contextValidateAllowedEnterprises(ctx context.Context, fo
 	for i := 0; i < len(m.AllowedEnterprises); i++ {
 
 		if m.AllowedEnterprises[i] != nil {
+
+			if swag.IsZero(m.AllowedEnterprises[i]) { // not required
+				return nil
+			}
+
 			if err := m.AllowedEnterprises[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("allowedEnterprises" + "." + strconv.Itoa(i))
@@ -432,6 +437,11 @@ func (m *DetailedUser) contextValidateAllowedEnterprises(ctx context.Context, fo
 func (m *DetailedUser) contextValidateEmailState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.EmailState != nil {
+
+		if swag.IsZero(m.EmailState) { // not required
+			return nil
+		}
+
 		if err := m.EmailState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("emailState")
@@ -466,6 +476,11 @@ func (m *DetailedUser) contextValidateID(ctx context.Context, formats strfmt.Reg
 func (m *DetailedUser) contextValidatePhoneState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.PhoneState != nil {
+
+		if swag.IsZero(m.PhoneState) { // not required
+			return nil
+		}
+
 		if err := m.PhoneState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("phoneState")
@@ -482,6 +497,11 @@ func (m *DetailedUser) contextValidatePhoneState(ctx context.Context, formats st
 func (m *DetailedUser) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Revision != nil {
+
+		if swag.IsZero(m.Revision) { // not required
+			return nil
+		}
+
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
@@ -498,6 +518,11 @@ func (m *DetailedUser) contextValidateRevision(ctx context.Context, formats strf
 func (m *DetailedUser) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.State != nil {
+
+		if swag.IsZero(m.State) { // not required
+			return nil
+		}
+
 		if err := m.State.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("state")
@@ -514,6 +539,11 @@ func (m *DetailedUser) contextValidateState(ctx context.Context, formats strfmt.
 func (m *DetailedUser) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

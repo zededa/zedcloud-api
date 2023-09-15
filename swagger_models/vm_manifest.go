@@ -437,6 +437,11 @@ func (m *VMManifest) ContextValidate(ctx context.Context, formats strfmt.Registr
 func (m *VMManifest) contextValidateAppType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AppType != nil {
+
+		if swag.IsZero(m.AppType) { // not required
+			return nil
+		}
+
 		if err := m.AppType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
@@ -453,6 +458,11 @@ func (m *VMManifest) contextValidateAppType(ctx context.Context, formats strfmt.
 func (m *VMManifest) contextValidateConfiguration(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Configuration != nil {
+
+		if swag.IsZero(m.Configuration) { // not required
+			return nil
+		}
+
 		if err := m.Configuration.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("configuration")
@@ -469,6 +479,11 @@ func (m *VMManifest) contextValidateConfiguration(ctx context.Context, formats s
 func (m *VMManifest) contextValidateContainerDetail(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ContainerDetail != nil {
+
+		if swag.IsZero(m.ContainerDetail) { // not required
+			return nil
+		}
+
 		if err := m.ContainerDetail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("containerDetail")
@@ -485,6 +500,11 @@ func (m *VMManifest) contextValidateContainerDetail(ctx context.Context, formats
 func (m *VMManifest) contextValidateDeploymentType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DeploymentType != nil {
+
+		if swag.IsZero(m.DeploymentType) { // not required
+			return nil
+		}
+
 		if err := m.DeploymentType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
@@ -501,6 +521,11 @@ func (m *VMManifest) contextValidateDeploymentType(ctx context.Context, formats 
 func (m *VMManifest) contextValidateDesc(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Desc != nil {
+
+		if swag.IsZero(m.Desc) { // not required
+			return nil
+		}
+
 		if err := m.Desc.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("desc")
@@ -519,6 +544,11 @@ func (m *VMManifest) contextValidateImages(ctx context.Context, formats strfmt.R
 	for i := 0; i < len(m.Images); i++ {
 
 		if m.Images[i] != nil {
+
+			if swag.IsZero(m.Images[i]) { // not required
+				return nil
+			}
+
 			if err := m.Images[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("images" + "." + strconv.Itoa(i))
@@ -539,6 +569,11 @@ func (m *VMManifest) contextValidateInterfaces(ctx context.Context, formats strf
 	for i := 0; i < len(m.Interfaces); i++ {
 
 		if m.Interfaces[i] != nil {
+
+			if swag.IsZero(m.Interfaces[i]) { // not required
+				return nil
+			}
+
 			if err := m.Interfaces[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
@@ -557,6 +592,11 @@ func (m *VMManifest) contextValidateInterfaces(ctx context.Context, formats strf
 func (m *VMManifest) contextValidateModule(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Module != nil {
+
+		if swag.IsZero(m.Module) { // not required
+			return nil
+		}
+
 		if err := m.Module.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("module")
@@ -573,6 +613,11 @@ func (m *VMManifest) contextValidateModule(ctx context.Context, formats strfmt.R
 func (m *VMManifest) contextValidateOwner(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Owner != nil {
+
+		if swag.IsZero(m.Owner) { // not required
+			return nil
+		}
+
 		if err := m.Owner.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("owner")
@@ -591,6 +636,11 @@ func (m *VMManifest) contextValidateResources(ctx context.Context, formats strfm
 	for i := 0; i < len(m.Resources); i++ {
 
 		if m.Resources[i] != nil {
+
+			if swag.IsZero(m.Resources[i]) { // not required
+				return nil
+			}
+
 			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("resources" + "." + strconv.Itoa(i))

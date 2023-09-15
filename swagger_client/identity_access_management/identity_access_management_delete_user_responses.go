@@ -111,6 +111,11 @@ func (o *IdentityAccessManagementDeleteUserOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management delete user o k response
+func (o *IdentityAccessManagementDeleteUserOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementDeleteUserOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/users/id/{id}][%d] identityAccessManagementDeleteUserOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *IdentityAccessManagementDeleteUserUnauthorized) IsServerError() bool {
 // IsCode returns true when this identity access management delete user unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementDeleteUserUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management delete user unauthorized response
+func (o *IdentityAccessManagementDeleteUserUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementDeleteUserUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *IdentityAccessManagementDeleteUserForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the identity access management delete user forbidden response
+func (o *IdentityAccessManagementDeleteUserForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementDeleteUserForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/users/id/{id}][%d] identityAccessManagementDeleteUserForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *IdentityAccessManagementDeleteUserNotFound) IsServerError() bool {
 // IsCode returns true when this identity access management delete user not found response a status code equal to that given
 func (o *IdentityAccessManagementDeleteUserNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management delete user not found response
+func (o *IdentityAccessManagementDeleteUserNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementDeleteUserNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *IdentityAccessManagementDeleteUserInternalServerError) IsCode(code int)
 	return code == 500
 }
 
+// Code gets the status code for the identity access management delete user internal server error response
+func (o *IdentityAccessManagementDeleteUserInternalServerError) Code() int {
+	return 500
+}
+
 func (o *IdentityAccessManagementDeleteUserInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /v1/users/id/{id}][%d] identityAccessManagementDeleteUserInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *IdentityAccessManagementDeleteUserGatewayTimeout) IsCode(code int) bool
 	return code == 504
 }
 
+// Code gets the status code for the identity access management delete user gateway timeout response
+func (o *IdentityAccessManagementDeleteUserGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementDeleteUserGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/users/id/{id}][%d] identityAccessManagementDeleteUserGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type IdentityAccessManagementDeleteUserDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management delete user default response
-func (o *IdentityAccessManagementDeleteUserDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management delete user default response has a 2xx status code
 func (o *IdentityAccessManagementDeleteUserDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *IdentityAccessManagementDeleteUserDefault) IsServerError() bool {
 // IsCode returns true when this identity access management delete user default response a status code equal to that given
 func (o *IdentityAccessManagementDeleteUserDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management delete user default response
+func (o *IdentityAccessManagementDeleteUserDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementDeleteUserDefault) Error() string {

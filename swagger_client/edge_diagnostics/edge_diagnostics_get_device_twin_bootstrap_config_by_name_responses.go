@@ -123,6 +123,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameOK) IsCode(code int) b
 	return code == 200
 }
 
+// Code gets the status code for the edge diagnostics get device twin bootstrap config by name o k response
+func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameOK) Code() int {
+	return 200
+}
+
 func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameOK) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{name}/config/bootstrap][%d] edgeDiagnosticsGetDeviceTwinBootstrapConfigByNameOK  %+v", 200, o.Payload)
 }
@@ -184,6 +189,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameBadRequest) IsServerEr
 // IsCode returns true when this edge diagnostics get device twin bootstrap config by name bad request response a status code equal to that given
 func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the edge diagnostics get device twin bootstrap config by name bad request response
+func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameBadRequest) Code() int {
+	return 400
 }
 
 func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameBadRequest) Error() string {
@@ -249,6 +259,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameUnauthorized) IsCode(c
 	return code == 401
 }
 
+// Code gets the status code for the edge diagnostics get device twin bootstrap config by name unauthorized response
+func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameUnauthorized) Code() int {
+	return 401
+}
+
 func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{name}/config/bootstrap][%d] edgeDiagnosticsGetDeviceTwinBootstrapConfigByNameUnauthorized  %+v", 401, o.Payload)
 }
@@ -310,6 +325,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameForbidden) IsServerErr
 // IsCode returns true when this edge diagnostics get device twin bootstrap config by name forbidden response a status code equal to that given
 func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the edge diagnostics get device twin bootstrap config by name forbidden response
+func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameForbidden) Code() int {
+	return 403
 }
 
 func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameForbidden) Error() string {
@@ -375,6 +395,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameNotFound) IsCode(code 
 	return code == 404
 }
 
+// Code gets the status code for the edge diagnostics get device twin bootstrap config by name not found response
+func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameNotFound) Code() int {
+	return 404
+}
+
 func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameNotFound) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{name}/config/bootstrap][%d] edgeDiagnosticsGetDeviceTwinBootstrapConfigByNameNotFound  %+v", 404, o.Payload)
 }
@@ -436,6 +461,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameMethodNotAllowed) IsSe
 // IsCode returns true when this edge diagnostics get device twin bootstrap config by name method not allowed response a status code equal to that given
 func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameMethodNotAllowed) IsCode(code int) bool {
 	return code == 405
+}
+
+// Code gets the status code for the edge diagnostics get device twin bootstrap config by name method not allowed response
+func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameMethodNotAllowed) Code() int {
+	return 405
 }
 
 func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameMethodNotAllowed) Error() string {
@@ -501,6 +531,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameInternalServerError) I
 	return code == 500
 }
 
+// Code gets the status code for the edge diagnostics get device twin bootstrap config by name internal server error response
+func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{name}/config/bootstrap][%d] edgeDiagnosticsGetDeviceTwinBootstrapConfigByNameInternalServerError  %+v", 500, o.Payload)
 }
@@ -564,6 +599,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameGatewayTimeout) IsCode
 	return code == 504
 }
 
+// Code gets the status code for the edge diagnostics get device twin bootstrap config by name gateway timeout response
+func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{name}/config/bootstrap][%d] edgeDiagnosticsGetDeviceTwinBootstrapConfigByNameGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -606,11 +646,6 @@ type EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge diagnostics get device twin bootstrap config by name default response
-func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge diagnostics get device twin bootstrap config by name default response has a 2xx status code
 func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -634,6 +669,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameDefault) IsServerError
 // IsCode returns true when this edge diagnostics get device twin bootstrap config by name default response a status code equal to that given
 func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge diagnostics get device twin bootstrap config by name default response
+func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeDiagnosticsGetDeviceTwinBootstrapConfigByNameDefault) Error() string {

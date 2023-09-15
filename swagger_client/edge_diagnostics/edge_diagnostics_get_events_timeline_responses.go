@@ -111,6 +111,11 @@ func (o *EdgeDiagnosticsGetEventsTimelineOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge diagnostics get events timeline o k response
+func (o *EdgeDiagnosticsGetEventsTimelineOK) Code() int {
+	return 200
+}
+
 func (o *EdgeDiagnosticsGetEventsTimelineOK) Error() string {
 	return fmt.Sprintf("[GET /v1/events][%d] edgeDiagnosticsGetEventsTimelineOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeDiagnosticsGetEventsTimelineBadRequest) IsServerError() bool {
 // IsCode returns true when this edge diagnostics get events timeline bad request response a status code equal to that given
 func (o *EdgeDiagnosticsGetEventsTimelineBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the edge diagnostics get events timeline bad request response
+func (o *EdgeDiagnosticsGetEventsTimelineBadRequest) Code() int {
+	return 400
 }
 
 func (o *EdgeDiagnosticsGetEventsTimelineBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeDiagnosticsGetEventsTimelineUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the edge diagnostics get events timeline unauthorized response
+func (o *EdgeDiagnosticsGetEventsTimelineUnauthorized) Code() int {
+	return 401
+}
+
 func (o *EdgeDiagnosticsGetEventsTimelineUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/events][%d] edgeDiagnosticsGetEventsTimelineUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeDiagnosticsGetEventsTimelineForbidden) IsServerError() bool {
 // IsCode returns true when this edge diagnostics get events timeline forbidden response a status code equal to that given
 func (o *EdgeDiagnosticsGetEventsTimelineForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the edge diagnostics get events timeline forbidden response
+func (o *EdgeDiagnosticsGetEventsTimelineForbidden) Code() int {
+	return 403
 }
 
 func (o *EdgeDiagnosticsGetEventsTimelineForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeDiagnosticsGetEventsTimelineInternalServerError) IsCode(code int) b
 	return code == 500
 }
 
+// Code gets the status code for the edge diagnostics get events timeline internal server error response
+func (o *EdgeDiagnosticsGetEventsTimelineInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeDiagnosticsGetEventsTimelineInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/events][%d] edgeDiagnosticsGetEventsTimelineInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeDiagnosticsGetEventsTimelineGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the edge diagnostics get events timeline gateway timeout response
+func (o *EdgeDiagnosticsGetEventsTimelineGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeDiagnosticsGetEventsTimelineGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/events][%d] edgeDiagnosticsGetEventsTimelineGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeDiagnosticsGetEventsTimelineDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge diagnostics get events timeline default response
-func (o *EdgeDiagnosticsGetEventsTimelineDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge diagnostics get events timeline default response has a 2xx status code
 func (o *EdgeDiagnosticsGetEventsTimelineDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeDiagnosticsGetEventsTimelineDefault) IsServerError() bool {
 // IsCode returns true when this edge diagnostics get events timeline default response a status code equal to that given
 func (o *EdgeDiagnosticsGetEventsTimelineDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge diagnostics get events timeline default response
+func (o *EdgeDiagnosticsGetEventsTimelineDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeDiagnosticsGetEventsTimelineDefault) Error() string {

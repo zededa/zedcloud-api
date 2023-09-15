@@ -79,6 +79,11 @@ func (m *VariableGroupCondition) ContextValidate(ctx context.Context, formats st
 func (m *VariableGroupCondition) contextValidateOperator(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Operator != nil {
+
+		if swag.IsZero(m.Operator) { // not required
+			return nil
+		}
+
 		if err := m.Operator.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("operator")

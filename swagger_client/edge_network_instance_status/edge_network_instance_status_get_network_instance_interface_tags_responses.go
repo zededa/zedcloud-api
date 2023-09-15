@@ -111,6 +111,11 @@ func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsOK) IsCode(code
 	return code == 200
 }
 
+// Code gets the status code for the edge network instance status get network instance interface tags o k response
+func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsOK) Error() string {
 	return fmt.Sprintf("[GET /v1/netinsts/tags][%d] edgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsBadRequest) IsS
 // IsCode returns true when this edge network instance status get network instance interface tags bad request response a status code equal to that given
 func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the edge network instance status get network instance interface tags bad request response
+func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsBadRequest) Code() int {
+	return 400
 }
 
 func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsUnauthorized) I
 	return code == 401
 }
 
+// Code gets the status code for the edge network instance status get network instance interface tags unauthorized response
+func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsUnauthorized) Code() int {
+	return 401
+}
+
 func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/netinsts/tags][%d] edgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsForbidden) IsSe
 // IsCode returns true when this edge network instance status get network instance interface tags forbidden response a status code equal to that given
 func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the edge network instance status get network instance interface tags forbidden response
+func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsForbidden) Code() int {
+	return 403
 }
 
 func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsInternalServerE
 	return code == 500
 }
 
+// Code gets the status code for the edge network instance status get network instance interface tags internal server error response
+func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/netinsts/tags][%d] edgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsGatewayTimeout)
 	return code == 504
 }
 
+// Code gets the status code for the edge network instance status get network instance interface tags gateway timeout response
+func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/netinsts/tags][%d] edgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge network instance status get network instance interface tags default response
-func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge network instance status get network instance interface tags default response has a 2xx status code
 func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsDefault) IsServ
 // IsCode returns true when this edge network instance status get network instance interface tags default response a status code equal to that given
 func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge network instance status get network instance interface tags default response
+func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNetworkInstanceStatusGetNetworkInstanceInterfaceTagsDefault) Error() string {

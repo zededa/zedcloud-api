@@ -93,6 +93,11 @@ func (o *CloudDiagnosticsCreateCloudPolicyDocumentOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the cloud diagnostics create cloud policy document o k response
+func (o *CloudDiagnosticsCreateCloudPolicyDocumentOK) Code() int {
+	return 200
+}
+
 func (o *CloudDiagnosticsCreateCloudPolicyDocumentOK) Error() string {
 	return fmt.Sprintf("[POST /v1/cloud/policies][%d] cloudDiagnosticsCreateCloudPolicyDocumentOK  %+v", 200, o.Payload)
 }
@@ -154,6 +159,11 @@ func (o *CloudDiagnosticsCreateCloudPolicyDocumentInternalServerError) IsServerE
 // IsCode returns true when this cloud diagnostics create cloud policy document internal server error response a status code equal to that given
 func (o *CloudDiagnosticsCreateCloudPolicyDocumentInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the cloud diagnostics create cloud policy document internal server error response
+func (o *CloudDiagnosticsCreateCloudPolicyDocumentInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CloudDiagnosticsCreateCloudPolicyDocumentInternalServerError) Error() string {
@@ -219,6 +229,11 @@ func (o *CloudDiagnosticsCreateCloudPolicyDocumentGatewayTimeout) IsCode(code in
 	return code == 504
 }
 
+// Code gets the status code for the cloud diagnostics create cloud policy document gateway timeout response
+func (o *CloudDiagnosticsCreateCloudPolicyDocumentGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *CloudDiagnosticsCreateCloudPolicyDocumentGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/cloud/policies][%d] cloudDiagnosticsCreateCloudPolicyDocumentGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -261,11 +276,6 @@ type CloudDiagnosticsCreateCloudPolicyDocumentDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the cloud diagnostics create cloud policy document default response
-func (o *CloudDiagnosticsCreateCloudPolicyDocumentDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this cloud diagnostics create cloud policy document default response has a 2xx status code
 func (o *CloudDiagnosticsCreateCloudPolicyDocumentDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -289,6 +299,11 @@ func (o *CloudDiagnosticsCreateCloudPolicyDocumentDefault) IsServerError() bool 
 // IsCode returns true when this cloud diagnostics create cloud policy document default response a status code equal to that given
 func (o *CloudDiagnosticsCreateCloudPolicyDocumentDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the cloud diagnostics create cloud policy document default response
+func (o *CloudDiagnosticsCreateCloudPolicyDocumentDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CloudDiagnosticsCreateCloudPolicyDocumentDefault) Error() string {

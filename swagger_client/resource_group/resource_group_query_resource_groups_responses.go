@@ -111,6 +111,11 @@ func (o *ResourceGroupQueryResourceGroupsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the resource group query resource groups o k response
+func (o *ResourceGroupQueryResourceGroupsOK) Code() int {
+	return 200
+}
+
 func (o *ResourceGroupQueryResourceGroupsOK) Error() string {
 	return fmt.Sprintf("[GET /v1/projects][%d] resourceGroupQueryResourceGroupsOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *ResourceGroupQueryResourceGroupsBadRequest) IsServerError() bool {
 // IsCode returns true when this resource group query resource groups bad request response a status code equal to that given
 func (o *ResourceGroupQueryResourceGroupsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the resource group query resource groups bad request response
+func (o *ResourceGroupQueryResourceGroupsBadRequest) Code() int {
+	return 400
 }
 
 func (o *ResourceGroupQueryResourceGroupsBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *ResourceGroupQueryResourceGroupsUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the resource group query resource groups unauthorized response
+func (o *ResourceGroupQueryResourceGroupsUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ResourceGroupQueryResourceGroupsUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/projects][%d] resourceGroupQueryResourceGroupsUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *ResourceGroupQueryResourceGroupsForbidden) IsServerError() bool {
 // IsCode returns true when this resource group query resource groups forbidden response a status code equal to that given
 func (o *ResourceGroupQueryResourceGroupsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the resource group query resource groups forbidden response
+func (o *ResourceGroupQueryResourceGroupsForbidden) Code() int {
+	return 403
 }
 
 func (o *ResourceGroupQueryResourceGroupsForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *ResourceGroupQueryResourceGroupsInternalServerError) IsCode(code int) b
 	return code == 500
 }
 
+// Code gets the status code for the resource group query resource groups internal server error response
+func (o *ResourceGroupQueryResourceGroupsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ResourceGroupQueryResourceGroupsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/projects][%d] resourceGroupQueryResourceGroupsInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *ResourceGroupQueryResourceGroupsGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the resource group query resource groups gateway timeout response
+func (o *ResourceGroupQueryResourceGroupsGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ResourceGroupQueryResourceGroupsGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/projects][%d] resourceGroupQueryResourceGroupsGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type ResourceGroupQueryResourceGroupsDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the resource group query resource groups default response
-func (o *ResourceGroupQueryResourceGroupsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this resource group query resource groups default response has a 2xx status code
 func (o *ResourceGroupQueryResourceGroupsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *ResourceGroupQueryResourceGroupsDefault) IsServerError() bool {
 // IsCode returns true when this resource group query resource groups default response a status code equal to that given
 func (o *ResourceGroupQueryResourceGroupsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the resource group query resource groups default response
+func (o *ResourceGroupQueryResourceGroupsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ResourceGroupQueryResourceGroupsDefault) Error() string {

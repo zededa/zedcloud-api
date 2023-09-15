@@ -208,6 +208,11 @@ func (m *TagConfigStatus) ContextValidate(ctx context.Context, formats strfmt.Re
 func (m *TagConfigStatus) contextValidateAttestPolicyType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AttestPolicyType != nil {
+
+		if swag.IsZero(m.AttestPolicyType) { // not required
+			return nil
+		}
+
 		if err := m.AttestPolicyType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("attestPolicyType")
@@ -224,6 +229,11 @@ func (m *TagConfigStatus) contextValidateAttestPolicyType(ctx context.Context, f
 func (m *TagConfigStatus) contextValidateCloudPolicyType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CloudPolicyType != nil {
+
+		if swag.IsZero(m.CloudPolicyType) { // not required
+			return nil
+		}
+
 		if err := m.CloudPolicyType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cloudPolicyType")
@@ -249,6 +259,11 @@ func (m *TagConfigStatus) contextValidateID(ctx context.Context, formats strfmt.
 func (m *TagConfigStatus) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Status != nil {
+
+		if swag.IsZero(m.Status) { // not required
+			return nil
+		}
+
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")

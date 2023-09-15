@@ -107,6 +107,11 @@ func (m *Status) ContextValidate(ctx context.Context, formats strfmt.Registry) e
 func (m *Status) contextValidateCode(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Code != nil {
+
+		if swag.IsZero(m.Code) { // not required
+			return nil
+		}
+
 		if err := m.Code.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("code")
@@ -123,6 +128,11 @@ func (m *Status) contextValidateCode(ctx context.Context, formats strfmt.Registr
 func (m *Status) contextValidateDescription(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Description != nil {
+
+		if swag.IsZero(m.Description) { // not required
+			return nil
+		}
+
 		if err := m.Description.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("description")

@@ -111,6 +111,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2OK) I
 	return code == 200
 }
 
+// Code gets the status code for the edge application instance status get edge application instance top talkers2 o k response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2OK) Code() int {
+	return 200
+}
+
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2OK) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/name/{name}/flowlog/toptalkers][%d] edgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2OK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Unaut
 // IsCode returns true when this edge application instance status get edge application instance top talkers2 unauthorized response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Unauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge application instance status get edge application instance top talkers2 unauthorized response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Unauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Unauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Forbi
 	return code == 403
 }
 
+// Code gets the status code for the edge application instance status get edge application instance top talkers2 forbidden response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Forbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Forbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/name/{name}/flowlog/toptalkers][%d] edgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Forbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2NotFo
 // IsCode returns true when this edge application instance status get edge application instance top talkers2 not found response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge application instance status get edge application instance top talkers2 not found response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2NotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2NotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Inter
 	return code == 500
 }
 
+// Code gets the status code for the edge application instance status get edge application instance top talkers2 internal server error response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2InternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/name/{name}/flowlog/toptalkers][%d] edgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2InternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Gatew
 	return code == 504
 }
 
+// Code gets the status code for the edge application instance status get edge application instance top talkers2 gateway timeout response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2GatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2GatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/name/{name}/flowlog/toptalkers][%d] edgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2GatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Default s
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge application instance status get edge application instance top talkers2 default response
-func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge application instance status get edge application instance top talkers2 default response has a 2xx status code
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Defau
 // IsCode returns true when this edge application instance status get edge application instance top talkers2 default response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge application instance status get edge application instance top talkers2 default response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Default) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTopTalkers2Default) Error() string {

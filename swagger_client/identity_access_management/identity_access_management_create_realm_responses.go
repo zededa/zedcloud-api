@@ -117,6 +117,11 @@ func (o *IdentityAccessManagementCreateRealmOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management create realm o k response
+func (o *IdentityAccessManagementCreateRealmOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementCreateRealmOK) Error() string {
 	return fmt.Sprintf("[POST /v1/realms][%d] identityAccessManagementCreateRealmOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *IdentityAccessManagementCreateRealmBadRequest) IsServerError() bool {
 // IsCode returns true when this identity access management create realm bad request response a status code equal to that given
 func (o *IdentityAccessManagementCreateRealmBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the identity access management create realm bad request response
+func (o *IdentityAccessManagementCreateRealmBadRequest) Code() int {
+	return 400
 }
 
 func (o *IdentityAccessManagementCreateRealmBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *IdentityAccessManagementCreateRealmUnauthorized) IsCode(code int) bool 
 	return code == 401
 }
 
+// Code gets the status code for the identity access management create realm unauthorized response
+func (o *IdentityAccessManagementCreateRealmUnauthorized) Code() int {
+	return 401
+}
+
 func (o *IdentityAccessManagementCreateRealmUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /v1/realms][%d] identityAccessManagementCreateRealmUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *IdentityAccessManagementCreateRealmForbidden) IsServerError() bool {
 // IsCode returns true when this identity access management create realm forbidden response a status code equal to that given
 func (o *IdentityAccessManagementCreateRealmForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the identity access management create realm forbidden response
+func (o *IdentityAccessManagementCreateRealmForbidden) Code() int {
+	return 403
 }
 
 func (o *IdentityAccessManagementCreateRealmForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *IdentityAccessManagementCreateRealmConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the identity access management create realm conflict response
+func (o *IdentityAccessManagementCreateRealmConflict) Code() int {
+	return 409
+}
+
 func (o *IdentityAccessManagementCreateRealmConflict) Error() string {
 	return fmt.Sprintf("[POST /v1/realms][%d] identityAccessManagementCreateRealmConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *IdentityAccessManagementCreateRealmInternalServerError) IsServerError()
 // IsCode returns true when this identity access management create realm internal server error response a status code equal to that given
 func (o *IdentityAccessManagementCreateRealmInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management create realm internal server error response
+func (o *IdentityAccessManagementCreateRealmInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementCreateRealmInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *IdentityAccessManagementCreateRealmGatewayTimeout) IsCode(code int) boo
 	return code == 504
 }
 
+// Code gets the status code for the identity access management create realm gateway timeout response
+func (o *IdentityAccessManagementCreateRealmGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementCreateRealmGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/realms][%d] identityAccessManagementCreateRealmGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type IdentityAccessManagementCreateRealmDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management create realm default response
-func (o *IdentityAccessManagementCreateRealmDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management create realm default response has a 2xx status code
 func (o *IdentityAccessManagementCreateRealmDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *IdentityAccessManagementCreateRealmDefault) IsServerError() bool {
 // IsCode returns true when this identity access management create realm default response a status code equal to that given
 func (o *IdentityAccessManagementCreateRealmDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management create realm default response
+func (o *IdentityAccessManagementCreateRealmDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementCreateRealmDefault) Error() string {

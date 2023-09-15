@@ -105,6 +105,11 @@ func (o *IdentityAccessManagementGetUserSessionSelfOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management get user session self o k response
+func (o *IdentityAccessManagementGetUserSessionSelfOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementGetUserSessionSelfOK) Error() string {
 	return fmt.Sprintf("[GET /v1/sessions/self][%d] identityAccessManagementGetUserSessionSelfOK  %+v", 200, o.Payload)
 }
@@ -166,6 +171,11 @@ func (o *IdentityAccessManagementGetUserSessionSelfUnauthorized) IsServerError()
 // IsCode returns true when this identity access management get user session self unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementGetUserSessionSelfUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management get user session self unauthorized response
+func (o *IdentityAccessManagementGetUserSessionSelfUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementGetUserSessionSelfUnauthorized) Error() string {
@@ -231,6 +241,11 @@ func (o *IdentityAccessManagementGetUserSessionSelfForbidden) IsCode(code int) b
 	return code == 403
 }
 
+// Code gets the status code for the identity access management get user session self forbidden response
+func (o *IdentityAccessManagementGetUserSessionSelfForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementGetUserSessionSelfForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/sessions/self][%d] identityAccessManagementGetUserSessionSelfForbidden  %+v", 403, o.Payload)
 }
@@ -292,6 +307,11 @@ func (o *IdentityAccessManagementGetUserSessionSelfInternalServerError) IsServer
 // IsCode returns true when this identity access management get user session self internal server error response a status code equal to that given
 func (o *IdentityAccessManagementGetUserSessionSelfInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management get user session self internal server error response
+func (o *IdentityAccessManagementGetUserSessionSelfInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementGetUserSessionSelfInternalServerError) Error() string {
@@ -357,6 +377,11 @@ func (o *IdentityAccessManagementGetUserSessionSelfGatewayTimeout) IsCode(code i
 	return code == 504
 }
 
+// Code gets the status code for the identity access management get user session self gateway timeout response
+func (o *IdentityAccessManagementGetUserSessionSelfGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementGetUserSessionSelfGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/sessions/self][%d] identityAccessManagementGetUserSessionSelfGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -399,11 +424,6 @@ type IdentityAccessManagementGetUserSessionSelfDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management get user session self default response
-func (o *IdentityAccessManagementGetUserSessionSelfDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management get user session self default response has a 2xx status code
 func (o *IdentityAccessManagementGetUserSessionSelfDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -427,6 +447,11 @@ func (o *IdentityAccessManagementGetUserSessionSelfDefault) IsServerError() bool
 // IsCode returns true when this identity access management get user session self default response a status code equal to that given
 func (o *IdentityAccessManagementGetUserSessionSelfDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management get user session self default response
+func (o *IdentityAccessManagementGetUserSessionSelfDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementGetUserSessionSelfDefault) Error() string {

@@ -446,6 +446,11 @@ func (m *ConfigAppInstanceConfig) contextValidateAdapters(ctx context.Context, f
 	for i := 0; i < len(m.Adapters); i++ {
 
 		if m.Adapters[i] != nil {
+
+			if swag.IsZero(m.Adapters[i]) { // not required
+				return nil
+			}
+
 			if err := m.Adapters[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("adapters" + "." + strconv.Itoa(i))
@@ -464,6 +469,11 @@ func (m *ConfigAppInstanceConfig) contextValidateAdapters(ctx context.Context, f
 func (m *ConfigAppInstanceConfig) contextValidateCipherData(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CipherData != nil {
+
+		if swag.IsZero(m.CipherData) { // not required
+			return nil
+		}
+
 		if err := m.CipherData.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cipherData")
@@ -482,6 +492,11 @@ func (m *ConfigAppInstanceConfig) contextValidateDrives(ctx context.Context, for
 	for i := 0; i < len(m.Drives); i++ {
 
 		if m.Drives[i] != nil {
+
+			if swag.IsZero(m.Drives[i]) { // not required
+				return nil
+			}
+
 			if err := m.Drives[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("drives" + "." + strconv.Itoa(i))
@@ -500,6 +515,11 @@ func (m *ConfigAppInstanceConfig) contextValidateDrives(ctx context.Context, for
 func (m *ConfigAppInstanceConfig) contextValidateFixedresources(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Fixedresources != nil {
+
+		if swag.IsZero(m.Fixedresources) { // not required
+			return nil
+		}
+
 		if err := m.Fixedresources.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("fixedresources")
@@ -518,6 +538,11 @@ func (m *ConfigAppInstanceConfig) contextValidateInterfaces(ctx context.Context,
 	for i := 0; i < len(m.Interfaces); i++ {
 
 		if m.Interfaces[i] != nil {
+
+			if swag.IsZero(m.Interfaces[i]) { // not required
+				return nil
+			}
+
 			if err := m.Interfaces[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
@@ -536,6 +561,11 @@ func (m *ConfigAppInstanceConfig) contextValidateInterfaces(ctx context.Context,
 func (m *ConfigAppInstanceConfig) contextValidateMetaDataType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.MetaDataType != nil {
+
+		if swag.IsZero(m.MetaDataType) { // not required
+			return nil
+		}
+
 		if err := m.MetaDataType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metaDataType")
@@ -552,6 +582,11 @@ func (m *ConfigAppInstanceConfig) contextValidateMetaDataType(ctx context.Contex
 func (m *ConfigAppInstanceConfig) contextValidatePurge(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Purge != nil {
+
+		if swag.IsZero(m.Purge) { // not required
+			return nil
+		}
+
 		if err := m.Purge.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("purge")
@@ -568,6 +603,11 @@ func (m *ConfigAppInstanceConfig) contextValidatePurge(ctx context.Context, form
 func (m *ConfigAppInstanceConfig) contextValidateRestart(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Restart != nil {
+
+		if swag.IsZero(m.Restart) { // not required
+			return nil
+		}
+
 		if err := m.Restart.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("restart")
@@ -584,6 +624,11 @@ func (m *ConfigAppInstanceConfig) contextValidateRestart(ctx context.Context, fo
 func (m *ConfigAppInstanceConfig) contextValidateUuidandversion(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Uuidandversion != nil {
+
+		if swag.IsZero(m.Uuidandversion) { // not required
+			return nil
+		}
+
 		if err := m.Uuidandversion.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("uuidandversion")
@@ -602,6 +647,11 @@ func (m *ConfigAppInstanceConfig) contextValidateVolumeRefList(ctx context.Conte
 	for i := 0; i < len(m.VolumeRefList); i++ {
 
 		if m.VolumeRefList[i] != nil {
+
+			if swag.IsZero(m.VolumeRefList[i]) { // not required
+				return nil
+			}
+
 			if err := m.VolumeRefList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("volumeRefList" + "." + strconv.Itoa(i))

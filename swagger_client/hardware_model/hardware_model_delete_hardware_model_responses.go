@@ -111,6 +111,11 @@ func (o *HardwareModelDeleteHardwareModelOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the hardware model delete hardware model o k response
+func (o *HardwareModelDeleteHardwareModelOK) Code() int {
+	return 200
+}
+
 func (o *HardwareModelDeleteHardwareModelOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/sysmodels/id/{id}][%d] hardwareModelDeleteHardwareModelOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *HardwareModelDeleteHardwareModelUnauthorized) IsServerError() bool {
 // IsCode returns true when this hardware model delete hardware model unauthorized response a status code equal to that given
 func (o *HardwareModelDeleteHardwareModelUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the hardware model delete hardware model unauthorized response
+func (o *HardwareModelDeleteHardwareModelUnauthorized) Code() int {
+	return 401
 }
 
 func (o *HardwareModelDeleteHardwareModelUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *HardwareModelDeleteHardwareModelForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the hardware model delete hardware model forbidden response
+func (o *HardwareModelDeleteHardwareModelForbidden) Code() int {
+	return 403
+}
+
 func (o *HardwareModelDeleteHardwareModelForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/sysmodels/id/{id}][%d] hardwareModelDeleteHardwareModelForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *HardwareModelDeleteHardwareModelNotFound) IsServerError() bool {
 // IsCode returns true when this hardware model delete hardware model not found response a status code equal to that given
 func (o *HardwareModelDeleteHardwareModelNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the hardware model delete hardware model not found response
+func (o *HardwareModelDeleteHardwareModelNotFound) Code() int {
+	return 404
 }
 
 func (o *HardwareModelDeleteHardwareModelNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *HardwareModelDeleteHardwareModelInternalServerError) IsCode(code int) b
 	return code == 500
 }
 
+// Code gets the status code for the hardware model delete hardware model internal server error response
+func (o *HardwareModelDeleteHardwareModelInternalServerError) Code() int {
+	return 500
+}
+
 func (o *HardwareModelDeleteHardwareModelInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /v1/sysmodels/id/{id}][%d] hardwareModelDeleteHardwareModelInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *HardwareModelDeleteHardwareModelGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the hardware model delete hardware model gateway timeout response
+func (o *HardwareModelDeleteHardwareModelGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *HardwareModelDeleteHardwareModelGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/sysmodels/id/{id}][%d] hardwareModelDeleteHardwareModelGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type HardwareModelDeleteHardwareModelDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the hardware model delete hardware model default response
-func (o *HardwareModelDeleteHardwareModelDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this hardware model delete hardware model default response has a 2xx status code
 func (o *HardwareModelDeleteHardwareModelDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *HardwareModelDeleteHardwareModelDefault) IsServerError() bool {
 // IsCode returns true when this hardware model delete hardware model default response a status code equal to that given
 func (o *HardwareModelDeleteHardwareModelDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the hardware model delete hardware model default response
+func (o *HardwareModelDeleteHardwareModelDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *HardwareModelDeleteHardwareModelDefault) Error() string {

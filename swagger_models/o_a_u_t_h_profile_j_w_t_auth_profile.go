@@ -75,6 +75,11 @@ func (m *OAUTHProfileJWTAuthProfile) ContextValidate(ctx context.Context, format
 func (m *OAUTHProfileJWTAuthProfile) contextValidateAlg(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Alg != nil {
+
+		if swag.IsZero(m.Alg) { // not required
+			return nil
+		}
+
 		if err := m.Alg.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("alg")

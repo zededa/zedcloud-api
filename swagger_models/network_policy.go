@@ -88,6 +88,11 @@ func (m *NetworkPolicy) contextValidateNetInstanceConfig(ctx context.Context, fo
 	for i := 0; i < len(m.NetInstanceConfig); i++ {
 
 		if m.NetInstanceConfig[i] != nil {
+
+			if swag.IsZero(m.NetInstanceConfig[i]) { // not required
+				return nil
+			}
+
 			if err := m.NetInstanceConfig[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("netInstanceConfig" + "." + strconv.Itoa(i))

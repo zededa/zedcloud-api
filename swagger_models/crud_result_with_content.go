@@ -133,6 +133,11 @@ func (m *CrudResultWithContent) ContextValidate(ctx context.Context, formats str
 func (m *CrudResultWithContent) contextValidateCode(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Code != nil {
+
+		if swag.IsZero(m.Code) { // not required
+			return nil
+		}
+
 		if err := m.Code.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("code")
@@ -149,6 +154,11 @@ func (m *CrudResultWithContent) contextValidateCode(ctx context.Context, formats
 func (m *CrudResultWithContent) contextValidateContent(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Content != nil {
+
+		if swag.IsZero(m.Content) { // not required
+			return nil
+		}
+
 		if err := m.Content.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("content")
@@ -165,6 +175,11 @@ func (m *CrudResultWithContent) contextValidateContent(ctx context.Context, form
 func (m *CrudResultWithContent) contextValidateIdentifier(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Identifier != nil {
+
+		if swag.IsZero(m.Identifier) { // not required
+			return nil
+		}
+
 		if err := m.Identifier.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("identifier")

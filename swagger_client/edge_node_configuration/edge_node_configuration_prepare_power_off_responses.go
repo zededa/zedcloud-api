@@ -117,6 +117,11 @@ func (o *EdgeNodeConfigurationPreparePowerOffOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge node configuration prepare power off o k response
+func (o *EdgeNodeConfigurationPreparePowerOffOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeConfigurationPreparePowerOffOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/preparepoweroff][%d] edgeNodeConfigurationPreparePowerOffOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *EdgeNodeConfigurationPreparePowerOffUnauthorized) IsServerError() bool 
 // IsCode returns true when this edge node configuration prepare power off unauthorized response a status code equal to that given
 func (o *EdgeNodeConfigurationPreparePowerOffUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge node configuration prepare power off unauthorized response
+func (o *EdgeNodeConfigurationPreparePowerOffUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNodeConfigurationPreparePowerOffUnauthorized) Error() string {
@@ -243,6 +253,11 @@ func (o *EdgeNodeConfigurationPreparePowerOffForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the edge node configuration prepare power off forbidden response
+func (o *EdgeNodeConfigurationPreparePowerOffForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNodeConfigurationPreparePowerOffForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/preparepoweroff][%d] edgeNodeConfigurationPreparePowerOffForbidden  %+v", 403, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *EdgeNodeConfigurationPreparePowerOffNotFound) IsServerError() bool {
 // IsCode returns true when this edge node configuration prepare power off not found response a status code equal to that given
 func (o *EdgeNodeConfigurationPreparePowerOffNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge node configuration prepare power off not found response
+func (o *EdgeNodeConfigurationPreparePowerOffNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNodeConfigurationPreparePowerOffNotFound) Error() string {
@@ -369,6 +389,11 @@ func (o *EdgeNodeConfigurationPreparePowerOffConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the edge node configuration prepare power off conflict response
+func (o *EdgeNodeConfigurationPreparePowerOffConflict) Code() int {
+	return 409
+}
+
 func (o *EdgeNodeConfigurationPreparePowerOffConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/preparepoweroff][%d] edgeNodeConfigurationPreparePowerOffConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *EdgeNodeConfigurationPreparePowerOffInternalServerError) IsServerError(
 // IsCode returns true when this edge node configuration prepare power off internal server error response a status code equal to that given
 func (o *EdgeNodeConfigurationPreparePowerOffInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the edge node configuration prepare power off internal server error response
+func (o *EdgeNodeConfigurationPreparePowerOffInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EdgeNodeConfigurationPreparePowerOffInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *EdgeNodeConfigurationPreparePowerOffGatewayTimeout) IsCode(code int) bo
 	return code == 504
 }
 
+// Code gets the status code for the edge node configuration prepare power off gateway timeout response
+func (o *EdgeNodeConfigurationPreparePowerOffGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeConfigurationPreparePowerOffGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/devices/id/{id}/preparepoweroff][%d] edgeNodeConfigurationPreparePowerOffGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type EdgeNodeConfigurationPreparePowerOffDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node configuration prepare power off default response
-func (o *EdgeNodeConfigurationPreparePowerOffDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node configuration prepare power off default response has a 2xx status code
 func (o *EdgeNodeConfigurationPreparePowerOffDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *EdgeNodeConfigurationPreparePowerOffDefault) IsServerError() bool {
 // IsCode returns true when this edge node configuration prepare power off default response a status code equal to that given
 func (o *EdgeNodeConfigurationPreparePowerOffDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node configuration prepare power off default response
+func (o *EdgeNodeConfigurationPreparePowerOffDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeConfigurationPreparePowerOffDefault) Error() string {

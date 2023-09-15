@@ -105,6 +105,11 @@ func (o *IdentityAccessManagementGetUserSessionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management get user session o k response
+func (o *IdentityAccessManagementGetUserSessionOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementGetUserSessionOK) Error() string {
 	return fmt.Sprintf("[GET /v1/sessions/token/{sessionToken.base64}][%d] identityAccessManagementGetUserSessionOK  %+v", 200, o.Payload)
 }
@@ -166,6 +171,11 @@ func (o *IdentityAccessManagementGetUserSessionUnauthorized) IsServerError() boo
 // IsCode returns true when this identity access management get user session unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementGetUserSessionUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management get user session unauthorized response
+func (o *IdentityAccessManagementGetUserSessionUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementGetUserSessionUnauthorized) Error() string {
@@ -231,6 +241,11 @@ func (o *IdentityAccessManagementGetUserSessionForbidden) IsCode(code int) bool 
 	return code == 403
 }
 
+// Code gets the status code for the identity access management get user session forbidden response
+func (o *IdentityAccessManagementGetUserSessionForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementGetUserSessionForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/sessions/token/{sessionToken.base64}][%d] identityAccessManagementGetUserSessionForbidden  %+v", 403, o.Payload)
 }
@@ -292,6 +307,11 @@ func (o *IdentityAccessManagementGetUserSessionInternalServerError) IsServerErro
 // IsCode returns true when this identity access management get user session internal server error response a status code equal to that given
 func (o *IdentityAccessManagementGetUserSessionInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management get user session internal server error response
+func (o *IdentityAccessManagementGetUserSessionInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementGetUserSessionInternalServerError) Error() string {
@@ -357,6 +377,11 @@ func (o *IdentityAccessManagementGetUserSessionGatewayTimeout) IsCode(code int) 
 	return code == 504
 }
 
+// Code gets the status code for the identity access management get user session gateway timeout response
+func (o *IdentityAccessManagementGetUserSessionGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementGetUserSessionGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/sessions/token/{sessionToken.base64}][%d] identityAccessManagementGetUserSessionGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -399,11 +424,6 @@ type IdentityAccessManagementGetUserSessionDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management get user session default response
-func (o *IdentityAccessManagementGetUserSessionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management get user session default response has a 2xx status code
 func (o *IdentityAccessManagementGetUserSessionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -427,6 +447,11 @@ func (o *IdentityAccessManagementGetUserSessionDefault) IsServerError() bool {
 // IsCode returns true when this identity access management get user session default response a status code equal to that given
 func (o *IdentityAccessManagementGetUserSessionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management get user session default response
+func (o *IdentityAccessManagementGetUserSessionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementGetUserSessionDefault) Error() string {

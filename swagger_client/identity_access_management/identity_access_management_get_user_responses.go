@@ -111,6 +111,11 @@ func (o *IdentityAccessManagementGetUserOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management get user o k response
+func (o *IdentityAccessManagementGetUserOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementGetUserOK) Error() string {
 	return fmt.Sprintf("[GET /v1/users/id/{id}][%d] identityAccessManagementGetUserOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *IdentityAccessManagementGetUserUnauthorized) IsServerError() bool {
 // IsCode returns true when this identity access management get user unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementGetUserUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management get user unauthorized response
+func (o *IdentityAccessManagementGetUserUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementGetUserUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *IdentityAccessManagementGetUserForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the identity access management get user forbidden response
+func (o *IdentityAccessManagementGetUserForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementGetUserForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/users/id/{id}][%d] identityAccessManagementGetUserForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *IdentityAccessManagementGetUserNotFound) IsServerError() bool {
 // IsCode returns true when this identity access management get user not found response a status code equal to that given
 func (o *IdentityAccessManagementGetUserNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management get user not found response
+func (o *IdentityAccessManagementGetUserNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementGetUserNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *IdentityAccessManagementGetUserInternalServerError) IsCode(code int) bo
 	return code == 500
 }
 
+// Code gets the status code for the identity access management get user internal server error response
+func (o *IdentityAccessManagementGetUserInternalServerError) Code() int {
+	return 500
+}
+
 func (o *IdentityAccessManagementGetUserInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/users/id/{id}][%d] identityAccessManagementGetUserInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *IdentityAccessManagementGetUserGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the identity access management get user gateway timeout response
+func (o *IdentityAccessManagementGetUserGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementGetUserGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/users/id/{id}][%d] identityAccessManagementGetUserGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type IdentityAccessManagementGetUserDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management get user default response
-func (o *IdentityAccessManagementGetUserDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management get user default response has a 2xx status code
 func (o *IdentityAccessManagementGetUserDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *IdentityAccessManagementGetUserDefault) IsServerError() bool {
 // IsCode returns true when this identity access management get user default response a status code equal to that given
 func (o *IdentityAccessManagementGetUserDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management get user default response
+func (o *IdentityAccessManagementGetUserDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementGetUserDefault) Error() string {

@@ -73,6 +73,11 @@ func (m *IotHubServiceDetail) ContextValidate(ctx context.Context, formats strfm
 func (m *IotHubServiceDetail) contextValidateServiceDetail(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ServiceDetail != nil {
+
+		if swag.IsZero(m.ServiceDetail) { // not required
+			return nil
+		}
+
 		if err := m.ServiceDetail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("serviceDetail")

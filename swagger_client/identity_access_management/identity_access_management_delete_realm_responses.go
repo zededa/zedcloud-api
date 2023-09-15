@@ -111,6 +111,11 @@ func (o *IdentityAccessManagementDeleteRealmOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management delete realm o k response
+func (o *IdentityAccessManagementDeleteRealmOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementDeleteRealmOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/realms/id/{id}][%d] identityAccessManagementDeleteRealmOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *IdentityAccessManagementDeleteRealmUnauthorized) IsServerError() bool {
 // IsCode returns true when this identity access management delete realm unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementDeleteRealmUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management delete realm unauthorized response
+func (o *IdentityAccessManagementDeleteRealmUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementDeleteRealmUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *IdentityAccessManagementDeleteRealmForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the identity access management delete realm forbidden response
+func (o *IdentityAccessManagementDeleteRealmForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementDeleteRealmForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/realms/id/{id}][%d] identityAccessManagementDeleteRealmForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *IdentityAccessManagementDeleteRealmNotFound) IsServerError() bool {
 // IsCode returns true when this identity access management delete realm not found response a status code equal to that given
 func (o *IdentityAccessManagementDeleteRealmNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management delete realm not found response
+func (o *IdentityAccessManagementDeleteRealmNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementDeleteRealmNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *IdentityAccessManagementDeleteRealmInternalServerError) IsCode(code int
 	return code == 500
 }
 
+// Code gets the status code for the identity access management delete realm internal server error response
+func (o *IdentityAccessManagementDeleteRealmInternalServerError) Code() int {
+	return 500
+}
+
 func (o *IdentityAccessManagementDeleteRealmInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /v1/realms/id/{id}][%d] identityAccessManagementDeleteRealmInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *IdentityAccessManagementDeleteRealmGatewayTimeout) IsCode(code int) boo
 	return code == 504
 }
 
+// Code gets the status code for the identity access management delete realm gateway timeout response
+func (o *IdentityAccessManagementDeleteRealmGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementDeleteRealmGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/realms/id/{id}][%d] identityAccessManagementDeleteRealmGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type IdentityAccessManagementDeleteRealmDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management delete realm default response
-func (o *IdentityAccessManagementDeleteRealmDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management delete realm default response has a 2xx status code
 func (o *IdentityAccessManagementDeleteRealmDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *IdentityAccessManagementDeleteRealmDefault) IsServerError() bool {
 // IsCode returns true when this identity access management delete realm default response a status code equal to that given
 func (o *IdentityAccessManagementDeleteRealmDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management delete realm default response
+func (o *IdentityAccessManagementDeleteRealmDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementDeleteRealmDefault) Error() string {

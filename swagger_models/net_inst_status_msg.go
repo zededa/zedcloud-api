@@ -390,6 +390,11 @@ func (m *NetInstStatusMsg) contextValidateAssignedAdapters(ctx context.Context, 
 	for i := 0; i < len(m.AssignedAdapters); i++ {
 
 		if m.AssignedAdapters[i] != nil {
+
+			if swag.IsZero(m.AssignedAdapters[i]) { // not required
+				return nil
+			}
+
 			if err := m.AssignedAdapters[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("assignedAdapters" + "." + strconv.Itoa(i))
@@ -410,6 +415,11 @@ func (m *NetInstStatusMsg) contextValidateErrInfo(ctx context.Context, formats s
 	for i := 0; i < len(m.ErrInfo); i++ {
 
 		if m.ErrInfo[i] != nil {
+
+			if swag.IsZero(m.ErrInfo[i]) { // not required
+				return nil
+			}
+
 			if err := m.ErrInfo[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errInfo" + "." + strconv.Itoa(i))
@@ -439,6 +449,11 @@ func (m *NetInstStatusMsg) contextValidateIPMappings(ctx context.Context, format
 	for i := 0; i < len(m.IPMappings); i++ {
 
 		if m.IPMappings[i] != nil {
+
+			if swag.IsZero(m.IPMappings[i]) { // not required
+				return nil
+			}
+
 			if err := m.IPMappings[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ipMappings" + "." + strconv.Itoa(i))
@@ -457,6 +472,11 @@ func (m *NetInstStatusMsg) contextValidateIPMappings(ctx context.Context, format
 func (m *NetInstStatusMsg) contextValidateKind(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Kind != nil {
+
+		if swag.IsZero(m.Kind) { // not required
+			return nil
+		}
+
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("kind")
@@ -473,6 +493,11 @@ func (m *NetInstStatusMsg) contextValidateKind(ctx context.Context, formats strf
 func (m *NetInstStatusMsg) contextValidateRunState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.RunState != nil {
+
+		if swag.IsZero(m.RunState) { // not required
+			return nil
+		}
+
 		if err := m.RunState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")
@@ -491,6 +516,11 @@ func (m *NetInstStatusMsg) contextValidateVifs(ctx context.Context, formats strf
 	for i := 0; i < len(m.Vifs); i++ {
 
 		if m.Vifs[i] != nil {
+
+			if swag.IsZero(m.Vifs[i]) { // not required
+				return nil
+			}
+
 			if err := m.Vifs[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("vifs" + "." + strconv.Itoa(i))

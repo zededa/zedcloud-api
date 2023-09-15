@@ -246,6 +246,11 @@ func (m *EIDRegister) contextValidateLispMapServers(ctx context.Context, formats
 	for i := 0; i < len(m.LispMapServers); i++ {
 
 		if m.LispMapServers[i] != nil {
+
+			if swag.IsZero(m.LispMapServers[i]) { // not required
+				return nil
+			}
+
 			if err := m.LispMapServers[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("LispMapServers" + "." + strconv.Itoa(i))

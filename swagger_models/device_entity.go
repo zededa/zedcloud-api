@@ -79,6 +79,11 @@ func (m *DeviceEntity) ContextValidate(ctx context.Context, formats strfmt.Regis
 func (m *DeviceEntity) contextValidateEntity(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Entity != nil {
+
+		if swag.IsZero(m.Entity) { // not required
+			return nil
+		}
+
 		if err := m.Entity.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("entity")

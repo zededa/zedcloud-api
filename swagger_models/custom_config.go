@@ -101,6 +101,11 @@ func (m *CustomConfig) contextValidateVariableGroups(ctx context.Context, format
 	for i := 0; i < len(m.VariableGroups); i++ {
 
 		if m.VariableGroups[i] != nil {
+
+			if swag.IsZero(m.VariableGroups[i]) { // not required
+				return nil
+			}
+
 			if err := m.VariableGroups[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("variableGroups" + "." + strconv.Itoa(i))

@@ -144,6 +144,7 @@ func (m *VM) ContextValidate(ctx context.Context, formats strfmt.Registry) error
 func (m *VM) contextValidateMode(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Mode != nil {
+
 		if err := m.Mode.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mode")

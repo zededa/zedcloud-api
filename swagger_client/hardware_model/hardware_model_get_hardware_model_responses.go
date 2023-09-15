@@ -111,6 +111,11 @@ func (o *HardwareModelGetHardwareModelOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the hardware model get hardware model o k response
+func (o *HardwareModelGetHardwareModelOK) Code() int {
+	return 200
+}
+
 func (o *HardwareModelGetHardwareModelOK) Error() string {
 	return fmt.Sprintf("[GET /v1/sysmodels/id/{id}][%d] hardwareModelGetHardwareModelOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *HardwareModelGetHardwareModelUnauthorized) IsServerError() bool {
 // IsCode returns true when this hardware model get hardware model unauthorized response a status code equal to that given
 func (o *HardwareModelGetHardwareModelUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the hardware model get hardware model unauthorized response
+func (o *HardwareModelGetHardwareModelUnauthorized) Code() int {
+	return 401
 }
 
 func (o *HardwareModelGetHardwareModelUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *HardwareModelGetHardwareModelForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the hardware model get hardware model forbidden response
+func (o *HardwareModelGetHardwareModelForbidden) Code() int {
+	return 403
+}
+
 func (o *HardwareModelGetHardwareModelForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/sysmodels/id/{id}][%d] hardwareModelGetHardwareModelForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *HardwareModelGetHardwareModelNotFound) IsServerError() bool {
 // IsCode returns true when this hardware model get hardware model not found response a status code equal to that given
 func (o *HardwareModelGetHardwareModelNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the hardware model get hardware model not found response
+func (o *HardwareModelGetHardwareModelNotFound) Code() int {
+	return 404
 }
 
 func (o *HardwareModelGetHardwareModelNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *HardwareModelGetHardwareModelInternalServerError) IsCode(code int) bool
 	return code == 500
 }
 
+// Code gets the status code for the hardware model get hardware model internal server error response
+func (o *HardwareModelGetHardwareModelInternalServerError) Code() int {
+	return 500
+}
+
 func (o *HardwareModelGetHardwareModelInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/sysmodels/id/{id}][%d] hardwareModelGetHardwareModelInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *HardwareModelGetHardwareModelGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the hardware model get hardware model gateway timeout response
+func (o *HardwareModelGetHardwareModelGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *HardwareModelGetHardwareModelGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/sysmodels/id/{id}][%d] hardwareModelGetHardwareModelGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type HardwareModelGetHardwareModelDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the hardware model get hardware model default response
-func (o *HardwareModelGetHardwareModelDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this hardware model get hardware model default response has a 2xx status code
 func (o *HardwareModelGetHardwareModelDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *HardwareModelGetHardwareModelDefault) IsServerError() bool {
 // IsCode returns true when this hardware model get hardware model default response a status code equal to that given
 func (o *HardwareModelGetHardwareModelDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the hardware model get hardware model default response
+func (o *HardwareModelGetHardwareModelDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *HardwareModelGetHardwareModelDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameOK) IsCode(co
 	return code == 200
 }
 
+// Code gets the status code for the edge application configuration get edge application bundle by name o k response
+func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameOK) Code() int {
+	return 200
+}
+
 func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameOK) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/name/{name}][%d] edgeApplicationConfigurationGetEdgeApplicationBundleByNameOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameUnauthorized)
 // IsCode returns true when this edge application configuration get edge application bundle by name unauthorized response a status code equal to that given
 func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge application configuration get edge application bundle by name unauthorized response
+func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameForbidden) Is
 	return code == 403
 }
 
+// Code gets the status code for the edge application configuration get edge application bundle by name forbidden response
+func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/name/{name}][%d] edgeApplicationConfigurationGetEdgeApplicationBundleByNameForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameNotFound) IsS
 // IsCode returns true when this edge application configuration get edge application bundle by name not found response a status code equal to that given
 func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge application configuration get edge application bundle by name not found response
+func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameInternalServe
 	return code == 500
 }
 
+// Code gets the status code for the edge application configuration get edge application bundle by name internal server error response
+func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/name/{name}][%d] edgeApplicationConfigurationGetEdgeApplicationBundleByNameInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameGatewayTimeou
 	return code == 504
 }
 
+// Code gets the status code for the edge application configuration get edge application bundle by name gateway timeout response
+func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/name/{name}][%d] edgeApplicationConfigurationGetEdgeApplicationBundleByNameGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeApplicationConfigurationGetEdgeApplicationBundleByNameDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge application configuration get edge application bundle by name default response
-func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge application configuration get edge application bundle by name default response has a 2xx status code
 func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameDefault) IsSe
 // IsCode returns true when this edge application configuration get edge application bundle by name default response a status code equal to that given
 func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge application configuration get edge application bundle by name default response
+func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeApplicationConfigurationGetEdgeApplicationBundleByNameDefault) Error() string {

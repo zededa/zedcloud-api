@@ -112,6 +112,11 @@ func (m *NetworkFilter) ContextValidate(ctx context.Context, formats strfmt.Regi
 func (m *NetworkFilter) contextValidateDist(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Dist != nil {
+
+		if swag.IsZero(m.Dist) { // not required
+			return nil
+		}
+
 		if err := m.Dist.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dist")
@@ -128,6 +133,11 @@ func (m *NetworkFilter) contextValidateDist(ctx context.Context, formats strfmt.
 func (m *NetworkFilter) contextValidateKind(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Kind != nil {
+
+		if swag.IsZero(m.Kind) { // not required
+			return nil
+		}
+
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("kind")

@@ -117,6 +117,11 @@ func (o *BulkJobOpsGetJobOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the bulk job ops get job o k response
+func (o *BulkJobOpsGetJobOK) Code() int {
+	return 200
+}
+
 func (o *BulkJobOpsGetJobOK) Error() string {
 	return fmt.Sprintf("[GET /v1/jobs/id/{id}/objectType/{objectType}][%d] bulkJobOpsGetJobOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *BulkJobOpsGetJobBadRequest) IsServerError() bool {
 // IsCode returns true when this bulk job ops get job bad request response a status code equal to that given
 func (o *BulkJobOpsGetJobBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the bulk job ops get job bad request response
+func (o *BulkJobOpsGetJobBadRequest) Code() int {
+	return 400
 }
 
 func (o *BulkJobOpsGetJobBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *BulkJobOpsGetJobUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the bulk job ops get job unauthorized response
+func (o *BulkJobOpsGetJobUnauthorized) Code() int {
+	return 401
+}
+
 func (o *BulkJobOpsGetJobUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/jobs/id/{id}/objectType/{objectType}][%d] bulkJobOpsGetJobUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *BulkJobOpsGetJobForbidden) IsServerError() bool {
 // IsCode returns true when this bulk job ops get job forbidden response a status code equal to that given
 func (o *BulkJobOpsGetJobForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the bulk job ops get job forbidden response
+func (o *BulkJobOpsGetJobForbidden) Code() int {
+	return 403
 }
 
 func (o *BulkJobOpsGetJobForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *BulkJobOpsGetJobNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the bulk job ops get job not found response
+func (o *BulkJobOpsGetJobNotFound) Code() int {
+	return 404
+}
+
 func (o *BulkJobOpsGetJobNotFound) Error() string {
 	return fmt.Sprintf("[GET /v1/jobs/id/{id}/objectType/{objectType}][%d] bulkJobOpsGetJobNotFound  %+v", 404, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *BulkJobOpsGetJobInternalServerError) IsServerError() bool {
 // IsCode returns true when this bulk job ops get job internal server error response a status code equal to that given
 func (o *BulkJobOpsGetJobInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the bulk job ops get job internal server error response
+func (o *BulkJobOpsGetJobInternalServerError) Code() int {
+	return 500
 }
 
 func (o *BulkJobOpsGetJobInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *BulkJobOpsGetJobGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the bulk job ops get job gateway timeout response
+func (o *BulkJobOpsGetJobGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *BulkJobOpsGetJobGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/jobs/id/{id}/objectType/{objectType}][%d] bulkJobOpsGetJobGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type BulkJobOpsGetJobDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the bulk job ops get job default response
-func (o *BulkJobOpsGetJobDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this bulk job ops get job default response has a 2xx status code
 func (o *BulkJobOpsGetJobDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *BulkJobOpsGetJobDefault) IsServerError() bool {
 // IsCode returns true when this bulk job ops get job default response a status code equal to that given
 func (o *BulkJobOpsGetJobDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the bulk job ops get job default response
+func (o *BulkJobOpsGetJobDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *BulkJobOpsGetJobDefault) Error() string {

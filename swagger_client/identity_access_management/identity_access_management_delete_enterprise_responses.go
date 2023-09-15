@@ -117,6 +117,11 @@ func (o *IdentityAccessManagementDeleteEnterpriseOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management delete enterprise o k response
+func (o *IdentityAccessManagementDeleteEnterpriseOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementDeleteEnterpriseOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/enterprises/id/{id}][%d] identityAccessManagementDeleteEnterpriseOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *IdentityAccessManagementDeleteEnterpriseUnauthorized) IsServerError() b
 // IsCode returns true when this identity access management delete enterprise unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementDeleteEnterpriseUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management delete enterprise unauthorized response
+func (o *IdentityAccessManagementDeleteEnterpriseUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementDeleteEnterpriseUnauthorized) Error() string {
@@ -243,6 +253,11 @@ func (o *IdentityAccessManagementDeleteEnterpriseForbidden) IsCode(code int) boo
 	return code == 403
 }
 
+// Code gets the status code for the identity access management delete enterprise forbidden response
+func (o *IdentityAccessManagementDeleteEnterpriseForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementDeleteEnterpriseForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/enterprises/id/{id}][%d] identityAccessManagementDeleteEnterpriseForbidden  %+v", 403, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *IdentityAccessManagementDeleteEnterpriseNotFound) IsServerError() bool 
 // IsCode returns true when this identity access management delete enterprise not found response a status code equal to that given
 func (o *IdentityAccessManagementDeleteEnterpriseNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management delete enterprise not found response
+func (o *IdentityAccessManagementDeleteEnterpriseNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementDeleteEnterpriseNotFound) Error() string {
@@ -369,6 +389,11 @@ func (o *IdentityAccessManagementDeleteEnterpriseConflict) IsCode(code int) bool
 	return code == 409
 }
 
+// Code gets the status code for the identity access management delete enterprise conflict response
+func (o *IdentityAccessManagementDeleteEnterpriseConflict) Code() int {
+	return 409
+}
+
 func (o *IdentityAccessManagementDeleteEnterpriseConflict) Error() string {
 	return fmt.Sprintf("[DELETE /v1/enterprises/id/{id}][%d] identityAccessManagementDeleteEnterpriseConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *IdentityAccessManagementDeleteEnterpriseInternalServerError) IsServerEr
 // IsCode returns true when this identity access management delete enterprise internal server error response a status code equal to that given
 func (o *IdentityAccessManagementDeleteEnterpriseInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management delete enterprise internal server error response
+func (o *IdentityAccessManagementDeleteEnterpriseInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementDeleteEnterpriseInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *IdentityAccessManagementDeleteEnterpriseGatewayTimeout) IsCode(code int
 	return code == 504
 }
 
+// Code gets the status code for the identity access management delete enterprise gateway timeout response
+func (o *IdentityAccessManagementDeleteEnterpriseGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementDeleteEnterpriseGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/enterprises/id/{id}][%d] identityAccessManagementDeleteEnterpriseGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type IdentityAccessManagementDeleteEnterpriseDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management delete enterprise default response
-func (o *IdentityAccessManagementDeleteEnterpriseDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management delete enterprise default response has a 2xx status code
 func (o *IdentityAccessManagementDeleteEnterpriseDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *IdentityAccessManagementDeleteEnterpriseDefault) IsServerError() bool {
 // IsCode returns true when this identity access management delete enterprise default response a status code equal to that given
 func (o *IdentityAccessManagementDeleteEnterpriseDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management delete enterprise default response
+func (o *IdentityAccessManagementDeleteEnterpriseDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementDeleteEnterpriseDefault) Error() string {

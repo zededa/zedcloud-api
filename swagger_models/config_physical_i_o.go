@@ -217,6 +217,11 @@ func (m *ConfigPhysicalIO) ContextValidate(ctx context.Context, formats strfmt.R
 func (m *ConfigPhysicalIO) contextValidatePtype(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Ptype != nil {
+
+		if swag.IsZero(m.Ptype) { // not required
+			return nil
+		}
+
 		if err := m.Ptype.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ptype")
@@ -233,6 +238,11 @@ func (m *ConfigPhysicalIO) contextValidatePtype(ctx context.Context, formats str
 func (m *ConfigPhysicalIO) contextValidateUsage(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Usage != nil {
+
+		if swag.IsZero(m.Usage) { // not required
+			return nil
+		}
+
 		if err := m.Usage.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("usage")
@@ -249,6 +259,11 @@ func (m *ConfigPhysicalIO) contextValidateUsage(ctx context.Context, formats str
 func (m *ConfigPhysicalIO) contextValidateUsagePolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.UsagePolicy != nil {
+
+		if swag.IsZero(m.UsagePolicy) { // not required
+			return nil
+		}
+
 		if err := m.UsagePolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("usagePolicy")
@@ -265,6 +280,11 @@ func (m *ConfigPhysicalIO) contextValidateUsagePolicy(ctx context.Context, forma
 func (m *ConfigPhysicalIO) contextValidateVflist(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Vflist != nil {
+
+		if swag.IsZero(m.Vflist) { // not required
+			return nil
+		}
+
 		if err := m.Vflist.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("vflist")

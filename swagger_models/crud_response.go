@@ -193,6 +193,11 @@ func (m *CrudResponse) ContextValidate(ctx context.Context, formats strfmt.Regis
 func (m *CrudResponse) contextValidateAction(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Action != nil {
+
+		if swag.IsZero(m.Action) { // not required
+			return nil
+		}
+
 		if err := m.Action.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("action")
@@ -209,6 +214,11 @@ func (m *CrudResponse) contextValidateAction(ctx context.Context, formats strfmt
 func (m *CrudResponse) contextValidateQuery(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Query != nil {
+
+		if swag.IsZero(m.Query) { // not required
+			return nil
+		}
+
 		if err := m.Query.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("query")
@@ -225,6 +235,11 @@ func (m *CrudResponse) contextValidateQuery(ctx context.Context, formats strfmt.
 func (m *CrudResponse) contextValidateRead(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Read != nil {
+
+		if swag.IsZero(m.Read) { // not required
+			return nil
+		}
+
 		if err := m.Read.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("read")
@@ -241,6 +256,11 @@ func (m *CrudResponse) contextValidateRead(ctx context.Context, formats strfmt.R
 func (m *CrudResponse) contextValidateResult(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Result != nil {
+
+		if swag.IsZero(m.Result) { // not required
+			return nil
+		}
+
 		if err := m.Result.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result")
@@ -257,6 +277,11 @@ func (m *CrudResponse) contextValidateResult(ctx context.Context, formats strfmt
 func (m *CrudResponse) contextValidateToken(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Token != nil {
+
+		if swag.IsZero(m.Token) { // not required
+			return nil
+		}
+
 		if err := m.Token.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("token")

@@ -206,6 +206,11 @@ func (m *ConfigNetworkConfig) contextValidateDNS(ctx context.Context, formats st
 	for i := 0; i < len(m.DNS); i++ {
 
 		if m.DNS[i] != nil {
+
+			if swag.IsZero(m.DNS[i]) { // not required
+				return nil
+			}
+
 			if err := m.DNS[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dns" + "." + strconv.Itoa(i))
@@ -224,6 +229,11 @@ func (m *ConfigNetworkConfig) contextValidateDNS(ctx context.Context, formats st
 func (m *ConfigNetworkConfig) contextValidateEntProxy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.EntProxy != nil {
+
+		if swag.IsZero(m.EntProxy) { // not required
+			return nil
+		}
+
 		if err := m.EntProxy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("entProxy")
@@ -240,6 +250,11 @@ func (m *ConfigNetworkConfig) contextValidateEntProxy(ctx context.Context, forma
 func (m *ConfigNetworkConfig) contextValidateIP(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.IP != nil {
+
+		if swag.IsZero(m.IP) { // not required
+			return nil
+		}
+
 		if err := m.IP.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ip")
@@ -256,6 +271,11 @@ func (m *ConfigNetworkConfig) contextValidateIP(ctx context.Context, formats str
 func (m *ConfigNetworkConfig) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
@@ -272,6 +292,11 @@ func (m *ConfigNetworkConfig) contextValidateType(ctx context.Context, formats s
 func (m *ConfigNetworkConfig) contextValidateWireless(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Wireless != nil {
+
+		if swag.IsZero(m.Wireless) { // not required
+			return nil
+		}
+
 		if err := m.Wireless.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wireless")

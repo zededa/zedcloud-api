@@ -117,6 +117,11 @@ func (o *DatastoreConfigurationCreateDatastoreOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the datastore configuration create datastore o k response
+func (o *DatastoreConfigurationCreateDatastoreOK) Code() int {
+	return 200
+}
+
 func (o *DatastoreConfigurationCreateDatastoreOK) Error() string {
 	return fmt.Sprintf("[POST /v1/datastores][%d] datastoreConfigurationCreateDatastoreOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *DatastoreConfigurationCreateDatastoreBadRequest) IsServerError() bool {
 // IsCode returns true when this datastore configuration create datastore bad request response a status code equal to that given
 func (o *DatastoreConfigurationCreateDatastoreBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the datastore configuration create datastore bad request response
+func (o *DatastoreConfigurationCreateDatastoreBadRequest) Code() int {
+	return 400
 }
 
 func (o *DatastoreConfigurationCreateDatastoreBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *DatastoreConfigurationCreateDatastoreUnauthorized) IsCode(code int) boo
 	return code == 401
 }
 
+// Code gets the status code for the datastore configuration create datastore unauthorized response
+func (o *DatastoreConfigurationCreateDatastoreUnauthorized) Code() int {
+	return 401
+}
+
 func (o *DatastoreConfigurationCreateDatastoreUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /v1/datastores][%d] datastoreConfigurationCreateDatastoreUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *DatastoreConfigurationCreateDatastoreForbidden) IsServerError() bool {
 // IsCode returns true when this datastore configuration create datastore forbidden response a status code equal to that given
 func (o *DatastoreConfigurationCreateDatastoreForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the datastore configuration create datastore forbidden response
+func (o *DatastoreConfigurationCreateDatastoreForbidden) Code() int {
+	return 403
 }
 
 func (o *DatastoreConfigurationCreateDatastoreForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *DatastoreConfigurationCreateDatastoreConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the datastore configuration create datastore conflict response
+func (o *DatastoreConfigurationCreateDatastoreConflict) Code() int {
+	return 409
+}
+
 func (o *DatastoreConfigurationCreateDatastoreConflict) Error() string {
 	return fmt.Sprintf("[POST /v1/datastores][%d] datastoreConfigurationCreateDatastoreConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *DatastoreConfigurationCreateDatastoreInternalServerError) IsServerError
 // IsCode returns true when this datastore configuration create datastore internal server error response a status code equal to that given
 func (o *DatastoreConfigurationCreateDatastoreInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the datastore configuration create datastore internal server error response
+func (o *DatastoreConfigurationCreateDatastoreInternalServerError) Code() int {
+	return 500
 }
 
 func (o *DatastoreConfigurationCreateDatastoreInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *DatastoreConfigurationCreateDatastoreGatewayTimeout) IsCode(code int) b
 	return code == 504
 }
 
+// Code gets the status code for the datastore configuration create datastore gateway timeout response
+func (o *DatastoreConfigurationCreateDatastoreGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *DatastoreConfigurationCreateDatastoreGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/datastores][%d] datastoreConfigurationCreateDatastoreGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type DatastoreConfigurationCreateDatastoreDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the datastore configuration create datastore default response
-func (o *DatastoreConfigurationCreateDatastoreDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this datastore configuration create datastore default response has a 2xx status code
 func (o *DatastoreConfigurationCreateDatastoreDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *DatastoreConfigurationCreateDatastoreDefault) IsServerError() bool {
 // IsCode returns true when this datastore configuration create datastore default response a status code equal to that given
 func (o *DatastoreConfigurationCreateDatastoreDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the datastore configuration create datastore default response
+func (o *DatastoreConfigurationCreateDatastoreDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DatastoreConfigurationCreateDatastoreDefault) Error() string {

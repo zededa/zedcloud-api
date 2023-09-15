@@ -113,6 +113,11 @@ func (m *DeviceLocations) contextValidateDeviceLocations(ctx context.Context, fo
 	for i := 0; i < len(m.DeviceLocations); i++ {
 
 		if m.DeviceLocations[i] != nil {
+
+			if swag.IsZero(m.DeviceLocations[i]) { // not required
+				return nil
+			}
+
 			if err := m.DeviceLocations[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("deviceLocations" + "." + strconv.Itoa(i))
@@ -131,6 +136,11 @@ func (m *DeviceLocations) contextValidateDeviceLocations(ctx context.Context, fo
 func (m *DeviceLocations) contextValidateNext(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Next != nil {
+
+		if swag.IsZero(m.Next) { // not required
+			return nil
+		}
+
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")

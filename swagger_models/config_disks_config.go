@@ -156,6 +156,11 @@ func (m *ConfigDisksConfig) ContextValidate(ctx context.Context, formats strfmt.
 func (m *ConfigDisksConfig) contextValidateArrayType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ArrayType != nil {
+
+		if swag.IsZero(m.ArrayType) { // not required
+			return nil
+		}
+
 		if err := m.ArrayType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("arrayType")
@@ -174,6 +179,11 @@ func (m *ConfigDisksConfig) contextValidateChildren(ctx context.Context, formats
 	for i := 0; i < len(m.Children); i++ {
 
 		if m.Children[i] != nil {
+
+			if swag.IsZero(m.Children[i]) { // not required
+				return nil
+			}
+
 			if err := m.Children[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("children" + "." + strconv.Itoa(i))
@@ -194,6 +204,11 @@ func (m *ConfigDisksConfig) contextValidateDisks(ctx context.Context, formats st
 	for i := 0; i < len(m.Disks); i++ {
 
 		if m.Disks[i] != nil {
+
+			if swag.IsZero(m.Disks[i]) { // not required
+				return nil
+			}
+
 			if err := m.Disks[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("disks" + "." + strconv.Itoa(i))

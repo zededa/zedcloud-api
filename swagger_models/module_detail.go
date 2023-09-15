@@ -85,6 +85,11 @@ func (m *ModuleDetail) ContextValidate(ctx context.Context, formats strfmt.Regis
 func (m *ModuleDetail) contextValidateModuleType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ModuleType != nil {
+
+		if swag.IsZero(m.ModuleType) { // not required
+			return nil
+		}
+
 		if err := m.ModuleType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("moduleType")

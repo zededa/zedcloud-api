@@ -111,6 +111,11 @@ func (o *HardwareModelGetHardwareBrandOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the hardware model get hardware brand o k response
+func (o *HardwareModelGetHardwareBrandOK) Code() int {
+	return 200
+}
+
 func (o *HardwareModelGetHardwareBrandOK) Error() string {
 	return fmt.Sprintf("[GET /v1/brands/id/{id}][%d] hardwareModelGetHardwareBrandOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *HardwareModelGetHardwareBrandUnauthorized) IsServerError() bool {
 // IsCode returns true when this hardware model get hardware brand unauthorized response a status code equal to that given
 func (o *HardwareModelGetHardwareBrandUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the hardware model get hardware brand unauthorized response
+func (o *HardwareModelGetHardwareBrandUnauthorized) Code() int {
+	return 401
 }
 
 func (o *HardwareModelGetHardwareBrandUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *HardwareModelGetHardwareBrandForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the hardware model get hardware brand forbidden response
+func (o *HardwareModelGetHardwareBrandForbidden) Code() int {
+	return 403
+}
+
 func (o *HardwareModelGetHardwareBrandForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/brands/id/{id}][%d] hardwareModelGetHardwareBrandForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *HardwareModelGetHardwareBrandNotFound) IsServerError() bool {
 // IsCode returns true when this hardware model get hardware brand not found response a status code equal to that given
 func (o *HardwareModelGetHardwareBrandNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the hardware model get hardware brand not found response
+func (o *HardwareModelGetHardwareBrandNotFound) Code() int {
+	return 404
 }
 
 func (o *HardwareModelGetHardwareBrandNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *HardwareModelGetHardwareBrandInternalServerError) IsCode(code int) bool
 	return code == 500
 }
 
+// Code gets the status code for the hardware model get hardware brand internal server error response
+func (o *HardwareModelGetHardwareBrandInternalServerError) Code() int {
+	return 500
+}
+
 func (o *HardwareModelGetHardwareBrandInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/brands/id/{id}][%d] hardwareModelGetHardwareBrandInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *HardwareModelGetHardwareBrandGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the hardware model get hardware brand gateway timeout response
+func (o *HardwareModelGetHardwareBrandGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *HardwareModelGetHardwareBrandGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/brands/id/{id}][%d] hardwareModelGetHardwareBrandGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type HardwareModelGetHardwareBrandDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the hardware model get hardware brand default response
-func (o *HardwareModelGetHardwareBrandDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this hardware model get hardware brand default response has a 2xx status code
 func (o *HardwareModelGetHardwareBrandDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *HardwareModelGetHardwareBrandDefault) IsServerError() bool {
 // IsCode returns true when this hardware model get hardware brand default response a status code equal to that given
 func (o *HardwareModelGetHardwareBrandDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the hardware model get hardware brand default response
+func (o *HardwareModelGetHardwareBrandDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *HardwareModelGetHardwareBrandDefault) Error() string {

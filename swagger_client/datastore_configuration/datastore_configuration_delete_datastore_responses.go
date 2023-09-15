@@ -117,6 +117,11 @@ func (o *DatastoreConfigurationDeleteDatastoreOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the datastore configuration delete datastore o k response
+func (o *DatastoreConfigurationDeleteDatastoreOK) Code() int {
+	return 200
+}
+
 func (o *DatastoreConfigurationDeleteDatastoreOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/datastores/id/{id}][%d] datastoreConfigurationDeleteDatastoreOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *DatastoreConfigurationDeleteDatastoreUnauthorized) IsServerError() bool
 // IsCode returns true when this datastore configuration delete datastore unauthorized response a status code equal to that given
 func (o *DatastoreConfigurationDeleteDatastoreUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the datastore configuration delete datastore unauthorized response
+func (o *DatastoreConfigurationDeleteDatastoreUnauthorized) Code() int {
+	return 401
 }
 
 func (o *DatastoreConfigurationDeleteDatastoreUnauthorized) Error() string {
@@ -243,6 +253,11 @@ func (o *DatastoreConfigurationDeleteDatastoreForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the datastore configuration delete datastore forbidden response
+func (o *DatastoreConfigurationDeleteDatastoreForbidden) Code() int {
+	return 403
+}
+
 func (o *DatastoreConfigurationDeleteDatastoreForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/datastores/id/{id}][%d] datastoreConfigurationDeleteDatastoreForbidden  %+v", 403, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *DatastoreConfigurationDeleteDatastoreNotFound) IsServerError() bool {
 // IsCode returns true when this datastore configuration delete datastore not found response a status code equal to that given
 func (o *DatastoreConfigurationDeleteDatastoreNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the datastore configuration delete datastore not found response
+func (o *DatastoreConfigurationDeleteDatastoreNotFound) Code() int {
+	return 404
 }
 
 func (o *DatastoreConfigurationDeleteDatastoreNotFound) Error() string {
@@ -369,6 +389,11 @@ func (o *DatastoreConfigurationDeleteDatastoreConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the datastore configuration delete datastore conflict response
+func (o *DatastoreConfigurationDeleteDatastoreConflict) Code() int {
+	return 409
+}
+
 func (o *DatastoreConfigurationDeleteDatastoreConflict) Error() string {
 	return fmt.Sprintf("[DELETE /v1/datastores/id/{id}][%d] datastoreConfigurationDeleteDatastoreConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *DatastoreConfigurationDeleteDatastoreInternalServerError) IsServerError
 // IsCode returns true when this datastore configuration delete datastore internal server error response a status code equal to that given
 func (o *DatastoreConfigurationDeleteDatastoreInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the datastore configuration delete datastore internal server error response
+func (o *DatastoreConfigurationDeleteDatastoreInternalServerError) Code() int {
+	return 500
 }
 
 func (o *DatastoreConfigurationDeleteDatastoreInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *DatastoreConfigurationDeleteDatastoreGatewayTimeout) IsCode(code int) b
 	return code == 504
 }
 
+// Code gets the status code for the datastore configuration delete datastore gateway timeout response
+func (o *DatastoreConfigurationDeleteDatastoreGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *DatastoreConfigurationDeleteDatastoreGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/datastores/id/{id}][%d] datastoreConfigurationDeleteDatastoreGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type DatastoreConfigurationDeleteDatastoreDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the datastore configuration delete datastore default response
-func (o *DatastoreConfigurationDeleteDatastoreDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this datastore configuration delete datastore default response has a 2xx status code
 func (o *DatastoreConfigurationDeleteDatastoreDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *DatastoreConfigurationDeleteDatastoreDefault) IsServerError() bool {
 // IsCode returns true when this datastore configuration delete datastore default response a status code equal to that given
 func (o *DatastoreConfigurationDeleteDatastoreDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the datastore configuration delete datastore default response
+func (o *DatastoreConfigurationDeleteDatastoreDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DatastoreConfigurationDeleteDatastoreDefault) Error() string {

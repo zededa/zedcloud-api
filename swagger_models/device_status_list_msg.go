@@ -209,6 +209,11 @@ func (m *DeviceStatusListMsg) contextValidateList(ctx context.Context, formats s
 	for i := 0; i < len(m.List); i++ {
 
 		if m.List[i] != nil {
+
+			if swag.IsZero(m.List[i]) { // not required
+				return nil
+			}
+
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
@@ -227,6 +232,11 @@ func (m *DeviceStatusListMsg) contextValidateList(ctx context.Context, formats s
 func (m *DeviceStatusListMsg) contextValidateNext(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Next != nil {
+
+		if swag.IsZero(m.Next) { // not required
+			return nil
+		}
+
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
@@ -243,6 +253,11 @@ func (m *DeviceStatusListMsg) contextValidateNext(ctx context.Context, formats s
 func (m *DeviceStatusListMsg) contextValidateSummaryByAppInstanceCount(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByAppInstanceCount != nil {
+
+		if swag.IsZero(m.SummaryByAppInstanceCount) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByAppInstanceCount.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByAppInstanceCount")
@@ -259,6 +274,11 @@ func (m *DeviceStatusListMsg) contextValidateSummaryByAppInstanceCount(ctx conte
 func (m *DeviceStatusListMsg) contextValidateSummaryByEVEDistribution(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByEVEDistribution != nil {
+
+		if swag.IsZero(m.SummaryByEVEDistribution) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByEVEDistribution.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByEVEDistribution")
@@ -275,6 +295,11 @@ func (m *DeviceStatusListMsg) contextValidateSummaryByEVEDistribution(ctx contex
 func (m *DeviceStatusListMsg) contextValidateSummaryByState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByState != nil {
+
+		if swag.IsZero(m.SummaryByState) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByState")

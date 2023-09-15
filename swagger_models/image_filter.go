@@ -184,6 +184,11 @@ func (m *ImageFilter) ContextValidate(ctx context.Context, formats strfmt.Regist
 func (m *ImageFilter) contextValidateImageArch(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ImageArch != nil {
+
+		if swag.IsZero(m.ImageArch) { // not required
+			return nil
+		}
+
 		if err := m.ImageArch.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageArch")
@@ -200,6 +205,11 @@ func (m *ImageFilter) contextValidateImageArch(ctx context.Context, formats strf
 func (m *ImageFilter) contextValidateImageStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ImageStatus != nil {
+
+		if swag.IsZero(m.ImageStatus) { // not required
+			return nil
+		}
+
 		if err := m.ImageStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageStatus")
@@ -216,6 +226,11 @@ func (m *ImageFilter) contextValidateImageStatus(ctx context.Context, formats st
 func (m *ImageFilter) contextValidateImageType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ImageType != nil {
+
+		if swag.IsZero(m.ImageType) { // not required
+			return nil
+		}
+
 		if err := m.ImageType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imageType")

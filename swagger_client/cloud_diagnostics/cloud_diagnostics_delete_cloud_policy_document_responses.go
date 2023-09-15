@@ -93,6 +93,11 @@ func (o *CloudDiagnosticsDeleteCloudPolicyDocumentOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the cloud diagnostics delete cloud policy document o k response
+func (o *CloudDiagnosticsDeleteCloudPolicyDocumentOK) Code() int {
+	return 200
+}
+
 func (o *CloudDiagnosticsDeleteCloudPolicyDocumentOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/cloud/policies/id/{fileURL}][%d] cloudDiagnosticsDeleteCloudPolicyDocumentOK  %+v", 200, o.Payload)
 }
@@ -154,6 +159,11 @@ func (o *CloudDiagnosticsDeleteCloudPolicyDocumentInternalServerError) IsServerE
 // IsCode returns true when this cloud diagnostics delete cloud policy document internal server error response a status code equal to that given
 func (o *CloudDiagnosticsDeleteCloudPolicyDocumentInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the cloud diagnostics delete cloud policy document internal server error response
+func (o *CloudDiagnosticsDeleteCloudPolicyDocumentInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CloudDiagnosticsDeleteCloudPolicyDocumentInternalServerError) Error() string {
@@ -219,6 +229,11 @@ func (o *CloudDiagnosticsDeleteCloudPolicyDocumentGatewayTimeout) IsCode(code in
 	return code == 504
 }
 
+// Code gets the status code for the cloud diagnostics delete cloud policy document gateway timeout response
+func (o *CloudDiagnosticsDeleteCloudPolicyDocumentGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *CloudDiagnosticsDeleteCloudPolicyDocumentGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/cloud/policies/id/{fileURL}][%d] cloudDiagnosticsDeleteCloudPolicyDocumentGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -261,11 +276,6 @@ type CloudDiagnosticsDeleteCloudPolicyDocumentDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the cloud diagnostics delete cloud policy document default response
-func (o *CloudDiagnosticsDeleteCloudPolicyDocumentDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this cloud diagnostics delete cloud policy document default response has a 2xx status code
 func (o *CloudDiagnosticsDeleteCloudPolicyDocumentDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -289,6 +299,11 @@ func (o *CloudDiagnosticsDeleteCloudPolicyDocumentDefault) IsServerError() bool 
 // IsCode returns true when this cloud diagnostics delete cloud policy document default response a status code equal to that given
 func (o *CloudDiagnosticsDeleteCloudPolicyDocumentDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the cloud diagnostics delete cloud policy document default response
+func (o *CloudDiagnosticsDeleteCloudPolicyDocumentDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CloudDiagnosticsDeleteCloudPolicyDocumentDefault) Error() string {

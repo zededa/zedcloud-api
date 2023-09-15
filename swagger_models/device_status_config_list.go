@@ -234,6 +234,11 @@ func (m *DeviceStatusConfigList) contextValidateList(ctx context.Context, format
 	for i := 0; i < len(m.List); i++ {
 
 		if m.List[i] != nil {
+
+			if swag.IsZero(m.List[i]) { // not required
+				return nil
+			}
+
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
@@ -252,6 +257,11 @@ func (m *DeviceStatusConfigList) contextValidateList(ctx context.Context, format
 func (m *DeviceStatusConfigList) contextValidateNext(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Next != nil {
+
+		if swag.IsZero(m.Next) { // not required
+			return nil
+		}
+
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
@@ -268,6 +278,7 @@ func (m *DeviceStatusConfigList) contextValidateNext(ctx context.Context, format
 func (m *DeviceStatusConfigList) contextValidateSummaryByAppInstanceCount(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByAppInstanceCount != nil {
+
 		if err := m.SummaryByAppInstanceCount.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByAppInstanceCount")
@@ -284,6 +295,7 @@ func (m *DeviceStatusConfigList) contextValidateSummaryByAppInstanceCount(ctx co
 func (m *DeviceStatusConfigList) contextValidateSummaryByEVEDistribution(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByEVEDistribution != nil {
+
 		if err := m.SummaryByEVEDistribution.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByEVEDistribution")
@@ -300,6 +312,7 @@ func (m *DeviceStatusConfigList) contextValidateSummaryByEVEDistribution(ctx con
 func (m *DeviceStatusConfigList) contextValidateSummaryByState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByState != nil {
+
 		if err := m.SummaryByState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByState")

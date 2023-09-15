@@ -117,6 +117,11 @@ func (o *HardwareModelCreateHardwareModelOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the hardware model create hardware model o k response
+func (o *HardwareModelCreateHardwareModelOK) Code() int {
+	return 200
+}
+
 func (o *HardwareModelCreateHardwareModelOK) Error() string {
 	return fmt.Sprintf("[POST /v1/sysmodels][%d] hardwareModelCreateHardwareModelOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *HardwareModelCreateHardwareModelBadRequest) IsServerError() bool {
 // IsCode returns true when this hardware model create hardware model bad request response a status code equal to that given
 func (o *HardwareModelCreateHardwareModelBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the hardware model create hardware model bad request response
+func (o *HardwareModelCreateHardwareModelBadRequest) Code() int {
+	return 400
 }
 
 func (o *HardwareModelCreateHardwareModelBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *HardwareModelCreateHardwareModelUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the hardware model create hardware model unauthorized response
+func (o *HardwareModelCreateHardwareModelUnauthorized) Code() int {
+	return 401
+}
+
 func (o *HardwareModelCreateHardwareModelUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /v1/sysmodels][%d] hardwareModelCreateHardwareModelUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *HardwareModelCreateHardwareModelForbidden) IsServerError() bool {
 // IsCode returns true when this hardware model create hardware model forbidden response a status code equal to that given
 func (o *HardwareModelCreateHardwareModelForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the hardware model create hardware model forbidden response
+func (o *HardwareModelCreateHardwareModelForbidden) Code() int {
+	return 403
 }
 
 func (o *HardwareModelCreateHardwareModelForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *HardwareModelCreateHardwareModelConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the hardware model create hardware model conflict response
+func (o *HardwareModelCreateHardwareModelConflict) Code() int {
+	return 409
+}
+
 func (o *HardwareModelCreateHardwareModelConflict) Error() string {
 	return fmt.Sprintf("[POST /v1/sysmodels][%d] hardwareModelCreateHardwareModelConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *HardwareModelCreateHardwareModelInternalServerError) IsServerError() bo
 // IsCode returns true when this hardware model create hardware model internal server error response a status code equal to that given
 func (o *HardwareModelCreateHardwareModelInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the hardware model create hardware model internal server error response
+func (o *HardwareModelCreateHardwareModelInternalServerError) Code() int {
+	return 500
 }
 
 func (o *HardwareModelCreateHardwareModelInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *HardwareModelCreateHardwareModelGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the hardware model create hardware model gateway timeout response
+func (o *HardwareModelCreateHardwareModelGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *HardwareModelCreateHardwareModelGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/sysmodels][%d] hardwareModelCreateHardwareModelGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type HardwareModelCreateHardwareModelDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the hardware model create hardware model default response
-func (o *HardwareModelCreateHardwareModelDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this hardware model create hardware model default response has a 2xx status code
 func (o *HardwareModelCreateHardwareModelDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *HardwareModelCreateHardwareModelDefault) IsServerError() bool {
 // IsCode returns true when this hardware model create hardware model default response a status code equal to that given
 func (o *HardwareModelCreateHardwareModelDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the hardware model create hardware model default response
+func (o *HardwareModelCreateHardwareModelDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *HardwareModelCreateHardwareModelDefault) Error() string {

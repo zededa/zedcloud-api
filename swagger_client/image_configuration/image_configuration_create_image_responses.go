@@ -117,6 +117,11 @@ func (o *ImageConfigurationCreateImageOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the image configuration create image o k response
+func (o *ImageConfigurationCreateImageOK) Code() int {
+	return 200
+}
+
 func (o *ImageConfigurationCreateImageOK) Error() string {
 	return fmt.Sprintf("[POST /v1/apps/images][%d] imageConfigurationCreateImageOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *ImageConfigurationCreateImageBadRequest) IsServerError() bool {
 // IsCode returns true when this image configuration create image bad request response a status code equal to that given
 func (o *ImageConfigurationCreateImageBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the image configuration create image bad request response
+func (o *ImageConfigurationCreateImageBadRequest) Code() int {
+	return 400
 }
 
 func (o *ImageConfigurationCreateImageBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *ImageConfigurationCreateImageUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the image configuration create image unauthorized response
+func (o *ImageConfigurationCreateImageUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ImageConfigurationCreateImageUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /v1/apps/images][%d] imageConfigurationCreateImageUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *ImageConfigurationCreateImageForbidden) IsServerError() bool {
 // IsCode returns true when this image configuration create image forbidden response a status code equal to that given
 func (o *ImageConfigurationCreateImageForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the image configuration create image forbidden response
+func (o *ImageConfigurationCreateImageForbidden) Code() int {
+	return 403
 }
 
 func (o *ImageConfigurationCreateImageForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *ImageConfigurationCreateImageConflict) IsCode(code int) bool {
 	return code == 409
 }
 
+// Code gets the status code for the image configuration create image conflict response
+func (o *ImageConfigurationCreateImageConflict) Code() int {
+	return 409
+}
+
 func (o *ImageConfigurationCreateImageConflict) Error() string {
 	return fmt.Sprintf("[POST /v1/apps/images][%d] imageConfigurationCreateImageConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *ImageConfigurationCreateImageInternalServerError) IsServerError() bool 
 // IsCode returns true when this image configuration create image internal server error response a status code equal to that given
 func (o *ImageConfigurationCreateImageInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the image configuration create image internal server error response
+func (o *ImageConfigurationCreateImageInternalServerError) Code() int {
+	return 500
 }
 
 func (o *ImageConfigurationCreateImageInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *ImageConfigurationCreateImageGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the image configuration create image gateway timeout response
+func (o *ImageConfigurationCreateImageGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ImageConfigurationCreateImageGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/apps/images][%d] imageConfigurationCreateImageGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type ImageConfigurationCreateImageDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the image configuration create image default response
-func (o *ImageConfigurationCreateImageDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this image configuration create image default response has a 2xx status code
 func (o *ImageConfigurationCreateImageDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *ImageConfigurationCreateImageDefault) IsServerError() bool {
 // IsCode returns true when this image configuration create image default response a status code equal to that given
 func (o *ImageConfigurationCreateImageDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the image configuration create image default response
+func (o *ImageConfigurationCreateImageDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ImageConfigurationCreateImageDefault) Error() string {

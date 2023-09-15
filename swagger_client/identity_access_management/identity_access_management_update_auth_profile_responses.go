@@ -121,6 +121,11 @@ func (o *IdentityAccessManagementUpdateAuthProfileOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management update auth profile o k response
+func (o *IdentityAccessManagementUpdateAuthProfileOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementUpdateAuthProfileOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/authorization/profiles/id/{id}][%d] identityAccessManagementUpdateAuthProfileOK  %+v", 200, o.Payload)
 }
@@ -182,6 +187,11 @@ func (o *IdentityAccessManagementUpdateAuthProfileUnauthorized) IsServerError() 
 // IsCode returns true when this identity access management update auth profile unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementUpdateAuthProfileUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management update auth profile unauthorized response
+func (o *IdentityAccessManagementUpdateAuthProfileUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementUpdateAuthProfileUnauthorized) Error() string {
@@ -247,6 +257,11 @@ func (o *IdentityAccessManagementUpdateAuthProfileForbidden) IsCode(code int) bo
 	return code == 403
 }
 
+// Code gets the status code for the identity access management update auth profile forbidden response
+func (o *IdentityAccessManagementUpdateAuthProfileForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementUpdateAuthProfileForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/authorization/profiles/id/{id}][%d] identityAccessManagementUpdateAuthProfileForbidden  %+v", 403, o.Payload)
 }
@@ -308,6 +323,11 @@ func (o *IdentityAccessManagementUpdateAuthProfileNotFound) IsServerError() bool
 // IsCode returns true when this identity access management update auth profile not found response a status code equal to that given
 func (o *IdentityAccessManagementUpdateAuthProfileNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management update auth profile not found response
+func (o *IdentityAccessManagementUpdateAuthProfileNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementUpdateAuthProfileNotFound) Error() string {
@@ -373,6 +393,11 @@ func (o *IdentityAccessManagementUpdateAuthProfileConflict) IsCode(code int) boo
 	return code == 409
 }
 
+// Code gets the status code for the identity access management update auth profile conflict response
+func (o *IdentityAccessManagementUpdateAuthProfileConflict) Code() int {
+	return 409
+}
+
 func (o *IdentityAccessManagementUpdateAuthProfileConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/authorization/profiles/id/{id}][%d] identityAccessManagementUpdateAuthProfileConflict  %+v", 409, o.Payload)
 }
@@ -434,6 +459,11 @@ func (o *IdentityAccessManagementUpdateAuthProfileInternalServerError) IsServerE
 // IsCode returns true when this identity access management update auth profile internal server error response a status code equal to that given
 func (o *IdentityAccessManagementUpdateAuthProfileInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management update auth profile internal server error response
+func (o *IdentityAccessManagementUpdateAuthProfileInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementUpdateAuthProfileInternalServerError) Error() string {
@@ -499,6 +529,11 @@ func (o *IdentityAccessManagementUpdateAuthProfileGatewayTimeout) IsCode(code in
 	return code == 504
 }
 
+// Code gets the status code for the identity access management update auth profile gateway timeout response
+func (o *IdentityAccessManagementUpdateAuthProfileGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementUpdateAuthProfileGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/authorization/profiles/id/{id}][%d] identityAccessManagementUpdateAuthProfileGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -541,11 +576,6 @@ type IdentityAccessManagementUpdateAuthProfileDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management update auth profile default response
-func (o *IdentityAccessManagementUpdateAuthProfileDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management update auth profile default response has a 2xx status code
 func (o *IdentityAccessManagementUpdateAuthProfileDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -569,6 +599,11 @@ func (o *IdentityAccessManagementUpdateAuthProfileDefault) IsServerError() bool 
 // IsCode returns true when this identity access management update auth profile default response a status code equal to that given
 func (o *IdentityAccessManagementUpdateAuthProfileDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management update auth profile default response
+func (o *IdentityAccessManagementUpdateAuthProfileDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementUpdateAuthProfileDefault) Error() string {
@@ -914,6 +949,11 @@ func (o *IdentityAccessManagementUpdateAuthProfileBody) ContextValidate(ctx cont
 func (o *IdentityAccessManagementUpdateAuthProfileBody) contextValidateOauthProfile(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.OauthProfile != nil {
+
+		if swag.IsZero(o.OauthProfile) { // not required
+			return nil
+		}
+
 		if err := o.OauthProfile.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "oauthProfile")
@@ -930,6 +970,11 @@ func (o *IdentityAccessManagementUpdateAuthProfileBody) contextValidateOauthProf
 func (o *IdentityAccessManagementUpdateAuthProfileBody) contextValidatePasswordProfile(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.PasswordProfile != nil {
+
+		if swag.IsZero(o.PasswordProfile) { // not required
+			return nil
+		}
+
 		if err := o.PasswordProfile.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "passwordProfile")
@@ -946,6 +991,11 @@ func (o *IdentityAccessManagementUpdateAuthProfileBody) contextValidatePasswordP
 func (o *IdentityAccessManagementUpdateAuthProfileBody) contextValidateProfileType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ProfileType != nil {
+
+		if swag.IsZero(o.ProfileType) { // not required
+			return nil
+		}
+
 		if err := o.ProfileType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "profileType")
@@ -962,6 +1012,11 @@ func (o *IdentityAccessManagementUpdateAuthProfileBody) contextValidateProfileTy
 func (o *IdentityAccessManagementUpdateAuthProfileBody) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Revision != nil {
+
+		if swag.IsZero(o.Revision) { // not required
+			return nil
+		}
+
 		if err := o.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "revision")
@@ -978,6 +1033,11 @@ func (o *IdentityAccessManagementUpdateAuthProfileBody) contextValidateRevision(
 func (o *IdentityAccessManagementUpdateAuthProfileBody) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Type != nil {
+
+		if swag.IsZero(o.Type) { // not required
+			return nil
+		}
+
 		if err := o.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "type")

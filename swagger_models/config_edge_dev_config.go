@@ -848,6 +848,11 @@ func (m *ConfigEdgeDevConfig) contextValidateApps(ctx context.Context, formats s
 	for i := 0; i < len(m.Apps); i++ {
 
 		if m.Apps[i] != nil {
+
+			if swag.IsZero(m.Apps[i]) { // not required
+				return nil
+			}
+
 			if err := m.Apps[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("apps" + "." + strconv.Itoa(i))
@@ -866,6 +871,11 @@ func (m *ConfigEdgeDevConfig) contextValidateApps(ctx context.Context, formats s
 func (m *ConfigEdgeDevConfig) contextValidateBackup(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Backup != nil {
+
+		if swag.IsZero(m.Backup) { // not required
+			return nil
+		}
+
 		if err := m.Backup.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("backup")
@@ -884,6 +894,11 @@ func (m *ConfigEdgeDevConfig) contextValidateBase(ctx context.Context, formats s
 	for i := 0; i < len(m.Base); i++ {
 
 		if m.Base[i] != nil {
+
+			if swag.IsZero(m.Base[i]) { // not required
+				return nil
+			}
+
 			if err := m.Base[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("base" + "." + strconv.Itoa(i))
@@ -902,6 +917,11 @@ func (m *ConfigEdgeDevConfig) contextValidateBase(ctx context.Context, formats s
 func (m *ConfigEdgeDevConfig) contextValidateBaseos(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Baseos != nil {
+
+		if swag.IsZero(m.Baseos) { // not required
+			return nil
+		}
+
 		if err := m.Baseos.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("baseos")
@@ -920,6 +940,11 @@ func (m *ConfigEdgeDevConfig) contextValidateBonds(ctx context.Context, formats 
 	for i := 0; i < len(m.Bonds); i++ {
 
 		if m.Bonds[i] != nil {
+
+			if swag.IsZero(m.Bonds[i]) { // not required
+				return nil
+			}
+
 			if err := m.Bonds[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("bonds" + "." + strconv.Itoa(i))
@@ -940,6 +965,11 @@ func (m *ConfigEdgeDevConfig) contextValidateCipherContexts(ctx context.Context,
 	for i := 0; i < len(m.CipherContexts); i++ {
 
 		if m.CipherContexts[i] != nil {
+
+			if swag.IsZero(m.CipherContexts[i]) { // not required
+				return nil
+			}
+
 			if err := m.CipherContexts[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("cipherContexts" + "." + strconv.Itoa(i))
@@ -960,6 +990,11 @@ func (m *ConfigEdgeDevConfig) contextValidateConfigItems(ctx context.Context, fo
 	for i := 0; i < len(m.ConfigItems); i++ {
 
 		if m.ConfigItems[i] != nil {
+
+			if swag.IsZero(m.ConfigItems[i]) { // not required
+				return nil
+			}
+
 			if err := m.ConfigItems[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("configItems" + "." + strconv.Itoa(i))
@@ -980,6 +1015,11 @@ func (m *ConfigEdgeDevConfig) contextValidateContentInfo(ctx context.Context, fo
 	for i := 0; i < len(m.ContentInfo); i++ {
 
 		if m.ContentInfo[i] != nil {
+
+			if swag.IsZero(m.ContentInfo[i]) { // not required
+				return nil
+			}
+
 			if err := m.ContentInfo[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("contentInfo" + "." + strconv.Itoa(i))
@@ -1000,6 +1040,11 @@ func (m *ConfigEdgeDevConfig) contextValidateDatastores(ctx context.Context, for
 	for i := 0; i < len(m.Datastores); i++ {
 
 		if m.Datastores[i] != nil {
+
+			if swag.IsZero(m.Datastores[i]) { // not required
+				return nil
+			}
+
 			if err := m.Datastores[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("datastores" + "." + strconv.Itoa(i))
@@ -1020,6 +1065,11 @@ func (m *ConfigEdgeDevConfig) contextValidateDeviceIoList(ctx context.Context, f
 	for i := 0; i < len(m.DeviceIoList); i++ {
 
 		if m.DeviceIoList[i] != nil {
+
+			if swag.IsZero(m.DeviceIoList[i]) { // not required
+				return nil
+			}
+
 			if err := m.DeviceIoList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("deviceIoList" + "." + strconv.Itoa(i))
@@ -1038,6 +1088,11 @@ func (m *ConfigEdgeDevConfig) contextValidateDeviceIoList(ctx context.Context, f
 func (m *ConfigEdgeDevConfig) contextValidateDisks(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Disks != nil {
+
+		if swag.IsZero(m.Disks) { // not required
+			return nil
+		}
+
 		if err := m.Disks.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("disks")
@@ -1054,6 +1109,11 @@ func (m *ConfigEdgeDevConfig) contextValidateDisks(ctx context.Context, formats 
 func (m *ConfigEdgeDevConfig) contextValidateEdgeview(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Edgeview != nil {
+
+		if swag.IsZero(m.Edgeview) { // not required
+			return nil
+		}
+
 		if err := m.Edgeview.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("edgeview")
@@ -1070,6 +1130,11 @@ func (m *ConfigEdgeDevConfig) contextValidateEdgeview(ctx context.Context, forma
 func (m *ConfigEdgeDevConfig) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ID != nil {
+
+		if swag.IsZero(m.ID) { // not required
+			return nil
+		}
+
 		if err := m.ID.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("id")
@@ -1088,6 +1153,11 @@ func (m *ConfigEdgeDevConfig) contextValidateNetworkInstances(ctx context.Contex
 	for i := 0; i < len(m.NetworkInstances); i++ {
 
 		if m.NetworkInstances[i] != nil {
+
+			if swag.IsZero(m.NetworkInstances[i]) { // not required
+				return nil
+			}
+
 			if err := m.NetworkInstances[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("networkInstances" + "." + strconv.Itoa(i))
@@ -1108,6 +1178,11 @@ func (m *ConfigEdgeDevConfig) contextValidateNetworks(ctx context.Context, forma
 	for i := 0; i < len(m.Networks); i++ {
 
 		if m.Networks[i] != nil {
+
+			if swag.IsZero(m.Networks[i]) { // not required
+				return nil
+			}
+
 			if err := m.Networks[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("networks" + "." + strconv.Itoa(i))
@@ -1126,6 +1201,11 @@ func (m *ConfigEdgeDevConfig) contextValidateNetworks(ctx context.Context, forma
 func (m *ConfigEdgeDevConfig) contextValidateReboot(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Reboot != nil {
+
+		if swag.IsZero(m.Reboot) { // not required
+			return nil
+		}
+
 		if err := m.Reboot.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("reboot")
@@ -1142,6 +1222,11 @@ func (m *ConfigEdgeDevConfig) contextValidateReboot(ctx context.Context, formats
 func (m *ConfigEdgeDevConfig) contextValidateShutdown(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Shutdown != nil {
+
+		if swag.IsZero(m.Shutdown) { // not required
+			return nil
+		}
+
 		if err := m.Shutdown.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("shutdown")
@@ -1160,6 +1245,11 @@ func (m *ConfigEdgeDevConfig) contextValidateSystemAdapterList(ctx context.Conte
 	for i := 0; i < len(m.SystemAdapterList); i++ {
 
 		if m.SystemAdapterList[i] != nil {
+
+			if swag.IsZero(m.SystemAdapterList[i]) { // not required
+				return nil
+			}
+
 			if err := m.SystemAdapterList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("systemAdapterList" + "." + strconv.Itoa(i))
@@ -1180,6 +1270,11 @@ func (m *ConfigEdgeDevConfig) contextValidateVlans(ctx context.Context, formats 
 	for i := 0; i < len(m.Vlans); i++ {
 
 		if m.Vlans[i] != nil {
+
+			if swag.IsZero(m.Vlans[i]) { // not required
+				return nil
+			}
+
 			if err := m.Vlans[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("vlans" + "." + strconv.Itoa(i))
@@ -1200,6 +1295,11 @@ func (m *ConfigEdgeDevConfig) contextValidateVolumes(ctx context.Context, format
 	for i := 0; i < len(m.Volumes); i++ {
 
 		if m.Volumes[i] != nil {
+
+			if swag.IsZero(m.Volumes[i]) { // not required
+				return nil
+			}
+
 			if err := m.Volumes[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("volumes" + "." + strconv.Itoa(i))

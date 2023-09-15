@@ -94,6 +94,11 @@ func (m *OAUTHProfile) ContextValidate(ctx context.Context, formats strfmt.Regis
 func (m *OAUTHProfile) contextValidateJwtAuthProfile(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.JwtAuthProfile != nil {
+
+		if swag.IsZero(m.JwtAuthProfile) { // not required
+			return nil
+		}
+
 		if err := m.JwtAuthProfile.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("jwtAuthProfile")

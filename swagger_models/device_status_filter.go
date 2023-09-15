@@ -118,6 +118,11 @@ func (m *DeviceStatusFilter) ContextValidate(ctx context.Context, formats strfmt
 func (m *DeviceStatusFilter) contextValidateLoad(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Load != nil {
+
+		if swag.IsZero(m.Load) { // not required
+			return nil
+		}
+
 		if err := m.Load.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("load")
@@ -134,6 +139,11 @@ func (m *DeviceStatusFilter) contextValidateLoad(ctx context.Context, formats st
 func (m *DeviceStatusFilter) contextValidateRunState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.RunState != nil {
+
+		if swag.IsZero(m.RunState) { // not required
+			return nil
+		}
+
 		if err := m.RunState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runState")

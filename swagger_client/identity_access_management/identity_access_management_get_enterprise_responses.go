@@ -111,6 +111,11 @@ func (o *IdentityAccessManagementGetEnterpriseOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management get enterprise o k response
+func (o *IdentityAccessManagementGetEnterpriseOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementGetEnterpriseOK) Error() string {
 	return fmt.Sprintf("[GET /v1/enterprises/id/{id}][%d] identityAccessManagementGetEnterpriseOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *IdentityAccessManagementGetEnterpriseUnauthorized) IsServerError() bool
 // IsCode returns true when this identity access management get enterprise unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementGetEnterpriseUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management get enterprise unauthorized response
+func (o *IdentityAccessManagementGetEnterpriseUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementGetEnterpriseUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *IdentityAccessManagementGetEnterpriseForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the identity access management get enterprise forbidden response
+func (o *IdentityAccessManagementGetEnterpriseForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementGetEnterpriseForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/enterprises/id/{id}][%d] identityAccessManagementGetEnterpriseForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *IdentityAccessManagementGetEnterpriseNotFound) IsServerError() bool {
 // IsCode returns true when this identity access management get enterprise not found response a status code equal to that given
 func (o *IdentityAccessManagementGetEnterpriseNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management get enterprise not found response
+func (o *IdentityAccessManagementGetEnterpriseNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementGetEnterpriseNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *IdentityAccessManagementGetEnterpriseInternalServerError) IsCode(code i
 	return code == 500
 }
 
+// Code gets the status code for the identity access management get enterprise internal server error response
+func (o *IdentityAccessManagementGetEnterpriseInternalServerError) Code() int {
+	return 500
+}
+
 func (o *IdentityAccessManagementGetEnterpriseInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/enterprises/id/{id}][%d] identityAccessManagementGetEnterpriseInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *IdentityAccessManagementGetEnterpriseGatewayTimeout) IsCode(code int) b
 	return code == 504
 }
 
+// Code gets the status code for the identity access management get enterprise gateway timeout response
+func (o *IdentityAccessManagementGetEnterpriseGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementGetEnterpriseGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/enterprises/id/{id}][%d] identityAccessManagementGetEnterpriseGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type IdentityAccessManagementGetEnterpriseDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management get enterprise default response
-func (o *IdentityAccessManagementGetEnterpriseDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management get enterprise default response has a 2xx status code
 func (o *IdentityAccessManagementGetEnterpriseDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *IdentityAccessManagementGetEnterpriseDefault) IsServerError() bool {
 // IsCode returns true when this identity access management get enterprise default response a status code equal to that given
 func (o *IdentityAccessManagementGetEnterpriseDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management get enterprise default response
+func (o *IdentityAccessManagementGetEnterpriseDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementGetEnterpriseDefault) Error() string {

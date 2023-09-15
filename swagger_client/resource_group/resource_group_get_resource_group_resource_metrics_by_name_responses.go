@@ -111,6 +111,11 @@ func (o *ResourceGroupGetResourceGroupResourceMetricsByNameOK) IsCode(code int) 
 	return code == 200
 }
 
+// Code gets the status code for the resource group get resource group resource metrics by name o k response
+func (o *ResourceGroupGetResourceGroupResourceMetricsByNameOK) Code() int {
+	return 200
+}
+
 func (o *ResourceGroupGetResourceGroupResourceMetricsByNameOK) Error() string {
 	return fmt.Sprintf("[GET /v1/projects/name/{objname}/timeSeries/{mType}][%d] resourceGroupGetResourceGroupResourceMetricsByNameOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *ResourceGroupGetResourceGroupResourceMetricsByNameUnauthorized) IsServe
 // IsCode returns true when this resource group get resource group resource metrics by name unauthorized response a status code equal to that given
 func (o *ResourceGroupGetResourceGroupResourceMetricsByNameUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the resource group get resource group resource metrics by name unauthorized response
+func (o *ResourceGroupGetResourceGroupResourceMetricsByNameUnauthorized) Code() int {
+	return 401
 }
 
 func (o *ResourceGroupGetResourceGroupResourceMetricsByNameUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *ResourceGroupGetResourceGroupResourceMetricsByNameForbidden) IsCode(cod
 	return code == 403
 }
 
+// Code gets the status code for the resource group get resource group resource metrics by name forbidden response
+func (o *ResourceGroupGetResourceGroupResourceMetricsByNameForbidden) Code() int {
+	return 403
+}
+
 func (o *ResourceGroupGetResourceGroupResourceMetricsByNameForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/projects/name/{objname}/timeSeries/{mType}][%d] resourceGroupGetResourceGroupResourceMetricsByNameForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *ResourceGroupGetResourceGroupResourceMetricsByNameNotFound) IsServerErr
 // IsCode returns true when this resource group get resource group resource metrics by name not found response a status code equal to that given
 func (o *ResourceGroupGetResourceGroupResourceMetricsByNameNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the resource group get resource group resource metrics by name not found response
+func (o *ResourceGroupGetResourceGroupResourceMetricsByNameNotFound) Code() int {
+	return 404
 }
 
 func (o *ResourceGroupGetResourceGroupResourceMetricsByNameNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *ResourceGroupGetResourceGroupResourceMetricsByNameInternalServerError) 
 	return code == 500
 }
 
+// Code gets the status code for the resource group get resource group resource metrics by name internal server error response
+func (o *ResourceGroupGetResourceGroupResourceMetricsByNameInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ResourceGroupGetResourceGroupResourceMetricsByNameInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/projects/name/{objname}/timeSeries/{mType}][%d] resourceGroupGetResourceGroupResourceMetricsByNameInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *ResourceGroupGetResourceGroupResourceMetricsByNameGatewayTimeout) IsCod
 	return code == 504
 }
 
+// Code gets the status code for the resource group get resource group resource metrics by name gateway timeout response
+func (o *ResourceGroupGetResourceGroupResourceMetricsByNameGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ResourceGroupGetResourceGroupResourceMetricsByNameGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/projects/name/{objname}/timeSeries/{mType}][%d] resourceGroupGetResourceGroupResourceMetricsByNameGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type ResourceGroupGetResourceGroupResourceMetricsByNameDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the resource group get resource group resource metrics by name default response
-func (o *ResourceGroupGetResourceGroupResourceMetricsByNameDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this resource group get resource group resource metrics by name default response has a 2xx status code
 func (o *ResourceGroupGetResourceGroupResourceMetricsByNameDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *ResourceGroupGetResourceGroupResourceMetricsByNameDefault) IsServerErro
 // IsCode returns true when this resource group get resource group resource metrics by name default response a status code equal to that given
 func (o *ResourceGroupGetResourceGroupResourceMetricsByNameDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the resource group get resource group resource metrics by name default response
+func (o *ResourceGroupGetResourceGroupResourceMetricsByNameDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ResourceGroupGetResourceGroupResourceMetricsByNameDefault) Error() string {

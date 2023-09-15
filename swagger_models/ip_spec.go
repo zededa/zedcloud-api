@@ -125,6 +125,11 @@ func (m *IPSpec) ContextValidate(ctx context.Context, formats strfmt.Registry) e
 func (m *IPSpec) contextValidateDhcp(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Dhcp != nil {
+
+		if swag.IsZero(m.Dhcp) { // not required
+			return nil
+		}
+
 		if err := m.Dhcp.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dhcp")
@@ -141,6 +146,11 @@ func (m *IPSpec) contextValidateDhcp(ctx context.Context, formats strfmt.Registr
 func (m *IPSpec) contextValidateDhcpRange(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DhcpRange != nil {
+
+		if swag.IsZero(m.DhcpRange) { // not required
+			return nil
+		}
+
 		if err := m.DhcpRange.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dhcpRange")

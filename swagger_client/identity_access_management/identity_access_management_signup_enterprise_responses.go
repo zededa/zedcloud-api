@@ -105,6 +105,11 @@ func (o *IdentityAccessManagementSignupEnterpriseOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management signup enterprise o k response
+func (o *IdentityAccessManagementSignupEnterpriseOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementSignupEnterpriseOK) Error() string {
 	return fmt.Sprintf("[POST /v1/login/signup/enterprise][%d] identityAccessManagementSignupEnterpriseOK  %+v", 200, o.Payload)
 }
@@ -166,6 +171,11 @@ func (o *IdentityAccessManagementSignupEnterpriseUnauthorized) IsServerError() b
 // IsCode returns true when this identity access management signup enterprise unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementSignupEnterpriseUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management signup enterprise unauthorized response
+func (o *IdentityAccessManagementSignupEnterpriseUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementSignupEnterpriseUnauthorized) Error() string {
@@ -231,6 +241,11 @@ func (o *IdentityAccessManagementSignupEnterpriseForbidden) IsCode(code int) boo
 	return code == 403
 }
 
+// Code gets the status code for the identity access management signup enterprise forbidden response
+func (o *IdentityAccessManagementSignupEnterpriseForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementSignupEnterpriseForbidden) Error() string {
 	return fmt.Sprintf("[POST /v1/login/signup/enterprise][%d] identityAccessManagementSignupEnterpriseForbidden  %+v", 403, o.Payload)
 }
@@ -292,6 +307,11 @@ func (o *IdentityAccessManagementSignupEnterpriseInternalServerError) IsServerEr
 // IsCode returns true when this identity access management signup enterprise internal server error response a status code equal to that given
 func (o *IdentityAccessManagementSignupEnterpriseInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management signup enterprise internal server error response
+func (o *IdentityAccessManagementSignupEnterpriseInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementSignupEnterpriseInternalServerError) Error() string {
@@ -357,6 +377,11 @@ func (o *IdentityAccessManagementSignupEnterpriseGatewayTimeout) IsCode(code int
 	return code == 504
 }
 
+// Code gets the status code for the identity access management signup enterprise gateway timeout response
+func (o *IdentityAccessManagementSignupEnterpriseGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementSignupEnterpriseGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/login/signup/enterprise][%d] identityAccessManagementSignupEnterpriseGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -399,11 +424,6 @@ type IdentityAccessManagementSignupEnterpriseDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management signup enterprise default response
-func (o *IdentityAccessManagementSignupEnterpriseDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management signup enterprise default response has a 2xx status code
 func (o *IdentityAccessManagementSignupEnterpriseDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -427,6 +447,11 @@ func (o *IdentityAccessManagementSignupEnterpriseDefault) IsServerError() bool {
 // IsCode returns true when this identity access management signup enterprise default response a status code equal to that given
 func (o *IdentityAccessManagementSignupEnterpriseDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management signup enterprise default response
+func (o *IdentityAccessManagementSignupEnterpriseDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementSignupEnterpriseDefault) Error() string {

@@ -137,6 +137,11 @@ func (m *ConfigVMConfig) ContextValidate(ctx context.Context, formats strfmt.Reg
 func (m *ConfigVMConfig) contextValidateVirtualizationMode(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.VirtualizationMode != nil {
+
+		if swag.IsZero(m.VirtualizationMode) { // not required
+			return nil
+		}
+
 		if err := m.VirtualizationMode.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("virtualizationMode")

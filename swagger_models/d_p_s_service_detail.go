@@ -103,6 +103,11 @@ func (m *DPSServiceDetail) ContextValidate(ctx context.Context, formats strfmt.R
 func (m *DPSServiceDetail) contextValidateEnrollment(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Enrollment != nil {
+
+		if swag.IsZero(m.Enrollment) { // not required
+			return nil
+		}
+
 		if err := m.Enrollment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enrollment")
@@ -119,6 +124,11 @@ func (m *DPSServiceDetail) contextValidateEnrollment(ctx context.Context, format
 func (m *DPSServiceDetail) contextValidateServiceDetail(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ServiceDetail != nil {
+
+		if swag.IsZero(m.ServiceDetail) { // not required
+			return nil
+		}
+
 		if err := m.ServiceDetail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("serviceDetail")

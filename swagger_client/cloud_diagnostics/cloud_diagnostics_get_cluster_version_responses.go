@@ -93,6 +93,11 @@ func (o *CloudDiagnosticsGetClusterVersionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the cloud diagnostics get cluster version o k response
+func (o *CloudDiagnosticsGetClusterVersionOK) Code() int {
+	return 200
+}
+
 func (o *CloudDiagnosticsGetClusterVersionOK) Error() string {
 	return fmt.Sprintf("[GET /v1/cloud/version][%d] cloudDiagnosticsGetClusterVersionOK  %+v", 200, o.Payload)
 }
@@ -154,6 +159,11 @@ func (o *CloudDiagnosticsGetClusterVersionInternalServerError) IsServerError() b
 // IsCode returns true when this cloud diagnostics get cluster version internal server error response a status code equal to that given
 func (o *CloudDiagnosticsGetClusterVersionInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the cloud diagnostics get cluster version internal server error response
+func (o *CloudDiagnosticsGetClusterVersionInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CloudDiagnosticsGetClusterVersionInternalServerError) Error() string {
@@ -219,6 +229,11 @@ func (o *CloudDiagnosticsGetClusterVersionGatewayTimeout) IsCode(code int) bool 
 	return code == 504
 }
 
+// Code gets the status code for the cloud diagnostics get cluster version gateway timeout response
+func (o *CloudDiagnosticsGetClusterVersionGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *CloudDiagnosticsGetClusterVersionGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/cloud/version][%d] cloudDiagnosticsGetClusterVersionGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -261,11 +276,6 @@ type CloudDiagnosticsGetClusterVersionDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the cloud diagnostics get cluster version default response
-func (o *CloudDiagnosticsGetClusterVersionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this cloud diagnostics get cluster version default response has a 2xx status code
 func (o *CloudDiagnosticsGetClusterVersionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -289,6 +299,11 @@ func (o *CloudDiagnosticsGetClusterVersionDefault) IsServerError() bool {
 // IsCode returns true when this cloud diagnostics get cluster version default response a status code equal to that given
 func (o *CloudDiagnosticsGetClusterVersionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the cloud diagnostics get cluster version default response
+func (o *CloudDiagnosticsGetClusterVersionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CloudDiagnosticsGetClusterVersionDefault) Error() string {

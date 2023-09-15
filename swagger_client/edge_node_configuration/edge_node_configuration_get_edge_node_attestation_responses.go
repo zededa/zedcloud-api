@@ -111,6 +111,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeAttestationOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge node configuration get edge node attestation o k response
+func (o *EdgeNodeConfigurationGetEdgeNodeAttestationOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeConfigurationGetEdgeNodeAttestationOK) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/id/{id}/attestation][%d] edgeNodeConfigurationGetEdgeNodeAttestationOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeAttestationUnauthorized) IsServerError(
 // IsCode returns true when this edge node configuration get edge node attestation unauthorized response a status code equal to that given
 func (o *EdgeNodeConfigurationGetEdgeNodeAttestationUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge node configuration get edge node attestation unauthorized response
+func (o *EdgeNodeConfigurationGetEdgeNodeAttestationUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNodeConfigurationGetEdgeNodeAttestationUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeAttestationForbidden) IsCode(code int) 
 	return code == 403
 }
 
+// Code gets the status code for the edge node configuration get edge node attestation forbidden response
+func (o *EdgeNodeConfigurationGetEdgeNodeAttestationForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNodeConfigurationGetEdgeNodeAttestationForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/id/{id}/attestation][%d] edgeNodeConfigurationGetEdgeNodeAttestationForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeAttestationNotFound) IsServerError() bo
 // IsCode returns true when this edge node configuration get edge node attestation not found response a status code equal to that given
 func (o *EdgeNodeConfigurationGetEdgeNodeAttestationNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge node configuration get edge node attestation not found response
+func (o *EdgeNodeConfigurationGetEdgeNodeAttestationNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNodeConfigurationGetEdgeNodeAttestationNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeAttestationInternalServerError) IsCode(
 	return code == 500
 }
 
+// Code gets the status code for the edge node configuration get edge node attestation internal server error response
+func (o *EdgeNodeConfigurationGetEdgeNodeAttestationInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeNodeConfigurationGetEdgeNodeAttestationInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/id/{id}/attestation][%d] edgeNodeConfigurationGetEdgeNodeAttestationInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeAttestationGatewayTimeout) IsCode(code 
 	return code == 504
 }
 
+// Code gets the status code for the edge node configuration get edge node attestation gateway timeout response
+func (o *EdgeNodeConfigurationGetEdgeNodeAttestationGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeConfigurationGetEdgeNodeAttestationGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/id/{id}/attestation][%d] edgeNodeConfigurationGetEdgeNodeAttestationGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeNodeConfigurationGetEdgeNodeAttestationDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node configuration get edge node attestation default response
-func (o *EdgeNodeConfigurationGetEdgeNodeAttestationDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node configuration get edge node attestation default response has a 2xx status code
 func (o *EdgeNodeConfigurationGetEdgeNodeAttestationDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeNodeConfigurationGetEdgeNodeAttestationDefault) IsServerError() boo
 // IsCode returns true when this edge node configuration get edge node attestation default response a status code equal to that given
 func (o *EdgeNodeConfigurationGetEdgeNodeAttestationDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node configuration get edge node attestation default response
+func (o *EdgeNodeConfigurationGetEdgeNodeAttestationDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeConfigurationGetEdgeNodeAttestationDefault) Error() string {

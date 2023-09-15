@@ -144,6 +144,11 @@ func (m *BulkInstanceConfig) ContextValidate(ctx context.Context, formats strfmt
 func (m *BulkInstanceConfig) contextValidateAppInstanceConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AppInstanceConfig != nil {
+
+		if swag.IsZero(m.AppInstanceConfig) { // not required
+			return nil
+		}
+
 		if err := m.AppInstanceConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appInstanceConfig")
@@ -162,6 +167,11 @@ func (m *BulkInstanceConfig) contextValidateNetInstanceConfig(ctx context.Contex
 	for i := 0; i < len(m.NetInstanceConfig); i++ {
 
 		if m.NetInstanceConfig[i] != nil {
+
+			if swag.IsZero(m.NetInstanceConfig[i]) { // not required
+				return nil
+			}
+
 			if err := m.NetInstanceConfig[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("netInstanceConfig" + "." + strconv.Itoa(i))
@@ -180,6 +190,11 @@ func (m *BulkInstanceConfig) contextValidateNetInstanceConfig(ctx context.Contex
 func (m *BulkInstanceConfig) contextValidateNetInstanceDetail(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.NetInstanceDetail != nil {
+
+		if swag.IsZero(m.NetInstanceDetail) { // not required
+			return nil
+		}
+
 		if err := m.NetInstanceDetail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("netInstanceDetail")

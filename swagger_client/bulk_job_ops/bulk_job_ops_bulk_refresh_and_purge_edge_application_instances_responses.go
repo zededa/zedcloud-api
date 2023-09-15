@@ -123,6 +123,11 @@ func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesOK) IsCode(code in
 	return code == 200
 }
 
+// Code gets the status code for the bulk job ops bulk refresh and purge edge application instances o k response
+func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesOK) Code() int {
+	return 200
+}
+
 func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/apps/instances/refresh/purge][%d] bulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesOK  %+v", 200, o.Payload)
 }
@@ -184,6 +189,11 @@ func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesBadRequest) IsServ
 // IsCode returns true when this bulk job ops bulk refresh and purge edge application instances bad request response a status code equal to that given
 func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the bulk job ops bulk refresh and purge edge application instances bad request response
+func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesBadRequest) Code() int {
+	return 400
 }
 
 func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesBadRequest) Error() string {
@@ -249,6 +259,11 @@ func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesUnauthorized) IsCo
 	return code == 401
 }
 
+// Code gets the status code for the bulk job ops bulk refresh and purge edge application instances unauthorized response
+func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesUnauthorized) Code() int {
+	return 401
+}
+
 func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesUnauthorized) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/apps/instances/refresh/purge][%d] bulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesUnauthorized  %+v", 401, o.Payload)
 }
@@ -310,6 +325,11 @@ func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesForbidden) IsServe
 // IsCode returns true when this bulk job ops bulk refresh and purge edge application instances forbidden response a status code equal to that given
 func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the bulk job ops bulk refresh and purge edge application instances forbidden response
+func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesForbidden) Code() int {
+	return 403
 }
 
 func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesForbidden) Error() string {
@@ -375,6 +395,11 @@ func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesNotFound) IsCode(c
 	return code == 404
 }
 
+// Code gets the status code for the bulk job ops bulk refresh and purge edge application instances not found response
+func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesNotFound) Code() int {
+	return 404
+}
+
 func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesNotFound) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/apps/instances/refresh/purge][%d] bulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesNotFound  %+v", 404, o.Payload)
 }
@@ -436,6 +461,11 @@ func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesConflict) IsServer
 // IsCode returns true when this bulk job ops bulk refresh and purge edge application instances conflict response a status code equal to that given
 func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesConflict) IsCode(code int) bool {
 	return code == 409
+}
+
+// Code gets the status code for the bulk job ops bulk refresh and purge edge application instances conflict response
+func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesConflict) Code() int {
+	return 409
 }
 
 func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesConflict) Error() string {
@@ -501,6 +531,11 @@ func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesInternalServerErro
 	return code == 500
 }
 
+// Code gets the status code for the bulk job ops bulk refresh and purge edge application instances internal server error response
+func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesInternalServerError) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/apps/instances/refresh/purge][%d] bulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesInternalServerError  %+v", 500, o.Payload)
 }
@@ -564,6 +599,11 @@ func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesGatewayTimeout) Is
 	return code == 504
 }
 
+// Code gets the status code for the bulk job ops bulk refresh and purge edge application instances gateway timeout response
+func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/apps/instances/refresh/purge][%d] bulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -606,11 +646,6 @@ type BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the bulk job ops bulk refresh and purge edge application instances default response
-func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this bulk job ops bulk refresh and purge edge application instances default response has a 2xx status code
 func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -634,6 +669,11 @@ func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesDefault) IsServerE
 // IsCode returns true when this bulk job ops bulk refresh and purge edge application instances default response a status code equal to that given
 func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the bulk job ops bulk refresh and purge edge application instances default response
+func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *BulkJobOpsBulkRefreshAndPurgeEdgeApplicationInstancesDefault) Error() string {

@@ -76,6 +76,11 @@ func (m *IoMemberStatus) ContextValidate(ctx context.Context, formats strfmt.Reg
 func (m *IoMemberStatus) contextValidateIoAddress(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.IoAddress != nil {
+
+		if swag.IsZero(m.IoAddress) { // not required
+			return nil
+		}
+
 		if err := m.IoAddress.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ioAddress")

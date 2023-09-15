@@ -111,6 +111,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2OK)
 	return code == 200
 }
 
+// Code gets the status code for the edge application instance status get edge application instance traffic flows2 o k response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2OK) Code() int {
+	return 200
+}
+
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2OK) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/name/{name}/flowlog/classification][%d] edgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2OK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Una
 // IsCode returns true when this edge application instance status get edge application instance traffic flows2 unauthorized response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Unauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge application instance status get edge application instance traffic flows2 unauthorized response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Unauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Unauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2For
 	return code == 403
 }
 
+// Code gets the status code for the edge application instance status get edge application instance traffic flows2 forbidden response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Forbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Forbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/name/{name}/flowlog/classification][%d] edgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Forbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Not
 // IsCode returns true when this edge application instance status get edge application instance traffic flows2 not found response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge application instance status get edge application instance traffic flows2 not found response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2NotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2NotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Int
 	return code == 500
 }
 
+// Code gets the status code for the edge application instance status get edge application instance traffic flows2 internal server error response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2InternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/name/{name}/flowlog/classification][%d] edgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2InternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Gat
 	return code == 504
 }
 
+// Code gets the status code for the edge application instance status get edge application instance traffic flows2 gateway timeout response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2GatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2GatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/instances/name/{name}/flowlog/classification][%d] edgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2GatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Default
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge application instance status get edge application instance traffic flows2 default response
-func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge application instance status get edge application instance traffic flows2 default response has a 2xx status code
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Def
 // IsCode returns true when this edge application instance status get edge application instance traffic flows2 default response a status code equal to that given
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge application instance status get edge application instance traffic flows2 default response
+func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Default) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeApplicationInstanceStatusGetEdgeApplicationInstanceTrafficFlows2Default) Error() string {

@@ -203,6 +203,11 @@ func (m *DetailedUsers) contextValidateList(ctx context.Context, formats strfmt.
 	for i := 0; i < len(m.List); i++ {
 
 		if m.List[i] != nil {
+
+			if swag.IsZero(m.List[i]) { // not required
+				return nil
+			}
+
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
@@ -221,6 +226,11 @@ func (m *DetailedUsers) contextValidateList(ctx context.Context, formats strfmt.
 func (m *DetailedUsers) contextValidateNext(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Next != nil {
+
+		if swag.IsZero(m.Next) { // not required
+			return nil
+		}
+
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
@@ -237,6 +247,11 @@ func (m *DetailedUsers) contextValidateNext(ctx context.Context, formats strfmt.
 func (m *DetailedUsers) contextValidateSummaryByRoleDistribution(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByRoleDistribution != nil {
+
+		if swag.IsZero(m.SummaryByRoleDistribution) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByRoleDistribution.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByRoleDistribution")
@@ -253,6 +268,11 @@ func (m *DetailedUsers) contextValidateSummaryByRoleDistribution(ctx context.Con
 func (m *DetailedUsers) contextValidateSummaryByState(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByState != nil {
+
+		if swag.IsZero(m.SummaryByState) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByState.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByState")
@@ -269,6 +289,11 @@ func (m *DetailedUsers) contextValidateSummaryByState(ctx context.Context, forma
 func (m *DetailedUsers) contextValidateSummaryByUserActivity(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByUserActivity != nil {
+
+		if swag.IsZero(m.SummaryByUserActivity) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByUserActivity.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByUserActivity")

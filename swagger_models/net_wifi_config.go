@@ -148,6 +148,11 @@ func (m *NetWifiConfig) ContextValidate(ctx context.Context, formats strfmt.Regi
 func (m *NetWifiConfig) contextValidateCrypto(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Crypto != nil {
+
+		if swag.IsZero(m.Crypto) { // not required
+			return nil
+		}
+
 		if err := m.Crypto.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("crypto")
@@ -164,6 +169,11 @@ func (m *NetWifiConfig) contextValidateCrypto(ctx context.Context, formats strfm
 func (m *NetWifiConfig) contextValidateKeyScheme(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.KeyScheme != nil {
+
+		if swag.IsZero(m.KeyScheme) { // not required
+			return nil
+		}
+
 		if err := m.KeyScheme.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("keyScheme")
@@ -180,6 +190,11 @@ func (m *NetWifiConfig) contextValidateKeyScheme(ctx context.Context, formats st
 func (m *NetWifiConfig) contextValidateSecret(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Secret != nil {
+
+		if swag.IsZero(m.Secret) { // not required
+			return nil
+		}
+
 		if err := m.Secret.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("secret")

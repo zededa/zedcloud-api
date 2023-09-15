@@ -106,6 +106,11 @@ func (m *AAAFrontendRefreshResponse) ContextValidate(ctx context.Context, format
 func (m *AAAFrontendRefreshResponse) contextValidateCause(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Cause != nil {
+
+		if swag.IsZero(m.Cause) { // not required
+			return nil
+		}
+
 		if err := m.Cause.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cause")
@@ -122,6 +127,11 @@ func (m *AAAFrontendRefreshResponse) contextValidateCause(ctx context.Context, f
 func (m *AAAFrontendRefreshResponse) contextValidateToken(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Token != nil {
+
+		if swag.IsZero(m.Token) { // not required
+			return nil
+		}
+
 		if err := m.Token.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("token")

@@ -235,6 +235,11 @@ func (m *IoBundleStatus) ContextValidate(ctx context.Context, formats strfmt.Reg
 func (m *IoBundleStatus) contextValidateErr(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Err != nil {
+
+		if swag.IsZero(m.Err) { // not required
+			return nil
+		}
+
 		if err := m.Err.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("err")
@@ -251,6 +256,11 @@ func (m *IoBundleStatus) contextValidateErr(ctx context.Context, formats strfmt.
 func (m *IoBundleStatus) contextValidateLteInfo(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.LteInfo != nil {
+
+		if swag.IsZero(m.LteInfo) { // not required
+			return nil
+		}
+
 		if err := m.LteInfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lteInfo")
@@ -269,6 +279,11 @@ func (m *IoBundleStatus) contextValidateMemberList(ctx context.Context, formats 
 	for i := 0; i < len(m.MemberList); i++ {
 
 		if m.MemberList[i] != nil {
+
+			if swag.IsZero(m.MemberList[i]) { // not required
+				return nil
+			}
+
 			if err := m.MemberList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("memberList" + "." + strconv.Itoa(i))
@@ -287,6 +302,7 @@ func (m *IoBundleStatus) contextValidateMemberList(ctx context.Context, formats 
 func (m *IoBundleStatus) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

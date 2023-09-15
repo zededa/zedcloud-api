@@ -190,6 +190,11 @@ func (m *DeviceSWInfo) ContextValidate(ctx context.Context, formats strfmt.Regis
 func (m *DeviceSWInfo) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Status != nil {
+
+		if swag.IsZero(m.Status) { // not required
+			return nil
+		}
+
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
@@ -206,6 +211,11 @@ func (m *DeviceSWInfo) contextValidateStatus(ctx context.Context, formats strfmt
 func (m *DeviceSWInfo) contextValidateSwError(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SwError != nil {
+
+		if swag.IsZero(m.SwError) { // not required
+			return nil
+		}
+
 		if err := m.SwError.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swError")
@@ -222,6 +232,11 @@ func (m *DeviceSWInfo) contextValidateSwError(ctx context.Context, formats strfm
 func (m *DeviceSWInfo) contextValidateSwStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SwStatus != nil {
+
+		if swag.IsZero(m.SwStatus) { // not required
+			return nil
+		}
+
 		if err := m.SwStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swStatus")
@@ -238,6 +253,11 @@ func (m *DeviceSWInfo) contextValidateSwStatus(ctx context.Context, formats strf
 func (m *DeviceSWInfo) contextValidateSwSubStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SwSubStatus != nil {
+
+		if swag.IsZero(m.SwSubStatus) { // not required
+			return nil
+		}
+
 		if err := m.SwSubStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("swSubStatus")

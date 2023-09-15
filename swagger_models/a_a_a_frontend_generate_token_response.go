@@ -109,6 +109,11 @@ func (m *AAAFrontendGenerateTokenResponse) ContextValidate(ctx context.Context, 
 func (m *AAAFrontendGenerateTokenResponse) contextValidateCause(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Cause != nil {
+
+		if swag.IsZero(m.Cause) { // not required
+			return nil
+		}
+
 		if err := m.Cause.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cause")

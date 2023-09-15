@@ -73,6 +73,11 @@ func (m *VCEStatus) ContextValidate(ctx context.Context, formats strfmt.Registry
 func (m *VCEStatus) contextValidateVceStatusDetail(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.VceStatusDetail != nil {
+
+		if swag.IsZero(m.VceStatusDetail) { // not required
+			return nil
+		}
+
 		if err := m.VceStatusDetail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("vceStatusDetail")

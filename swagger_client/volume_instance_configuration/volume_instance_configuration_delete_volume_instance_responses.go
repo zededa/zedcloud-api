@@ -111,6 +111,11 @@ func (o *VolumeInstanceConfigurationDeleteVolumeInstanceOK) IsCode(code int) boo
 	return code == 200
 }
 
+// Code gets the status code for the volume instance configuration delete volume instance o k response
+func (o *VolumeInstanceConfigurationDeleteVolumeInstanceOK) Code() int {
+	return 200
+}
+
 func (o *VolumeInstanceConfigurationDeleteVolumeInstanceOK) Error() string {
 	return fmt.Sprintf("[DELETE /v1/volumes/instances/id/{id}][%d] volumeInstanceConfigurationDeleteVolumeInstanceOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *VolumeInstanceConfigurationDeleteVolumeInstanceUnauthorized) IsServerEr
 // IsCode returns true when this volume instance configuration delete volume instance unauthorized response a status code equal to that given
 func (o *VolumeInstanceConfigurationDeleteVolumeInstanceUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the volume instance configuration delete volume instance unauthorized response
+func (o *VolumeInstanceConfigurationDeleteVolumeInstanceUnauthorized) Code() int {
+	return 401
 }
 
 func (o *VolumeInstanceConfigurationDeleteVolumeInstanceUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *VolumeInstanceConfigurationDeleteVolumeInstanceForbidden) IsCode(code i
 	return code == 403
 }
 
+// Code gets the status code for the volume instance configuration delete volume instance forbidden response
+func (o *VolumeInstanceConfigurationDeleteVolumeInstanceForbidden) Code() int {
+	return 403
+}
+
 func (o *VolumeInstanceConfigurationDeleteVolumeInstanceForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /v1/volumes/instances/id/{id}][%d] volumeInstanceConfigurationDeleteVolumeInstanceForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *VolumeInstanceConfigurationDeleteVolumeInstanceNotFound) IsServerError(
 // IsCode returns true when this volume instance configuration delete volume instance not found response a status code equal to that given
 func (o *VolumeInstanceConfigurationDeleteVolumeInstanceNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the volume instance configuration delete volume instance not found response
+func (o *VolumeInstanceConfigurationDeleteVolumeInstanceNotFound) Code() int {
+	return 404
 }
 
 func (o *VolumeInstanceConfigurationDeleteVolumeInstanceNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *VolumeInstanceConfigurationDeleteVolumeInstanceInternalServerError) IsC
 	return code == 500
 }
 
+// Code gets the status code for the volume instance configuration delete volume instance internal server error response
+func (o *VolumeInstanceConfigurationDeleteVolumeInstanceInternalServerError) Code() int {
+	return 500
+}
+
 func (o *VolumeInstanceConfigurationDeleteVolumeInstanceInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /v1/volumes/instances/id/{id}][%d] volumeInstanceConfigurationDeleteVolumeInstanceInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *VolumeInstanceConfigurationDeleteVolumeInstanceGatewayTimeout) IsCode(c
 	return code == 504
 }
 
+// Code gets the status code for the volume instance configuration delete volume instance gateway timeout response
+func (o *VolumeInstanceConfigurationDeleteVolumeInstanceGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *VolumeInstanceConfigurationDeleteVolumeInstanceGatewayTimeout) Error() string {
 	return fmt.Sprintf("[DELETE /v1/volumes/instances/id/{id}][%d] volumeInstanceConfigurationDeleteVolumeInstanceGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type VolumeInstanceConfigurationDeleteVolumeInstanceDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the volume instance configuration delete volume instance default response
-func (o *VolumeInstanceConfigurationDeleteVolumeInstanceDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this volume instance configuration delete volume instance default response has a 2xx status code
 func (o *VolumeInstanceConfigurationDeleteVolumeInstanceDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *VolumeInstanceConfigurationDeleteVolumeInstanceDefault) IsServerError()
 // IsCode returns true when this volume instance configuration delete volume instance default response a status code equal to that given
 func (o *VolumeInstanceConfigurationDeleteVolumeInstanceDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the volume instance configuration delete volume instance default response
+func (o *VolumeInstanceConfigurationDeleteVolumeInstanceDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *VolumeInstanceConfigurationDeleteVolumeInstanceDefault) Error() string {

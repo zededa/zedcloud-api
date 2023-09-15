@@ -695,6 +695,11 @@ func (m *AppInstance) ContextValidate(ctx context.Context, formats strfmt.Regist
 func (m *AppInstance) contextValidateAppType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AppType != nil {
+
+		if swag.IsZero(m.AppType) { // not required
+			return nil
+		}
+
 		if err := m.AppType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appType")
@@ -711,6 +716,11 @@ func (m *AppInstance) contextValidateAppType(ctx context.Context, formats strfmt
 func (m *AppInstance) contextValidateCustomConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CustomConfig != nil {
+
+		if swag.IsZero(m.CustomConfig) { // not required
+			return nil
+		}
+
 		if err := m.CustomConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customConfig")
@@ -727,6 +737,11 @@ func (m *AppInstance) contextValidateCustomConfig(ctx context.Context, formats s
 func (m *AppInstance) contextValidateDeploymentType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DeploymentType != nil {
+
+		if swag.IsZero(m.DeploymentType) { // not required
+			return nil
+		}
+
 		if err := m.DeploymentType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deploymentType")
@@ -745,6 +760,11 @@ func (m *AppInstance) contextValidateDrives(ctx context.Context, formats strfmt.
 	for i := 0; i < len(m.Drives); i++ {
 
 		if m.Drives[i] != nil {
+
+			if swag.IsZero(m.Drives[i]) { // not required
+				return nil
+			}
+
 			if err := m.Drives[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("drives" + "." + strconv.Itoa(i))
@@ -774,6 +794,11 @@ func (m *AppInstance) contextValidateInterfaces(ctx context.Context, formats str
 	for i := 0; i < len(m.Interfaces); i++ {
 
 		if m.Interfaces[i] != nil {
+
+			if swag.IsZero(m.Interfaces[i]) { // not required
+				return nil
+			}
+
 			if err := m.Interfaces[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
@@ -792,6 +817,11 @@ func (m *AppInstance) contextValidateInterfaces(ctx context.Context, formats str
 func (m *AppInstance) contextValidateLogs(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Logs != nil {
+
+		if swag.IsZero(m.Logs) { // not required
+			return nil
+		}
+
 		if err := m.Logs.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("logs")
@@ -808,6 +838,11 @@ func (m *AppInstance) contextValidateLogs(ctx context.Context, formats strfmt.Re
 func (m *AppInstance) contextValidateManifestInfo(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ManifestInfo != nil {
+
+		if swag.IsZero(m.ManifestInfo) { // not required
+			return nil
+		}
+
 		if err := m.ManifestInfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("manifestInfo")
@@ -824,6 +859,11 @@ func (m *AppInstance) contextValidateManifestInfo(ctx context.Context, formats s
 func (m *AppInstance) contextValidatePurge(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Purge != nil {
+
+		if swag.IsZero(m.Purge) { // not required
+			return nil
+		}
+
 		if err := m.Purge.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("purge")
@@ -840,6 +880,11 @@ func (m *AppInstance) contextValidatePurge(ctx context.Context, formats strfmt.R
 func (m *AppInstance) contextValidateRefresh(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Refresh != nil {
+
+		if swag.IsZero(m.Refresh) { // not required
+			return nil
+		}
+
 		if err := m.Refresh.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("refresh")
@@ -856,6 +901,11 @@ func (m *AppInstance) contextValidateRefresh(ctx context.Context, formats strfmt
 func (m *AppInstance) contextValidateRestart(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Restart != nil {
+
+		if swag.IsZero(m.Restart) { // not required
+			return nil
+		}
+
 		if err := m.Restart.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("restart")
@@ -872,6 +922,11 @@ func (m *AppInstance) contextValidateRestart(ctx context.Context, formats strfmt
 func (m *AppInstance) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Revision != nil {
+
+		if swag.IsZero(m.Revision) { // not required
+			return nil
+		}
+
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
@@ -888,6 +943,11 @@ func (m *AppInstance) contextValidateRevision(ctx context.Context, formats strfm
 func (m *AppInstance) contextValidateVminfo(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Vminfo != nil {
+
+		if swag.IsZero(m.Vminfo) { // not required
+			return nil
+		}
+
 		if err := m.Vminfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("vminfo")

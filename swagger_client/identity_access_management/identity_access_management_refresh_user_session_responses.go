@@ -105,6 +105,11 @@ func (o *IdentityAccessManagementRefreshUserSessionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management refresh user session o k response
+func (o *IdentityAccessManagementRefreshUserSessionOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementRefreshUserSessionOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/sessions/refresh][%d] identityAccessManagementRefreshUserSessionOK  %+v", 200, o.Payload)
 }
@@ -166,6 +171,11 @@ func (o *IdentityAccessManagementRefreshUserSessionUnauthorized) IsServerError()
 // IsCode returns true when this identity access management refresh user session unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementRefreshUserSessionUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management refresh user session unauthorized response
+func (o *IdentityAccessManagementRefreshUserSessionUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementRefreshUserSessionUnauthorized) Error() string {
@@ -231,6 +241,11 @@ func (o *IdentityAccessManagementRefreshUserSessionForbidden) IsCode(code int) b
 	return code == 403
 }
 
+// Code gets the status code for the identity access management refresh user session forbidden response
+func (o *IdentityAccessManagementRefreshUserSessionForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementRefreshUserSessionForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/sessions/refresh][%d] identityAccessManagementRefreshUserSessionForbidden  %+v", 403, o.Payload)
 }
@@ -292,6 +307,11 @@ func (o *IdentityAccessManagementRefreshUserSessionInternalServerError) IsServer
 // IsCode returns true when this identity access management refresh user session internal server error response a status code equal to that given
 func (o *IdentityAccessManagementRefreshUserSessionInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management refresh user session internal server error response
+func (o *IdentityAccessManagementRefreshUserSessionInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementRefreshUserSessionInternalServerError) Error() string {
@@ -357,6 +377,11 @@ func (o *IdentityAccessManagementRefreshUserSessionGatewayTimeout) IsCode(code i
 	return code == 504
 }
 
+// Code gets the status code for the identity access management refresh user session gateway timeout response
+func (o *IdentityAccessManagementRefreshUserSessionGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementRefreshUserSessionGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/sessions/refresh][%d] identityAccessManagementRefreshUserSessionGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -399,11 +424,6 @@ type IdentityAccessManagementRefreshUserSessionDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management refresh user session default response
-func (o *IdentityAccessManagementRefreshUserSessionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management refresh user session default response has a 2xx status code
 func (o *IdentityAccessManagementRefreshUserSessionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -427,6 +447,11 @@ func (o *IdentityAccessManagementRefreshUserSessionDefault) IsServerError() bool
 // IsCode returns true when this identity access management refresh user session default response a status code equal to that given
 func (o *IdentityAccessManagementRefreshUserSessionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management refresh user session default response
+func (o *IdentityAccessManagementRefreshUserSessionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementRefreshUserSessionDefault) Error() string {

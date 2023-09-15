@@ -462,6 +462,11 @@ func (m *AppConfig) contextValidateInterfaces(ctx context.Context, formats strfm
 	for i := 0; i < len(m.Interfaces); i++ {
 
 		if m.Interfaces[i] != nil {
+
+			if swag.IsZero(m.Interfaces[i]) { // not required
+				return nil
+			}
+
 			if err := m.Interfaces[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
@@ -480,6 +485,7 @@ func (m *AppConfig) contextValidateInterfaces(ctx context.Context, formats strfm
 func (m *AppConfig) contextValidateManifestJSON(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ManifestJSON != nil {
+
 		if err := m.ManifestJSON.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("manifestJSON")
@@ -496,6 +502,11 @@ func (m *AppConfig) contextValidateManifestJSON(ctx context.Context, formats str
 func (m *AppConfig) contextValidateNamingScheme(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.NamingScheme != nil {
+
+		if swag.IsZero(m.NamingScheme) { // not required
+			return nil
+		}
+
 		if err := m.NamingScheme.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("namingScheme")
@@ -512,6 +523,7 @@ func (m *AppConfig) contextValidateNamingScheme(ctx context.Context, formats str
 func (m *AppConfig) contextValidateOriginType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.OriginType != nil {
+
 		if err := m.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
@@ -528,6 +540,11 @@ func (m *AppConfig) contextValidateOriginType(ctx context.Context, formats strfm
 func (m *AppConfig) contextValidateParentDetail(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ParentDetail != nil {
+
+		if swag.IsZero(m.ParentDetail) { // not required
+			return nil
+		}
+
 		if err := m.ParentDetail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parentDetail")

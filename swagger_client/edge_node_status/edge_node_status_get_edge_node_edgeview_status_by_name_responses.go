@@ -111,6 +111,11 @@ func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameOK) IsCode(code int) bool 
 	return code == 200
 }
 
+// Code gets the status code for the edge node status get edge node edgeview status by name o k response
+func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameOK) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{name}/status/edgeview][%d] edgeNodeStatusGetEdgeNodeEdgeviewStatusByNameOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameUnauthorized) IsServerErro
 // IsCode returns true when this edge node status get edge node edgeview status by name unauthorized response a status code equal to that given
 func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge node status get edge node edgeview status by name unauthorized response
+func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameForbidden) IsCode(code int
 	return code == 403
 }
 
+// Code gets the status code for the edge node status get edge node edgeview status by name forbidden response
+func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{name}/status/edgeview][%d] edgeNodeStatusGetEdgeNodeEdgeviewStatusByNameForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameNotFound) IsServerError() 
 // IsCode returns true when this edge node status get edge node edgeview status by name not found response a status code equal to that given
 func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge node status get edge node edgeview status by name not found response
+func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameInternalServerError) IsCod
 	return code == 500
 }
 
+// Code gets the status code for the edge node status get edge node edgeview status by name internal server error response
+func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{name}/status/edgeview][%d] edgeNodeStatusGetEdgeNodeEdgeviewStatusByNameInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameGatewayTimeout) IsCode(cod
 	return code == 504
 }
 
+// Code gets the status code for the edge node status get edge node edgeview status by name gateway timeout response
+func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{name}/status/edgeview][%d] edgeNodeStatusGetEdgeNodeEdgeviewStatusByNameGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node status get edge node edgeview status by name default response
-func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node status get edge node edgeview status by name default response has a 2xx status code
 func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameDefault) IsServerError() b
 // IsCode returns true when this edge node status get edge node edgeview status by name default response a status code equal to that given
 func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node status get edge node edgeview status by name default response
+func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeStatusGetEdgeNodeEdgeviewStatusByNameDefault) Error() string {

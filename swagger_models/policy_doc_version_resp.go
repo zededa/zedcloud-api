@@ -133,6 +133,11 @@ func (m *PolicyDocVersionResp) ContextValidate(ctx context.Context, formats strf
 func (m *PolicyDocVersionResp) contextValidatePinfo(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Pinfo != nil {
+
+		if swag.IsZero(m.Pinfo) { // not required
+			return nil
+		}
+
 		if err := m.Pinfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pinfo")
@@ -149,6 +154,11 @@ func (m *PolicyDocVersionResp) contextValidatePinfo(ctx context.Context, formats
 func (m *PolicyDocVersionResp) contextValidatePlist(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Plist != nil {
+
+		if swag.IsZero(m.Plist) { // not required
+			return nil
+		}
+
 		if err := m.Plist.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("plist")
@@ -165,6 +175,11 @@ func (m *PolicyDocVersionResp) contextValidatePlist(ctx context.Context, formats
 func (m *PolicyDocVersionResp) contextValidateResult(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Result != nil {
+
+		if swag.IsZero(m.Result) { // not required
+			return nil
+		}
+
 		if err := m.Result.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result")

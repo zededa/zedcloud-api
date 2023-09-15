@@ -132,6 +132,11 @@ func (m *ConfigContentTree) ContextValidate(ctx context.Context, formats strfmt.
 func (m *ConfigContentTree) contextValidateIformat(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Iformat != nil {
+
+		if swag.IsZero(m.Iformat) { // not required
+			return nil
+		}
+
 		if err := m.Iformat.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("iformat")
@@ -148,6 +153,11 @@ func (m *ConfigContentTree) contextValidateIformat(ctx context.Context, formats 
 func (m *ConfigContentTree) contextValidateSiginfo(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Siginfo != nil {
+
+		if swag.IsZero(m.Siginfo) { // not required
+			return nil
+		}
+
 		if err := m.Siginfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("siginfo")

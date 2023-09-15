@@ -83,6 +83,11 @@ func (m *EventTopUsersResp) contextValidateTopUsers(ctx context.Context, formats
 	for i := 0; i < len(m.TopUsers); i++ {
 
 		if m.TopUsers[i] != nil {
+
+			if swag.IsZero(m.TopUsers[i]) { // not required
+				return nil
+			}
+
 			if err := m.TopUsers[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("topUsers" + "." + strconv.Itoa(i))

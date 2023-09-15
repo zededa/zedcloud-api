@@ -122,6 +122,11 @@ func (o *IdentityAccessManagementUpdateEnterprise2OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management update enterprise2 o k response
+func (o *IdentityAccessManagementUpdateEnterprise2OK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementUpdateEnterprise2OK) Error() string {
 	return fmt.Sprintf("[PUT /v1/enterprises/id/{id}][%d] identityAccessManagementUpdateEnterprise2OK  %+v", 200, o.Payload)
 }
@@ -183,6 +188,11 @@ func (o *IdentityAccessManagementUpdateEnterprise2Unauthorized) IsServerError() 
 // IsCode returns true when this identity access management update enterprise2 unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementUpdateEnterprise2Unauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management update enterprise2 unauthorized response
+func (o *IdentityAccessManagementUpdateEnterprise2Unauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementUpdateEnterprise2Unauthorized) Error() string {
@@ -248,6 +258,11 @@ func (o *IdentityAccessManagementUpdateEnterprise2Forbidden) IsCode(code int) bo
 	return code == 403
 }
 
+// Code gets the status code for the identity access management update enterprise2 forbidden response
+func (o *IdentityAccessManagementUpdateEnterprise2Forbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementUpdateEnterprise2Forbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/enterprises/id/{id}][%d] identityAccessManagementUpdateEnterprise2Forbidden  %+v", 403, o.Payload)
 }
@@ -309,6 +324,11 @@ func (o *IdentityAccessManagementUpdateEnterprise2NotFound) IsServerError() bool
 // IsCode returns true when this identity access management update enterprise2 not found response a status code equal to that given
 func (o *IdentityAccessManagementUpdateEnterprise2NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management update enterprise2 not found response
+func (o *IdentityAccessManagementUpdateEnterprise2NotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementUpdateEnterprise2NotFound) Error() string {
@@ -374,6 +394,11 @@ func (o *IdentityAccessManagementUpdateEnterprise2Conflict) IsCode(code int) boo
 	return code == 409
 }
 
+// Code gets the status code for the identity access management update enterprise2 conflict response
+func (o *IdentityAccessManagementUpdateEnterprise2Conflict) Code() int {
+	return 409
+}
+
 func (o *IdentityAccessManagementUpdateEnterprise2Conflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/enterprises/id/{id}][%d] identityAccessManagementUpdateEnterprise2Conflict  %+v", 409, o.Payload)
 }
@@ -435,6 +460,11 @@ func (o *IdentityAccessManagementUpdateEnterprise2InternalServerError) IsServerE
 // IsCode returns true when this identity access management update enterprise2 internal server error response a status code equal to that given
 func (o *IdentityAccessManagementUpdateEnterprise2InternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management update enterprise2 internal server error response
+func (o *IdentityAccessManagementUpdateEnterprise2InternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementUpdateEnterprise2InternalServerError) Error() string {
@@ -500,6 +530,11 @@ func (o *IdentityAccessManagementUpdateEnterprise2GatewayTimeout) IsCode(code in
 	return code == 504
 }
 
+// Code gets the status code for the identity access management update enterprise2 gateway timeout response
+func (o *IdentityAccessManagementUpdateEnterprise2GatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementUpdateEnterprise2GatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/enterprises/id/{id}][%d] identityAccessManagementUpdateEnterprise2GatewayTimeout  %+v", 504, o.Payload)
 }
@@ -542,11 +577,6 @@ type IdentityAccessManagementUpdateEnterprise2Default struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management update enterprise2 default response
-func (o *IdentityAccessManagementUpdateEnterprise2Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management update enterprise2 default response has a 2xx status code
 func (o *IdentityAccessManagementUpdateEnterprise2Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -570,6 +600,11 @@ func (o *IdentityAccessManagementUpdateEnterprise2Default) IsServerError() bool 
 // IsCode returns true when this identity access management update enterprise2 default response a status code equal to that given
 func (o *IdentityAccessManagementUpdateEnterprise2Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management update enterprise2 default response
+func (o *IdentityAccessManagementUpdateEnterprise2Default) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementUpdateEnterprise2Default) Error() string {
@@ -947,6 +982,11 @@ func (o *IdentityAccessManagementUpdateEnterprise2Body) contextValidateChildEnte
 	for i := 0; i < len(o.ChildEnterprises); i++ {
 
 		if o.ChildEnterprises[i] != nil {
+
+			if swag.IsZero(o.ChildEnterprises[i]) { // not required
+				return nil
+			}
+
 			if err := o.ChildEnterprises[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("body" + "." + "childEnterprises" + "." + strconv.Itoa(i))
@@ -965,6 +1005,11 @@ func (o *IdentityAccessManagementUpdateEnterprise2Body) contextValidateChildEnte
 func (o *IdentityAccessManagementUpdateEnterprise2Body) contextValidatePolicyList(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.PolicyList != nil {
+
+		if swag.IsZero(o.PolicyList) { // not required
+			return nil
+		}
+
 		if err := o.PolicyList.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "policyList")
@@ -981,6 +1026,11 @@ func (o *IdentityAccessManagementUpdateEnterprise2Body) contextValidatePolicyLis
 func (o *IdentityAccessManagementUpdateEnterprise2Body) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Revision != nil {
+
+		if swag.IsZero(o.Revision) { // not required
+			return nil
+		}
+
 		if err := o.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "revision")
@@ -997,6 +1047,11 @@ func (o *IdentityAccessManagementUpdateEnterprise2Body) contextValidateRevision(
 func (o *IdentityAccessManagementUpdateEnterprise2Body) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.State != nil {
+
+		if swag.IsZero(o.State) { // not required
+			return nil
+		}
+
 		if err := o.State.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "state")
@@ -1013,6 +1068,11 @@ func (o *IdentityAccessManagementUpdateEnterprise2Body) contextValidateState(ctx
 func (o *IdentityAccessManagementUpdateEnterprise2Body) contextValidateStreamEvents(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.StreamEvents != nil {
+
+		if swag.IsZero(o.StreamEvents) { // not required
+			return nil
+		}
+
 		if err := o.StreamEvents.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "streamEvents")
@@ -1029,6 +1089,11 @@ func (o *IdentityAccessManagementUpdateEnterprise2Body) contextValidateStreamEve
 func (o *IdentityAccessManagementUpdateEnterprise2Body) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Type != nil {
+
+		if swag.IsZero(o.Type) { // not required
+			return nil
+		}
+
 		if err := o.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "type")

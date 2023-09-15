@@ -247,6 +247,11 @@ func (m *DeviceLisp) contextValidateLispMapServers(ctx context.Context, formats 
 	for i := 0; i < len(m.LispMapServers); i++ {
 
 		if m.LispMapServers[i] != nil {
+
+			if swag.IsZero(m.LispMapServers[i]) { // not required
+				return nil
+			}
+
 			if err := m.LispMapServers[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("lispMapServers" + "." + strconv.Itoa(i))
@@ -267,6 +272,11 @@ func (m *DeviceLisp) contextValidateZedServers(ctx context.Context, formats strf
 	for i := 0; i < len(m.ZedServers); i++ {
 
 		if m.ZedServers[i] != nil {
+
+			if swag.IsZero(m.ZedServers[i]) { // not required
+				return nil
+			}
+
 			if err := m.ZedServers[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("zedServers" + "." + strconv.Itoa(i))

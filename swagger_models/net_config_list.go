@@ -233,6 +233,11 @@ func (m *NetConfigList) contextValidateList(ctx context.Context, formats strfmt.
 	for i := 0; i < len(m.List); i++ {
 
 		if m.List[i] != nil {
+
+			if swag.IsZero(m.List[i]) { // not required
+				return nil
+			}
+
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
@@ -251,6 +256,11 @@ func (m *NetConfigList) contextValidateList(ctx context.Context, formats strfmt.
 func (m *NetConfigList) contextValidateNext(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Next != nil {
+
+		if swag.IsZero(m.Next) { // not required
+			return nil
+		}
+
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
@@ -267,6 +277,11 @@ func (m *NetConfigList) contextValidateNext(ctx context.Context, formats strfmt.
 func (m *NetConfigList) contextValidateSummary(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Summary != nil {
+
+		if swag.IsZero(m.Summary) { // not required
+			return nil
+		}
+
 		if err := m.Summary.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summary")
@@ -283,6 +298,11 @@ func (m *NetConfigList) contextValidateSummary(ctx context.Context, formats strf
 func (m *NetConfigList) contextValidateSummaryByDist(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByDist != nil {
+
+		if swag.IsZero(m.SummaryByDist) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByDist.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByDist")
@@ -299,6 +319,11 @@ func (m *NetConfigList) contextValidateSummaryByDist(ctx context.Context, format
 func (m *NetConfigList) contextValidateSummaryByKind(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByKind != nil {
+
+		if swag.IsZero(m.SummaryByKind) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByKind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByKind")
@@ -315,6 +340,11 @@ func (m *NetConfigList) contextValidateSummaryByKind(ctx context.Context, format
 func (m *NetConfigList) contextValidateSummaryByProxy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByProxy != nil {
+
+		if swag.IsZero(m.SummaryByProxy) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByProxy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByProxy")

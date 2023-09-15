@@ -111,6 +111,11 @@ func (o *IdentityAccessManagementQueryRolesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management query roles o k response
+func (o *IdentityAccessManagementQueryRolesOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementQueryRolesOK) Error() string {
 	return fmt.Sprintf("[GET /v1/roles][%d] identityAccessManagementQueryRolesOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *IdentityAccessManagementQueryRolesBadRequest) IsServerError() bool {
 // IsCode returns true when this identity access management query roles bad request response a status code equal to that given
 func (o *IdentityAccessManagementQueryRolesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the identity access management query roles bad request response
+func (o *IdentityAccessManagementQueryRolesBadRequest) Code() int {
+	return 400
 }
 
 func (o *IdentityAccessManagementQueryRolesBadRequest) Error() string {
@@ -237,6 +247,11 @@ func (o *IdentityAccessManagementQueryRolesUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the identity access management query roles unauthorized response
+func (o *IdentityAccessManagementQueryRolesUnauthorized) Code() int {
+	return 401
+}
+
 func (o *IdentityAccessManagementQueryRolesUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/roles][%d] identityAccessManagementQueryRolesUnauthorized  %+v", 401, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *IdentityAccessManagementQueryRolesForbidden) IsServerError() bool {
 // IsCode returns true when this identity access management query roles forbidden response a status code equal to that given
 func (o *IdentityAccessManagementQueryRolesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the identity access management query roles forbidden response
+func (o *IdentityAccessManagementQueryRolesForbidden) Code() int {
+	return 403
 }
 
 func (o *IdentityAccessManagementQueryRolesForbidden) Error() string {
@@ -363,6 +383,11 @@ func (o *IdentityAccessManagementQueryRolesInternalServerError) IsCode(code int)
 	return code == 500
 }
 
+// Code gets the status code for the identity access management query roles internal server error response
+func (o *IdentityAccessManagementQueryRolesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *IdentityAccessManagementQueryRolesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/roles][%d] identityAccessManagementQueryRolesInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *IdentityAccessManagementQueryRolesGatewayTimeout) IsCode(code int) bool
 	return code == 504
 }
 
+// Code gets the status code for the identity access management query roles gateway timeout response
+func (o *IdentityAccessManagementQueryRolesGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementQueryRolesGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/roles][%d] identityAccessManagementQueryRolesGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type IdentityAccessManagementQueryRolesDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management query roles default response
-func (o *IdentityAccessManagementQueryRolesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management query roles default response has a 2xx status code
 func (o *IdentityAccessManagementQueryRolesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *IdentityAccessManagementQueryRolesDefault) IsServerError() bool {
 // IsCode returns true when this identity access management query roles default response a status code equal to that given
 func (o *IdentityAccessManagementQueryRolesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management query roles default response
+func (o *IdentityAccessManagementQueryRolesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementQueryRolesDefault) Error() string {

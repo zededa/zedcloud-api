@@ -103,6 +103,11 @@ func (m *AAASuccessResponseGenerateToken) ContextValidate(ctx context.Context, f
 func (m *AAASuccessResponseGenerateToken) contextValidateLogin(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Login != nil {
+
+		if swag.IsZero(m.Login) { // not required
+			return nil
+		}
+
 		if err := m.Login.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("login")
@@ -119,6 +124,11 @@ func (m *AAASuccessResponseGenerateToken) contextValidateLogin(ctx context.Conte
 func (m *AAASuccessResponseGenerateToken) contextValidateSessionDetails(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SessionDetails != nil {
+
+		if swag.IsZero(m.SessionDetails) { // not required
+			return nil
+		}
+
 		if err := m.SessionDetails.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sessionDetails")

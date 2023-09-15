@@ -219,6 +219,11 @@ func (m *NetworkInstConfig) contextValidateDNSList(ctx context.Context, formats 
 	for i := 0; i < len(m.DNSList); i++ {
 
 		if m.DNSList[i] != nil {
+
+			if swag.IsZero(m.DNSList[i]) { // not required
+				return nil
+			}
+
 			if err := m.DNSList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dnsList" + "." + strconv.Itoa(i))
@@ -237,6 +242,11 @@ func (m *NetworkInstConfig) contextValidateDNSList(ctx context.Context, formats 
 func (m *NetworkInstConfig) contextValidateIP(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.IP != nil {
+
+		if swag.IsZero(m.IP) { // not required
+			return nil
+		}
+
 		if err := m.IP.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ip")
@@ -253,6 +263,11 @@ func (m *NetworkInstConfig) contextValidateIP(ctx context.Context, formats strfm
 func (m *NetworkInstConfig) contextValidateKind(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Kind != nil {
+
+		if swag.IsZero(m.Kind) { // not required
+			return nil
+		}
+
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("kind")
@@ -269,6 +284,11 @@ func (m *NetworkInstConfig) contextValidateKind(ctx context.Context, formats str
 func (m *NetworkInstConfig) contextValidateOpaque(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Opaque != nil {
+
+		if swag.IsZero(m.Opaque) { // not required
+			return nil
+		}
+
 		if err := m.Opaque.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("opaque")
@@ -285,6 +305,11 @@ func (m *NetworkInstConfig) contextValidateOpaque(ctx context.Context, formats s
 func (m *NetworkInstConfig) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

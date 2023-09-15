@@ -111,6 +111,11 @@ func (o *EdgeNodeStatusGetEdgeNodeEventsByNameOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge node status get edge node events by name o k response
+func (o *EdgeNodeStatusGetEdgeNodeEventsByNameOK) Code() int {
+	return 200
+}
+
 func (o *EdgeNodeStatusGetEdgeNodeEventsByNameOK) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{objname}/events][%d] edgeNodeStatusGetEdgeNodeEventsByNameOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EdgeNodeStatusGetEdgeNodeEventsByNameUnauthorized) IsServerError() bool
 // IsCode returns true when this edge node status get edge node events by name unauthorized response a status code equal to that given
 func (o *EdgeNodeStatusGetEdgeNodeEventsByNameUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge node status get edge node events by name unauthorized response
+func (o *EdgeNodeStatusGetEdgeNodeEventsByNameUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeNodeStatusGetEdgeNodeEventsByNameUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EdgeNodeStatusGetEdgeNodeEventsByNameForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the edge node status get edge node events by name forbidden response
+func (o *EdgeNodeStatusGetEdgeNodeEventsByNameForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeNodeStatusGetEdgeNodeEventsByNameForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{objname}/events][%d] edgeNodeStatusGetEdgeNodeEventsByNameForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EdgeNodeStatusGetEdgeNodeEventsByNameNotFound) IsServerError() bool {
 // IsCode returns true when this edge node status get edge node events by name not found response a status code equal to that given
 func (o *EdgeNodeStatusGetEdgeNodeEventsByNameNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge node status get edge node events by name not found response
+func (o *EdgeNodeStatusGetEdgeNodeEventsByNameNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeNodeStatusGetEdgeNodeEventsByNameNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EdgeNodeStatusGetEdgeNodeEventsByNameInternalServerError) IsCode(code i
 	return code == 500
 }
 
+// Code gets the status code for the edge node status get edge node events by name internal server error response
+func (o *EdgeNodeStatusGetEdgeNodeEventsByNameInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EdgeNodeStatusGetEdgeNodeEventsByNameInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{objname}/events][%d] edgeNodeStatusGetEdgeNodeEventsByNameInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EdgeNodeStatusGetEdgeNodeEventsByNameGatewayTimeout) IsCode(code int) b
 	return code == 504
 }
 
+// Code gets the status code for the edge node status get edge node events by name gateway timeout response
+func (o *EdgeNodeStatusGetEdgeNodeEventsByNameGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeNodeStatusGetEdgeNodeEventsByNameGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{objname}/events][%d] edgeNodeStatusGetEdgeNodeEventsByNameGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EdgeNodeStatusGetEdgeNodeEventsByNameDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge node status get edge node events by name default response
-func (o *EdgeNodeStatusGetEdgeNodeEventsByNameDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge node status get edge node events by name default response has a 2xx status code
 func (o *EdgeNodeStatusGetEdgeNodeEventsByNameDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EdgeNodeStatusGetEdgeNodeEventsByNameDefault) IsServerError() bool {
 // IsCode returns true when this edge node status get edge node events by name default response a status code equal to that given
 func (o *EdgeNodeStatusGetEdgeNodeEventsByNameDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge node status get edge node events by name default response
+func (o *EdgeNodeStatusGetEdgeNodeEventsByNameDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeNodeStatusGetEdgeNodeEventsByNameDefault) Error() string {

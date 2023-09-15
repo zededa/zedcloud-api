@@ -105,6 +105,11 @@ func (o *IdentityAccessManagementLoginExternalOAuth2CallbackOK) IsCode(code int)
 	return code == 200
 }
 
+// Code gets the status code for the identity access management login external o auth2 callback o k response
+func (o *IdentityAccessManagementLoginExternalOAuth2CallbackOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementLoginExternalOAuth2CallbackOK) Error() string {
 	return fmt.Sprintf("[POST /v1/login/oauth/callback][%d] identityAccessManagementLoginExternalOAuth2CallbackOK  %+v", 200, o.Payload)
 }
@@ -166,6 +171,11 @@ func (o *IdentityAccessManagementLoginExternalOAuth2CallbackUnauthorized) IsServ
 // IsCode returns true when this identity access management login external o auth2 callback unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementLoginExternalOAuth2CallbackUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management login external o auth2 callback unauthorized response
+func (o *IdentityAccessManagementLoginExternalOAuth2CallbackUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementLoginExternalOAuth2CallbackUnauthorized) Error() string {
@@ -231,6 +241,11 @@ func (o *IdentityAccessManagementLoginExternalOAuth2CallbackForbidden) IsCode(co
 	return code == 403
 }
 
+// Code gets the status code for the identity access management login external o auth2 callback forbidden response
+func (o *IdentityAccessManagementLoginExternalOAuth2CallbackForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementLoginExternalOAuth2CallbackForbidden) Error() string {
 	return fmt.Sprintf("[POST /v1/login/oauth/callback][%d] identityAccessManagementLoginExternalOAuth2CallbackForbidden  %+v", 403, o.Payload)
 }
@@ -292,6 +307,11 @@ func (o *IdentityAccessManagementLoginExternalOAuth2CallbackInternalServerError)
 // IsCode returns true when this identity access management login external o auth2 callback internal server error response a status code equal to that given
 func (o *IdentityAccessManagementLoginExternalOAuth2CallbackInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management login external o auth2 callback internal server error response
+func (o *IdentityAccessManagementLoginExternalOAuth2CallbackInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementLoginExternalOAuth2CallbackInternalServerError) Error() string {
@@ -357,6 +377,11 @@ func (o *IdentityAccessManagementLoginExternalOAuth2CallbackGatewayTimeout) IsCo
 	return code == 504
 }
 
+// Code gets the status code for the identity access management login external o auth2 callback gateway timeout response
+func (o *IdentityAccessManagementLoginExternalOAuth2CallbackGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementLoginExternalOAuth2CallbackGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/login/oauth/callback][%d] identityAccessManagementLoginExternalOAuth2CallbackGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -399,11 +424,6 @@ type IdentityAccessManagementLoginExternalOAuth2CallbackDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management login external o auth2 callback default response
-func (o *IdentityAccessManagementLoginExternalOAuth2CallbackDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management login external o auth2 callback default response has a 2xx status code
 func (o *IdentityAccessManagementLoginExternalOAuth2CallbackDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -427,6 +447,11 @@ func (o *IdentityAccessManagementLoginExternalOAuth2CallbackDefault) IsServerErr
 // IsCode returns true when this identity access management login external o auth2 callback default response a status code equal to that given
 func (o *IdentityAccessManagementLoginExternalOAuth2CallbackDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management login external o auth2 callback default response
+func (o *IdentityAccessManagementLoginExternalOAuth2CallbackDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementLoginExternalOAuth2CallbackDefault) Error() string {

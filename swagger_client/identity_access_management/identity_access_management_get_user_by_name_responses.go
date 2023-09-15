@@ -111,6 +111,11 @@ func (o *IdentityAccessManagementGetUserByNameOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management get user by name o k response
+func (o *IdentityAccessManagementGetUserByNameOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementGetUserByNameOK) Error() string {
 	return fmt.Sprintf("[GET /v1/users/name/{name}][%d] identityAccessManagementGetUserByNameOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *IdentityAccessManagementGetUserByNameUnauthorized) IsServerError() bool
 // IsCode returns true when this identity access management get user by name unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementGetUserByNameUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management get user by name unauthorized response
+func (o *IdentityAccessManagementGetUserByNameUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementGetUserByNameUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *IdentityAccessManagementGetUserByNameForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the identity access management get user by name forbidden response
+func (o *IdentityAccessManagementGetUserByNameForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementGetUserByNameForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/users/name/{name}][%d] identityAccessManagementGetUserByNameForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *IdentityAccessManagementGetUserByNameNotFound) IsServerError() bool {
 // IsCode returns true when this identity access management get user by name not found response a status code equal to that given
 func (o *IdentityAccessManagementGetUserByNameNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the identity access management get user by name not found response
+func (o *IdentityAccessManagementGetUserByNameNotFound) Code() int {
+	return 404
 }
 
 func (o *IdentityAccessManagementGetUserByNameNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *IdentityAccessManagementGetUserByNameInternalServerError) IsCode(code i
 	return code == 500
 }
 
+// Code gets the status code for the identity access management get user by name internal server error response
+func (o *IdentityAccessManagementGetUserByNameInternalServerError) Code() int {
+	return 500
+}
+
 func (o *IdentityAccessManagementGetUserByNameInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/users/name/{name}][%d] identityAccessManagementGetUserByNameInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *IdentityAccessManagementGetUserByNameGatewayTimeout) IsCode(code int) b
 	return code == 504
 }
 
+// Code gets the status code for the identity access management get user by name gateway timeout response
+func (o *IdentityAccessManagementGetUserByNameGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementGetUserByNameGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/users/name/{name}][%d] identityAccessManagementGetUserByNameGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type IdentityAccessManagementGetUserByNameDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management get user by name default response
-func (o *IdentityAccessManagementGetUserByNameDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management get user by name default response has a 2xx status code
 func (o *IdentityAccessManagementGetUserByNameDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *IdentityAccessManagementGetUserByNameDefault) IsServerError() bool {
 // IsCode returns true when this identity access management get user by name default response a status code equal to that given
 func (o *IdentityAccessManagementGetUserByNameDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management get user by name default response
+func (o *IdentityAccessManagementGetUserByNameDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementGetUserByNameDefault) Error() string {

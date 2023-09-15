@@ -83,6 +83,11 @@ func (m *ModelImport) contextValidateModelConfig(ctx context.Context, formats st
 	for i := 0; i < len(m.ModelConfig); i++ {
 
 		if m.ModelConfig[i] != nil {
+
+			if swag.IsZero(m.ModelConfig[i]) { // not required
+				return nil
+			}
+
 			if err := m.ModelConfig[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("modelConfig" + "." + strconv.Itoa(i))

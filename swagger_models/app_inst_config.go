@@ -347,6 +347,11 @@ func (m *AppInstConfig) contextValidateInterfaces(ctx context.Context, formats s
 	for i := 0; i < len(m.Interfaces); i++ {
 
 		if m.Interfaces[i] != nil {
+
+			if swag.IsZero(m.Interfaces[i]) { // not required
+				return nil
+			}
+
 			if err := m.Interfaces[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
@@ -365,6 +370,11 @@ func (m *AppInstConfig) contextValidateInterfaces(ctx context.Context, formats s
 func (m *AppInstConfig) contextValidateLogs(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Logs != nil {
+
+		if swag.IsZero(m.Logs) { // not required
+			return nil
+		}
+
 		if err := m.Logs.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("logs")
@@ -381,6 +391,11 @@ func (m *AppInstConfig) contextValidateLogs(ctx context.Context, formats strfmt.
 func (m *AppInstConfig) contextValidateManifestJSON(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ManifestJSON != nil {
+
+		if swag.IsZero(m.ManifestJSON) { // not required
+			return nil
+		}
+
 		if err := m.ManifestJSON.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("manifestJSON")
@@ -397,6 +412,11 @@ func (m *AppInstConfig) contextValidateManifestJSON(ctx context.Context, formats
 func (m *AppInstConfig) contextValidateNamingScheme(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.NamingScheme != nil {
+
+		if swag.IsZero(m.NamingScheme) { // not required
+			return nil
+		}
+
 		if err := m.NamingScheme.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("namingScheme")
@@ -413,6 +433,11 @@ func (m *AppInstConfig) contextValidateNamingScheme(ctx context.Context, formats
 func (m *AppInstConfig) contextValidateOriginType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.OriginType != nil {
+
+		if swag.IsZero(m.OriginType) { // not required
+			return nil
+		}
+
 		if err := m.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")
@@ -429,6 +454,11 @@ func (m *AppInstConfig) contextValidateOriginType(ctx context.Context, formats s
 func (m *AppInstConfig) contextValidateParentDetail(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ParentDetail != nil {
+
+		if swag.IsZero(m.ParentDetail) { // not required
+			return nil
+		}
+
 		if err := m.ParentDetail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parentDetail")
@@ -445,6 +475,11 @@ func (m *AppInstConfig) contextValidateParentDetail(ctx context.Context, formats
 func (m *AppInstConfig) contextValidateVminfo(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Vminfo != nil {
+
+		if swag.IsZero(m.Vminfo) { // not required
+			return nil
+		}
+
 		if err := m.Vminfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("vminfo")

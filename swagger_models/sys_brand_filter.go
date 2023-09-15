@@ -110,6 +110,7 @@ func (m *SysBrandFilter) ContextValidate(ctx context.Context, formats strfmt.Reg
 func (m *SysBrandFilter) contextValidateOriginType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.OriginType != nil {
+
 		if err := m.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")

@@ -85,6 +85,11 @@ func (m *HealthDesc) ContextValidate(ctx context.Context, formats strfmt.Registr
 func (m *HealthDesc) contextValidateBriefHealth(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.BriefHealth != nil {
+
+		if swag.IsZero(m.BriefHealth) { // not required
+			return nil
+		}
+
 		if err := m.BriefHealth.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("briefHealth")

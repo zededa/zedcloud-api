@@ -111,6 +111,11 @@ func (o *HardwareModelGetHardwareModelByNameOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the hardware model get hardware model by name o k response
+func (o *HardwareModelGetHardwareModelByNameOK) Code() int {
+	return 200
+}
+
 func (o *HardwareModelGetHardwareModelByNameOK) Error() string {
 	return fmt.Sprintf("[GET /v1/sysmodels/name/{name}][%d] hardwareModelGetHardwareModelByNameOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *HardwareModelGetHardwareModelByNameUnauthorized) IsServerError() bool {
 // IsCode returns true when this hardware model get hardware model by name unauthorized response a status code equal to that given
 func (o *HardwareModelGetHardwareModelByNameUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the hardware model get hardware model by name unauthorized response
+func (o *HardwareModelGetHardwareModelByNameUnauthorized) Code() int {
+	return 401
 }
 
 func (o *HardwareModelGetHardwareModelByNameUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *HardwareModelGetHardwareModelByNameForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the hardware model get hardware model by name forbidden response
+func (o *HardwareModelGetHardwareModelByNameForbidden) Code() int {
+	return 403
+}
+
 func (o *HardwareModelGetHardwareModelByNameForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/sysmodels/name/{name}][%d] hardwareModelGetHardwareModelByNameForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *HardwareModelGetHardwareModelByNameNotFound) IsServerError() bool {
 // IsCode returns true when this hardware model get hardware model by name not found response a status code equal to that given
 func (o *HardwareModelGetHardwareModelByNameNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the hardware model get hardware model by name not found response
+func (o *HardwareModelGetHardwareModelByNameNotFound) Code() int {
+	return 404
 }
 
 func (o *HardwareModelGetHardwareModelByNameNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *HardwareModelGetHardwareModelByNameInternalServerError) IsCode(code int
 	return code == 500
 }
 
+// Code gets the status code for the hardware model get hardware model by name internal server error response
+func (o *HardwareModelGetHardwareModelByNameInternalServerError) Code() int {
+	return 500
+}
+
 func (o *HardwareModelGetHardwareModelByNameInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/sysmodels/name/{name}][%d] hardwareModelGetHardwareModelByNameInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *HardwareModelGetHardwareModelByNameGatewayTimeout) IsCode(code int) boo
 	return code == 504
 }
 
+// Code gets the status code for the hardware model get hardware model by name gateway timeout response
+func (o *HardwareModelGetHardwareModelByNameGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *HardwareModelGetHardwareModelByNameGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/sysmodels/name/{name}][%d] hardwareModelGetHardwareModelByNameGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type HardwareModelGetHardwareModelByNameDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the hardware model get hardware model by name default response
-func (o *HardwareModelGetHardwareModelByNameDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this hardware model get hardware model by name default response has a 2xx status code
 func (o *HardwareModelGetHardwareModelByNameDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *HardwareModelGetHardwareModelByNameDefault) IsServerError() bool {
 // IsCode returns true when this hardware model get hardware model by name default response a status code equal to that given
 func (o *HardwareModelGetHardwareModelByNameDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the hardware model get hardware model by name default response
+func (o *HardwareModelGetHardwareModelByNameDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *HardwareModelGetHardwareModelByNameDefault) Error() string {

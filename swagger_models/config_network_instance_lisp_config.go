@@ -102,6 +102,11 @@ func (m *ConfigNetworkInstanceLispConfig) contextValidateLispMSs(ctx context.Con
 	for i := 0; i < len(m.LispMSs); i++ {
 
 		if m.LispMSs[i] != nil {
+
+			if swag.IsZero(m.LispMSs[i]) { // not required
+				return nil
+			}
+
 			if err := m.LispMSs[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("LispMSs" + "." + strconv.Itoa(i))

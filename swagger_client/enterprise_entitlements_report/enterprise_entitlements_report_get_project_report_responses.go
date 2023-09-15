@@ -111,6 +111,11 @@ func (o *EnterpriseEntitlementsReportGetProjectReportOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the enterprise entitlements report get project report o k response
+func (o *EnterpriseEntitlementsReportGetProjectReportOK) Code() int {
+	return 200
+}
+
 func (o *EnterpriseEntitlementsReportGetProjectReportOK) Error() string {
 	return fmt.Sprintf("[GET /v1/reports/project][%d] enterpriseEntitlementsReportGetProjectReportOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EnterpriseEntitlementsReportGetProjectReportUnauthorized) IsServerError
 // IsCode returns true when this enterprise entitlements report get project report unauthorized response a status code equal to that given
 func (o *EnterpriseEntitlementsReportGetProjectReportUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the enterprise entitlements report get project report unauthorized response
+func (o *EnterpriseEntitlementsReportGetProjectReportUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EnterpriseEntitlementsReportGetProjectReportUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EnterpriseEntitlementsReportGetProjectReportForbidden) IsCode(code int)
 	return code == 403
 }
 
+// Code gets the status code for the enterprise entitlements report get project report forbidden response
+func (o *EnterpriseEntitlementsReportGetProjectReportForbidden) Code() int {
+	return 403
+}
+
 func (o *EnterpriseEntitlementsReportGetProjectReportForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/reports/project][%d] enterpriseEntitlementsReportGetProjectReportForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EnterpriseEntitlementsReportGetProjectReportNotFound) IsServerError() b
 // IsCode returns true when this enterprise entitlements report get project report not found response a status code equal to that given
 func (o *EnterpriseEntitlementsReportGetProjectReportNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the enterprise entitlements report get project report not found response
+func (o *EnterpriseEntitlementsReportGetProjectReportNotFound) Code() int {
+	return 404
 }
 
 func (o *EnterpriseEntitlementsReportGetProjectReportNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EnterpriseEntitlementsReportGetProjectReportInternalServerError) IsCode
 	return code == 500
 }
 
+// Code gets the status code for the enterprise entitlements report get project report internal server error response
+func (o *EnterpriseEntitlementsReportGetProjectReportInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EnterpriseEntitlementsReportGetProjectReportInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/reports/project][%d] enterpriseEntitlementsReportGetProjectReportInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EnterpriseEntitlementsReportGetProjectReportGatewayTimeout) IsCode(code
 	return code == 504
 }
 
+// Code gets the status code for the enterprise entitlements report get project report gateway timeout response
+func (o *EnterpriseEntitlementsReportGetProjectReportGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EnterpriseEntitlementsReportGetProjectReportGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/reports/project][%d] enterpriseEntitlementsReportGetProjectReportGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EnterpriseEntitlementsReportGetProjectReportDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the enterprise entitlements report get project report default response
-func (o *EnterpriseEntitlementsReportGetProjectReportDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this enterprise entitlements report get project report default response has a 2xx status code
 func (o *EnterpriseEntitlementsReportGetProjectReportDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EnterpriseEntitlementsReportGetProjectReportDefault) IsServerError() bo
 // IsCode returns true when this enterprise entitlements report get project report default response a status code equal to that given
 func (o *EnterpriseEntitlementsReportGetProjectReportDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the enterprise entitlements report get project report default response
+func (o *EnterpriseEntitlementsReportGetProjectReportDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EnterpriseEntitlementsReportGetProjectReportDefault) Error() string {

@@ -117,6 +117,11 @@ func (o *IdentityAccessManagementCreateCredentialOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management create credential o k response
+func (o *IdentityAccessManagementCreateCredentialOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementCreateCredentialOK) Error() string {
 	return fmt.Sprintf("[POST /v1/credentials][%d] identityAccessManagementCreateCredentialOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *IdentityAccessManagementCreateCredentialBadRequest) IsServerError() boo
 // IsCode returns true when this identity access management create credential bad request response a status code equal to that given
 func (o *IdentityAccessManagementCreateCredentialBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the identity access management create credential bad request response
+func (o *IdentityAccessManagementCreateCredentialBadRequest) Code() int {
+	return 400
 }
 
 func (o *IdentityAccessManagementCreateCredentialBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *IdentityAccessManagementCreateCredentialUnauthorized) IsCode(code int) 
 	return code == 401
 }
 
+// Code gets the status code for the identity access management create credential unauthorized response
+func (o *IdentityAccessManagementCreateCredentialUnauthorized) Code() int {
+	return 401
+}
+
 func (o *IdentityAccessManagementCreateCredentialUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /v1/credentials][%d] identityAccessManagementCreateCredentialUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *IdentityAccessManagementCreateCredentialForbidden) IsServerError() bool
 // IsCode returns true when this identity access management create credential forbidden response a status code equal to that given
 func (o *IdentityAccessManagementCreateCredentialForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the identity access management create credential forbidden response
+func (o *IdentityAccessManagementCreateCredentialForbidden) Code() int {
+	return 403
 }
 
 func (o *IdentityAccessManagementCreateCredentialForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *IdentityAccessManagementCreateCredentialConflict) IsCode(code int) bool
 	return code == 409
 }
 
+// Code gets the status code for the identity access management create credential conflict response
+func (o *IdentityAccessManagementCreateCredentialConflict) Code() int {
+	return 409
+}
+
 func (o *IdentityAccessManagementCreateCredentialConflict) Error() string {
 	return fmt.Sprintf("[POST /v1/credentials][%d] identityAccessManagementCreateCredentialConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *IdentityAccessManagementCreateCredentialInternalServerError) IsServerEr
 // IsCode returns true when this identity access management create credential internal server error response a status code equal to that given
 func (o *IdentityAccessManagementCreateCredentialInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management create credential internal server error response
+func (o *IdentityAccessManagementCreateCredentialInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementCreateCredentialInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *IdentityAccessManagementCreateCredentialGatewayTimeout) IsCode(code int
 	return code == 504
 }
 
+// Code gets the status code for the identity access management create credential gateway timeout response
+func (o *IdentityAccessManagementCreateCredentialGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementCreateCredentialGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/credentials][%d] identityAccessManagementCreateCredentialGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type IdentityAccessManagementCreateCredentialDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management create credential default response
-func (o *IdentityAccessManagementCreateCredentialDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management create credential default response has a 2xx status code
 func (o *IdentityAccessManagementCreateCredentialDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *IdentityAccessManagementCreateCredentialDefault) IsServerError() bool {
 // IsCode returns true when this identity access management create credential default response a status code equal to that given
 func (o *IdentityAccessManagementCreateCredentialDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management create credential default response
+func (o *IdentityAccessManagementCreateCredentialDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementCreateCredentialDefault) Error() string {

@@ -121,6 +121,11 @@ func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleOK) IsCode(code 
 	return code == 200
 }
 
+// Code gets the status code for the edge application configuration update edge application bundle o k response
+func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleOK) Code() int {
+	return 200
+}
+
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/id/{id}][%d] edgeApplicationConfigurationUpdateEdgeApplicationBundleOK  %+v", 200, o.Payload)
 }
@@ -182,6 +187,11 @@ func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleUnauthorized) Is
 // IsCode returns true when this edge application configuration update edge application bundle unauthorized response a status code equal to that given
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge application configuration update edge application bundle unauthorized response
+func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleUnauthorized) Error() string {
@@ -247,6 +257,11 @@ func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleForbidden) IsCod
 	return code == 403
 }
 
+// Code gets the status code for the edge application configuration update edge application bundle forbidden response
+func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/id/{id}][%d] edgeApplicationConfigurationUpdateEdgeApplicationBundleForbidden  %+v", 403, o.Payload)
 }
@@ -308,6 +323,11 @@ func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleNotFound) IsServ
 // IsCode returns true when this edge application configuration update edge application bundle not found response a status code equal to that given
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge application configuration update edge application bundle not found response
+func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleNotFound) Error() string {
@@ -373,6 +393,11 @@ func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleConflict) IsCode
 	return code == 409
 }
 
+// Code gets the status code for the edge application configuration update edge application bundle conflict response
+func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleConflict) Code() int {
+	return 409
+}
+
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/id/{id}][%d] edgeApplicationConfigurationUpdateEdgeApplicationBundleConflict  %+v", 409, o.Payload)
 }
@@ -434,6 +459,11 @@ func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleInternalServerEr
 // IsCode returns true when this edge application configuration update edge application bundle internal server error response a status code equal to that given
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the edge application configuration update edge application bundle internal server error response
+func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleInternalServerError) Error() string {
@@ -499,6 +529,11 @@ func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleGatewayTimeout) 
 	return code == 504
 }
 
+// Code gets the status code for the edge application configuration update edge application bundle gateway timeout response
+func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/id/{id}][%d] edgeApplicationConfigurationUpdateEdgeApplicationBundleGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -541,11 +576,6 @@ type EdgeApplicationConfigurationUpdateEdgeApplicationBundleDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge application configuration update edge application bundle default response
-func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge application configuration update edge application bundle default response has a 2xx status code
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -569,6 +599,11 @@ func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleDefault) IsServe
 // IsCode returns true when this edge application configuration update edge application bundle default response a status code equal to that given
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge application configuration update edge application bundle default response
+func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleDefault) Error() string {
@@ -876,6 +911,11 @@ func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleBody) contextVal
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleBody) contextValidateManifestJSON(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ManifestJSON != nil {
+
+		if swag.IsZero(o.ManifestJSON) { // not required
+			return nil
+		}
+
 		if err := o.ManifestJSON.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "manifestJSON")
@@ -892,6 +932,7 @@ func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleBody) contextVal
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleBody) contextValidateOriginType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.OriginType != nil {
+
 		if err := o.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "originType")
@@ -908,6 +949,11 @@ func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleBody) contextVal
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleBody) contextValidateParentDetail(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ParentDetail != nil {
+
+		if swag.IsZero(o.ParentDetail) { // not required
+			return nil
+		}
+
 		if err := o.ParentDetail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "parentDetail")
@@ -924,6 +970,11 @@ func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleBody) contextVal
 func (o *EdgeApplicationConfigurationUpdateEdgeApplicationBundleBody) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Revision != nil {
+
+		if swag.IsZero(o.Revision) { // not required
+			return nil
+		}
+
 		if err := o.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "revision")

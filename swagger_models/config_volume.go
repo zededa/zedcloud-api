@@ -138,6 +138,11 @@ func (m *ConfigVolume) ContextValidate(ctx context.Context, formats strfmt.Regis
 func (m *ConfigVolume) contextValidateOrigin(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Origin != nil {
+
+		if swag.IsZero(m.Origin) { // not required
+			return nil
+		}
+
 		if err := m.Origin.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("origin")
@@ -156,6 +161,11 @@ func (m *ConfigVolume) contextValidateProtocols(ctx context.Context, formats str
 	for i := 0; i < len(m.Protocols); i++ {
 
 		if m.Protocols[i] != nil {
+
+			if swag.IsZero(m.Protocols[i]) { // not required
+				return nil
+			}
+
 			if err := m.Protocols[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("protocols" + "." + strconv.Itoa(i))

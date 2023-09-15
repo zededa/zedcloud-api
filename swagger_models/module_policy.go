@@ -175,6 +175,11 @@ func (m *ModulePolicy) contextValidateApps(ctx context.Context, formats strfmt.R
 	for i := 0; i < len(m.Apps); i++ {
 
 		if m.Apps[i] != nil {
+
+			if swag.IsZero(m.Apps[i]) { // not required
+				return nil
+			}
+
 			if err := m.Apps[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("apps" + "." + strconv.Itoa(i))
@@ -202,6 +207,11 @@ func (m *ModulePolicy) contextValidateID(ctx context.Context, formats strfmt.Reg
 func (m *ModulePolicy) contextValidateMetrics(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Metrics != nil {
+
+		if swag.IsZero(m.Metrics) { // not required
+			return nil
+		}
+
 		if err := m.Metrics.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metrics")

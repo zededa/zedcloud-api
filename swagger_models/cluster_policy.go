@@ -156,6 +156,11 @@ func (m *ClusterPolicy) ContextValidate(ctx context.Context, formats strfmt.Regi
 func (m *ClusterPolicy) contextValidateClusterConfig(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ClusterConfig != nil {
+
+		if swag.IsZero(m.ClusterConfig) { // not required
+			return nil
+		}
+
 		if err := m.ClusterConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clusterConfig")
@@ -172,6 +177,7 @@ func (m *ClusterPolicy) contextValidateClusterConfig(ctx context.Context, format
 func (m *ClusterPolicy) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

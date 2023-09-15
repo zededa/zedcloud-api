@@ -133,6 +133,11 @@ func (m *NetWirelessConfig) ContextValidate(ctx context.Context, formats strfmt.
 func (m *NetWirelessConfig) contextValidateCellularCfg(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CellularCfg != nil {
+
+		if swag.IsZero(m.CellularCfg) { // not required
+			return nil
+		}
+
 		if err := m.CellularCfg.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cellularCfg")
@@ -149,6 +154,11 @@ func (m *NetWirelessConfig) contextValidateCellularCfg(ctx context.Context, form
 func (m *NetWirelessConfig) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
@@ -165,6 +175,11 @@ func (m *NetWirelessConfig) contextValidateType(ctx context.Context, formats str
 func (m *NetWirelessConfig) contextValidateWifiCfg(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.WifiCfg != nil {
+
+		if swag.IsZero(m.WifiCfg) { // not required
+			return nil
+		}
+
 		if err := m.WifiCfg.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wifiCfg")

@@ -90,6 +90,11 @@ func (m *ConfigBaseOS) ContextValidate(ctx context.Context, formats strfmt.Regis
 func (m *ConfigBaseOS) contextValidateRetryUpdate(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.RetryUpdate != nil {
+
+		if swag.IsZero(m.RetryUpdate) { // not required
+			return nil
+		}
+
 		if err := m.RetryUpdate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("retryUpdate")

@@ -180,6 +180,11 @@ func (m *VolInstList) contextValidateCfgList(ctx context.Context, formats strfmt
 	for i := 0; i < len(m.CfgList); i++ {
 
 		if m.CfgList[i] != nil {
+
+			if swag.IsZero(m.CfgList[i]) { // not required
+				return nil
+			}
+
 			if err := m.CfgList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("cfgList" + "." + strconv.Itoa(i))
@@ -200,6 +205,11 @@ func (m *VolInstList) contextValidateList(ctx context.Context, formats strfmt.Re
 	for i := 0; i < len(m.List); i++ {
 
 		if m.List[i] != nil {
+
+			if swag.IsZero(m.List[i]) { // not required
+				return nil
+			}
+
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
@@ -218,6 +228,11 @@ func (m *VolInstList) contextValidateList(ctx context.Context, formats strfmt.Re
 func (m *VolInstList) contextValidateNext(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Next != nil {
+
+		if swag.IsZero(m.Next) { // not required
+			return nil
+		}
+
 		if err := m.Next.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("next")
@@ -234,6 +249,11 @@ func (m *VolInstList) contextValidateNext(ctx context.Context, formats strfmt.Re
 func (m *VolInstList) contextValidateSummaryByType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SummaryByType != nil {
+
+		if swag.IsZero(m.SummaryByType) { // not required
+			return nil
+		}
+
 		if err := m.SummaryByType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("summaryByType")

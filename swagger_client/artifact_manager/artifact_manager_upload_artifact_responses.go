@@ -117,6 +117,11 @@ func (o *ArtifactManagerUploadArtifactOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the artifact manager upload artifact o k response
+func (o *ArtifactManagerUploadArtifactOK) Code() int {
+	return 200
+}
+
 func (o *ArtifactManagerUploadArtifactOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/artifacts/id/{id}/upload/chunked][%d] artifactManagerUploadArtifactOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *ArtifactManagerUploadArtifactAccepted) IsServerError() bool {
 // IsCode returns true when this artifact manager upload artifact accepted response a status code equal to that given
 func (o *ArtifactManagerUploadArtifactAccepted) IsCode(code int) bool {
 	return code == 202
+}
+
+// Code gets the status code for the artifact manager upload artifact accepted response
+func (o *ArtifactManagerUploadArtifactAccepted) Code() int {
+	return 202
 }
 
 func (o *ArtifactManagerUploadArtifactAccepted) Error() string {
@@ -243,6 +253,11 @@ func (o *ArtifactManagerUploadArtifactBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the artifact manager upload artifact bad request response
+func (o *ArtifactManagerUploadArtifactBadRequest) Code() int {
+	return 400
+}
+
 func (o *ArtifactManagerUploadArtifactBadRequest) Error() string {
 	return fmt.Sprintf("[PUT /v1/artifacts/id/{id}/upload/chunked][%d] artifactManagerUploadArtifactBadRequest  %+v", 400, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *ArtifactManagerUploadArtifactUnauthorized) IsServerError() bool {
 // IsCode returns true when this artifact manager upload artifact unauthorized response a status code equal to that given
 func (o *ArtifactManagerUploadArtifactUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the artifact manager upload artifact unauthorized response
+func (o *ArtifactManagerUploadArtifactUnauthorized) Code() int {
+	return 401
 }
 
 func (o *ArtifactManagerUploadArtifactUnauthorized) Error() string {
@@ -369,6 +389,11 @@ func (o *ArtifactManagerUploadArtifactForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the artifact manager upload artifact forbidden response
+func (o *ArtifactManagerUploadArtifactForbidden) Code() int {
+	return 403
+}
+
 func (o *ArtifactManagerUploadArtifactForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/artifacts/id/{id}/upload/chunked][%d] artifactManagerUploadArtifactForbidden  %+v", 403, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *ArtifactManagerUploadArtifactInternalServerError) IsServerError() bool 
 // IsCode returns true when this artifact manager upload artifact internal server error response a status code equal to that given
 func (o *ArtifactManagerUploadArtifactInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the artifact manager upload artifact internal server error response
+func (o *ArtifactManagerUploadArtifactInternalServerError) Code() int {
+	return 500
 }
 
 func (o *ArtifactManagerUploadArtifactInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *ArtifactManagerUploadArtifactGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the artifact manager upload artifact gateway timeout response
+func (o *ArtifactManagerUploadArtifactGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ArtifactManagerUploadArtifactGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/artifacts/id/{id}/upload/chunked][%d] artifactManagerUploadArtifactGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type ArtifactManagerUploadArtifactDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the artifact manager upload artifact default response
-func (o *ArtifactManagerUploadArtifactDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this artifact manager upload artifact default response has a 2xx status code
 func (o *ArtifactManagerUploadArtifactDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *ArtifactManagerUploadArtifactDefault) IsServerError() bool {
 // IsCode returns true when this artifact manager upload artifact default response a status code equal to that given
 func (o *ArtifactManagerUploadArtifactDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the artifact manager upload artifact default response
+func (o *ArtifactManagerUploadArtifactDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ArtifactManagerUploadArtifactDefault) Error() string {

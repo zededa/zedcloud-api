@@ -111,6 +111,11 @@ func (o *ImageConfigurationGetImageByNameOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the image configuration get image by name o k response
+func (o *ImageConfigurationGetImageByNameOK) Code() int {
+	return 200
+}
+
 func (o *ImageConfigurationGetImageByNameOK) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images/name/{name}][%d] imageConfigurationGetImageByNameOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *ImageConfigurationGetImageByNameUnauthorized) IsServerError() bool {
 // IsCode returns true when this image configuration get image by name unauthorized response a status code equal to that given
 func (o *ImageConfigurationGetImageByNameUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the image configuration get image by name unauthorized response
+func (o *ImageConfigurationGetImageByNameUnauthorized) Code() int {
+	return 401
 }
 
 func (o *ImageConfigurationGetImageByNameUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *ImageConfigurationGetImageByNameForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the image configuration get image by name forbidden response
+func (o *ImageConfigurationGetImageByNameForbidden) Code() int {
+	return 403
+}
+
 func (o *ImageConfigurationGetImageByNameForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images/name/{name}][%d] imageConfigurationGetImageByNameForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *ImageConfigurationGetImageByNameNotFound) IsServerError() bool {
 // IsCode returns true when this image configuration get image by name not found response a status code equal to that given
 func (o *ImageConfigurationGetImageByNameNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the image configuration get image by name not found response
+func (o *ImageConfigurationGetImageByNameNotFound) Code() int {
+	return 404
 }
 
 func (o *ImageConfigurationGetImageByNameNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *ImageConfigurationGetImageByNameInternalServerError) IsCode(code int) b
 	return code == 500
 }
 
+// Code gets the status code for the image configuration get image by name internal server error response
+func (o *ImageConfigurationGetImageByNameInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ImageConfigurationGetImageByNameInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images/name/{name}][%d] imageConfigurationGetImageByNameInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *ImageConfigurationGetImageByNameGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the image configuration get image by name gateway timeout response
+func (o *ImageConfigurationGetImageByNameGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ImageConfigurationGetImageByNameGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/apps/images/name/{name}][%d] imageConfigurationGetImageByNameGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type ImageConfigurationGetImageByNameDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the image configuration get image by name default response
-func (o *ImageConfigurationGetImageByNameDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this image configuration get image by name default response has a 2xx status code
 func (o *ImageConfigurationGetImageByNameDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *ImageConfigurationGetImageByNameDefault) IsServerError() bool {
 // IsCode returns true when this image configuration get image by name default response a status code equal to that given
 func (o *ImageConfigurationGetImageByNameDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the image configuration get image by name default response
+func (o *ImageConfigurationGetImageByNameDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ImageConfigurationGetImageByNameDefault) Error() string {

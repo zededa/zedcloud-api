@@ -127,6 +127,11 @@ func (m *SysModelFilter) ContextValidate(ctx context.Context, formats strfmt.Reg
 func (m *SysModelFilter) contextValidateOriginType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.OriginType != nil {
+
+		if swag.IsZero(m.OriginType) { // not required
+			return nil
+		}
+
 		if err := m.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("originType")

@@ -584,6 +584,11 @@ func (m *CrudResponseQuery) ContextValidate(ctx context.Context, formats strfmt.
 func (m *CrudResponseQuery) contextValidateAllowedEnterpriseList(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AllowedEnterpriseList != nil {
+
+		if swag.IsZero(m.AllowedEnterpriseList) { // not required
+			return nil
+		}
+
 		if err := m.AllowedEnterpriseList.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("allowedEnterpriseList")
@@ -600,6 +605,11 @@ func (m *CrudResponseQuery) contextValidateAllowedEnterpriseList(ctx context.Con
 func (m *CrudResponseQuery) contextValidateClazz(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Clazz != nil {
+
+		if swag.IsZero(m.Clazz) { // not required
+			return nil
+		}
+
 		if err := m.Clazz.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clazz")
@@ -616,6 +626,11 @@ func (m *CrudResponseQuery) contextValidateClazz(ctx context.Context, formats st
 func (m *CrudResponseQuery) contextValidateCode(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Code != nil {
+
+		if swag.IsZero(m.Code) { // not required
+			return nil
+		}
+
 		if err := m.Code.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("code")
@@ -632,6 +647,11 @@ func (m *CrudResponseQuery) contextValidateCode(ctx context.Context, formats str
 func (m *CrudResponseQuery) contextValidateCredentials(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Credentials != nil {
+
+		if swag.IsZero(m.Credentials) { // not required
+			return nil
+		}
+
 		if err := m.Credentials.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("credentials")
@@ -648,6 +668,11 @@ func (m *CrudResponseQuery) contextValidateCredentials(ctx context.Context, form
 func (m *CrudResponseQuery) contextValidateDocPolicies(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DocPolicies != nil {
+
+		if swag.IsZero(m.DocPolicies) { // not required
+			return nil
+		}
+
 		if err := m.DocPolicies.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("docPolicies")
@@ -664,6 +689,11 @@ func (m *CrudResponseQuery) contextValidateDocPolicies(ctx context.Context, form
 func (m *CrudResponseQuery) contextValidateEnterprises(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Enterprises != nil {
+
+		if swag.IsZero(m.Enterprises) { // not required
+			return nil
+		}
+
 		if err := m.Enterprises.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enterprises")
@@ -682,6 +712,11 @@ func (m *CrudResponseQuery) contextValidateGlobalStatistics(ctx context.Context,
 	for i := 0; i < len(m.GlobalStatistics); i++ {
 
 		if m.GlobalStatistics[i] != nil {
+
+			if swag.IsZero(m.GlobalStatistics[i]) { // not required
+				return nil
+			}
+
 			if err := m.GlobalStatistics[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("globalStatistics" + "." + strconv.Itoa(i))
@@ -702,6 +737,11 @@ func (m *CrudResponseQuery) contextValidateList(ctx context.Context, formats str
 	for i := 0; i < len(m.List); i++ {
 
 		if m.List[i] != nil {
+
+			if swag.IsZero(m.List[i]) { // not required
+				return nil
+			}
+
 			if err := m.List[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("list" + "." + strconv.Itoa(i))
@@ -720,6 +760,11 @@ func (m *CrudResponseQuery) contextValidateList(ctx context.Context, formats str
 func (m *CrudResponseQuery) contextValidatePolicies(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Policies != nil {
+
+		if swag.IsZero(m.Policies) { // not required
+			return nil
+		}
+
 		if err := m.Policies.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("policies")
@@ -736,6 +781,11 @@ func (m *CrudResponseQuery) contextValidatePolicies(ctx context.Context, formats
 func (m *CrudResponseQuery) contextValidateProfiles(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Profiles != nil {
+
+		if swag.IsZero(m.Profiles) { // not required
+			return nil
+		}
+
 		if err := m.Profiles.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("profiles")
@@ -754,6 +804,11 @@ func (m *CrudResponseQuery) contextValidateQueryStatistics(ctx context.Context, 
 	for i := 0; i < len(m.QueryStatistics); i++ {
 
 		if m.QueryStatistics[i] != nil {
+
+			if swag.IsZero(m.QueryStatistics[i]) { // not required
+				return nil
+			}
+
 			if err := m.QueryStatistics[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("queryStatistics" + "." + strconv.Itoa(i))
@@ -772,6 +827,11 @@ func (m *CrudResponseQuery) contextValidateQueryStatistics(ctx context.Context, 
 func (m *CrudResponseQuery) contextValidateQueryToken(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.QueryToken != nil {
+
+		if swag.IsZero(m.QueryToken) { // not required
+			return nil
+		}
+
 		if err := m.QueryToken.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("queryToken")
@@ -788,6 +848,11 @@ func (m *CrudResponseQuery) contextValidateQueryToken(ctx context.Context, forma
 func (m *CrudResponseQuery) contextValidateRealms(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Realms != nil {
+
+		if swag.IsZero(m.Realms) { // not required
+			return nil
+		}
+
 		if err := m.Realms.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("realms")
@@ -804,6 +869,11 @@ func (m *CrudResponseQuery) contextValidateRealms(ctx context.Context, formats s
 func (m *CrudResponseQuery) contextValidateRoles(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Roles != nil {
+
+		if swag.IsZero(m.Roles) { // not required
+			return nil
+		}
+
 		if err := m.Roles.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("roles")
@@ -820,6 +890,11 @@ func (m *CrudResponseQuery) contextValidateRoles(ctx context.Context, formats st
 func (m *CrudResponseQuery) contextValidateUserSummaryReport(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.UserSummaryReport != nil {
+
+		if swag.IsZero(m.UserSummaryReport) { // not required
+			return nil
+		}
+
 		if err := m.UserSummaryReport.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("userSummaryReport")
@@ -836,6 +911,11 @@ func (m *CrudResponseQuery) contextValidateUserSummaryReport(ctx context.Context
 func (m *CrudResponseQuery) contextValidateUserUsagePerEnterpriseList(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.UserUsagePerEnterpriseList != nil {
+
+		if swag.IsZero(m.UserUsagePerEnterpriseList) { // not required
+			return nil
+		}
+
 		if err := m.UserUsagePerEnterpriseList.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("userUsagePerEnterpriseList")
@@ -852,6 +932,11 @@ func (m *CrudResponseQuery) contextValidateUserUsagePerEnterpriseList(ctx contex
 func (m *CrudResponseQuery) contextValidateUsers(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Users != nil {
+
+		if swag.IsZero(m.Users) { // not required
+			return nil
+		}
+
 		if err := m.Users.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("users")

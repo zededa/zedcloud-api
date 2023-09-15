@@ -93,6 +93,11 @@ func (o *CloudDiagnosticsMarkCloudPolicyLatestOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the cloud diagnostics mark cloud policy latest o k response
+func (o *CloudDiagnosticsMarkCloudPolicyLatestOK) Code() int {
+	return 200
+}
+
 func (o *CloudDiagnosticsMarkCloudPolicyLatestOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/cloud/policies][%d] cloudDiagnosticsMarkCloudPolicyLatestOK  %+v", 200, o.Payload)
 }
@@ -154,6 +159,11 @@ func (o *CloudDiagnosticsMarkCloudPolicyLatestInternalServerError) IsServerError
 // IsCode returns true when this cloud diagnostics mark cloud policy latest internal server error response a status code equal to that given
 func (o *CloudDiagnosticsMarkCloudPolicyLatestInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the cloud diagnostics mark cloud policy latest internal server error response
+func (o *CloudDiagnosticsMarkCloudPolicyLatestInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CloudDiagnosticsMarkCloudPolicyLatestInternalServerError) Error() string {
@@ -219,6 +229,11 @@ func (o *CloudDiagnosticsMarkCloudPolicyLatestGatewayTimeout) IsCode(code int) b
 	return code == 504
 }
 
+// Code gets the status code for the cloud diagnostics mark cloud policy latest gateway timeout response
+func (o *CloudDiagnosticsMarkCloudPolicyLatestGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *CloudDiagnosticsMarkCloudPolicyLatestGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/cloud/policies][%d] cloudDiagnosticsMarkCloudPolicyLatestGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -261,11 +276,6 @@ type CloudDiagnosticsMarkCloudPolicyLatestDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the cloud diagnostics mark cloud policy latest default response
-func (o *CloudDiagnosticsMarkCloudPolicyLatestDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this cloud diagnostics mark cloud policy latest default response has a 2xx status code
 func (o *CloudDiagnosticsMarkCloudPolicyLatestDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -289,6 +299,11 @@ func (o *CloudDiagnosticsMarkCloudPolicyLatestDefault) IsServerError() bool {
 // IsCode returns true when this cloud diagnostics mark cloud policy latest default response a status code equal to that given
 func (o *CloudDiagnosticsMarkCloudPolicyLatestDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the cloud diagnostics mark cloud policy latest default response
+func (o *CloudDiagnosticsMarkCloudPolicyLatestDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CloudDiagnosticsMarkCloudPolicyLatestDefault) Error() string {

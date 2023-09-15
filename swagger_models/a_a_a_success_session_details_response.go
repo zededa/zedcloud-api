@@ -141,6 +141,11 @@ func (m *AAASuccessSessionDetailsResponse) ContextValidate(ctx context.Context, 
 func (m *AAASuccessSessionDetailsResponse) contextValidateOriginal(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Original != nil {
+
+		if swag.IsZero(m.Original) { // not required
+			return nil
+		}
+
 		if err := m.Original.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("original")
@@ -159,6 +164,11 @@ func (m *AAASuccessSessionDetailsResponse) contextValidatePolicies(ctx context.C
 	for i := 0; i < len(m.Policies); i++ {
 
 		if m.Policies[i] != nil {
+
+			if swag.IsZero(m.Policies[i]) { // not required
+				return nil
+			}
+
 			if err := m.Policies[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("policies" + "." + strconv.Itoa(i))
@@ -177,6 +187,11 @@ func (m *AAASuccessSessionDetailsResponse) contextValidatePolicies(ctx context.C
 func (m *AAASuccessSessionDetailsResponse) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.User != nil {
+
+		if swag.IsZero(m.User) { // not required
+			return nil
+		}
+
 		if err := m.User.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")

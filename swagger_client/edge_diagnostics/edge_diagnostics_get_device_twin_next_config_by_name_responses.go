@@ -117,6 +117,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the edge diagnostics get device twin next config by name o k response
+func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameOK) Code() int {
+	return 200
+}
+
 func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameOK) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{name}/config/next][%d] edgeDiagnosticsGetDeviceTwinNextConfigByNameOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameBadRequest) IsServerError()
 // IsCode returns true when this edge diagnostics get device twin next config by name bad request response a status code equal to that given
 func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the edge diagnostics get device twin next config by name bad request response
+func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameBadRequest) Code() int {
+	return 400
 }
 
 func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameBadRequest) Error() string {
@@ -243,6 +253,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameUnauthorized) IsCode(code i
 	return code == 401
 }
 
+// Code gets the status code for the edge diagnostics get device twin next config by name unauthorized response
+func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameUnauthorized) Code() int {
+	return 401
+}
+
 func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{name}/config/next][%d] edgeDiagnosticsGetDeviceTwinNextConfigByNameUnauthorized  %+v", 401, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameForbidden) IsServerError() 
 // IsCode returns true when this edge diagnostics get device twin next config by name forbidden response a status code equal to that given
 func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the edge diagnostics get device twin next config by name forbidden response
+func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameForbidden) Code() int {
+	return 403
 }
 
 func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameForbidden) Error() string {
@@ -369,6 +389,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameNotFound) IsCode(code int) 
 	return code == 404
 }
 
+// Code gets the status code for the edge diagnostics get device twin next config by name not found response
+func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameNotFound) Code() int {
+	return 404
+}
+
 func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameNotFound) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{name}/config/next][%d] edgeDiagnosticsGetDeviceTwinNextConfigByNameNotFound  %+v", 404, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameInternalServerError) IsServ
 // IsCode returns true when this edge diagnostics get device twin next config by name internal server error response a status code equal to that given
 func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the edge diagnostics get device twin next config by name internal server error response
+func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameGatewayTimeout) IsCode(code
 	return code == 504
 }
 
+// Code gets the status code for the edge diagnostics get device twin next config by name gateway timeout response
+func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/devices/name/{name}/config/next][%d] edgeDiagnosticsGetDeviceTwinNextConfigByNameGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type EdgeDiagnosticsGetDeviceTwinNextConfigByNameDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge diagnostics get device twin next config by name default response
-func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge diagnostics get device twin next config by name default response has a 2xx status code
 func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameDefault) IsServerError() bo
 // IsCode returns true when this edge diagnostics get device twin next config by name default response a status code equal to that given
 func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge diagnostics get device twin next config by name default response
+func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeDiagnosticsGetDeviceTwinNextConfigByNameDefault) Error() string {

@@ -123,6 +123,11 @@ func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesOK) IsCode(code int) bool 
 	return code == 200
 }
 
+// Code gets the status code for the bulk job ops bulk refresh edge application instances o k response
+func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesOK) Code() int {
+	return 200
+}
+
 func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/apps/instances/refresh][%d] bulkJobOpsBulkRefreshEdgeApplicationInstancesOK  %+v", 200, o.Payload)
 }
@@ -184,6 +189,11 @@ func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesBadRequest) IsServerError(
 // IsCode returns true when this bulk job ops bulk refresh edge application instances bad request response a status code equal to that given
 func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the bulk job ops bulk refresh edge application instances bad request response
+func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesBadRequest) Code() int {
+	return 400
 }
 
 func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesBadRequest) Error() string {
@@ -249,6 +259,11 @@ func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesUnauthorized) IsCode(code 
 	return code == 401
 }
 
+// Code gets the status code for the bulk job ops bulk refresh edge application instances unauthorized response
+func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesUnauthorized) Code() int {
+	return 401
+}
+
 func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesUnauthorized) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/apps/instances/refresh][%d] bulkJobOpsBulkRefreshEdgeApplicationInstancesUnauthorized  %+v", 401, o.Payload)
 }
@@ -310,6 +325,11 @@ func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesForbidden) IsServerError()
 // IsCode returns true when this bulk job ops bulk refresh edge application instances forbidden response a status code equal to that given
 func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the bulk job ops bulk refresh edge application instances forbidden response
+func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesForbidden) Code() int {
+	return 403
 }
 
 func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesForbidden) Error() string {
@@ -375,6 +395,11 @@ func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesNotFound) IsCode(code int)
 	return code == 404
 }
 
+// Code gets the status code for the bulk job ops bulk refresh edge application instances not found response
+func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesNotFound) Code() int {
+	return 404
+}
+
 func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesNotFound) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/apps/instances/refresh][%d] bulkJobOpsBulkRefreshEdgeApplicationInstancesNotFound  %+v", 404, o.Payload)
 }
@@ -436,6 +461,11 @@ func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesConflict) IsServerError() 
 // IsCode returns true when this bulk job ops bulk refresh edge application instances conflict response a status code equal to that given
 func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesConflict) IsCode(code int) bool {
 	return code == 409
+}
+
+// Code gets the status code for the bulk job ops bulk refresh edge application instances conflict response
+func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesConflict) Code() int {
+	return 409
 }
 
 func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesConflict) Error() string {
@@ -501,6 +531,11 @@ func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesInternalServerError) IsCod
 	return code == 500
 }
 
+// Code gets the status code for the bulk job ops bulk refresh edge application instances internal server error response
+func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesInternalServerError) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/apps/instances/refresh][%d] bulkJobOpsBulkRefreshEdgeApplicationInstancesInternalServerError  %+v", 500, o.Payload)
 }
@@ -564,6 +599,11 @@ func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesGatewayTimeout) IsCode(cod
 	return code == 504
 }
 
+// Code gets the status code for the bulk job ops bulk refresh edge application instances gateway timeout response
+func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/apps/instances/refresh][%d] bulkJobOpsBulkRefreshEdgeApplicationInstancesGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -606,11 +646,6 @@ type BulkJobOpsBulkRefreshEdgeApplicationInstancesDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the bulk job ops bulk refresh edge application instances default response
-func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this bulk job ops bulk refresh edge application instances default response has a 2xx status code
 func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -634,6 +669,11 @@ func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesDefault) IsServerError() b
 // IsCode returns true when this bulk job ops bulk refresh edge application instances default response a status code equal to that given
 func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the bulk job ops bulk refresh edge application instances default response
+func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *BulkJobOpsBulkRefreshEdgeApplicationInstancesDefault) Error() string {

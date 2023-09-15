@@ -105,6 +105,11 @@ func (o *IdentityAccessManagementSignupUserOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the identity access management signup user o k response
+func (o *IdentityAccessManagementSignupUserOK) Code() int {
+	return 200
+}
+
 func (o *IdentityAccessManagementSignupUserOK) Error() string {
 	return fmt.Sprintf("[POST /v1/login/signup/user][%d] identityAccessManagementSignupUserOK  %+v", 200, o.Payload)
 }
@@ -166,6 +171,11 @@ func (o *IdentityAccessManagementSignupUserUnauthorized) IsServerError() bool {
 // IsCode returns true when this identity access management signup user unauthorized response a status code equal to that given
 func (o *IdentityAccessManagementSignupUserUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the identity access management signup user unauthorized response
+func (o *IdentityAccessManagementSignupUserUnauthorized) Code() int {
+	return 401
 }
 
 func (o *IdentityAccessManagementSignupUserUnauthorized) Error() string {
@@ -231,6 +241,11 @@ func (o *IdentityAccessManagementSignupUserForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the identity access management signup user forbidden response
+func (o *IdentityAccessManagementSignupUserForbidden) Code() int {
+	return 403
+}
+
 func (o *IdentityAccessManagementSignupUserForbidden) Error() string {
 	return fmt.Sprintf("[POST /v1/login/signup/user][%d] identityAccessManagementSignupUserForbidden  %+v", 403, o.Payload)
 }
@@ -292,6 +307,11 @@ func (o *IdentityAccessManagementSignupUserInternalServerError) IsServerError() 
 // IsCode returns true when this identity access management signup user internal server error response a status code equal to that given
 func (o *IdentityAccessManagementSignupUserInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the identity access management signup user internal server error response
+func (o *IdentityAccessManagementSignupUserInternalServerError) Code() int {
+	return 500
 }
 
 func (o *IdentityAccessManagementSignupUserInternalServerError) Error() string {
@@ -357,6 +377,11 @@ func (o *IdentityAccessManagementSignupUserGatewayTimeout) IsCode(code int) bool
 	return code == 504
 }
 
+// Code gets the status code for the identity access management signup user gateway timeout response
+func (o *IdentityAccessManagementSignupUserGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *IdentityAccessManagementSignupUserGatewayTimeout) Error() string {
 	return fmt.Sprintf("[POST /v1/login/signup/user][%d] identityAccessManagementSignupUserGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -399,11 +424,6 @@ type IdentityAccessManagementSignupUserDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the identity access management signup user default response
-func (o *IdentityAccessManagementSignupUserDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this identity access management signup user default response has a 2xx status code
 func (o *IdentityAccessManagementSignupUserDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -427,6 +447,11 @@ func (o *IdentityAccessManagementSignupUserDefault) IsServerError() bool {
 // IsCode returns true when this identity access management signup user default response a status code equal to that given
 func (o *IdentityAccessManagementSignupUserDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the identity access management signup user default response
+func (o *IdentityAccessManagementSignupUserDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *IdentityAccessManagementSignupUserDefault) Error() string {

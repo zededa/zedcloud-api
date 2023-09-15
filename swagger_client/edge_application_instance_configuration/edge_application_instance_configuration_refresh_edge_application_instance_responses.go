@@ -117,6 +117,11 @@ func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceOK) I
 	return code == 200
 }
 
+// Code gets the status code for the edge application instance configuration refresh edge application instance o k response
+func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceOK) Code() int {
+	return 200
+}
+
 func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/instances/id/{id}/refresh][%d] edgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceOK  %+v", 200, o.Payload)
 }
@@ -178,6 +183,11 @@ func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceUnaut
 // IsCode returns true when this edge application instance configuration refresh edge application instance unauthorized response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the edge application instance configuration refresh edge application instance unauthorized response
+func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceUnauthorized) Error() string {
@@ -243,6 +253,11 @@ func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceForbi
 	return code == 403
 }
 
+// Code gets the status code for the edge application instance configuration refresh edge application instance forbidden response
+func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceForbidden) Code() int {
+	return 403
+}
+
 func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceForbidden) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/instances/id/{id}/refresh][%d] edgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceForbidden  %+v", 403, o.Payload)
 }
@@ -304,6 +319,11 @@ func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceNotFo
 // IsCode returns true when this edge application instance configuration refresh edge application instance not found response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the edge application instance configuration refresh edge application instance not found response
+func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceNotFound) Code() int {
+	return 404
 }
 
 func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceNotFound) Error() string {
@@ -369,6 +389,11 @@ func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceConfl
 	return code == 409
 }
 
+// Code gets the status code for the edge application instance configuration refresh edge application instance conflict response
+func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceConflict) Code() int {
+	return 409
+}
+
 func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceConflict) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/instances/id/{id}/refresh][%d] edgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceConflict  %+v", 409, o.Payload)
 }
@@ -430,6 +455,11 @@ func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceInter
 // IsCode returns true when this edge application instance configuration refresh edge application instance internal server error response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the edge application instance configuration refresh edge application instance internal server error response
+func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceInternalServerError) Code() int {
+	return 500
 }
 
 func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceInternalServerError) Error() string {
@@ -495,6 +525,11 @@ func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceGatew
 	return code == 504
 }
 
+// Code gets the status code for the edge application instance configuration refresh edge application instance gateway timeout response
+func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/instances/id/{id}/refresh][%d] edgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -537,11 +572,6 @@ type EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceDefault s
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the edge application instance configuration refresh edge application instance default response
-func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this edge application instance configuration refresh edge application instance default response has a 2xx status code
 func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -565,6 +595,11 @@ func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceDefau
 // IsCode returns true when this edge application instance configuration refresh edge application instance default response a status code equal to that given
 func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the edge application instance configuration refresh edge application instance default response
+func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EdgeApplicationInstanceConfigurationRefreshEdgeApplicationInstanceDefault) Error() string {

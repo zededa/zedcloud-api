@@ -127,6 +127,11 @@ func (o *ImageConfigurationUpdateImageOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the image configuration update image o k response
+func (o *ImageConfigurationUpdateImageOK) Code() int {
+	return 200
+}
+
 func (o *ImageConfigurationUpdateImageOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/id/{id}][%d] imageConfigurationUpdateImageOK  %+v", 200, o.Payload)
 }
@@ -188,6 +193,11 @@ func (o *ImageConfigurationUpdateImageBadRequest) IsServerError() bool {
 // IsCode returns true when this image configuration update image bad request response a status code equal to that given
 func (o *ImageConfigurationUpdateImageBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the image configuration update image bad request response
+func (o *ImageConfigurationUpdateImageBadRequest) Code() int {
+	return 400
 }
 
 func (o *ImageConfigurationUpdateImageBadRequest) Error() string {
@@ -253,6 +263,11 @@ func (o *ImageConfigurationUpdateImageUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the image configuration update image unauthorized response
+func (o *ImageConfigurationUpdateImageUnauthorized) Code() int {
+	return 401
+}
+
 func (o *ImageConfigurationUpdateImageUnauthorized) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/id/{id}][%d] imageConfigurationUpdateImageUnauthorized  %+v", 401, o.Payload)
 }
@@ -314,6 +329,11 @@ func (o *ImageConfigurationUpdateImageForbidden) IsServerError() bool {
 // IsCode returns true when this image configuration update image forbidden response a status code equal to that given
 func (o *ImageConfigurationUpdateImageForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the image configuration update image forbidden response
+func (o *ImageConfigurationUpdateImageForbidden) Code() int {
+	return 403
 }
 
 func (o *ImageConfigurationUpdateImageForbidden) Error() string {
@@ -379,6 +399,11 @@ func (o *ImageConfigurationUpdateImageNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the image configuration update image not found response
+func (o *ImageConfigurationUpdateImageNotFound) Code() int {
+	return 404
+}
+
 func (o *ImageConfigurationUpdateImageNotFound) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/id/{id}][%d] imageConfigurationUpdateImageNotFound  %+v", 404, o.Payload)
 }
@@ -440,6 +465,11 @@ func (o *ImageConfigurationUpdateImageConflict) IsServerError() bool {
 // IsCode returns true when this image configuration update image conflict response a status code equal to that given
 func (o *ImageConfigurationUpdateImageConflict) IsCode(code int) bool {
 	return code == 409
+}
+
+// Code gets the status code for the image configuration update image conflict response
+func (o *ImageConfigurationUpdateImageConflict) Code() int {
+	return 409
 }
 
 func (o *ImageConfigurationUpdateImageConflict) Error() string {
@@ -505,6 +535,11 @@ func (o *ImageConfigurationUpdateImageInternalServerError) IsCode(code int) bool
 	return code == 500
 }
 
+// Code gets the status code for the image configuration update image internal server error response
+func (o *ImageConfigurationUpdateImageInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ImageConfigurationUpdateImageInternalServerError) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/id/{id}][%d] imageConfigurationUpdateImageInternalServerError  %+v", 500, o.Payload)
 }
@@ -568,6 +603,11 @@ func (o *ImageConfigurationUpdateImageGatewayTimeout) IsCode(code int) bool {
 	return code == 504
 }
 
+// Code gets the status code for the image configuration update image gateway timeout response
+func (o *ImageConfigurationUpdateImageGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ImageConfigurationUpdateImageGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/apps/images/id/{id}][%d] imageConfigurationUpdateImageGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -610,11 +650,6 @@ type ImageConfigurationUpdateImageDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the image configuration update image default response
-func (o *ImageConfigurationUpdateImageDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this image configuration update image default response has a 2xx status code
 func (o *ImageConfigurationUpdateImageDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -638,6 +673,11 @@ func (o *ImageConfigurationUpdateImageDefault) IsServerError() bool {
 // IsCode returns true when this image configuration update image default response a status code equal to that given
 func (o *ImageConfigurationUpdateImageDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the image configuration update image default response
+func (o *ImageConfigurationUpdateImageDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ImageConfigurationUpdateImageDefault) Error() string {
@@ -1035,6 +1075,7 @@ func (o *ImageConfigurationUpdateImageBody) ContextValidate(ctx context.Context,
 func (o *ImageConfigurationUpdateImageBody) contextValidateImageArch(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ImageArch != nil {
+
 		if err := o.ImageArch.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "imageArch")
@@ -1060,6 +1101,7 @@ func (o *ImageConfigurationUpdateImageBody) contextValidateImageError(ctx contex
 func (o *ImageConfigurationUpdateImageBody) contextValidateImageFormat(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ImageFormat != nil {
+
 		if err := o.ImageFormat.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "imageFormat")
@@ -1085,6 +1127,11 @@ func (o *ImageConfigurationUpdateImageBody) contextValidateImageLocal(ctx contex
 func (o *ImageConfigurationUpdateImageBody) contextValidateImageStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ImageStatus != nil {
+
+		if swag.IsZero(o.ImageStatus) { // not required
+			return nil
+		}
+
 		if err := o.ImageStatus.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "imageStatus")
@@ -1101,6 +1148,7 @@ func (o *ImageConfigurationUpdateImageBody) contextValidateImageStatus(ctx conte
 func (o *ImageConfigurationUpdateImageBody) contextValidateImageType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.ImageType != nil {
+
 		if err := o.ImageType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "imageType")
@@ -1117,6 +1165,11 @@ func (o *ImageConfigurationUpdateImageBody) contextValidateImageType(ctx context
 func (o *ImageConfigurationUpdateImageBody) contextValidateOriginType(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.OriginType != nil {
+
+		if swag.IsZero(o.OriginType) { // not required
+			return nil
+		}
+
 		if err := o.OriginType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "originType")
@@ -1133,6 +1186,11 @@ func (o *ImageConfigurationUpdateImageBody) contextValidateOriginType(ctx contex
 func (o *ImageConfigurationUpdateImageBody) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if o.Revision != nil {
+
+		if swag.IsZero(o.Revision) { // not required
+			return nil
+		}
+
 		if err := o.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body" + "." + "revision")

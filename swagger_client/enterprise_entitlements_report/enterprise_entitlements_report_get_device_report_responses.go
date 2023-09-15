@@ -111,6 +111,11 @@ func (o *EnterpriseEntitlementsReportGetDeviceReportOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the enterprise entitlements report get device report o k response
+func (o *EnterpriseEntitlementsReportGetDeviceReportOK) Code() int {
+	return 200
+}
+
 func (o *EnterpriseEntitlementsReportGetDeviceReportOK) Error() string {
 	return fmt.Sprintf("[GET /v1/reports/device][%d] enterpriseEntitlementsReportGetDeviceReportOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *EnterpriseEntitlementsReportGetDeviceReportUnauthorized) IsServerError(
 // IsCode returns true when this enterprise entitlements report get device report unauthorized response a status code equal to that given
 func (o *EnterpriseEntitlementsReportGetDeviceReportUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the enterprise entitlements report get device report unauthorized response
+func (o *EnterpriseEntitlementsReportGetDeviceReportUnauthorized) Code() int {
+	return 401
 }
 
 func (o *EnterpriseEntitlementsReportGetDeviceReportUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *EnterpriseEntitlementsReportGetDeviceReportForbidden) IsCode(code int) 
 	return code == 403
 }
 
+// Code gets the status code for the enterprise entitlements report get device report forbidden response
+func (o *EnterpriseEntitlementsReportGetDeviceReportForbidden) Code() int {
+	return 403
+}
+
 func (o *EnterpriseEntitlementsReportGetDeviceReportForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/reports/device][%d] enterpriseEntitlementsReportGetDeviceReportForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *EnterpriseEntitlementsReportGetDeviceReportNotFound) IsServerError() bo
 // IsCode returns true when this enterprise entitlements report get device report not found response a status code equal to that given
 func (o *EnterpriseEntitlementsReportGetDeviceReportNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the enterprise entitlements report get device report not found response
+func (o *EnterpriseEntitlementsReportGetDeviceReportNotFound) Code() int {
+	return 404
 }
 
 func (o *EnterpriseEntitlementsReportGetDeviceReportNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *EnterpriseEntitlementsReportGetDeviceReportInternalServerError) IsCode(
 	return code == 500
 }
 
+// Code gets the status code for the enterprise entitlements report get device report internal server error response
+func (o *EnterpriseEntitlementsReportGetDeviceReportInternalServerError) Code() int {
+	return 500
+}
+
 func (o *EnterpriseEntitlementsReportGetDeviceReportInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/reports/device][%d] enterpriseEntitlementsReportGetDeviceReportInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *EnterpriseEntitlementsReportGetDeviceReportGatewayTimeout) IsCode(code 
 	return code == 504
 }
 
+// Code gets the status code for the enterprise entitlements report get device report gateway timeout response
+func (o *EnterpriseEntitlementsReportGetDeviceReportGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *EnterpriseEntitlementsReportGetDeviceReportGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/reports/device][%d] enterpriseEntitlementsReportGetDeviceReportGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type EnterpriseEntitlementsReportGetDeviceReportDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the enterprise entitlements report get device report default response
-func (o *EnterpriseEntitlementsReportGetDeviceReportDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this enterprise entitlements report get device report default response has a 2xx status code
 func (o *EnterpriseEntitlementsReportGetDeviceReportDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *EnterpriseEntitlementsReportGetDeviceReportDefault) IsServerError() boo
 // IsCode returns true when this enterprise entitlements report get device report default response a status code equal to that given
 func (o *EnterpriseEntitlementsReportGetDeviceReportDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the enterprise entitlements report get device report default response
+func (o *EnterpriseEntitlementsReportGetDeviceReportDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EnterpriseEntitlementsReportGetDeviceReportDefault) Error() string {

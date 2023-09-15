@@ -103,6 +103,11 @@ func (m *PhysicalStorageDiskState) ContextValidate(ctx context.Context, formats 
 func (m *PhysicalStorageDiskState) contextValidateDisk(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Disk != nil {
+
+		if swag.IsZero(m.Disk) { // not required
+			return nil
+		}
+
 		if err := m.Disk.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("disk")
@@ -119,6 +124,11 @@ func (m *PhysicalStorageDiskState) contextValidateDisk(ctx context.Context, form
 func (m *PhysicalStorageDiskState) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Status != nil {
+
+		if swag.IsZero(m.Status) { // not required
+			return nil
+		}
+
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")

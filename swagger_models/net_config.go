@@ -374,6 +374,11 @@ func (m *NetConfig) contextValidateDNSList(ctx context.Context, formats strfmt.R
 	for i := 0; i < len(m.DNSList); i++ {
 
 		if m.DNSList[i] != nil {
+
+			if swag.IsZero(m.DNSList[i]) { // not required
+				return nil
+			}
+
 			if err := m.DNSList[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dnsList" + "." + strconv.Itoa(i))
@@ -401,6 +406,7 @@ func (m *NetConfig) contextValidateID(ctx context.Context, formats strfmt.Regist
 func (m *NetConfig) contextValidateIP(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.IP != nil {
+
 		if err := m.IP.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ip")
@@ -417,6 +423,7 @@ func (m *NetConfig) contextValidateIP(ctx context.Context, formats strfmt.Regist
 func (m *NetConfig) contextValidateKind(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Kind != nil {
+
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("kind")
@@ -433,6 +440,11 @@ func (m *NetConfig) contextValidateKind(ctx context.Context, formats strfmt.Regi
 func (m *NetConfig) contextValidateProxy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Proxy != nil {
+
+		if swag.IsZero(m.Proxy) { // not required
+			return nil
+		}
+
 		if err := m.Proxy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("proxy")
@@ -449,6 +461,11 @@ func (m *NetConfig) contextValidateProxy(ctx context.Context, formats strfmt.Reg
 func (m *NetConfig) contextValidateRevision(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Revision != nil {
+
+		if swag.IsZero(m.Revision) { // not required
+			return nil
+		}
+
 		if err := m.Revision.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("revision")
@@ -465,6 +482,11 @@ func (m *NetConfig) contextValidateRevision(ctx context.Context, formats strfmt.
 func (m *NetConfig) contextValidateWireless(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Wireless != nil {
+
+		if swag.IsZero(m.Wireless) { // not required
+			return nil
+		}
+
 		if err := m.Wireless.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wireless")

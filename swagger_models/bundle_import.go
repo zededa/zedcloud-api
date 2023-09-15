@@ -83,6 +83,11 @@ func (m *BundleImport) contextValidateBundleConfig(ctx context.Context, formats 
 	for i := 0; i < len(m.BundleConfig); i++ {
 
 		if m.BundleConfig[i] != nil {
+
+			if swag.IsZero(m.BundleConfig[i]) { // not required
+				return nil
+			}
+
 			if err := m.BundleConfig[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("bundleConfig" + "." + strconv.Itoa(i))

@@ -103,6 +103,11 @@ func (m *CrudStatisticsContainer) ContextValidate(ctx context.Context, formats s
 func (m *CrudStatisticsContainer) contextValidateClazz(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Clazz != nil {
+
+		if swag.IsZero(m.Clazz) { // not required
+			return nil
+		}
+
 		if err := m.Clazz.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clazz")
@@ -119,6 +124,11 @@ func (m *CrudStatisticsContainer) contextValidateClazz(ctx context.Context, form
 func (m *CrudStatisticsContainer) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.User != nil {
+
+		if swag.IsZero(m.User) { // not required
+			return nil
+		}
+
 		if err := m.User.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")

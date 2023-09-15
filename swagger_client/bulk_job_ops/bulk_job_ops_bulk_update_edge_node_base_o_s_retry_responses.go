@@ -123,6 +123,11 @@ func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the bulk job ops bulk update edge node base o s retry o k response
+func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryOK) Code() int {
+	return 200
+}
+
 func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryOK) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/devices/baseos/upgrade/retry][%d] bulkJobOpsBulkUpdateEdgeNodeBaseOSRetryOK  %+v", 200, o.Payload)
 }
@@ -184,6 +189,11 @@ func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryBadRequest) IsServerError() bool
 // IsCode returns true when this bulk job ops bulk update edge node base o s retry bad request response a status code equal to that given
 func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the bulk job ops bulk update edge node base o s retry bad request response
+func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryBadRequest) Code() int {
+	return 400
 }
 
 func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryBadRequest) Error() string {
@@ -249,6 +259,11 @@ func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryUnauthorized) IsCode(code int) b
 	return code == 401
 }
 
+// Code gets the status code for the bulk job ops bulk update edge node base o s retry unauthorized response
+func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryUnauthorized) Code() int {
+	return 401
+}
+
 func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryUnauthorized) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/devices/baseos/upgrade/retry][%d] bulkJobOpsBulkUpdateEdgeNodeBaseOSRetryUnauthorized  %+v", 401, o.Payload)
 }
@@ -310,6 +325,11 @@ func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryForbidden) IsServerError() bool 
 // IsCode returns true when this bulk job ops bulk update edge node base o s retry forbidden response a status code equal to that given
 func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the bulk job ops bulk update edge node base o s retry forbidden response
+func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryForbidden) Code() int {
+	return 403
 }
 
 func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryForbidden) Error() string {
@@ -375,6 +395,11 @@ func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryNotFound) IsCode(code int) bool 
 	return code == 404
 }
 
+// Code gets the status code for the bulk job ops bulk update edge node base o s retry not found response
+func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryNotFound) Code() int {
+	return 404
+}
+
 func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryNotFound) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/devices/baseos/upgrade/retry][%d] bulkJobOpsBulkUpdateEdgeNodeBaseOSRetryNotFound  %+v", 404, o.Payload)
 }
@@ -436,6 +461,11 @@ func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryConflict) IsServerError() bool {
 // IsCode returns true when this bulk job ops bulk update edge node base o s retry conflict response a status code equal to that given
 func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryConflict) IsCode(code int) bool {
 	return code == 409
+}
+
+// Code gets the status code for the bulk job ops bulk update edge node base o s retry conflict response
+func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryConflict) Code() int {
+	return 409
 }
 
 func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryConflict) Error() string {
@@ -501,6 +531,11 @@ func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryInternalServerError) IsCode(code
 	return code == 500
 }
 
+// Code gets the status code for the bulk job ops bulk update edge node base o s retry internal server error response
+func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryInternalServerError) Code() int {
+	return 500
+}
+
 func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryInternalServerError) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/devices/baseos/upgrade/retry][%d] bulkJobOpsBulkUpdateEdgeNodeBaseOSRetryInternalServerError  %+v", 500, o.Payload)
 }
@@ -564,6 +599,11 @@ func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryGatewayTimeout) IsCode(code int)
 	return code == 504
 }
 
+// Code gets the status code for the bulk job ops bulk update edge node base o s retry gateway timeout response
+func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryGatewayTimeout) Error() string {
 	return fmt.Sprintf("[PUT /v1/jobs/devices/baseos/upgrade/retry][%d] bulkJobOpsBulkUpdateEdgeNodeBaseOSRetryGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -606,11 +646,6 @@ type BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the bulk job ops bulk update edge node base o s retry default response
-func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this bulk job ops bulk update edge node base o s retry default response has a 2xx status code
 func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -634,6 +669,11 @@ func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryDefault) IsServerError() bool {
 // IsCode returns true when this bulk job ops bulk update edge node base o s retry default response a status code equal to that given
 func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the bulk job ops bulk update edge node base o s retry default response
+func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *BulkJobOpsBulkUpdateEdgeNodeBaseOSRetryDefault) Error() string {

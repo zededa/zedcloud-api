@@ -99,6 +99,11 @@ func (m *PluginReport) ContextValidate(ctx context.Context, formats strfmt.Regis
 func (m *PluginReport) contextValidatePluginSummaryReport(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.PluginSummaryReport != nil {
+
+		if swag.IsZero(m.PluginSummaryReport) { // not required
+			return nil
+		}
+
 		if err := m.PluginSummaryReport.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pluginSummaryReport")

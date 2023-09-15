@@ -111,6 +111,11 @@ func (o *ResourceGroupGetResourceGroupEventsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the resource group get resource group events o k response
+func (o *ResourceGroupGetResourceGroupEventsOK) Code() int {
+	return 200
+}
+
 func (o *ResourceGroupGetResourceGroupEventsOK) Error() string {
 	return fmt.Sprintf("[GET /v1/projects/id/{objid}/events][%d] resourceGroupGetResourceGroupEventsOK  %+v", 200, o.Payload)
 }
@@ -172,6 +177,11 @@ func (o *ResourceGroupGetResourceGroupEventsUnauthorized) IsServerError() bool {
 // IsCode returns true when this resource group get resource group events unauthorized response a status code equal to that given
 func (o *ResourceGroupGetResourceGroupEventsUnauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the resource group get resource group events unauthorized response
+func (o *ResourceGroupGetResourceGroupEventsUnauthorized) Code() int {
+	return 401
 }
 
 func (o *ResourceGroupGetResourceGroupEventsUnauthorized) Error() string {
@@ -237,6 +247,11 @@ func (o *ResourceGroupGetResourceGroupEventsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the resource group get resource group events forbidden response
+func (o *ResourceGroupGetResourceGroupEventsForbidden) Code() int {
+	return 403
+}
+
 func (o *ResourceGroupGetResourceGroupEventsForbidden) Error() string {
 	return fmt.Sprintf("[GET /v1/projects/id/{objid}/events][%d] resourceGroupGetResourceGroupEventsForbidden  %+v", 403, o.Payload)
 }
@@ -298,6 +313,11 @@ func (o *ResourceGroupGetResourceGroupEventsNotFound) IsServerError() bool {
 // IsCode returns true when this resource group get resource group events not found response a status code equal to that given
 func (o *ResourceGroupGetResourceGroupEventsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the resource group get resource group events not found response
+func (o *ResourceGroupGetResourceGroupEventsNotFound) Code() int {
+	return 404
 }
 
 func (o *ResourceGroupGetResourceGroupEventsNotFound) Error() string {
@@ -363,6 +383,11 @@ func (o *ResourceGroupGetResourceGroupEventsInternalServerError) IsCode(code int
 	return code == 500
 }
 
+// Code gets the status code for the resource group get resource group events internal server error response
+func (o *ResourceGroupGetResourceGroupEventsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ResourceGroupGetResourceGroupEventsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /v1/projects/id/{objid}/events][%d] resourceGroupGetResourceGroupEventsInternalServerError  %+v", 500, o.Payload)
 }
@@ -426,6 +451,11 @@ func (o *ResourceGroupGetResourceGroupEventsGatewayTimeout) IsCode(code int) boo
 	return code == 504
 }
 
+// Code gets the status code for the resource group get resource group events gateway timeout response
+func (o *ResourceGroupGetResourceGroupEventsGatewayTimeout) Code() int {
+	return 504
+}
+
 func (o *ResourceGroupGetResourceGroupEventsGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /v1/projects/id/{objid}/events][%d] resourceGroupGetResourceGroupEventsGatewayTimeout  %+v", 504, o.Payload)
 }
@@ -468,11 +498,6 @@ type ResourceGroupGetResourceGroupEventsDefault struct {
 	Payload *swagger_models.GooglerpcStatus
 }
 
-// Code gets the status code for the resource group get resource group events default response
-func (o *ResourceGroupGetResourceGroupEventsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this resource group get resource group events default response has a 2xx status code
 func (o *ResourceGroupGetResourceGroupEventsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -496,6 +521,11 @@ func (o *ResourceGroupGetResourceGroupEventsDefault) IsServerError() bool {
 // IsCode returns true when this resource group get resource group events default response a status code equal to that given
 func (o *ResourceGroupGetResourceGroupEventsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the resource group get resource group events default response
+func (o *ResourceGroupGetResourceGroupEventsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ResourceGroupGetResourceGroupEventsDefault) Error() string {

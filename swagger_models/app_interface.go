@@ -318,6 +318,11 @@ func (m *AppInterface) contextValidateAcls(ctx context.Context, formats strfmt.R
 	for i := 0; i < len(m.Acls); i++ {
 
 		if m.Acls[i] != nil {
+
+			if swag.IsZero(m.Acls[i]) { // not required
+				return nil
+			}
+
 			if err := m.Acls[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("acls" + "." + strconv.Itoa(i))
@@ -336,6 +341,7 @@ func (m *AppInterface) contextValidateAcls(ctx context.Context, formats strfmt.R
 func (m *AppInterface) contextValidateEidregister(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Eidregister != nil {
+
 		if err := m.Eidregister.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("eidregister")
@@ -352,6 +358,7 @@ func (m *AppInterface) contextValidateEidregister(ctx context.Context, formats s
 func (m *AppInterface) contextValidateIo(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Io != nil {
+
 		if err := m.Io.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("io")
