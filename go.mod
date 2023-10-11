@@ -13,7 +13,7 @@ require (
 	github.com/go-test/deep v1.0.7
 	github.com/spf13/cobra v0.0.3
 	github.com/spf13/viper v1.8.1
-	golang.org/x/net v0.15.0
+	golang.org/x/net v0.17.0
 )
 
 require (
@@ -45,7 +45,7 @@ require (
 	go.opentelemetry.io/otel v1.18.0 // indirect
 	go.opentelemetry.io/otel/metric v1.18.0 // indirect
 	go.opentelemetry.io/otel/trace v1.18.0 // indirect
-	golang.org/x/sys v0.12.0 // indirect
+	golang.org/x/sys v0.13.0 // indirect
 	golang.org/x/text v0.13.0 // indirect
 	gopkg.in/ini.v1 v1.62.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
