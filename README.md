@@ -1,6 +1,6 @@
 # [DEPRECATED] github.com/zededa/zedcloud-api
 
-This is no longer supported, please consider using https://github.com/zededa/terraform-provider-zedcloud instead.
+This is no longer supported, please use https://github.com/zededa/terraform-provider-zedcloud instead.
 
 zedcloud-api provides the open source API for zedcontrol (zedcloud). Currently, it provides a
 Go-Lang API. Support for API for Python and other languages can be added as needed.
